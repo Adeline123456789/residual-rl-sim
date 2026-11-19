@@ -1,0 +1,20 @@
+{
+  "experiment_kind": "unit_test",
+  "status": "COMPLETED",
+  "tests_run": 21,
+  "failures": 0,
+  "errors": 0,
+  "command": "python -m unittest discover -s tests -v",
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "file_sha256": {
+    "pa_reswm/contracts.py": "fb19c8e3acdce2a16e168d2e9f72f6df5fd77ddd0680a30cf3b700d4cda19432",
+    "tests/test_contracts.py": "948c711e97671bce1a3aa0994b374337b34df3479eac00ba18c610bfe10a1896"
+  },
+  "robot_learning_status": "NOT_RUN",
+  "limitations": [
+    "No MuJoCo/robotics integration test was run.",
+    "No ACT, residual RL, or world model was trained.",
+    "No manipulation success rates exist."
+  ]
+}

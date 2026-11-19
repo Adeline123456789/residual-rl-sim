@@ -1,19 +1,40 @@
 # residual-rl-sim
 
-Research workspace for execution-consistent predictive residual RL and behavior-preserving base-policy updates, based on ResFiT.
+Execution-consistent predictive residual RL and behavior-preserving base-policy updates, based on ResFiT.
 
-## Status
+## Start here
 
-This repository is being initialized with a Codex implementation specification and small, dependency-free execution-contract tests. **No robot-learning training run or manipulation success-rate result has been completed by this initialization.** Unit tests are not RL experiments.
+Read [CODEX_TASK.md](CODEX_TASK.md) for the complete Chinese implementation plan, literature boundary, minimal experiment, full extensions, acceptance criteria, and publication requirements. Coding agents must also follow [AGENTS.md](AGENTS.md).
 
-The implementation must proceed through data/environment validation, a matched ResFiT baseline, a minimal prediction experiment, and gated extensions. Failed and negative experiments must be retained.
+## What exists
+
+- A staged research specification, **not** a completed RL implementation.
+- Dependency-free execution-contract reference code in `pa_reswm/contracts.py`.
+- 21 locally passing unit tests and their raw report in `results/bootstrap`.
+- A machine-readable MVP specification in `configs/mvp_spec.json`; this is **not** a runnable training configuration.
+
+**No ACT, residual RL, or world model has been trained here. No MuJoCo integration test or manipulation success-rate evaluation has been run.** Do not treat unit tests as research performance evidence.
+
+## Run the available tests
+
+```bash
+python -m unittest discover -s tests -v
+```
+
+## Planned progression
+
+M0 data/environment validation and baseline -> M1 timestamped prediction alignment -> M2 short-horizon residual candidate evaluation -> M3 behavior-preserving recentering. Synthetic imagination is optional and disabled by default.
 
 ## Upstream
 
-- ResFiT: https://github.com/amazon-far/residual-offpolicy-rl
-- Inspected upstream commit: `66262b06a0caf159fb001504949b7b48ccda5f64`
-- Paper: https://arxiv.org/abs/2509.19301
+Official ResFiT: https://github.com/amazon-far/residual-offpolicy-rl
 
-Preserve upstream copyright, licenses, and THIRD-PARTY notices when incorporating code. Do not assume that upstream code or datasets permit unrestricted redistribution or commercial use.
+Inspected upstream commit: `66262b06a0caf159fb001504949b7b48ccda5f64`.
 
-See the research branch / pull request for the detailed implementation handoff. All training commands listed in that handoff are interface requirements until their implementation and execution are recorded.
+Paper: https://arxiv.org/abs/2509.19301
+
+Preserve upstream copyright, licenses, and THIRD-PARTY notices when incorporating code. Data and checkpoint redistribution require their own license checks. This initialization does not vendor the upstream implementation.
+
+## Results policy
+
+Push actual source code, resolved configs, per-episode data, logs, manifests, reports, and negative results. Do not fabricate runs when resources are unavailable; record `BLOCKED` or `NOT_RUN`. Keep credentials, datasets, and large model files out of ordinary Git.
