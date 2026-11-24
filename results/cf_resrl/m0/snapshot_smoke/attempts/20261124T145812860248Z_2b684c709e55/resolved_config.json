@@ -1,0 +1,127 @@
+{
+  "camera_size": 84,
+  "image_comparison": "exact_sha256",
+  "numeric_tolerance": {
+    "atol": 1e-12,
+    "rtol": 0.0
+  },
+  "output_dir": "results/cf_resrl/m0/snapshot_smoke",
+  "prefix_actions": [
+    [
+      0.05,
+      -0.02,
+      0.01,
+      0.02,
+      0.0,
+      0.0,
+      -1.0
+    ],
+    [
+      -0.03,
+      0.04,
+      0.0,
+      0.0,
+      0.02,
+      -0.01,
+      1.0
+    ],
+    [
+      0.01,
+      0.01,
+      -0.02,
+      -0.01,
+      0.01,
+      0.02,
+      -1.0
+    ],
+    [
+      0.0,
+      -0.02,
+      0.03,
+      0.01,
+      -0.02,
+      0.0,
+      1.0
+    ]
+  ],
+  "render_gpu_device_id": 0,
+  "render_size": 84,
+  "resolved": {
+    "config_path": "/media/midea/work/CF-ResRL/residual-rl-sim/configs/cf_resrl/m0_snapshot_smoke.json",
+    "output_dir": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/snapshot_smoke/attempts/20261124T145812860248Z_2b684c709e55"
+  },
+  "restored_replays": 2,
+  "run": {
+    "attempt_id": "20261124T145812860248Z_2b684c709e55",
+    "command": "/home/midea/miniconda3/envs/cf-resrl-m0/bin/python scripts/smoke_snapshot_restore.py",
+    "environment": {
+      "cuda_available": true,
+      "cuda_version": "12.8",
+      "device": "NVIDIA GeForce RTX 3090",
+      "gymnasium": "1.1.1",
+      "mujoco": "3.3.2",
+      "numpy": "1.26.4",
+      "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+      "python": "3.10.22 | packaged by conda-forge | (main, Oct  6 2026, 23:02:24) [GCC 14.4.0]",
+      "robosuite": "1.5.1",
+      "torch": "2.7.1+cu128"
+    },
+    "evidence_dir": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/snapshot_smoke/attempts/20261124T145812860248Z_2b684c709e55",
+    "git_commit": "2b684c709e558b487b75e07dd863b4fb1340f486",
+    "git_dirty": false,
+    "started_at_utc": "2026-11-24T14:58:12.860248+00:00",
+    "submodules": {
+      "resfit": "66262b06a0caf159fb001504949b7b48ccda5f64",
+      "robosuite": "77a4751233c29456a5381209e30dd0dbf39a6557"
+    }
+  },
+  "seed": 20261124,
+  "suffix_actions": [
+    [
+      0.02,
+      0.0,
+      -0.01,
+      0.01,
+      0.01,
+      -0.01,
+      1.0
+    ],
+    [
+      -0.01,
+      0.02,
+      0.01,
+      -0.02,
+      0.0,
+      0.01,
+      -1.0
+    ],
+    [
+      0.03,
+      -0.01,
+      0.0,
+      0.0,
+      0.02,
+      0.0,
+      1.0
+    ],
+    [
+      -0.02,
+      -0.02,
+      0.02,
+      0.01,
+      0.01,
+      0.01,
+      -1.0
+    ],
+    [
+      0.0,
+      0.01,
+      -0.02,
+      -0.01,
+      0.02,
+      -0.02,
+      1.0
+    ]
+  ],
+  "task": "Square"
+}

@@ -1,0 +1,96 @@
+{
+  "artifacts": {
+    "resolved_config.json": "abf54366f8fb7295701fbfcfb65d87355ce2ecf170f1d932419113c78e35ca3f",
+    "tick_records.jsonl": "3c70830ad219bda06d53167dfe16a43bcd9df6bea015c1fde40d0fda1514fe31"
+  },
+  "comparisons": {
+    "restore_1": {
+      "image_hashes_exact": true,
+      "integer_and_boolean_counters_exact": true,
+      "max_abs_error": {
+        "counters.cur_time": 0.0,
+        "counters.gripper_current_action": 0.0,
+        "counters.objects_on_pegs": 0.0,
+        "counters.sim_time": 0.0,
+        "ctrl": 9.08995101411847e-16,
+        "integration_state": 3.8821376668884966e-14,
+        "observation_state": 0.0,
+        "qpos": 4.4041478092487346e-18,
+        "qvel": 3.1393613389931607e-16,
+        "reward": 0.0
+      }
+    },
+    "restore_2": {
+      "image_hashes_exact": true,
+      "integer_and_boolean_counters_exact": true,
+      "max_abs_error": {
+        "counters.cur_time": 0.0,
+        "counters.gripper_current_action": 0.0,
+        "counters.objects_on_pegs": 0.0,
+        "counters.sim_time": 0.0,
+        "ctrl": 9.08995101411847e-16,
+        "integration_state": 3.8821376668884966e-14,
+        "observation_state": 0.0,
+        "qpos": 4.4041478092487346e-18,
+        "qvel": 3.1393613389931607e-16,
+        "reward": 0.0
+      }
+    }
+  },
+  "completed_at_utc": "2026-11-24T14:58:15.969314+00:00",
+  "experiment_kind": "snapshot_restore_smoke",
+  "limitations": [
+    "This gate covers the Square environment snapshot only; ACT queues and the CF-ResRL scheduler are excluded.",
+    "Image comparison hashes the two processed CHW float32 observation tensors exactly."
+  ],
+  "prefix_ticks": 4,
+  "restored_replays": 2,
+  "run": {
+    "attempt_id": "20261124T145812860248Z_2b684c709e55",
+    "command": "/home/midea/miniconda3/envs/cf-resrl-m0/bin/python scripts/smoke_snapshot_restore.py",
+    "environment": {
+      "cuda_available": true,
+      "cuda_version": "12.8",
+      "device": "NVIDIA GeForce RTX 3090",
+      "gymnasium": "1.1.1",
+      "mujoco": "3.3.2",
+      "numpy": "1.26.4",
+      "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+      "python": "3.10.22 | packaged by conda-forge | (main, Oct  6 2026, 23:02:24) [GCC 14.4.0]",
+      "robosuite": "1.5.1",
+      "torch": "2.7.1+cu128"
+    },
+    "evidence_dir": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/snapshot_smoke/attempts/20261124T145812860248Z_2b684c709e55",
+    "git_commit": "2b684c709e558b487b75e07dd863b4fb1340f486",
+    "git_dirty": false,
+    "started_at_utc": "2026-11-24T14:58:12.860248+00:00",
+    "submodules": {
+      "resfit": "66262b06a0caf159fb001504949b7b48ccda5f64",
+      "robosuite": "77a4751233c29456a5381209e30dd0dbf39a6557"
+    }
+  },
+  "seed": 20261124,
+  "snapshot": {
+    "capture_episode_steps": 4,
+    "capture_timestep": 4,
+    "model": {
+      "integration_state_size": 284,
+      "na": 0,
+      "nmocap": 2,
+      "nq": 23,
+      "nu": 9,
+      "nuserdata": 0,
+      "nv": 21,
+      "xml_sha256": "6c0c8522ab70af02140a7a8d7e2e0b2fac0ddb03f5abd325256c58f8d16d3b1b"
+    },
+    "schema_version": 1,
+    "scope": "square_environment_only__act_and_scheduler_excluded"
+  },
+  "status": "COMPLETED",
+  "suffix_ticks": 5,
+  "task": "Square",
+  "tolerance": {
+    "atol": 1e-12,
+    "rtol": 0.0
+  }
+}
