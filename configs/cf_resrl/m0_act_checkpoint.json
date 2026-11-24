@@ -1,0 +1,33 @@
+{
+  "checkpoint": {
+    "repo_id": "ankile/resfit-act-square",
+    "revision": "b75e08053d84de7b88c1600310c4f0482af8bebc",
+    "url": "https://huggingface.co/ankile/resfit-act-square/tree/b75e08053d84de7b88c1600310c4f0482af8bebc",
+    "local_dir": "data/cf_resrl/checkpoints/resfit-act-square-b75e0805",
+    "disable_xet": true,
+    "provenance": "author-owned candidate",
+    "wandb_reference": "robomimic-square-bc/dzbkdpwp",
+    "wandb_equivalence": "UNVERIFIED",
+    "license": "NOT_PUBLISHED",
+    "expected_parameter_count": 34204289,
+    "files": [
+      {
+        "path": ".gitattributes",
+        "bytes": 1519,
+        "lfs_sha256": null
+      },
+      {
+        "path": "config.json",
+        "bytes": 1523,
+        "lfs_sha256": null
+      },
+      {
+        "path": "model.safetensors",
+        "bytes": 136837212,
+        "lfs_sha256": "add7b1e432ddeee2635ab09688b72fd5e1bb1eaff62a6b4b4494bc62b6e0364e"
+      }
+    ],
+    "recovery_command": "HF_HUB_DISABLE_XET=1 python -c \"from huggingface_hub import snapshot_download; snapshot_download(repo_id='ankile/resfit-act-square', revision='b75e08053d84de7b88c1600310c4f0482af8bebc', local_dir='data/cf_resrl/checkpoints/resfit-act-square-b75e0805')\""
+  },
+  "output_dir": "results/cf_resrl/m0/act_checkpoint_audit"
+}
