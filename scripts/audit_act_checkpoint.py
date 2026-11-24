@@ -115,13 +115,13 @@ def run_audit(
         info.tags,
         [entry["path"] for entry in remote_files],
     )
-    parameter_count = info.safetensors.total if info.safetensors is not None else None
-    if parameter_count != checkpoint["expected_parameter_count"]:
+    tensor_elements = info.safetensors.total if info.safetensors is not None else None
+    if tensor_elements != checkpoint["expected_safetensors_tensor_elements"]:
         raise ValueError(
-            f"safetensors parameter count is {parameter_count}, "
-            f"expected {checkpoint['expected_parameter_count']}"
+            f"safetensors tensor element count is {tensor_elements}, "
+            f"expected {checkpoint['expected_safetensors_tensor_elements']}"
         )
-    if info.safetensors.parameters != {"F32": parameter_count}:
+    if info.safetensors.parameters != {"F32": tensor_elements}:
         raise ValueError("checkpoint parameters are not entirely float32")
 
     local_dir = REPO_ROOT / checkpoint["local_dir"]
@@ -165,7 +165,7 @@ def run_audit(
             "wandb_equivalence": checkpoint["wandb_equivalence"],
             "license": checkpoint["license"],
             "license_observation": license_observation,
-            "parameter_count": parameter_count,
+            "safetensors_tensor_elements": tensor_elements,
             "files": local_files,
             "recovery_command": checkpoint["recovery_command"],
         },

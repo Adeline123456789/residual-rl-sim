@@ -9,7 +9,7 @@
     "wandb_reference": "robomimic-square-bc/dzbkdpwp",
     "wandb_equivalence": "UNVERIFIED",
     "license": "NOT_PUBLISHED",
-    "expected_parameter_count": 34204289,
+    "expected_safetensors_tensor_elements": 34204289,
     "files": [
       {
         "path": ".gitattributes",
