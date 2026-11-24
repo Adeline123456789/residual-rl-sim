@@ -84,6 +84,36 @@ class AbsoluteTickSemanticsTests(unittest.TestCase):
         self.assertAlmostEqual(row.applied_residual[0], 0.1)
         self.assertAlmostEqual(row.applied_residual[1], -0.1)
 
+    def test_zero_residual_stays_zero_when_base_action_is_clipped(self):
+        scheduler = AbsoluteTickScheduler(
+            initial_chunk=[[1.2, -1.2]],
+            provider=Provider(),
+            latency_steps=0,
+            fallback_action=[0.0, 0.0],
+        )
+        row = scheduler.action([0.0, 0.0])
+
+        self.assertEqual(row.base_action, (1.2, -1.2))
+        self.assertEqual(row.applied_base_action, (1.0, -1.0))
+        self.assertEqual(row.applied_action, (1.0, -1.0))
+        self.assertEqual(row.applied_residual, (0.0, 0.0))
+
+    def test_ready_boundary_accepts_a_new_refresh(self):
+        provider = Provider()
+        scheduler = _scheduler(provider, latency=2)
+        _advance(scheduler, refresh=True, observation="obs_1")
+        _advance(scheduler)
+        _advance(scheduler, refresh=True, observation="obs_3")
+
+        self.assertEqual(
+            provider.calls,
+            [("obs_1", 1, 1), ("obs_3", 3, 2)],
+        )
+        self.assertEqual(scheduler.active_chunk.generation, 1)
+        self.assertEqual(scheduler.pending_refresh.chunk.generation, 2)
+        self.assertEqual(scheduler.counters.refresh_requests, 2)
+        self.assertEqual(scheduler.counters.ignored_refresh_requests, 0)
+
     def test_exhausted_old_chunk_uses_registered_fallback(self):
         scheduler = AbsoluteTickScheduler(
             initial_chunk=[[1.0, -1.0]],

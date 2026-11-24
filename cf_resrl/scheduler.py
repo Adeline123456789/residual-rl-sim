@@ -47,6 +47,7 @@ class ActionLedgerEntry:
     chunk_index: int
     used_fallback: bool
     base_action: Action
+    applied_base_action: Action
     proposed_residual: Action
     applied_residual: Action
     proposed_action: Action
@@ -184,12 +185,17 @@ class AbsoluteTickScheduler:
         proposed_action = tuple(
             base + delta for base, delta in zip(base_action, residual)
         )
+        applied_base_action = tuple(
+            min(self._action_high, max(self._action_low, value))
+            for value in base_action
+        )
         applied_action = tuple(
             min(self._action_high, max(self._action_low, value))
             for value in proposed_action
         )
         applied_residual = tuple(
-            applied - base for applied, base in zip(applied_action, base_action)
+            applied - base
+            for applied, base in zip(applied_action, applied_base_action)
         )
         entry = ActionLedgerEntry(
             tick=self._logical_tick,
@@ -198,6 +204,7 @@ class AbsoluteTickScheduler:
             chunk_index=chunk_index,
             used_fallback=used_fallback,
             base_action=base_action,
+            applied_base_action=applied_base_action,
             proposed_residual=residual,
             applied_residual=applied_residual,
             proposed_action=proposed_action,
@@ -217,6 +224,7 @@ class AbsoluteTickScheduler:
             raise RuntimeError("an action must be submitted before after_step")
         self._awaiting_after_step = False
         self._logical_tick += 1
+        self._activate_ready_chunk()
         self._counters = SchedulerCounters(
             control_steps=self._counters.control_steps + 1,
             refresh_attempts=self._counters.refresh_attempts,
