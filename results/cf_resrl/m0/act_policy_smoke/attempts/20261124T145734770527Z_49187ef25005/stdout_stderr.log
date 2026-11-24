@@ -1,0 +1,369 @@
+[robosuite WARNING] No private macro file found! (macros.py:57)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:58)
+[robosuite WARNING] To setup, run: python /media/midea/work/CF-ResRL/residual-rl-sim/third_party/robosuite/robosuite/scripts/setup_macros.py (macros.py:59)
+[robosuite WARNING] Could not import robosuite_models. Some robots may not be available. If you want to use these robots, please install robosuite_models from source (https://github.com/ARISE-Initiative/robosuite_models) or through pip install. (__init__.py:30)
+[robosuite INFO] Loading controller configuration from: /media/midea/work/CF-ResRL/residual-rl-sim/third_party/robosuite/robosuite/controllers/config/robots/default_panda.json (composite_controller_factory.py:121)
+Loading weights from local directory
+{
+  "artifacts": {
+    "resolved_config.json": "20459436c1bdcb4d58223e8f4b2c914d0bdbc428f41b57ee71e6ce2b92dd3928"
+  },
+  "checkpoint": {
+    "config_sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb",
+    "license": "NOT_PUBLISHED",
+    "local_dir": "/media/midea/work/CF-ResRL/residual-rl-sim/data/cf_resrl/checkpoints/resfit-act-square-b75e0805",
+    "model_bytes": 136837212,
+    "model_sha256": "add7b1e432ddeee2635ab09688b72fd5e1bb1eaff62a6b4b4494bc62b6e0364e",
+    "provenance": "author-owned candidate",
+    "safetensors_tensor_element_count": 34204289,
+    "torch_parameter_count": 34185089,
+    "wandb_equivalence": "UNVERIFIED",
+    "wandb_reference": "robomimic-square-bc/dzbkdpwp"
+  },
+  "completed_at_utc": "2026-11-24T14:57:39.949937+00:00",
+  "environment": {
+    "av": "14.2.0",
+    "cuda": "12.8",
+    "cuda_peak_bytes": 155409408,
+    "device": "NVIDIA GeForce RTX 3090",
+    "gymnasium": "1.1.1",
+    "intentional_pip_check_deviations": [
+      "cmake not installed",
+      "diffusers not installed; registered ResFiT patch removes the unused eager import",
+      "flask not installed",
+      "gdown not installed",
+      "h5py not installed",
+      "omegaconf not installed",
+      "opencv-python-headless not installed",
+      "pymunk not installed",
+      "pyzmq not installed",
+      "rerun-sdk not installed",
+      "torchcodec not installed; video_backend is pyav",
+      "zarr not installed",
+      "gymnasium metadata requires 0.29.1; Square M0 intentionally keeps 1.1.1"
+    ],
+    "lerobot": "0.1.0",
+    "mujoco": "3.3.2",
+    "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+    "python": "3.10.22 | packaged by conda-forge | (main, Oct  6 2026, 23:02:24) [GCC 14.4.0]",
+    "robosuite": "1.5.1",
+    "runtime_scope": "minimal_act_square_path",
+    "torch": "2.7.1+cu128",
+    "torchvision": "0.22.1+cu128",
+    "video_backend": "pyav"
+  },
+  "experiment_kind": "act_policy_smoke",
+  "final_observation": {
+    "observation.images.agentview": {
+      "dtype": "float32",
+      "sha256": "b90e5351dac23f8f32043230f868222b252e35c4777d471806729acdf57e1d25",
+      "shape": [
+        3,
+        84,
+        84
+      ]
+    },
+    "observation.images.robot0_eye_in_hand": {
+      "dtype": "float32",
+      "sha256": "2833f4a0d6b15cc475bbe973ca645515a67ffdc5ee672b00c1bea058fd02062c",
+      "shape": [
+        3,
+        84,
+        84
+      ]
+    },
+    "observation.state": {
+      "dtype": "float32",
+      "sha256": "1dd5f59cab47df323a15d7c64b55895118f33211cb0fe6e2c4d6ea9b7c6b1342",
+      "shape": [
+        9
+      ]
+    }
+  },
+  "limitations": [
+    "This is a load-and-execute smoke test, not a policy quality evaluation.",
+    "The author-owned candidate remains unverified as equivalent to the unavailable W&B checkpoint.",
+    "The publisher did not provide a checkpoint license or model card."
+  ],
+  "policy_load": {
+    "constructor_pretrained_backbone_weights": null,
+    "local_files_only": true,
+    "source_pretrained_backbone_weights": "ResNet18_Weights.IMAGENET1K_V1",
+    "strict": true
+  },
+  "rollout": [
+    {
+      "applied_action": [
+        -0.047241464257240295,
+        -0.0038174204528331757,
+        0.057590458542108536,
+        0.0028837022837251425,
+        0.13409538567066193,
+        0.016273081302642822,
+        -1.0
+      ],
+      "applied_action_max_abs": 1.0,
+      "applied_action_sha256": "6a5006413e2bd8288df4414c0a580cfaf3569a10be8de43469c6d9a065a5e36e",
+      "clipped_dimensions": 1,
+      "clipping_mask": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true
+      ],
+      "max_clip_delta": 0.019893288612365723,
+      "observation": {
+        "observation.images.agentview": {
+          "dtype": "float32",
+          "sha256": "4a8b7173d2dd66865a3a4a23b5bbf46c1bae0d670745c0c148d878f33a43424d",
+          "shape": [
+            3,
+            84,
+            84
+          ]
+        },
+        "observation.images.robot0_eye_in_hand": {
+          "dtype": "float32",
+          "sha256": "e6295b9b11615d8f56cb3ee6c18ebaf4a28e8dc353dcc33b02a86f53b15dc9a0",
+          "shape": [
+            3,
+            84,
+            84
+          ]
+        },
+        "observation.state": {
+          "dtype": "float32",
+          "sha256": "1d2e3ef871432db2d7ffc2001d9fe9b9a2471068edea30bbe49def75adf1f6b3",
+          "shape": [
+            9
+          ]
+        }
+      },
+      "raw_action": [
+        -0.047241464257240295,
+        -0.0038174204528331757,
+        0.057590458542108536,
+        0.0028837022837251425,
+        0.13409538567066193,
+        0.016273081302642822,
+        -1.0198932886123657
+      ],
+      "raw_action_max_abs": 1.0198932886123657,
+      "raw_action_sha256": "aa2d843897824683d9e690b8eda9344407252a356fe443f48e1dd38628c6756f",
+      "reward": 0.0,
+      "step": 0,
+      "terminated": false,
+      "truncated": false
+    },
+    {
+      "applied_action": [
+        -0.040144726634025574,
+        -0.006866496056318283,
+        0.06071804091334343,
+        0.003026409773156047,
+        0.12707562744617462,
+        0.017114927992224693,
+        -1.0
+      ],
+      "applied_action_max_abs": 1.0,
+      "applied_action_sha256": "8f9657348671a8a011faadfddac9e9a3119cdd1a176a7520ec0cbe7e231c4b94",
+      "clipped_dimensions": 1,
+      "clipping_mask": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true
+      ],
+      "max_clip_delta": 0.01793348789215088,
+      "observation": {
+        "observation.images.agentview": {
+          "dtype": "float32",
+          "sha256": "03904b0f39137ba5f3cc917f8625a34afb7bcea97d516977ee709250845a6ccd",
+          "shape": [
+            3,
+            84,
+            84
+          ]
+        },
+        "observation.images.robot0_eye_in_hand": {
+          "dtype": "float32",
+          "sha256": "39a3bca59f4bcd6ea39ca986d8a053664de3aee497b9bfff13a5dec65de6d896",
+          "shape": [
+            3,
+            84,
+            84
+          ]
+        },
+        "observation.state": {
+          "dtype": "float32",
+          "sha256": "8b6d349c717fbff9378dbe50f69405ffb36c636ea386ec336dac9d73881958be",
+          "shape": [
+            9
+          ]
+        }
+      },
+      "raw_action": [
+        -0.040144726634025574,
+        -0.006866496056318283,
+        0.06071804091334343,
+        0.003026409773156047,
+        0.12707562744617462,
+        0.017114927992224693,
+        -1.0179334878921509
+      ],
+      "raw_action_max_abs": 1.0179334878921509,
+      "raw_action_sha256": "49eade2c41ef580d8556b6b9b5e2f2f4a22ec6007a0320e4ce48a155679249ab",
+      "reward": 0.0,
+      "step": 1,
+      "terminated": false,
+      "truncated": false
+    },
+    {
+      "applied_action": [
+        -0.05046376585960388,
+        0.0004717297852039337,
+        0.04623598977923393,
+        0.006194200832396746,
+        0.10927391052246094,
+        0.01733800768852234,
+        -1.0
+      ],
+      "applied_action_max_abs": 1.0,
+      "applied_action_sha256": "19cdcb5f64610d8cca2b80078b66c72d2dfb53755d16293c7cb77bc8c3d29890",
+      "clipped_dimensions": 1,
+      "clipping_mask": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true
+      ],
+      "max_clip_delta": 0.014232277870178223,
+      "observation": {
+        "observation.images.agentview": {
+          "dtype": "float32",
+          "sha256": "4c8dac3b6f4e9dd2190dae787554205342c92709a57c64946940c69be8c1403f",
+          "shape": [
+            3,
+            84,
+            84
+          ]
+        },
+        "observation.images.robot0_eye_in_hand": {
+          "dtype": "float32",
+          "sha256": "25780a6cc8deb8276981d6e0ffb9b500ea1449ae58c8fc6fb02c6bf57e7009ee",
+          "shape": [
+            3,
+            84,
+            84
+          ]
+        },
+        "observation.state": {
+          "dtype": "float32",
+          "sha256": "f5b18dbc2694695e87a52543c007d5af5e95a0d31dbf3358c05b4e876027f010",
+          "shape": [
+            9
+          ]
+        }
+      },
+      "raw_action": [
+        -0.05046376585960388,
+        0.0004717297852039337,
+        0.04623598977923393,
+        0.006194200832396746,
+        0.10927391052246094,
+        0.01733800768852234,
+        -1.0142322778701782
+      ],
+      "raw_action_max_abs": 1.0142322778701782,
+      "raw_action_sha256": "0d6d33edf80a5c92d5d86dd475120626ff1545702c48441325707f3680fe4edc",
+      "reward": 0.0,
+      "step": 2,
+      "terminated": false,
+      "truncated": false
+    },
+    {
+      "applied_action": [
+        -0.06483757495880127,
+        0.039448805153369904,
+        0.009576618671417236,
+        0.005504684057086706,
+        0.09755217283964157,
+        0.015474553219974041,
+        -1.0
+      ],
+      "applied_action_max_abs": 1.0,
+      "applied_action_sha256": "6b941b704caf3853c99b340ccb64631a162da90ad26f0f1965c432c8fe3f39d6",
+      "clipped_dimensions": 1,
+      "clipping_mask": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true
+      ],
+      "max_clip_delta": 0.013788938522338867,
+      "observation": {
+        "observation.images.agentview": {
+          "dtype": "float32",
+          "sha256": "792a4f68da6f01a4d1150ba95ca098c53ea4101644728e2769bc3886deff4b43",
+          "shape": [
+            3,
+            84,
+            84
+          ]
+        },
+        "observation.images.robot0_eye_in_hand": {
+          "dtype": "float32",
+          "sha256": "a50196a555796bb77e73f55e0ea51ba265fc5ac89a2efeeeb8329f49a49b7ff3",
+          "shape": [
+            3,
+            84,
+            84
+          ]
+        },
+        "observation.state": {
+          "dtype": "float32",
+          "sha256": "4d2f02fbbec83803cc25af8daeeb539754df01e0446dbbd3076d35ffe3d197f1",
+          "shape": [
+            9
+          ]
+        }
+      },
+      "raw_action": [
+        -0.06483757495880127,
+        0.039448805153369904,
+        0.009576618671417236,
+        0.005504684057086706,
+        0.09755217283964157,
+        0.015474553219974041,
+        -1.0137889385223389
+      ],
+      "raw_action_max_abs": 1.0137889385223389,
+      "raw_action_sha256": "871d78881cc79c77c99a21b7d420b643a927287850dca58fdb61b68bcad96e00",
+      "reward": 0.0,
+      "step": 3,
+      "terminated": false,
+      "truncated": false
+    }
+  ],
+  "run": {
+    "attempt_id": "20261124T145734770527Z_49187ef25005",
+    "command": "/home/midea/miniconda3/envs/cf-resrl-m0/bin/python scripts/smoke_act_policy.py",
+    "evidence_dir": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/act_policy_smoke/attempts/20261124T145734770527Z_49187ef25005",
+    "git_commit": "49187ef25005f7b292ed4147042b4bc60935a124",
+    "git_dirty": false,
+    "started_at_utc": "2026-11-24T14:57:34.770527+00:00"
+  },
+  "status": "COMPLETED"
+}
