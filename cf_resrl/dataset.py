@@ -5,7 +5,7 @@ from __future__ import annotations
 import hashlib
 from pathlib import Path
 import random
-from typing import Mapping
+from typing import Mapping, Sequence
 
 from .factorial import assert_disjoint_groups
 
@@ -58,3 +58,14 @@ def sha256_file(path: str | Path) -> str:
         for chunk in iter(lambda: stream.read(1024 * 1024), b""):
             digest.update(chunk)
     return digest.hexdigest()
+
+
+def terminal_true_suffix(values: Sequence[bool]) -> tuple[int, int]:
+    """Return the first terminal frame and suffix length for repeated done labels."""
+    done = [bool(value) for value in values]
+    if not done or not done[-1]:
+        raise ValueError("done labels must end with true")
+    first = done.index(True)
+    if not all(done[first:]):
+        raise ValueError("done labels must form one contiguous true suffix")
+    return first, len(done) - first

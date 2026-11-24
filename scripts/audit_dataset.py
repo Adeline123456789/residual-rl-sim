@@ -17,7 +17,11 @@ from typing import Any
 REPO_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO_ROOT))
 
-from cf_resrl.dataset import make_episode_splits, sha256_file  # noqa: E402
+from cf_resrl.dataset import (  # noqa: E402
+    make_episode_splits,
+    sha256_file,
+    terminal_true_suffix,
+)
 
 
 def _write_json(path: Path, value: Any) -> None:
@@ -199,6 +203,7 @@ def _audit_parquet(
     state_values = []
     total_rows = 0
     done_true = 0
+    done_suffixes = []
 
     for episode in episodes:
         episode_index = episode["episode_index"]
@@ -247,8 +252,14 @@ def _audit_parquet(
         expected_time = np.arange(length, dtype=np.float64) / expected["fps"]
         if not np.allclose(timestamp, expected_time, atol=1e-5, rtol=0.0):
             raise ValueError(f"timestamp mismatch in episode {episode_index}")
-        if not bool(done[-1]) or bool(done[:-1].any()):
-            raise ValueError(f"done alignment mismatch in episode {episode_index}")
+        first_done, true_count = terminal_true_suffix(done.tolist())
+        done_suffixes.append(
+            {
+                "episode_index": episode_index,
+                "first_done_frame": first_done,
+                "true_count": true_count,
+            }
+        )
 
         action_values.append(action)
         state_values.append(state)
@@ -261,6 +272,8 @@ def _audit_parquet(
         "episodes": len(episodes),
         "rows": total_rows,
         "done_true": done_true,
+        "done_semantics": "next.done is a contiguous terminal/success suffix; episode metadata defines boundaries",
+        "done_suffixes": done_suffixes,
         "action": _numeric_summary(action_values, np),
         "state": _numeric_summary(state_values, np),
     }
@@ -338,17 +351,15 @@ def _audit_videos(
     }
 
 
-def run_audit(config: dict[str, Any], config_path: Path) -> dict[str, Any]:
+def run_audit(
+    config: dict[str, Any],
+    config_path: Path,
+    output_dir: Path,
+    run: dict[str, Any],
+) -> dict[str, Any]:
     np, pq, HfApi, RepoFile, snapshot_download = _required_packages()
     dataset = config["dataset"]
     local_dir = REPO_ROOT / dataset["local_dir"]
-    output_dir = REPO_ROOT / config["output_dir"]
-    output_dir.mkdir(parents=True, exist_ok=True)
-    run = {
-        "command": shlex.join([sys.executable, *sys.argv]),
-        "git_commit": _git("rev-parse", "HEAD"),
-        "git_dirty": bool(_git("status", "--porcelain")),
-    }
 
     resolved = {
         **config,
@@ -357,6 +368,7 @@ def run_audit(config: dict[str, Any], config_path: Path) -> dict[str, Any]:
             "config_path": str(config_path.resolve()),
             "local_dir": str(local_dir.resolve()),
             "output_dir": str(output_dir.resolve()),
+            "output_root": str((REPO_ROOT / config["output_dir"]).resolve()),
         },
     }
     resolved_path = output_dir / "resolved_config.json"
@@ -439,19 +451,35 @@ def main() -> int:
     args = parser.parse_args()
     config_path = args.config if args.config.is_absolute() else REPO_ROOT / args.config
     config = _load_config(config_path)
-    output_dir = REPO_ROOT / config["output_dir"]
+    output_root = REPO_ROOT / config["output_dir"]
+    repo_head = _git("rev-parse", "HEAD")
+    started_at = datetime.now(timezone.utc)
+    attempt_id = f"{started_at.strftime('%Y%m%dT%H%M%S%fZ')}_{repo_head[:12]}"
+    output_dir = output_root / "attempts" / attempt_id
+    output_dir.mkdir(parents=True, exist_ok=False)
+    run = {
+        "attempt_id": attempt_id,
+        "started_at_utc": started_at.isoformat(),
+        "command": shlex.join([sys.executable, *sys.argv]),
+        "git_commit": repo_head,
+        "git_dirty": bool(_git("status", "--porcelain")),
+        "evidence_dir": str(output_dir.resolve()),
+    }
     try:
-        report = run_audit(config, config_path)
+        report = run_audit(config, config_path, output_dir, run)
     except Exception as exc:
         _write_json(
             output_dir / "audit_report.json",
             {
                 "status": "FAILED",
                 "experiment_kind": "dataset_audit",
+                "failed_at_utc": datetime.now(timezone.utc).isoformat(),
+                "run": run,
                 "error_type": type(exc).__name__,
                 "error": str(exc),
             },
         )
+        print(f"failed evidence: {output_dir / 'audit_report.json'}", file=sys.stderr)
         raise
     print(json.dumps(report, indent=2, sort_keys=True))
     return 0

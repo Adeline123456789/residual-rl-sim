@@ -52,13 +52,7 @@ def _observation_shapes(obs: dict[str, object], np: object) -> dict[str, list[in
     return shapes
 
 
-def main() -> None:
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--task", required=True, choices=["square"])
-    parser.add_argument("--config", type=Path, required=True)
-    parser.add_argument("--out", type=Path, required=True)
-    args = parser.parse_args()
-
+def _run(args: argparse.Namespace) -> dict[str, object]:
     config_path = _resolve(args.config)
     config = json.loads(config_path.read_text(encoding="utf-8"))
     upstream = config["upstream"]
@@ -158,11 +152,57 @@ def main() -> None:
         },
     }
 
-    out_path = _resolve(args.out)
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    pending_path = out_path.with_suffix(out_path.suffix + ".tmp")
-    pending_path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-    pending_path.replace(out_path)
+    return manifest
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--task", required=True, choices=["square"])
+    parser.add_argument("--config", type=Path, required=True)
+    parser.add_argument("--out", type=Path, required=True)
+    args = parser.parse_args()
+
+    requested_path = _resolve(args.out)
+    repo_head = _git(REPO_ROOT, "rev-parse", "HEAD")
+    started_at = datetime.now(timezone.utc)
+    attempt_id = f"{started_at.strftime('%Y%m%dT%H%M%S%fZ')}_{repo_head[:12]}"
+    attempt_dir = requested_path.parent / "attempts" / attempt_id
+    attempt_dir.mkdir(parents=True, exist_ok=False)
+    out_path = attempt_dir / requested_path.name
+
+    try:
+        manifest = _run(args)
+    except Exception as exc:
+        failed = {
+            "status": "FAILED",
+            "experiment_kind": "smoke",
+            "task": "Square",
+            "failed_at_utc": datetime.now(timezone.utc).isoformat(),
+            "command": shlex.join([sys.executable, *sys.argv]),
+            "git": {
+                "commit": repo_head,
+                "dirty": bool(_git(REPO_ROOT, "status", "--porcelain")),
+            },
+            "evidence": {
+                "attempt_id": attempt_id,
+                "manifest": str(out_path),
+            },
+            "error_type": type(exc).__name__,
+            "error": str(exc),
+        }
+        out_path.write_text(
+            json.dumps(failed, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+        )
+        print(f"failed evidence: {out_path}", file=sys.stderr)
+        raise
+
+    manifest["evidence"] = {
+        "attempt_id": attempt_id,
+        "manifest": str(out_path),
+    }
+    out_path.write_text(
+        json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+    )
     print(json.dumps(manifest, indent=2, sort_keys=True))
 
 

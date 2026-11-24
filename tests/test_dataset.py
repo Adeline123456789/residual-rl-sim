@@ -3,7 +3,7 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from cf_resrl.dataset import make_episode_splits, sha256_file
+from cf_resrl.dataset import make_episode_splits, sha256_file, terminal_true_suffix
 
 
 class EpisodeSplitTests(unittest.TestCase):
@@ -33,6 +33,15 @@ class HashTests(unittest.TestCase):
             self.assertEqual(
                 sha256_file(path), hashlib.sha256(b"cf-resrl\n").hexdigest()
             )
+
+
+class DoneSuffixTests(unittest.TestCase):
+    def test_repeated_terminal_suffix(self) -> None:
+        self.assertEqual(terminal_true_suffix([False, False, True, True]), (2, 2))
+
+    def test_noncontiguous_done_is_rejected(self) -> None:
+        with self.assertRaises(ValueError):
+            terminal_true_suffix([False, True, False, True])
 
 
 if __name__ == "__main__":
