@@ -1,0 +1,169 @@
+diff --git a/resfit/lerobot/scripts/train_bc_dexmg.py b/resfit/lerobot/scripts/train_bc_dexmg.py
+index 6fd4e2e..f030144 100644
+--- a/resfit/lerobot/scripts/train_bc_dexmg.py
++++ b/resfit/lerobot/scripts/train_bc_dexmg.py
+@@ -67,21 +67,17 @@ except RuntimeError:
+     # Start method already set, which is fine
+     pass
+ 
+-# -----------------------------------------------------------------------------
+-# Caching configuration ------------------------------------------------------
+-# -----------------------------------------------------------------------------
+-# Generic environment variable (shared across algorithms) -------------------
+-# ``CACHE_DIR`` specifies the root folder for **all** local caches.
+-# Falls back to the current directory if unset.
+-_CACHE_ROOT = Path(os.environ.get("CACHE_DIR", ".")).expanduser().resolve()
+-
+-
+ parser = argparse.ArgumentParser(description="Offline training on a HF Hub dataset with LeRobot policies")
+ 
+ # Required args
+ parser.add_argument(
+     "--dataset", type=str, required=True, help="HF Hub dataset repo-id e.g. `ankile/franka-lift-dataset`"
+ )
++parser.add_argument("--dataset_revision", type=str, default=None, help="Pinned dataset commit or tag")
++parser.add_argument("--dataset_root", type=str, default=None, help="Existing local LeRobot dataset directory")
++parser.add_argument("--episode_split_manifest", type=str, default=None)
++parser.add_argument("--episode_split", type=str, default="train")
++parser.add_argument("--video_backend", type=str, default="pyav")
+ parser.add_argument(
+     "--policy",
+     type=str,
+@@ -414,10 +410,8 @@ def main(cfg: argparse.Namespace):
+     # Create run start time for organizing video outputs
+     run_start_time = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+ 
+-    # Create a timestamped folder in CACHE_DIR for all outputs
+-    timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+-    run_cache_dir = _CACHE_ROOT / f"bc_run_{timestamp}_{Path(cfg.dataset).name}_{cfg.policy}"
+-    run_cache_dir.mkdir(parents=True, exist_ok=True)
++    output_dir = Path(cfg.output_dir).expanduser().resolve()
++    output_dir.mkdir(parents=True, exist_ok=True)
+ 
+     if cfg.seed is not None:
+         set_seed(cfg.seed)
+@@ -426,8 +420,20 @@ def main(cfg: argparse.Namespace):
+     # ---------------------------------------------------------------------
+     # Dataset (metadata first, then actual dataset with resolved timestamps)
+     # ---------------------------------------------------------------------
+-    logger.info("Fetching dataset metadata from the Hub…")
+-    ds_meta = LeRobotDatasetMetadata(cfg.dataset)
++    logger.info("Loading pinned dataset metadata…")
++    ds_meta = LeRobotDatasetMetadata(
++        cfg.dataset,
++        root=cfg.dataset_root,
++        revision=cfg.dataset_revision,
++    )
++
++    episode_indices = None
++    if cfg.episode_split_manifest is not None:
++        split_manifest = json.loads(Path(cfg.episode_split_manifest).read_text())
++        if cfg.dataset_revision is not None and split_manifest["dataset_revision"] != cfg.dataset_revision:
++            raise ValueError("Dataset revision does not match the episode split manifest")
++        episode_indices = split_manifest["splits"][cfg.episode_split]
++        logger.info(f"Using {len(episode_indices)} episodes from split '{cfg.episode_split}'")
+ 
+     # ---------------------------------------------------------------------
+     # Build the policy configuration, applying any CLI-specified overrides
+@@ -546,9 +552,31 @@ def main(cfg: argparse.Namespace):
+ 
+     dataset = LeRobotDataset(
+         cfg.dataset,
++        root=cfg.dataset_root,
++        episodes=episode_indices,
+         delta_timestamps=delta_timestamps,
++        revision=cfg.dataset_revision,
+         download_videos=True,
+         image_transforms=image_transforms,
++        video_backend=cfg.video_backend,
++    )
++
++    if episode_indices is not None:
++        # Avoid validation/test leakage through policy normalization buffers.
++        ds_meta.stats = dataset.stats
++
++    (output_dir / "resolved_training_config.json").write_text(
++        json.dumps(
++            {
++                "arguments": vars(cfg),
++                "dataset_revision": ds_meta.revision,
++                "episode_indices": episode_indices,
++                "selected_episode_count": len(episode_indices) if episode_indices is not None else ds_meta.total_episodes,
++            },
++            indent=2,
++            sort_keys=True,
++        )
++        + "\n"
+     )
+ 
+     # ---------------------------------------------------------------------
+@@ -655,10 +683,6 @@ def main(cfg: argparse.Namespace):
+     # ---------------------------------------------------------------------
+     # Training loop
+     # ---------------------------------------------------------------------
+-    # Use the run cache directory for outputs instead of the default
+-    output_dir = run_cache_dir
+-    output_dir.mkdir(parents=True, exist_ok=True)
+-
+     step = start_step
+     eval_env = None  # type: ignore  # will hold the evaluation environment if created
+ 
+@@ -771,7 +795,7 @@ def main(cfg: argparse.Namespace):
+                 f" | iter: {iter_ms:.1f} ms"
+             )
+             logger.info(msg)
+-            if wandb is not None:
++            if cfg.wandb_enable:
+                 wandb.log(
+                     {
+                         "train/loss": loss_val,
+@@ -804,7 +828,7 @@ def main(cfg: argparse.Namespace):
+                 )
+             )
+ 
+-            if wandb is not None:
++            if cfg.wandb_enable:
+                 # Log model-only artifact (no optimizer)
+                 art_model = wandb.Artifact(name=f"run_{wandb.run.id}_model_step_{step}", type="model")
+                 art_model.add_dir(str(model_dir))
+@@ -847,7 +871,7 @@ def main(cfg: argparse.Namespace):
+                 )
+             )
+ 
+-            if wandb is not None:
++            if cfg.wandb_enable:
+                 wandb.log(
+                     {
+                         "eval/success_rate": success_rate,
+@@ -878,29 +902,19 @@ def main(cfg: argparse.Namespace):
+                     shutil.rmtree(best_dir)
+                 save_checkpoint(best_dir, step, policy, optimizer)
+ 
+-                if wandb is not None:
++                if cfg.wandb_enable:
+                     # Overwrite/refresh the "best" artifact so that the most recent best checkpoint is easy to retrieve
+                     art_best = wandb.Artifact(name=f"run_{wandb.run.id}_best", type="model")
+                     art_best.add_dir(str(best_dir))
+                     wandb.log_artifact(art_best, aliases=["best", "latest"])
+ 
+     logger.info(colored("Training finished!", "green", attrs=["bold"]))
+-    if wandb is not None:
++    if cfg.wandb_enable:
+         wandb.finish()
+ 
+     if eval_env is not None:
+         eval_env.close()
+ 
+-    # ---------------------------------------------------------------------
+-    # Cleanup --------------------------------------------------------------
+-    # ---------------------------------------------------------------------
+-    # Clean up entire run directory after successful completion (videos/logs are saved to wandb)
+-    if run_cache_dir.exists():
+-        logger.info(f"Cleaning up run directory: {run_cache_dir}")
+-        shutil.rmtree(run_cache_dir)
+-        logger.info("Run directory cleaned up successfully.")
+-
+-
+ if __name__ == "__main__":
+     """
+     Example commands:
