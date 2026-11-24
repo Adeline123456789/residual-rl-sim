@@ -8,6 +8,7 @@ from datetime import datetime, timezone
 from fractions import Fraction
 import json
 from pathlib import Path
+import platform
 import shlex
 import subprocess
 import sys
@@ -53,15 +54,33 @@ def _git(*args: str) -> str:
 
 def _required_packages():
     try:
+        import huggingface_hub
+        import mujoco
         import numpy as np
+        import pyarrow
         import pyarrow.parquet as pq
+        import robosuite
+        import torch
         from huggingface_hub import HfApi, snapshot_download
         from huggingface_hub.hf_api import RepoFile
     except ImportError as exc:
         raise RuntimeError(
-            "dataset audit requires numpy, pyarrow, and huggingface-hub"
+            "dataset audit must run in the registered M0 environment"
         ) from exc
-    return np, pq, HfApi, RepoFile, snapshot_download
+    environment = {
+        "python": sys.version.replace("\n", " "),
+        "platform": platform.platform(),
+        "numpy": np.__version__,
+        "pyarrow": pyarrow.__version__,
+        "huggingface_hub": huggingface_hub.__version__,
+        "torch": torch.__version__,
+        "mujoco": mujoco.__version__,
+        "robosuite": robosuite.__version__,
+        "cuda_available": torch.cuda.is_available(),
+        "cuda_version": torch.version.cuda,
+        "device": torch.cuda.get_device_name(0) if torch.cuda.is_available() else None,
+    }
+    return np, pq, HfApi, RepoFile, snapshot_download, environment
 
 
 def _validate_remote(api, RepoFile, dataset: dict[str, Any]) -> tuple[list[Any], Any]:
@@ -357,7 +376,8 @@ def run_audit(
     output_dir: Path,
     run: dict[str, Any],
 ) -> dict[str, Any]:
-    np, pq, HfApi, RepoFile, snapshot_download = _required_packages()
+    np, pq, HfApi, RepoFile, snapshot_download, environment = _required_packages()
+    run["environment"] = environment
     dataset = config["dataset"]
     local_dir = REPO_ROOT / dataset["local_dir"]
 
