@@ -16,16 +16,21 @@
       "mujoco==3.3.2",
       "mink==0.0.7",
       "huggingface-hub==0.36.0",
-      "pyarrow==19.0.1"
+            "pyarrow==19.0.1",
+            "--index-url",
+            "https://pypi.org/simple"
     ],
     [
       "-e",
-      "third_party/robosuite"
+            "third_party/robosuite",
+            "--index-url",
+            "https://pypi.org/simple"
     ]
   ],
   "env": {
     "MUJOCO_GL": "egl",
-    "PYTHONPATH": "third_party/resfit"
+        "PYTHONPATH": "third_party/resfit",
+        "PYTHONNOUSERSITE": "1"
   },
   "run_commands": [
     "bash scripts/setup_m0_env.sh"
