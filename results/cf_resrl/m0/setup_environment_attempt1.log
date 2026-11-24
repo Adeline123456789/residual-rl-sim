@@ -1,0 +1,63 @@
+Retrieving notices: - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectTimeoutError(<HTTPSConnection(host='mirrors.tuna.tsinghua.edu.cn', port=443) at 0x7d5cc7ccbdd0>, 'Connection to mirrors.tuna.tsinghua.edu.cn timed out. (connect timeout=5)')': /anaconda/pkgs/r/notices.json
+
+Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='mirrors.tuna.tsinghua.edu.cn', port=443): Read timed out. (read timeout=5)")': /anaconda/pkgs/main/notices.json
+
+Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='mirrors.tuna.tsinghua.edu.cn', port=443): Read timed out. (read timeout=5)")': /anaconda/cloud/conda-forge/notices.json
+
+Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='mirrors.tuna.tsinghua.edu.cn', port=443): Read timed out. (read timeout=5)")': /anaconda/pkgs/free/notices.json
+
+Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='mirrors.tuna.tsinghua.edu.cn', port=443): Read timed out. (read timeout=5)")': /anaconda/pkgs/main/notices.json
+
+Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='mirrors.tuna.tsinghua.edu.cn', port=443): Read timed out. (read timeout=5)")': /anaconda/pkgs/msys2/notices.json
+
+Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='mirrors.tuna.tsinghua.edu.cn', port=443): Read timed out. (read timeout=5)")': /anaconda/cloud/conda-forge/notices.json
+
+- \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='mirrors.tuna.tsinghua.edu.cn', port=443): Read timed out. (read timeout=5)")': /anaconda/pkgs/r/notices.json
+
+Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='mirrors.tuna.tsinghua.edu.cn', port=443): Read timed out. (read timeout=5)")': /anaconda/pkgs/free/notices.json
+
+Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='mirrors.tuna.tsinghua.edu.cn', port=443): Read timed out. (read timeout=5)")': /anaconda/pkgs/main/notices.json
+
+Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='mirrors.tuna.tsinghua.edu.cn', port=443): Read timed out. (read timeout=5)")': /anaconda/cloud/conda-forge/notices.json
+
+Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='mirrors.tuna.tsinghua.edu.cn', port=443): Read timed out. (read timeout=5)")': /anaconda/pkgs/main/notices.json
+
+Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='mirrors.tuna.tsinghua.edu.cn', port=443): Read timed out. (read timeout=5)")': /anaconda/cloud/conda-forge/notices.json
+
+Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='mirrors.tuna.tsinghua.edu.cn', port=443): Read timed out. (read timeout=5)")': /anaconda/pkgs/msys2/notices.json
+
+| / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='mirrors.tuna.tsinghua.edu.cn', port=443): Read timed out. (read timeout=5)")': /anaconda/pkgs/r/notices.json
+
+Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='mirrors.tuna.tsinghua.edu.cn', port=443): Read timed out. (read timeout=5)")': /anaconda/pkgs/free/notices.json
+
+Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='mirrors.tuna.tsinghua.edu.cn', port=443): Read timed out. (read timeout=5)")': /anaconda/cloud/conda-forge/notices.json
+
+Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='mirrors.tuna.tsinghua.edu.cn', port=443): Read timed out. (read timeout=5)")': /anaconda/pkgs/main/notices.json
+
+Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='mirrors.tuna.tsinghua.edu.cn', port=443): Read timed out. (read timeout=5)")': /anaconda/pkgs/main/notices.json
+
+Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='mirrors.tuna.tsinghua.edu.cn', port=443): Read timed out. (read timeout=5)")': /anaconda/cloud/conda-forge/notices.json
+
+Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='mirrors.tuna.tsinghua.edu.cn', port=443): Read timed out. (read timeout=5)")': /anaconda/pkgs/msys2/notices.json
+
+- \ | / - ERROR conda.notices.fetch:get_channel_notice_response(72): Request error <HTTPSConnectionPool(host='mirrors.tuna.tsinghua.edu.cn', port=443): Max retries exceeded with url: /anaconda/pkgs/r/notices.json (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1016)')))> for channel: defaults url: https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r/notices.json
+ERROR conda.notices.fetch:get_channel_notice_response(72): Request error <HTTPSConnectionPool(host='mirrors.tuna.tsinghua.edu.cn', port=443): Max retries exceeded with url: /anaconda/pkgs/free/notices.json (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1016)')))> for channel: anaconda/pkgs/free url: https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/notices.json
+ERROR conda.notices.fetch:get_channel_notice_response(72): Request error <HTTPSConnectionPool(host='mirrors.tuna.tsinghua.edu.cn', port=443): Max retries exceeded with url: /anaconda/cloud/conda-forge/notices.json (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1016)')))> for channel: conda-forge url: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/notices.json
+ERROR conda.notices.fetch:get_channel_notice_response(72): Request error <HTTPSConnectionPool(host='mirrors.tuna.tsinghua.edu.cn', port=443): Max retries exceeded with url: /anaconda/pkgs/main/notices.json (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1016)')))> for channel: anaconda/pkgs/main url: https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/notices.json
+ERROR conda.notices.fetch:get_channel_notice_response(72): Request error <HTTPSConnectionPool(host='mirrors.tuna.tsinghua.edu.cn', port=443): Max retries exceeded with url: /anaconda/pkgs/msys2/notices.json (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1016)')))> for channel: defaults url: https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2/notices.json
+ERROR conda.notices.fetch:get_channel_notice_response(72): Request error <HTTPSConnectionPool(host='mirrors.tuna.tsinghua.edu.cn', port=443): Max retries exceeded with url: /anaconda/cloud/conda-forge/notices.json (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1016)')))> for channel: conda-forge url: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/notices.json
+\ | / - ERROR conda.notices.fetch:get_channel_notice_response(72): Request error <HTTPSConnectionPool(host='mirrors.tuna.tsinghua.edu.cn', port=443): Max retries exceeded with url: /anaconda/pkgs/main/notices.json (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1016)')))> for channel: defaults url: https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/notices.json
+done
+Collecting package metadata (current_repodata.json): | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1016)'))': /anaconda/pkgs/main/linux-64/current_repodata.json.zst
+
+| / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1016)'))': /anaconda/pkgs/main/linux-64/current_repodata.json.zst
+
+/ - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1016)'))': /anaconda/pkgs/main/linux-64/current_repodata.json.zst
+
+/ - \ | / - failed
+
+CondaSSLError: Encountered an SSL error. Most likely a certificate verification issue.
+
+Exception: HTTPSConnectionPool(host='mirrors.tuna.tsinghua.edu.cn', port=443): Max retries exceeded with url: /anaconda/pkgs/main/linux-64/current_repodata.json.zst (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1016)')))
+
+

@@ -1,0 +1,14 @@
+{
+  "status": "FAILED",
+  "failed_at_utc": "2026-11-24T12:11:58Z",
+  "exit_code": 1,
+  "git_commit_at_start": "306138cb879dc2d7dc77b05629923bbcb2177fcc",
+  "environment_name": "cf-resrl-m0",
+  "failed_stage": "registered PyPI dependencies",
+  "completed_before_failure": "Conda base and torch==2.7.1+cu128 / torchvision==0.22.1+cu128 installed",
+  "error": "Host pip configuration redirected the unqualified dependency install to unavailable Tsinghua and NVIDIA indexes; gymnasium==1.1.1 could not be resolved.",
+  "resolution": "Use PIP_CONFIG_FILE=/dev/null, clear PIP_EXTRA_INDEX_URL, set PYTHONNOUSERSITE=1, and give every pip phase an explicit official index.",
+  "partial_environment_removed_at_utc": "2026-11-24T12:13:30Z",
+  "log": "setup_environment_attempt3.log",
+  "log_sha256": "03b8e01ef7d227cd1227146d34349f2c1adfe09c0d7e6a05a884b56da27ee560"
+}

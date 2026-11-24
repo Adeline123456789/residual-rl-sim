@@ -1,0 +1,39 @@
+{
+  "status": "COMPLETED",
+  "completed_at_utc": "2026-11-24T13:06:44Z",
+  "exit_code": 0,
+  "command": "bash scripts/setup_m0_env.sh",
+  "environment_name": "cf-resrl-m0",
+  "git_commit_at_start": "90c1a82c810f1927322c5e7c6b59900226907ac9",
+  "git_dirty_at_start": true,
+  "git_commit_at_completion": "ba5f14eac48fab10eb22490a9a01f28f59f5a0eb",
+  "spec_sha256": "b6e59435b730973cf84df9c1f7314d66e942ba65e67cea1cbe6e3193d27aabbf",
+  "environment": {
+    "python": "3.10.22",
+    "torch": "2.7.1+cu128",
+    "torch_cuda": "12.8",
+    "numpy": "1.26.4",
+    "gymnasium": "1.1.1",
+    "mujoco": "3.3.2",
+    "robosuite": "1.5.1",
+    "huggingface_hub": "0.36.0",
+    "pyarrow": "19.0.1",
+    "device": "NVIDIA GeForce RTX 3090"
+  },
+  "cuda_witness": {
+    "seed": 0,
+    "operation": "torch.randn(8, 8, device='cuda') @ self",
+    "shape": [8, 8],
+    "sum": 30.45614242553711
+  },
+  "artifacts": {
+    "setup_environment_attempt4.log": "e4ef533542ccfe8ee4d79058eefddfac2fcd9df52c14b28e426dd76f873a9dab",
+    "environment.lock.txt": "db348990d3d54ce12fc4e6a18a49b08b041c961c74a5d160792290b3f096b5e1",
+    "conda-explicit.txt": "f9b52adf25869cc6379de1c7b942d4d4ed8c7a72f7e264ff27c5569d8d575943",
+    "environment.resolved.yml": "a4580adf576956906b832df746ff04924768104ff4d82342d7e0bd0e169c8e9b"
+  },
+  "warnings": [
+    "robosuite private macros are absent; defaults are in use.",
+    "robosuite_models is absent; the registered Square Panda smoke must prove this path does not require it."
+  ]
+}
