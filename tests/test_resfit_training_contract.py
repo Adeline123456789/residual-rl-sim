@@ -11,7 +11,9 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 CONFIG_PATH = REPO_ROOT / "configs/cf_resrl/m0_resfit_training.json"
 PATCH_PATH = REPO_ROOT / "patches/resfit/residual_td3_cf_resrl.patch"
 LAUNCHER_PATH = REPO_ROOT / "scripts/run_resfit_training.py"
+APPLY_PATCH_SCRIPT = REPO_ROOT / "scripts/apply_resfit_cf_resrl_patch.sh"
 RESFIT_ROOT = REPO_ROOT / "third_party/resfit"
+LEROBOT_ROOT = RESFIT_ROOT / "deps/lerobot"
 
 
 class ResfitTrainingContractTests(unittest.TestCase):
@@ -32,6 +34,13 @@ class ResfitTrainingContractTests(unittest.TestCase):
         self.assertEqual(digest, dataset["split_manifest_sha256"])
         self.assertEqual(manifest["dataset_revision"], dataset["revision"])
         self.assertEqual(len(manifest["splits"][dataset["split"]]), dataset["episodes"])
+
+    def test_registered_patch_targets_and_hashes_are_pinned(self) -> None:
+        patches = self.config["upstream"]["patches"]
+        self.assertEqual([row["target_root"] for row in patches], ["resfit", "resfit", "lerobot"])
+        for row in patches:
+            digest = hashlib.sha256((REPO_ROOT / row["path"]).read_bytes()).hexdigest()
+            self.assertEqual(digest, row["sha256"])
 
     def test_fixed_step_checkpoint_contract_is_present(self) -> None:
         training = self.config["training"]
@@ -193,6 +202,76 @@ class ResfitTrainingContractTests(unittest.TestCase):
             text=True,
         )
         self.assertTrue(result.returncode == 0 or reverse.returncode == 0)
+
+    def test_patch_script_apply_check_reverse_round_trip_cleans_both_checkouts(self) -> None:
+        self.assertEqual(
+            subprocess.run(
+                ["git", "-C", str(RESFIT_ROOT), "status", "--porcelain"],
+                check=True,
+                capture_output=True,
+                text=True,
+            ).stdout.strip(),
+            "",
+        )
+        self.assertEqual(
+            subprocess.run(
+                ["git", "-C", str(LEROBOT_ROOT), "status", "--porcelain"],
+                check=True,
+                capture_output=True,
+                text=True,
+            ).stdout.strip(),
+            "",
+        )
+        try:
+            initial = subprocess.run(
+                ["bash", str(APPLY_PATCH_SCRIPT), "check"],
+                cwd=REPO_ROOT,
+                check=True,
+                capture_output=True,
+                text=True,
+            )
+            self.assertEqual(initial.stdout.count(": not_applied"), 3)
+            subprocess.run(
+                ["bash", str(APPLY_PATCH_SCRIPT), "apply"],
+                cwd=REPO_ROOT,
+                check=True,
+                capture_output=True,
+                text=True,
+            )
+            applied = subprocess.run(
+                ["bash", str(APPLY_PATCH_SCRIPT), "check"],
+                cwd=REPO_ROOT,
+                check=True,
+                capture_output=True,
+                text=True,
+            )
+            self.assertEqual(applied.stdout.count(": applied"), 3)
+        finally:
+            subprocess.run(
+                ["bash", str(APPLY_PATCH_SCRIPT), "reverse"],
+                cwd=REPO_ROOT,
+                check=True,
+                capture_output=True,
+                text=True,
+            )
+        self.assertEqual(
+            subprocess.run(
+                ["git", "-C", str(LEROBOT_ROOT), "status", "--porcelain"],
+                check=True,
+                capture_output=True,
+                text=True,
+            ).stdout.strip(),
+            "",
+        )
+        self.assertEqual(
+            subprocess.run(
+                ["git", "-C", str(RESFIT_ROOT), "status", "--porcelain"],
+                check=True,
+                capture_output=True,
+                text=True,
+            ).stdout.strip(),
+            "",
+        )
 
 
 if __name__ == "__main__":

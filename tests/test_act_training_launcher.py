@@ -112,6 +112,12 @@ class ActTrainingLauncherTests(unittest.TestCase):
                 "sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec",
             },
         )
+        self.assertEqual(
+            [row["target_root"] for row in self.config["upstream"]["patches"]],
+            ["resfit", "resfit", "lerobot"],
+        )
+        for row in self.config["upstream"]["patches"]:
+            self.assertEqual(_sha256(REPO_ROOT / row["path"]), row["sha256"])
 
     def test_command_contains_exact_registered_budget_without_wandb(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
@@ -151,8 +157,13 @@ class ActTrainingLauncherTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             output_root = Path(directory) / "act_training"
             patch_rows = [
-                {"path": str(REPO_ROOT / relative), "sha256": "registered", "state": "not_applied"}
-                for relative in self.config["upstream"]["required_patches"]
+                {
+                    "path": str(REPO_ROOT / row["path"]),
+                    "sha256": row["sha256"],
+                    "target_root": row["target_root"],
+                    "state": "not_applied",
+                }
+                for row in self.config["upstream"]["patches"]
             ]
             with patch("scripts.run_act_training.patch_states", return_value=patch_rows):
                 with patch("scripts.run_act_training.capture_and_verify_runtime") as runtime_preflight:

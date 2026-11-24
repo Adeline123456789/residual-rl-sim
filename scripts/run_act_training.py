@@ -20,6 +20,7 @@ RESFIT_ROOT = REPO_ROOT / "third_party" / "resfit"
 ROBOSUITE_ROOT = REPO_ROOT / "third_party" / "robosuite"
 LEROBOT_ROOT = RESFIT_ROOT / "deps" / "lerobot"
 DEFAULT_CONFIG = REPO_ROOT / "configs" / "cf_resrl" / "m0_act_training.json"
+PATCH_ROOTS = {"resfit": RESFIT_ROOT, "lerobot": LEROBOT_ROOT}
 EXPECTED = {
     "resfit_commit": "66262b06a0caf159fb001504949b7b48ccda5f64",
     "robosuite_commit": "77a4751233c29456a5381209e30dd0dbf39a6557",
@@ -36,6 +37,23 @@ EXPECTED = {
     "backbone_weights_filename": "resnet18-f37072fd.pth",
     "backbone_weights_sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec",
 }
+EXPECTED_PATCHES = [
+    {
+        "path": "patches/resfit/train_bc_dexmg_cf_resrl.patch",
+        "sha256": "63283baa4fd93a5802ae1e83170b4c0a18616df36ef9fcb36dff56b5def2d975",
+        "target_root": "resfit",
+    },
+    {
+        "path": "patches/resfit/residual_td3_cf_resrl.patch",
+        "sha256": "441a6070a30d2c2de8ff286c008e948a16d573febe07d72041255b42a5d9b35f",
+        "target_root": "resfit",
+    },
+    {
+        "path": "patches/lerobot/noncontiguous_episode_subset.patch",
+        "sha256": "4d20bc4ec899087891018fd8360eac31ec06774279c05581fada3827db967429",
+        "target_root": "lerobot",
+    },
+]
 
 
 def _write_json(path: Path, value: Any) -> None:
@@ -77,11 +95,12 @@ def validate_spec(config: dict[str, Any]) -> list[int]:
     for key in ("resfit_commit", "robosuite_commit", "lerobot_repository", "lerobot_commit"):
         if upstream[key] != EXPECTED[key]:
             raise ValueError(f"upstream.{key} does not match the registered value")
-    if upstream["required_patches"] != [
-        "patches/resfit/train_bc_dexmg_cf_resrl.patch",
-        "patches/resfit/residual_td3_cf_resrl.patch",
-    ]:
-        raise ValueError("ACT training requires the two registered ResFiT overlays")
+    if upstream["patches"] != EXPECTED_PATCHES:
+        raise ValueError("ACT training patch registration changed")
+    for registered in upstream["patches"]:
+        patch = _resolve(registered["path"])
+        if _sha256(patch) != registered["sha256"]:
+            raise ValueError(f"registered patch SHA256 mismatch: {registered['path']}")
     expected_runtime = {
         "conda_environment": EXPECTED["runtime_environment"],
         "pip_freeze_lock": {
@@ -168,15 +187,17 @@ def validate_spec(config: dict[str, Any]) -> list[int]:
 
 def patch_states(config: dict[str, Any]) -> list[dict[str, str]]:
     states = []
-    for relative in config["upstream"]["required_patches"]:
-        patch = _resolve(relative)
+    for registered in config["upstream"]["patches"]:
+        patch = _resolve(registered["path"])
+        target_name = registered["target_root"]
+        target_root = PATCH_ROOTS[target_name]
         reverse = subprocess.run(
-            ["git", "-C", str(RESFIT_ROOT), "apply", "--reverse", "--check", str(patch)],
+            ["git", "-C", str(target_root), "apply", "--reverse", "--check", str(patch)],
             capture_output=True,
             text=True,
         )
         forward = subprocess.run(
-            ["git", "-C", str(RESFIT_ROOT), "apply", "--check", str(patch)],
+            ["git", "-C", str(target_root), "apply", "--check", str(patch)],
             capture_output=True,
             text=True,
         )
@@ -186,8 +207,31 @@ def patch_states(config: dict[str, Any]) -> list[dict[str, str]]:
             state = "not_applied"
         else:
             raise RuntimeError(f"registered patch cannot be applied or reversed: {patch}")
-        states.append({"path": str(patch.resolve()), "sha256": _sha256(patch), "state": state})
+        states.append(
+            {
+                "path": str(patch.resolve()),
+                "sha256": _sha256(patch),
+                "target_root": target_name,
+                "target_path": str(target_root.resolve()),
+                "state": state,
+            }
+        )
     return states
+
+
+def restore_patch_checkouts() -> str:
+    result = subprocess.run(
+        ["bash", str(REPO_ROOT / "scripts" / "apply_resfit_cf_resrl_patch.sh"), "reverse"],
+        cwd=REPO_ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    if _git(LEROBOT_ROOT, "status", "--porcelain"):
+        raise RuntimeError("LeRobot checkout is not clean after patch cleanup")
+    if _git(RESFIT_ROOT, "status", "--porcelain"):
+        raise RuntimeError("ResFiT checkout is not clean after patch cleanup")
+    return result.stdout
 
 
 def build_command(config: dict[str, Any], attempt_dir: Path) -> list[str]:
@@ -445,6 +489,8 @@ def main(argv: Sequence[str] | None = None) -> int:
     process: subprocess.Popen[bytes] | None = None
     returncode: int | None = None
     resolved: dict[str, Any] | None = None
+    patch_apply_attempted = False
+    patch_cleanup_stdout: str | None = None
 
     try:
         launcher_pid = os.getpid()
@@ -479,6 +525,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             python_version = metadata["python"]
             torch_version = metadata["torch"]
             cuda_version = metadata["cuda"]
+            patch_apply_attempted = True
             apply_result = subprocess.run(
                 ["bash", str(REPO_ROOT / "scripts" / "apply_resfit_cf_resrl_patch.sh")],
                 cwd=REPO_ROOT,
@@ -488,7 +535,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             )
             states_after = patch_states(config)
             if any(row["state"] != "applied" for row in states_after):
-                raise RuntimeError("registered ResFiT overlays were not applied")
+                raise RuntimeError("registered training overlays were not applied")
         else:
             runtime_verification = {
                 "status": "NOT_EXECUTED_DRY_RUN",
@@ -556,6 +603,8 @@ def main(argv: Sequence[str] | None = None) -> int:
                 "bytes": path.stat().st_size,
                 "sha256": _sha256(path),
             }
+        patch_cleanup_stdout = restore_patch_checkouts()
+        patch_apply_attempted = False
         completed = {
             **resolved,
             "status": "COMPLETED",
@@ -564,10 +613,20 @@ def main(argv: Sequence[str] | None = None) -> int:
             "returncode": returncode,
             "stdout_stderr_sha256": _sha256(log_path),
             "fixed_final_checkpoint": checkpoint_files,
+            "patch_cleanup_stdout": patch_cleanup_stdout,
+            "resfit_clean_after_cleanup": True,
+            "lerobot_clean_after_cleanup": True,
         }
         _write_json(status_path, completed)
         return 0
     except Exception as exc:
+        cleanup_error: str | None = None
+        if patch_apply_attempted:
+            try:
+                patch_cleanup_stdout = restore_patch_checkouts()
+                patch_apply_attempted = False
+            except Exception as cleanup_exc:
+                cleanup_error = f"{type(cleanup_exc).__name__}: {cleanup_exc}"
         verification_path = attempt_dir / "runtime" / "verification.json"
         if verification_path.is_file():
             runtime_verification = json.loads(verification_path.read_text(encoding="utf-8"))
@@ -598,6 +657,10 @@ def main(argv: Sequence[str] | None = None) -> int:
             "torch": torch_version,
             "cuda": cuda_version,
             "gpus": gpus,
+            "patch_cleanup_stdout": patch_cleanup_stdout,
+            "cleanup_error": cleanup_error,
+            "resfit_status": _git(RESFIT_ROOT, "status", "--porcelain"),
+            "lerobot_status": _git(LEROBOT_ROOT, "status", "--porcelain"),
         }
         if log_path.is_file():
             failed["stdout_stderr_sha256"] = _sha256(log_path)

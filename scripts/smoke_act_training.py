@@ -28,6 +28,7 @@ RESFIT_ROOT = REPO_ROOT / "third_party" / "resfit"
 ROBOSUITE_ROOT = REPO_ROOT / "third_party" / "robosuite"
 LEROBOT_ROOT = RESFIT_ROOT / "deps" / "lerobot"
 DEFAULT_CONFIG = REPO_ROOT / "configs" / "cf_resrl" / "m0_act_training_smoke.json"
+PATCH_ROOTS = {"resfit": RESFIT_ROOT, "lerobot": LEROBOT_ROOT}
 EXPECTED = {
     "resfit_commit": "66262b06a0caf159fb001504949b7b48ccda5f64",
     "robosuite_commit": "77a4751233c29456a5381209e30dd0dbf39a6557",
@@ -77,17 +78,23 @@ def validate_spec(config: dict[str, Any]) -> list[int]:
         if upstream[name] != EXPECTED[name]:
             raise ValueError(f"upstream.{name} does not match the registered value")
     expected_patches = [
-        (
-            "patches/resfit/train_bc_dexmg_cf_resrl.patch",
-            "63283baa4fd93a5802ae1e83170b4c0a18616df36ef9fcb36dff56b5def2d975",
-        ),
-        (
-            "patches/resfit/residual_td3_cf_resrl.patch",
-            "441a6070a30d2c2de8ff286c008e948a16d573febe07d72041255b42a5d9b35f",
-        ),
+        {
+            "path": "patches/resfit/train_bc_dexmg_cf_resrl.patch",
+            "sha256": "63283baa4fd93a5802ae1e83170b4c0a18616df36ef9fcb36dff56b5def2d975",
+            "target_root": "resfit",
+        },
+        {
+            "path": "patches/resfit/residual_td3_cf_resrl.patch",
+            "sha256": "441a6070a30d2c2de8ff286c008e948a16d573febe07d72041255b42a5d9b35f",
+            "target_root": "resfit",
+        },
+        {
+            "path": "patches/lerobot/noncontiguous_episode_subset.patch",
+            "sha256": "4d20bc4ec899087891018fd8360eac31ec06774279c05581fada3827db967429",
+            "target_root": "lerobot",
+        },
     ]
-    observed_patches = [(row["path"], row["sha256"]) for row in upstream["patches"]]
-    if observed_patches != expected_patches:
+    if upstream["patches"] != expected_patches:
         raise ValueError("ACT training smoke patch registration changed")
     for row in upstream["patches"]:
         if _sha256(_resolve(row["path"])) != row["sha256"]:
@@ -164,13 +171,15 @@ def patch_states(config: dict[str, Any]) -> list[dict[str, str]]:
     rows = []
     for registered in config["upstream"]["patches"]:
         patch = _resolve(registered["path"])
+        target_name = registered["target_root"]
+        target_root = PATCH_ROOTS[target_name]
         forward = subprocess.run(
-            ["git", "-C", str(RESFIT_ROOT), "apply", "--check", str(patch)],
+            ["git", "-C", str(target_root), "apply", "--check", str(patch)],
             capture_output=True,
             text=True,
         )
         reverse = subprocess.run(
-            ["git", "-C", str(RESFIT_ROOT), "apply", "--reverse", "--check", str(patch)],
+            ["git", "-C", str(target_root), "apply", "--reverse", "--check", str(patch)],
             capture_output=True,
             text=True,
         )
@@ -184,6 +193,8 @@ def patch_states(config: dict[str, Any]) -> list[dict[str, str]]:
             {
                 "path": str(patch.resolve()),
                 "sha256": registered["sha256"],
+                "target_root": target_name,
+                "target_path": str(target_root.resolve()),
                 "state": state,
             }
         )
@@ -299,30 +310,36 @@ def _capture_runtime(config: dict[str, Any], attempt_dir: Path) -> dict[str, Any
     }
 
 
-def _apply_patches(rows: list[dict[str, str]], applied: list[Path]) -> None:
+def _apply_patches(rows: list[dict[str, str]], applied: list[dict[str, str]]) -> None:
     if any(row["state"] != "not_applied" for row in rows):
-        raise RuntimeError("ACT training smoke requires both overlays to start unapplied")
+        raise RuntimeError("ACT training smoke requires all overlays to start unapplied")
     for row in rows:
         patch = Path(row["path"])
+        target_root = PATCH_ROOTS[row["target_root"]]
         subprocess.run(
-            ["git", "-C", str(RESFIT_ROOT), "apply", "--check", str(patch)],
+            ["git", "-C", str(target_root), "apply", "--check", str(patch)],
             check=True,
         )
     for row in rows:
         patch = Path(row["path"])
+        target_root = PATCH_ROOTS[row["target_root"]]
         subprocess.run(
-            ["git", "-C", str(RESFIT_ROOT), "apply", str(patch)],
+            ["git", "-C", str(target_root), "apply", str(patch)],
             check=True,
         )
-        applied.append(patch)
+        applied.append(row)
 
 
-def _reverse_patches(applied: list[Path]) -> None:
-    for patch in reversed(applied):
+def _reverse_patches(applied: list[dict[str, str]]) -> None:
+    for row in reversed(applied):
+        patch = Path(row["path"])
+        target_root = PATCH_ROOTS[row["target_root"]]
         subprocess.run(
-            ["git", "-C", str(RESFIT_ROOT), "apply", "--reverse", str(patch)],
+            ["git", "-C", str(target_root), "apply", "--reverse", str(patch)],
             check=True,
         )
+    if _git(LEROBOT_ROOT, "status", "--porcelain"):
+        raise RuntimeError("LeRobot checkout is not clean after ACT training smoke cleanup")
     if _git(RESFIT_ROOT, "status", "--porcelain"):
         raise RuntimeError("ResFiT checkout is not clean after ACT training smoke cleanup")
 
@@ -567,7 +584,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     attempt_dir = output_root / "attempts" / attempt_id
     attempt_dir.mkdir(parents=True, exist_ok=False)
     status_path = attempt_dir / "status.json"
-    applied: list[Path] = []
+    applied: list[dict[str, str]] = []
     training_result: dict[str, Any] | None = None
     runtime: dict[str, Any] | None = None
     resolved: dict[str, Any] | None = None
@@ -631,7 +648,7 @@ def main(argv: Sequence[str] | None = None) -> int:
                 **prepared,
                 "status": "RUNNING",
                 "runtime": runtime,
-                "patches_applied": [str(path) for path in applied],
+                "patches_applied": applied,
             },
         )
         try:
@@ -658,6 +675,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             "training": training_result,
             "checkpoint": checkpoint,
             "resfit_clean_after_cleanup": not bool(_git(RESFIT_ROOT, "status", "--porcelain")),
+            "lerobot_clean_after_cleanup": not bool(_git(LEROBOT_ROOT, "status", "--porcelain")),
             "limitations": config["limitations"],
         }
         _write_json(status_path, completed)
@@ -692,6 +710,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             "error": str(exc),
             "cleanup_error": cleanup_error,
             "resfit_status": _git(RESFIT_ROOT, "status", "--porcelain"),
+            "lerobot_status": _git(LEROBOT_ROOT, "status", "--porcelain"),
             "discarded_partial_artifacts": discarded_partial_artifacts,
         }
         if training_result is not None:

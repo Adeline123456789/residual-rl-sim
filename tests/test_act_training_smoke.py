@@ -5,6 +5,7 @@ import tempfile
 import unittest
 
 from scripts.smoke_act_training import (
+    LEROBOT_ROOT,
     REPO_ROOT,
     RESFIT_ROOT,
     _capture_runtime,
@@ -55,11 +56,16 @@ class ActTrainingSmokeTests(unittest.TestCase):
     def test_registered_patches_are_cleanly_applicable(self) -> None:
         self.assertEqual(
             [row["state"] for row in patch_states(self.config)],
-            ["not_applied", "not_applied"],
+            ["not_applied", "not_applied", "not_applied"],
         )
         self.assertEqual(
             RESFIT_ROOT.joinpath(".git").exists() or RESFIT_ROOT.is_dir(),
             True,
+        )
+        self.assertTrue(LEROBOT_ROOT.joinpath(".git").is_file() or LEROBOT_ROOT.is_dir())
+        self.assertEqual(
+            [row["target_root"] for row in self.config["upstream"]["patches"]],
+            ["resfit", "resfit", "lerobot"],
         )
 
     def test_dry_run_writes_immutable_attempt_without_applying_patches(self) -> None:
@@ -76,7 +82,7 @@ class ActTrainingSmokeTests(unittest.TestCase):
             self.assertEqual(resolved["resolved"]["episode_indices"], validate_spec(self.config))
             self.assertEqual(
                 [row["state"] for row in patch_states(self.config)],
-                ["not_applied", "not_applied"],
+                ["not_applied", "not_applied", "not_applied"],
             )
             self.assertFalse((attempts[0] / "training").exists())
             self.assertFalse((attempts[0] / "runtime").exists())

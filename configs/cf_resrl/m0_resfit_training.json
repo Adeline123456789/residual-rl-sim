@@ -4,9 +4,22 @@
     "resfit_commit": "66262b06a0caf159fb001504949b7b48ccda5f64",
     "robosuite_commit": "77a4751233c29456a5381209e30dd0dbf39a6557",
     "lerobot_commit": "69901b9b6a2300914ca3de0ea14b6fa6e0203bd4",
-    "required_patches": [
-      "patches/resfit/train_bc_dexmg_cf_resrl.patch",
-      "patches/resfit/residual_td3_cf_resrl.patch"
+    "patches": [
+      {
+        "path": "patches/resfit/train_bc_dexmg_cf_resrl.patch",
+        "sha256": "63283baa4fd93a5802ae1e83170b4c0a18616df36ef9fcb36dff56b5def2d975",
+        "target_root": "resfit"
+      },
+      {
+        "path": "patches/resfit/residual_td3_cf_resrl.patch",
+        "sha256": "441a6070a30d2c2de8ff286c008e948a16d573febe07d72041255b42a5d9b35f",
+        "target_root": "resfit"
+      },
+      {
+        "path": "patches/lerobot/noncontiguous_episode_subset.patch",
+        "sha256": "4d20bc4ec899087891018fd8360eac31ec06774279c05581fada3827db967429",
+        "target_root": "lerobot"
+      }
     ]
   },
   "dataset": {
