@@ -58,6 +58,8 @@ class ActTrainingLauncherTests(unittest.TestCase):
             "pyav",
             "--policy",
             "act",
+            "--policy_kwargs",
+            '{"pretrained_backbone_weights":"ResNet18_Weights.IMAGENET1K_V1"}',
             "--seed",
             "20261124",
             "--device",
@@ -102,6 +104,14 @@ class ActTrainingLauncherTests(unittest.TestCase):
         for lock_name in ("pip_freeze_lock", "conda_explicit_lock"):
             lock = runtime[lock_name]
             self.assertEqual(_sha256(REPO_ROOT / lock["path"]), lock["sha256"])
+        self.assertEqual(
+            self.config["act_backbone_weights"],
+            {
+                "enum": "ResNet18_Weights.IMAGENET1K_V1",
+                "filename": "resnet18-f37072fd.pth",
+                "sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec",
+            },
+        )
 
     def test_command_contains_exact_registered_budget_without_wandb(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
@@ -110,6 +120,10 @@ class ActTrainingLauncherTests(unittest.TestCase):
         self.assertEqual(command, self.expected_command(attempt))
         self.assertIn("--steps", command)
         self.assertEqual(command[command.index("--policy") + 1], "act")
+        self.assertEqual(
+            command[command.index("--policy_kwargs") + 1],
+            '{"pretrained_backbone_weights":"ResNet18_Weights.IMAGENET1K_V1"}',
+        )
         self.assertEqual(command[command.index("--seed") + 1], "20261124")
         self.assertEqual(command[command.index("--steps") + 1], "50000")
         self.assertEqual(command[command.index("--batch_size") + 1], "256")
@@ -141,8 +155,10 @@ class ActTrainingLauncherTests(unittest.TestCase):
                 for relative in self.config["upstream"]["required_patches"]
             ]
             with patch("scripts.run_act_training.patch_states", return_value=patch_rows):
-                with redirect_stdout(io.StringIO()):
-                    result = main(["--dry-run", "--out", str(output_root)])
+                with patch("scripts.run_act_training.capture_and_verify_runtime") as runtime_preflight:
+                    with redirect_stdout(io.StringIO()):
+                        result = main(["--dry-run", "--out", str(output_root)])
+            runtime_preflight.assert_not_called()
             self.assertEqual(result, 0)
             attempts = list((output_root / "attempts").iterdir())
             self.assertEqual(len(attempts), 1)

@@ -32,6 +32,9 @@ EXPECTED = {
     "pip_freeze_lock_sha256": "ce0fd3f7d80633ba96054f17a046fc3a4cc806ca945fd8e70928c9ec2a424eda",
     "conda_explicit_lock_path": "results/cf_resrl/m0/act_runtime/conda-explicit.txt",
     "conda_explicit_lock_sha256": "2b5538025ba240838ad5e1798a4a1556748b191c0790bce16a2e169afc4e7f7d",
+    "backbone_weights_enum": "ResNet18_Weights.IMAGENET1K_V1",
+    "backbone_weights_filename": "resnet18-f37072fd.pth",
+    "backbone_weights_sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec",
 }
 
 
@@ -65,6 +68,7 @@ def _resolve(path: str | Path) -> Path:
 def validate_spec(config: dict[str, Any]) -> list[int]:
     upstream = config["upstream"]
     runtime = config["runtime"]
+    backbone_weights = config["act_backbone_weights"]
     dataset = config["dataset"]
     training = config["training"]
     evaluation = config["evaluation"]
@@ -95,6 +99,12 @@ def validate_spec(config: dict[str, Any]) -> list[int]:
         lock = runtime[lock_name]
         if _sha256(_resolve(lock["path"])) != lock["sha256"]:
             raise ValueError(f"registered {lock_name} file SHA256 mismatch")
+    if backbone_weights != {
+        "enum": EXPECTED["backbone_weights_enum"],
+        "filename": EXPECTED["backbone_weights_filename"],
+        "sha256": EXPECTED["backbone_weights_sha256"],
+    }:
+        raise ValueError("ACT backbone weights do not match the registered torchvision artifact")
     if dataset["repo_id"] != "ankile/robomimic-mh-square-image":
         raise ValueError("ACT training dataset repo does not match the registered value")
     if dataset["root"] != "data/cf_resrl/square":
@@ -187,6 +197,11 @@ def build_command(config: dict[str, Any], attempt_dir: Path) -> list[str]:
     output_dir = attempt_dir / "training"
     cache_dir = attempt_dir / "cache"
     python_path = os.pathsep.join((str(RESFIT_ROOT), str(LEROBOT_ROOT)))
+    policy_kwargs = json.dumps(
+        {"pretrained_backbone_weights": config["act_backbone_weights"]["enum"]},
+        separators=(",", ":"),
+        sort_keys=True,
+    )
     return [
         "conda",
         "run",
@@ -217,6 +232,8 @@ def build_command(config: dict[str, Any], attempt_dir: Path) -> list[str]:
         dataset["video_backend"],
         "--policy",
         training["policy"],
+        "--policy_kwargs",
+        policy_kwargs,
         "--seed",
         str(training["seed"]),
         "--device",
@@ -274,7 +291,18 @@ def capture_and_verify_runtime(config: dict[str, Any], attempt_dir: Path) -> dic
     metadata_program = """
 import json
 import platform
+from pathlib import Path
+import sys
 import torch
+import torchvision.models as models
+from urllib.parse import urlparse
+
+enum_text = sys.argv[1]
+enum_class_name, enum_member_name = enum_text.split(".", maxsplit=1)
+weights = getattr(getattr(models, enum_class_name), enum_member_name)
+weights.get_state_dict(progress=False, check_hash=True)
+weights_filename = Path(urlparse(weights.url).path).name
+weights_path = Path(torch.hub.get_dir()) / "checkpoints" / weights_filename
 
 gpus = []
 for index in range(torch.cuda.device_count()):
@@ -292,6 +320,12 @@ print(json.dumps({
     "cuda": torch.version.cuda,
     "cuda_available": torch.cuda.is_available(),
     "gpus": gpus,
+    "backbone_weights": {
+        "enum": f"{enum_class_name}.{weights.name}",
+        "filename": weights_filename,
+        "path": str(weights_path.resolve()),
+        "torchvision_check_hash": True,
+    },
 }, sort_keys=True))
 """.strip()
     metadata_command = [
@@ -305,6 +339,7 @@ print(json.dumps({
         "python",
         "-c",
         metadata_program,
+        config["act_backbone_weights"]["enum"],
     ]
 
     pip_bytes = subprocess.run(pip_command, check=True, capture_output=True).stdout
@@ -316,8 +351,13 @@ print(json.dumps({
         text=True,
     ).stdout
     metadata = json.loads(metadata_stdout)
-    if not metadata["cuda_available"] or not metadata["gpus"]:
-        raise RuntimeError("registered ACT training requires an available CUDA GPU")
+    backbone_path = Path(metadata["backbone_weights"]["path"])
+    if backbone_path.is_file():
+        metadata["backbone_weights"]["bytes"] = backbone_path.stat().st_size
+        metadata["backbone_weights"]["sha256"] = _sha256(backbone_path)
+    else:
+        metadata["backbone_weights"]["bytes"] = None
+        metadata["backbone_weights"]["sha256"] = None
 
     pip_path = runtime_dir / "environment.lock.txt"
     explicit_path = runtime_dir / "conda-explicit.txt"
@@ -346,9 +386,19 @@ print(json.dumps({
         },
     }
     _write_json(runtime_dir / "verification.json", verification)
+    if not metadata["cuda_available"] or not metadata["gpus"]:
+        raise RuntimeError("registered ACT training requires an available CUDA GPU")
     for lock_name, lock in observed.items():
         if lock["sha256"] != lock["expected_sha256"]:
             raise RuntimeError(f"current {lock_name} SHA256 does not match the registered runtime")
+    backbone = metadata["backbone_weights"]
+    registered_backbone = config["act_backbone_weights"]
+    if backbone["enum"] != registered_backbone["enum"]:
+        raise RuntimeError("torchvision backbone weights enum mismatch")
+    if backbone["filename"] != registered_backbone["filename"]:
+        raise RuntimeError("torchvision backbone weights filename mismatch")
+    if backbone["sha256"] != registered_backbone["sha256"]:
+        raise RuntimeError("torchvision backbone weights full-file SHA256 mismatch")
     return verification
 
 

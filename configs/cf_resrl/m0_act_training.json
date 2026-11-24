@@ -21,6 +21,11 @@
       "sha256": "2b5538025ba240838ad5e1798a4a1556748b191c0790bce16a2e169afc4e7f7d"
     }
   },
+  "act_backbone_weights": {
+    "enum": "ResNet18_Weights.IMAGENET1K_V1",
+    "filename": "resnet18-f37072fd.pth",
+    "sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec"
+  },
   "dataset": {
     "repo_id": "ankile/robomimic-mh-square-image",
     "revision": "4e5cee7ea7d63b920ff76c2529b781c2474697da",
