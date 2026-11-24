@@ -1,0 +1,33 @@
+{
+  "checkpoint": {
+    "license": "NOT_PUBLISHED",
+    "provenance": "author-owned candidate",
+    "repo_id": "ankile/resfit-act-square",
+    "revision": "b75e08053d84de7b88c1600310c4f0482af8bebc",
+    "wandb_equivalence": "UNVERIFIED"
+  },
+  "error": "(MaxRetryError(\"HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /api/models/ankile/resfit-act-square/revision/b75e08053d84de7b88c1600310c4f0482af8bebc?blobs=True (Caused by ConnectTimeoutError(<HTTPSConnection(host='huggingface.co', port=443) at 0x722b3ad1ae60>, 'Connection to huggingface.co timed out. (connect timeout=None)'))\"), '(Request ID: bc962eef-0a01-4bd5-9987-b40ace5b194d)')",
+  "error_type": "ConnectTimeout",
+  "experiment_kind": "checkpoint_audit",
+  "failed_at_utc": "2026-11-24T14:55:39.440702+00:00",
+  "run": {
+    "attempt_id": "20261124T145322851875Z_42fd38e66dd9",
+    "command": "/home/midea/miniconda3/envs/cf-resrl-m0/bin/python scripts/audit_act_checkpoint.py",
+    "environment": {
+      "cuda_available": true,
+      "cuda_version": "12.8",
+      "device": "NVIDIA GeForce RTX 3090",
+      "huggingface_hub": "0.36.0",
+      "mujoco": "3.3.2",
+      "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+      "python": "3.10.22 | packaged by conda-forge | (main, Oct  6 2026, 23:02:24) [GCC 14.4.0]",
+      "robosuite": "1.5.1",
+      "torch": "2.7.1+cu128"
+    },
+    "evidence_dir": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/act_checkpoint_audit/attempts/20261124T145322851875Z_42fd38e66dd9",
+    "git_commit": "42fd38e66dd9430109b9b94734488c95cc59fcb8",
+    "git_dirty": false,
+    "started_at_utc": "2026-11-24T14:53:22.851875+00:00"
+  },
+  "status": "FAILED"
+}

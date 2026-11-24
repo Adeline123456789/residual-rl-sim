@@ -1,0 +1,8 @@
+{
+  "algorithm": "sha256",
+  "files": {
+    "audit_report.json": "b05f3ab1245216985ae9e2bf1f3c46a0e49d2ff403ecce09fc2a598eb7bd5f88",
+    "resolved_config.json": "7c7514e55ba0d9a8a30becc928f41d686fe1b20060ed616fe7665f88dfa2ab1b",
+    "stdout_stderr.log": "00685950ae785fb863314c4fba09df3d9e4254e4be08f6ca83461414263aac8b"
+  }
+}
