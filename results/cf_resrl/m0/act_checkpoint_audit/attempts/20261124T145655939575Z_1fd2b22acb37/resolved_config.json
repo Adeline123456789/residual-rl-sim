@@ -1,0 +1,57 @@
+{
+  "checkpoint": {
+    "disable_xet": true,
+    "expected_safetensors_tensor_elements": 34204289,
+    "files": [
+      {
+        "bytes": 1519,
+        "lfs_sha256": null,
+        "path": ".gitattributes"
+      },
+      {
+        "bytes": 1523,
+        "lfs_sha256": null,
+        "path": "config.json"
+      },
+      {
+        "bytes": 136837212,
+        "lfs_sha256": "add7b1e432ddeee2635ab09688b72fd5e1bb1eaff62a6b4b4494bc62b6e0364e",
+        "path": "model.safetensors"
+      }
+    ],
+    "license": "NOT_PUBLISHED",
+    "local_dir": "data/cf_resrl/checkpoints/resfit-act-square-b75e0805",
+    "provenance": "author-owned candidate",
+    "recovery_command": "HF_HUB_DISABLE_XET=1 python -c \"from huggingface_hub import snapshot_download; snapshot_download(repo_id='ankile/resfit-act-square', revision='b75e08053d84de7b88c1600310c4f0482af8bebc', local_dir='data/cf_resrl/checkpoints/resfit-act-square-b75e0805')\"",
+    "repo_id": "ankile/resfit-act-square",
+    "revision": "b75e08053d84de7b88c1600310c4f0482af8bebc",
+    "url": "https://huggingface.co/ankile/resfit-act-square/tree/b75e08053d84de7b88c1600310c4f0482af8bebc",
+    "wandb_equivalence": "UNVERIFIED",
+    "wandb_reference": "robomimic-square-bc/dzbkdpwp"
+  },
+  "output_dir": "results/cf_resrl/m0/act_checkpoint_audit",
+  "resolved": {
+    "config_path": "/media/midea/work/CF-ResRL/residual-rl-sim/configs/cf_resrl/m0_act_checkpoint.json",
+    "local_dir": "/media/midea/work/CF-ResRL/residual-rl-sim/data/cf_resrl/checkpoints/resfit-act-square-b75e0805",
+    "output_dir": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/act_checkpoint_audit/attempts/20261124T145655939575Z_1fd2b22acb37"
+  },
+  "run": {
+    "attempt_id": "20261124T145655939575Z_1fd2b22acb37",
+    "command": "/home/midea/miniconda3/envs/cf-resrl-m0/bin/python scripts/audit_act_checkpoint.py",
+    "environment": {
+      "cuda_available": true,
+      "cuda_version": "12.8",
+      "device": "NVIDIA GeForce RTX 3090",
+      "huggingface_hub": "0.36.0",
+      "mujoco": "3.3.2",
+      "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+      "python": "3.10.22 | packaged by conda-forge | (main, Oct  6 2026, 23:02:24) [GCC 14.4.0]",
+      "robosuite": "1.5.1",
+      "torch": "2.7.1+cu128"
+    },
+    "evidence_dir": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/act_checkpoint_audit/attempts/20261124T145655939575Z_1fd2b22acb37",
+    "git_commit": "1fd2b22acb37a72987d14dbca2806b73d8f30c54",
+    "git_dirty": false,
+    "started_at_utc": "2026-11-24T14:56:55.939575+00:00"
+  }
+}
