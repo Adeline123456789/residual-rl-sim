@@ -1,0 +1,68 @@
+{
+  "status": "SPECIFICATION_NOT_A_RUN_RESULT",
+  "upstream": {
+    "resfit_commit": "66262b06a0caf159fb001504949b7b48ccda5f64",
+    "robosuite_commit": "77a4751233c29456a5381209e30dd0dbf39a6557",
+    "lerobot_commit": "69901b9b6a2300914ca3de0ea14b6fa6e0203bd4",
+    "patches": [
+      {
+        "path": "patches/resfit/train_bc_dexmg_cf_resrl.patch",
+        "sha256": "63283baa4fd93a5802ae1e83170b4c0a18616df36ef9fcb36dff56b5def2d975"
+      },
+      {
+        "path": "patches/resfit/residual_td3_cf_resrl.patch",
+        "sha256": "441a6070a30d2c2de8ff286c008e948a16d573febe07d72041255b42a5d9b35f"
+      }
+    ]
+  },
+  "runtime": {
+    "conda_environment": "cf-resrl-m0",
+    "pip_freeze_lock": {
+      "path": "results/cf_resrl/m0/act_runtime/environment.lock.txt",
+      "sha256": "ce0fd3f7d80633ba96054f17a046fc3a4cc806ca945fd8e70928c9ec2a424eda"
+    },
+    "conda_explicit_lock": {
+      "path": "results/cf_resrl/m0/act_runtime/conda-explicit.txt",
+      "sha256": "2b5538025ba240838ad5e1798a4a1556748b191c0790bce16a2e169afc4e7f7d"
+    }
+  },
+  "dataset": {
+    "repo_id": "ankile/robomimic-mh-square-image",
+    "revision": "4e5cee7ea7d63b920ff76c2529b781c2474697da",
+    "root": "data/cf_resrl/square",
+    "split_manifest": "results/cf_resrl/m0/dataset_audit/attempts/20261124T131023495428Z_a9dcb4b558af/split_manifest.json",
+    "split_manifest_sha256": "629d01857156c691f297218e0cda3e3b3a802a91122f006a1ca70fd31163afcd",
+    "split": "train",
+    "episode_count": 240,
+    "video_backend": "pyav"
+  },
+  "training": {
+    "policy": "act",
+    "seed": 20261124,
+    "device": "cuda",
+    "steps": 1,
+    "batch_size": 256,
+    "num_workers": 0,
+    "grad_clip_norm": 10.0,
+    "log_frequency": 1,
+    "save_frequency": 1,
+    "wandb_enabled": false,
+    "rollout_enabled": false,
+    "policy_kwargs": {
+      "pretrained_backbone_weights": null
+    },
+    "output_root": "results/cf_resrl/m0/act_training_smoke"
+  },
+  "checkpoint": {
+    "optimization_steps_completed": 1,
+    "step_label": 0,
+    "relative_policy_path": "training/policy_step_0/policy",
+    "relative_trainer_state_path": "training/latest/trainer_state.pt",
+    "reload": "strict_local_only"
+  },
+  "limitations": [
+    "This smoke validates one real CUDA forward, backward, optimizer update, checkpoint save, and strict local reload; it is not an ACT training result.",
+    "The smoke disables pretrained backbone download so that it cannot depend on mutable network state.",
+    "Rollout evaluation is intentionally disabled; the separately registered policy smoke covers the Square environment interface."
+  ]
+}
