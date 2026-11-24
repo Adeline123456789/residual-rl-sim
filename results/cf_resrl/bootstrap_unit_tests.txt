@@ -1,0 +1,14 @@
+test_budget_rejects_negative_values (test_factorial.BudgetTests.test_budget_rejects_negative_values) ... ok
+test_equal_branch_budget_gives_direct_model_twice_the_contexts (test_factorial.BudgetTests.test_equal_branch_budget_gives_direct_model_twice_the_contexts) ... ok
+test_factorial_identity (test_factorial.FactorialOutcomeTests.test_factorial_identity) ... ok
+test_interaction_can_be_negative_while_refresh_is_still_best (test_factorial.FactorialOutcomeTests.test_interaction_can_be_negative_while_refresh_is_still_best) ... ok
+test_nonfinite_value_is_rejected (test_factorial.FactorialOutcomeTests.test_nonfinite_value_is_rejected) ... ok
+test_oracle_has_zero_regret (test_factorial.FactorialOutcomeTests.test_oracle_has_zero_regret) ... ok
+test_tie_prefers_keep (test_factorial.FactorialOutcomeTests.test_tie_prefers_keep) ... ok
+test_disjoint_group_split (test_factorial.SplitTests.test_disjoint_group_split) ... ok
+test_group_leakage_is_rejected (test_factorial.SplitTests.test_group_leakage_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.000s
+
+OK

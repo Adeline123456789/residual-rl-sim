@@ -1,0 +1,27 @@
+{
+  "status": "UNIT_TESTS_ONLY_NOT_ROBOT_RESULTS",
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "command": "PYTHONPATH=. python -m unittest discover -s tests -v",
+  "new_cf_resrl_tests": 9,
+  "failures": 0,
+  "errors": 0,
+  "files": {
+    "cf_resrl/factorial.py": {
+      "sha256": "9bf2c74c0299b7a9069cfc9ba3b76a9816f75da4de3b0a3a2a667940273bdeea",
+      "bytes": 5108
+    },
+    "tests/test_factorial.py": {
+      "sha256": "a3bd3f629b32bf67a5dda84304b342e3eb08fe1e4c758968671146d32c249659",
+      "bytes": 2479
+    },
+    "configs/cf_resrl/mvp_square.json": {
+      "sha256": "33038fe4e7455da34d51a63ba5f3e4f5de9ae317b7c1dd33b7b2f31cd279a1ea",
+      "bytes": 2571
+    },
+    "CF_RESRL_CODEX_TASK.md": {
+      "sha256": "ae0f729752a963d528c8f8e02b4e5a2345beaf2a9be0bf1b7c691ec6bc3e990a",
+      "bytes": 17259
+    }
+  }
+}
