@@ -1,0 +1,92 @@
+[robosuite WARNING] No private macro file found! (macros.py:57)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:58)
+[robosuite WARNING] To setup, run: python /media/midea/work/CF-ResRL/residual-rl-sim/third_party/robosuite/robosuite/scripts/setup_macros.py (macros.py:59)
+[robosuite WARNING] Could not import robosuite_models. Some robots may not be available. If you want to use these robots, please install robosuite_models from source (https://github.com/ARISE-Initiative/robosuite_models) or through pip install. (__init__.py:30)
+Fetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]Fetching 3 files:  33%|███▎      | 1/3 [00:01<00:02,  1.11s/it]Fetching 3 files: 100%|██████████| 3/3 [01:43<00:00, 34.41s/it]Fetching 3 files: 100%|██████████| 3/3 [01:43<00:00, 34.41s/it]
+{
+  "architecture": {
+    "action_dim": 7,
+    "camera_keys": [
+      "observation.images.agentview",
+      "observation.images.robot0_eye_in_hand"
+    ],
+    "camera_shape_chw": [
+      3,
+      84,
+      84
+    ],
+    "chunk_size": 20,
+    "n_action_steps": 20,
+    "policy_type": "act",
+    "state_dim": 9,
+    "use_vae": false,
+    "vision_backbone": "resnet18"
+  },
+  "artifacts": {
+    "resolved_config.json": "6cf40e7dbe06c4463abf4f86abd0464d208cf5a66ef25979b7b045bef3373d72"
+  },
+  "checkpoint": {
+    "files": [
+      {
+        "bytes": 1519,
+        "path": ".gitattributes",
+        "sha256": "11ad7efa24975ee4b0c3c3a38ed18737f0658a5f75a0a96787b576a78a023361"
+      },
+      {
+        "bytes": 1523,
+        "path": "config.json",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      {
+        "bytes": 136837212,
+        "path": "model.safetensors",
+        "sha256": "add7b1e432ddeee2635ab09688b72fd5e1bb1eaff62a6b4b4494bc62b6e0364e"
+      }
+    ],
+    "gated": false,
+    "license": "NOT_PUBLISHED",
+    "license_observation": {
+      "card_data": null,
+      "license_tags": [],
+      "readme_present": false
+    },
+    "local_dir": "/media/midea/work/CF-ResRL/residual-rl-sim/data/cf_resrl/checkpoints/resfit-act-square-b75e0805",
+    "parameter_count": 34204289,
+    "provenance": "author-owned candidate",
+    "public": true,
+    "recovery_command": "HF_HUB_DISABLE_XET=1 python -c \"from huggingface_hub import snapshot_download; snapshot_download(repo_id='ankile/resfit-act-square', revision='b75e08053d84de7b88c1600310c4f0482af8bebc', local_dir='data/cf_resrl/checkpoints/resfit-act-square-b75e0805')\"",
+    "repo_id": "ankile/resfit-act-square",
+    "resolved_revision": "b75e08053d84de7b88c1600310c4f0482af8bebc",
+    "revision": "b75e08053d84de7b88c1600310c4f0482af8bebc",
+    "url": "https://huggingface.co/ankile/resfit-act-square/tree/b75e08053d84de7b88c1600310c4f0482af8bebc",
+    "wandb_equivalence": "UNVERIFIED",
+    "wandb_reference": "robomimic-square-bc/dzbkdpwp"
+  },
+  "completed_at_utc": "2026-11-24T13:15:41.542327+00:00",
+  "experiment_kind": "checkpoint_audit",
+  "limitations": [
+    "The publisher did not provide a model card, license, training step, dataset revision, or rollout results.",
+    "This audit does not establish equivalence to the unrecoverable W&B dzbkdpwp_best artifact.",
+    "Policy loading and independent Square rollout remain required before using this candidate."
+  ],
+  "run": {
+    "attempt_id": "20261124T131356119285Z_eb3a7c76902e",
+    "command": "/home/midea/miniconda3/envs/cf-resrl-m0/bin/python scripts/audit_act_checkpoint.py --config configs/cf_resrl/m0_act_checkpoint.json",
+    "environment": {
+      "cuda_available": true,
+      "cuda_version": "12.8",
+      "device": "NVIDIA GeForce RTX 3090",
+      "huggingface_hub": "0.36.0",
+      "mujoco": "3.3.2",
+      "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+      "python": "3.10.22 | packaged by conda-forge | (main, Oct  6 2026, 23:02:24) [GCC 14.4.0]",
+      "robosuite": "1.5.1",
+      "torch": "2.7.1+cu128"
+    },
+    "evidence_dir": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/act_checkpoint_audit/attempts/20261124T131356119285Z_eb3a7c76902e",
+    "git_commit": "eb3a7c76902e4a6b78eecc90247591f3126fbe22",
+    "git_dirty": false,
+    "started_at_utc": "2026-11-24T13:13:56.119285+00:00"
+  },
+  "status": "COMPLETED"
+}
