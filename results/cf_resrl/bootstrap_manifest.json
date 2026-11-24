@@ -1,15 +1,18 @@
 {
   "status": "UNIT_TESTS_ONLY_NOT_ROBOT_RESULTS",
-  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
-  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
-  "command": "PYTHONPATH=. python -m unittest discover -s tests -v",
+  "python": "3.11.15 | packaged by conda-forge | (main, Mar  5 2026, 16:45:40) [GCC 14.3.0]",
+  "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+  "git_commit": "a12547e045f66928dffb47481123490738989a33",
+  "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. python -m unittest discover -s tests -v",
+  "total_tests": 30,
+  "historical_contract_tests": 21,
   "new_cf_resrl_tests": 9,
   "failures": 0,
   "errors": 0,
   "files": {
     "cf_resrl/factorial.py": {
-      "sha256": "9bf2c74c0299b7a9069cfc9ba3b76a9816f75da4de3b0a3a2a667940273bdeea",
-      "bytes": 5108
+      "sha256": "ac5c60a0d94203f7f92dcd432b567e64a60c27d2025a5908f3dbb08dbc33cbbf",
+      "bytes": 5103
     },
     "tests/test_factorial.py": {
       "sha256": "a3bd3f629b32bf67a5dda84304b342e3eb08fe1e4c758968671146d32c249659",
