@@ -1,0 +1,10 @@
+{
+  "duration_seconds": 3.893157120095566,
+  "error": "index 243 is out of bounds for dimension 0 with size 240",
+  "error_type": "IndexError",
+  "peak_memory_allocated_bytes": 136827904,
+  "peak_memory_reserved_bytes": 159383552,
+  "status": "FAILED",
+  "stdout_stderr_log": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/act_training_smoke/attempts/20261124T145954029783Z_4b8d4f8c998b/stdout_stderr.log",
+  "stdout_stderr_sha256": "4343278d3850a974737d1515551d9fd02e30e20467edfd0d2b8100ac51408d30"
+}

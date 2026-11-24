@@ -1,0 +1,42 @@
+[robosuite WARNING] No private macro file found! (macros.py:57)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:58)
+[robosuite WARNING] To setup, run: python /media/midea/work/CF-ResRL/residual-rl-sim/third_party/robosuite/robosuite/scripts/setup_macros.py (macros.py:59)
+[robosuite WARNING] Could not import robosuite_models. Some robots may not be available. If you want to use these robots, please install robosuite_models from source (https://github.com/ARISE-Initiative/robosuite_models) or through pip install. (__init__.py:30)
+2026-11-24 22:59:57,547 | INFO | Using device: cuda
+2026-11-24 22:59:57,548 | INFO | Random seed set to 20261124
+2026-11-24 22:59:57,548 | INFO | Loading pinned dataset metadata…
+2026-11-24 22:59:57,656 | INFO | Using 240 episodes from split 'train'
+2026-11-24 22:59:57,656 | INFO | Cuda backend detected, using cuda.
+2026-11-24 22:59:57,656 | WARNING | Device 'None' is not available. Switching to 'cuda'.
+2026-11-24 22:59:57,656 | INFO | Building LeRobotDataset with inferred delta-timestamps…
+Downloading data:   0%|          | 0/240 [00:00<?, ?files/s]Downloading data: 100%|██████████| 240/240 [00:00<00:00, 14839.65files/s]
+Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 29784 examples [00:00, 293668.72 examples/s]Generating train split: 59987 examples [00:00, 298258.02 examples/s]Generating train split: 64107 examples [00:00, 297206.22 examples/s]
+ACTConfig(n_obs_steps=1, normalization_mapping={'VISUAL': <NormalizationMode.MEAN_STD: 'MEAN_STD'>, 'STATE': <NormalizationMode.MEAN_STD: 'MEAN_STD'>, 'ACTION': <NormalizationMode.MEAN_STD: 'MEAN_STD'>}, input_features={'observation.state': PolicyFeature(type=<FeatureType.STATE: 'STATE'>, shape=(9,)), 'observation.images.agentview': PolicyFeature(type=<FeatureType.VISUAL: 'VISUAL'>, shape=(3, 84, 84)), 'observation.images.robot0_eye_in_hand': PolicyFeature(type=<FeatureType.VISUAL: 'VISUAL'>, shape=(3, 84, 84))}, output_features={'action': PolicyFeature(type=<FeatureType.ACTION: 'ACTION'>, shape=(7,))}, device='cuda', use_amp=False, chunk_size=20, n_action_steps=20, vision_backbone='resnet18', pretrained_backbone_weights=None, replace_final_stride_with_dilation=False, pre_norm=False, dim_model=512, n_heads=8, dim_feedforward=3200, feedforward_activation='relu', n_encoder_layers=4, n_decoder_layers=1, use_vae=False, latent_dim=32, n_vae_encoder_layers=4, temporal_ensemble_coeff=None, dropout=0.1, kl_weight=10.0, optimizer_lr=0.0001, optimizer_weight_decay=0.0001, optimizer_lr_backbone=1e-05)
+/home/midea/miniconda3/envs/cf-resrl-m0/lib/python3.10/site-packages/torchvision/io/_video_deprecation_warning.py:5: UserWarning: The video decoding and encoding capabilities of torchvision are deprecated from version 0.22 and will be removed in version 0.24. We recommend that you migrate to TorchCodec, where we'll consolidate the future decoding/encoding capabilities of PyTorch: https://github.com/pytorch/torchcodec
+  warnings.warn(
+Traceback (most recent call last):
+  File "/media/midea/work/CF-ResRL/residual-rl-sim/scripts/smoke_act_training.py", line 356, in _run_training
+    runpy.run_module(argv[0], run_name="__main__")
+  File "/home/midea/miniconda3/envs/cf-resrl-m0/lib/python3.10/runpy.py", line 227, in run_module
+    return _run_code(code, {}, init_globals, run_name, mod_spec)
+  File "/home/midea/miniconda3/envs/cf-resrl-m0/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/media/midea/work/CF-ResRL/residual-rl-sim/third_party/resfit/resfit/lerobot/scripts/train_bc_dexmg.py", line 1010, in <module>
+    main(args_cli)
+  File "/media/midea/work/CF-ResRL/residual-rl-sim/third_party/resfit/resfit/lerobot/scripts/train_bc_dexmg.py", line 760, in main
+    batch: dict[str, Any] = next(dl_iter)
+  File "/media/midea/work/CF-ResRL/residual-rl-sim/third_party/resfit/deps/lerobot/lerobot/common/datasets/utils.py", line 641, in cycle
+    yield next(iterator)
+  File "/home/midea/miniconda3/envs/cf-resrl-m0/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 733, in __next__
+    data = self._next_data()
+  File "/home/midea/miniconda3/envs/cf-resrl-m0/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 789, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/home/midea/miniconda3/envs/cf-resrl-m0/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 52, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/midea/miniconda3/envs/cf-resrl-m0/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 52, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/media/midea/work/CF-ResRL/residual-rl-sim/third_party/resfit/deps/lerobot/lerobot/common/datasets/lerobot_dataset.py", line 708, in __getitem__
+    query_indices, padding = self._get_query_indices(idx, ep_idx)
+  File "/media/midea/work/CF-ResRL/residual-rl-sim/third_party/resfit/deps/lerobot/lerobot/common/datasets/lerobot_dataset.py", line 644, in _get_query_indices
+    ep_start = self.episode_data_index["from"][ep_idx]
+IndexError: index 243 is out of bounds for dimension 0 with size 240
