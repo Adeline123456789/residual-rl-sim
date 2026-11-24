@@ -1,0 +1,17 @@
+[robosuite WARNING] No private macro file found! (macros.py:57)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:58)
+[robosuite WARNING] To setup, run: python /media/midea/work/CF-ResRL/residual-rl-sim/third_party/robosuite/robosuite/scripts/setup_macros.py (macros.py:59)
+[robosuite WARNING] Could not import robosuite_models. Some robots may not be available. If you want to use these robots, please install robosuite_models from source (https://github.com/ARISE-Initiative/robosuite_models) or through pip install. (__init__.py:30)
+2026-11-24 23:12:33,301 | INFO | Using device: cuda
+2026-11-24 23:12:33,302 | INFO | Random seed set to 20261124
+2026-11-24 23:12:33,302 | INFO | Loading pinned dataset metadata…
+2026-11-24 23:12:33,410 | INFO | Using 240 episodes from split 'train'
+2026-11-24 23:12:33,410 | INFO | Cuda backend detected, using cuda.
+2026-11-24 23:12:33,410 | WARNING | Device 'None' is not available. Switching to 'cuda'.
+2026-11-24 23:12:33,410 | INFO | Building LeRobotDataset with inferred delta-timestamps…
+ACTConfig(n_obs_steps=1, normalization_mapping={'VISUAL': <NormalizationMode.MEAN_STD: 'MEAN_STD'>, 'STATE': <NormalizationMode.MEAN_STD: 'MEAN_STD'>, 'ACTION': <NormalizationMode.MEAN_STD: 'MEAN_STD'>}, input_features={'observation.state': PolicyFeature(type=<FeatureType.STATE: 'STATE'>, shape=(9,)), 'observation.images.agentview': PolicyFeature(type=<FeatureType.VISUAL: 'VISUAL'>, shape=(3, 84, 84)), 'observation.images.robot0_eye_in_hand': PolicyFeature(type=<FeatureType.VISUAL: 'VISUAL'>, shape=(3, 84, 84))}, output_features={'action': PolicyFeature(type=<FeatureType.ACTION: 'ACTION'>, shape=(7,))}, device='cuda', use_amp=False, chunk_size=20, n_action_steps=20, vision_backbone='resnet18', pretrained_backbone_weights=None, replace_final_stride_with_dilation=False, pre_norm=False, dim_model=512, n_heads=8, dim_feedforward=3200, feedforward_activation='relu', n_encoder_layers=4, n_decoder_layers=1, use_vae=False, latent_dim=32, n_vae_encoder_layers=4, temporal_ensemble_coeff=None, dropout=0.1, kl_weight=10.0, optimizer_lr=0.0001, optimizer_weight_decay=0.0001, optimizer_lr_backbone=1e-05)
+/home/midea/miniconda3/envs/cf-resrl-m0/lib/python3.10/site-packages/torchvision/io/_video_deprecation_warning.py:5: UserWarning: The video decoding and encoding capabilities of torchvision are deprecated from version 0.22 and will be removed in version 0.24. We recommend that you migrate to TorchCodec, where we'll consolidate the future decoding/encoding capabilities of PyTorch: https://github.com/pytorch/torchcodec
+  warnings.warn(
+2026-11-24 23:12:37,811 | INFO | [step      0/1] loss: 0.7324 | data: 2323.8 ms | update: 381.2 ms | iter: 2704.9 ms
+2026-11-24 23:12:39,245 | INFO | Checkpoint saved (model-only @ /media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/act_training_smoke/attempts/20261124T151229796678Z_e94f125e4eb8/training/policy_step_0, full state @ /media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/act_training_smoke/attempts/20261124T151229796678Z_e94f125e4eb8/training/latest)
+2026-11-24 23:12:39,245 | INFO | Training finished!

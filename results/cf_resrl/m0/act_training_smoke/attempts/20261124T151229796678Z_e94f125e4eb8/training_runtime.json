@@ -1,0 +1,8 @@
+{
+  "duration_seconds": 7.716330816037953,
+  "peak_memory_allocated_bytes": 2593082880,
+  "peak_memory_reserved_bytes": 3089104896,
+  "status": "COMPLETED",
+  "stdout_stderr_log": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/act_training_smoke/attempts/20261124T151229796678Z_e94f125e4eb8/stdout_stderr.log",
+  "stdout_stderr_sha256": "cff32241dea07633a55e20bff6a6afbe81f449b705630f95ccf57d926691354f"
+}
