@@ -1,0 +1,10 @@
+{
+  "config": {
+    "path": "/media/midea/work/CF-ResRL/residual-rl-sim/configs/cf_resrl/m0_composite_snapshot_smoke.json",
+    "sha256": "0afd446441336645751990df19d0f8aa88a1607f11bbd8a04075bc5f6880773e"
+  },
+  "resolved_config.json": "c081f0bf0acf00db2d2df613c62670a01bc45d4b427d6183a30f00bba41c958f",
+  "smoke_report.json": "1bc06fa8ff19749295b6b6865d31381ac3a0faa4c25ebe5437dac6d9075ceee7",
+  "stdout_stderr.log": "086262fb1aba257c39d49b043f4896807d234335649743446976236c1598d1ea",
+  "tick_records.jsonl": "16a2b6689d54b4064c7507a418db17b0cbd6df8466823744d0589afaf27787e5"
+}
