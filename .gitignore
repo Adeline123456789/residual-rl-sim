@@ -8,3 +8,6 @@ __pycache__/
 data/
 wandb/
 .aris/
+results/cf_resrl/m0/act_training/attempts/*/training/**/*.safetensors
+results/cf_resrl/m0/act_training/attempts/*/training/eval_square/
+results/cf_resrl/m0/act_training/attempts/*/cache/
