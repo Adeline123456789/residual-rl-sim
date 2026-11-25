@@ -257,6 +257,8 @@ def build_command(config: dict[str, Any], attempt_dir: Path) -> list[str]:
         "env",
         "PYTHONNOUSERSITE=1",
         "PYTHONUNBUFFERED=1",
+        # Evaluation writes plots from a headless trainer with replay worker threads.
+        "MPLBACKEND=Agg",
         f"PYTHONPATH={python_path}",
         f"CACHE_DIR={cache_dir}",
         "WANDB_MODE=disabled",

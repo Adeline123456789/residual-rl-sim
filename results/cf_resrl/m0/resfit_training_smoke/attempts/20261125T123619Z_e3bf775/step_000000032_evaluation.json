@@ -1,0 +1,44 @@
+{
+  "base_policy_artifacts": {
+    "config.json": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb",
+    "model.safetensors": "e5f5b3c7fa7512a2ae202d5912922289a52348f8a3bb5a9da33f606d671cb859"
+  },
+  "checkpoint_global_step": 32,
+  "checkpoint_sha256": "75dc14404fffb8db134033c81a02e40c7b3879b35ab9da83579ea544629a5686",
+  "counts_toward_training_budget": false,
+  "environment_steps": 600,
+  "episodes": [
+    {
+      "env_index": 0,
+      "environment_steps": 190,
+      "episode_index": 0,
+      "lane_episode_index": 0,
+      "lane_initial_seed": 20262124,
+      "return": 1.0,
+      "success": true,
+      "terminated": true,
+      "truncated": false
+    },
+    {
+      "env_index": 1,
+      "environment_steps": 300,
+      "episode_index": 1,
+      "lane_episode_index": 0,
+      "lane_initial_seed": 20262125,
+      "return": 0.0,
+      "success": false,
+      "terminated": false,
+      "truncated": true
+    }
+  ],
+  "initial_reset_seed": 20262124,
+  "metrics": {
+    "eval/environment_steps": 600,
+    "eval/mean_return": 0.5,
+    "eval/mean_successful_episode_length": 190.0,
+    "eval/success_rate": 0.5
+  },
+  "num_envs": 2,
+  "task": "Square",
+  "wall_seconds": 6.5987566371914
+}

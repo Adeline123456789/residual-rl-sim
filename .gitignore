@@ -11,3 +11,5 @@ wandb/
 results/cf_resrl/m0/act_training/attempts/*/training/**/*.safetensors
 results/cf_resrl/m0/act_training/attempts/*/training/eval_square/
 results/cf_resrl/m0/act_training/attempts/*/cache/
+results/cf_resrl/m0/resfit_training/attempts/*/cache/
+results/cf_resrl/m0/resfit_training/attempts/*/training/outputs/**/*.mp4

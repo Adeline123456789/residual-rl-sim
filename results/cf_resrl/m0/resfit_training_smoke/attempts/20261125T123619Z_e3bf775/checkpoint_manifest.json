@@ -1,0 +1,43 @@
+{
+  "action_ledger": {
+    "path": "/media/midea/work/CF-ResRL/.resfit-render-smoke.dHom6c/training/action_ledger.jsonl",
+    "records": 640,
+    "sha256": "3cb0aa17ae96620d4aa8c035f5afd0b9b3d7d3ca9ee7b9cc6f13191ecace23c4"
+  },
+  "checkpoint_contract": "evaluation_loadable_not_training_resumable",
+  "checkpoint_interval_environment_steps": 640,
+  "checkpoints": [
+    {
+      "evaluation": {
+        "episodes": 2,
+        "path": "/media/midea/work/CF-ResRL/.resfit-render-smoke.dHom6c/training/outputs/step_000000032_evaluation.json",
+        "sha256": "9dd577e3a2d7f87fd5fe4d7772cfb733099a62a8853b80afabd50e6d1ab30a15"
+      },
+      "global_step": 32,
+      "path": "/media/midea/work/CF-ResRL/.resfit-render-smoke.dHom6c/training/models/step_000000032.pt",
+      "selection": "fixed_environment_step",
+      "sha256": "75dc14404fffb8db134033c81a02e40c7b3879b35ab9da83579ea544629a5686"
+    },
+    {
+      "evaluation": {
+        "episodes": 2,
+        "path": "/media/midea/work/CF-ResRL/.resfit-render-smoke.dHom6c/training/outputs/step_000000640_evaluation.json",
+        "sha256": "aaecb86d2e3fc59246a59fcbfb1829f4ff6d30acbe59ca2f82b203a07f466a47"
+      },
+      "global_step": 640,
+      "path": "/media/midea/work/CF-ResRL/.resfit-render-smoke.dHom6c/training/models/step_000000640.pt",
+      "selection": "fixed_environment_step",
+      "sha256": "c944972af632b51e05285e1825346a610e1ac275b6d4c8344c8a98d185683682"
+    }
+  ],
+  "environment_step_budget": {
+    "main": 608,
+    "total": 640,
+    "warmup": 32
+  },
+  "resume_limitations": [
+    "replay buffers are not included",
+    "live environment state is not included"
+  ],
+  "selection": "fixed_environment_step"
+}

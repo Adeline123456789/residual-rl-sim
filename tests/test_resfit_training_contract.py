@@ -139,6 +139,7 @@ class ResfitTrainingContractTests(unittest.TestCase):
             self.assertFalse((attempt_dir / "training").exists())
             self.assertIn("--config-name=residual_td3_square_config", command)
             self.assertIn("cf-resrl-resfit", command)
+            self.assertIn("MPLBACKEND=Agg", command)
             self.assertEqual(resolved["validation"]["base_policy_source"]["checkpoint_selection"]["checkpoint_step_label"], 49999)
             expected = {
                 "seed": "20261124",
