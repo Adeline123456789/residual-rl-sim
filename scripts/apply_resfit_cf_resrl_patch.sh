@@ -5,11 +5,15 @@ repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 resfit_root="$repo_root/third_party/resfit"
 lerobot_root="$resfit_root/deps/lerobot"
 mode="${1:-apply}"
+residual_patch="residual_td3_cf_resrl.patch"
+if [[ "${2:-}" == "fixed-evaluation" ]]; then
+    residual_patch="residual_td3_cf_resrl_eval.patch"
+fi
 
 case "$mode" in
     apply|reverse|check) ;;
     *)
-        echo "Usage: $0 [apply|reverse|check]" >&2
+        echo "Usage: $0 [apply|reverse|check] [fixed-evaluation]" >&2
         exit 2
         ;;
 esac
@@ -24,7 +28,7 @@ target_roots=(
 )
 patch_files=(
     "$repo_root/patches/resfit/train_bc_dexmg_cf_resrl.patch"
-    "$repo_root/patches/resfit/residual_td3_cf_resrl.patch"
+    "$repo_root/patches/resfit/$residual_patch"
     "$repo_root/patches/lerobot/noncontiguous_episode_subset.patch"
 )
 

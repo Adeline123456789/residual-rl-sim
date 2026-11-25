@@ -11,8 +11,8 @@
         "target_root": "resfit"
       },
       {
-        "path": "patches/resfit/residual_td3_cf_resrl.patch",
-        "sha256": "441a6070a30d2c2de8ff286c008e948a16d573febe07d72041255b42a5d9b35f",
+        "path": "patches/resfit/residual_td3_cf_resrl_eval.patch",
+        "sha256": "7fba47e4ee1fb75d22d162020df202f598f0117b549dbc0fa26159843722df0f",
         "target_root": "resfit"
       },
       {
@@ -33,12 +33,15 @@
     "video_backend": "pyav"
   },
   "base_policy": {
-    "local_dir": "data/cf_resrl/checkpoints/resfit-act-square-b75e0805",
+    "local_dir": "results/cf_resrl/m0/act_training/attempts/20261125T005956570423Z_3dfd8208847a/training/policy_step_49999/policy",
+    "source_status": "results/cf_resrl/m0/act_training/attempts/20261125T005956570423Z_3dfd8208847a/status.json",
     "config_sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb",
-    "model_sha256": "add7b1e432ddeee2635ab09688b72fd5e1bb1eaff62a6b4b4494bc62b6e0364e",
-    "provenance": "author-owned candidate",
-    "wandb_equivalence": "UNVERIFIED",
-    "license": "NOT_PUBLISHED"
+    "model_sha256": "e5f5b3c7fa7512a2ae202d5912922289a52348f8a3bb5a9da33f606d671cb859",
+    "provenance": "locally reproduced ACT, fixed final checkpoint after 50000 optimization steps"
+  },
+  "runtime": {
+    "conda_environment": "cf-resrl-resfit",
+    "extension_requirements": "configs/cf_resrl/m0_resfit_runtime_requirements.txt"
   },
   "training": {
     "config_name": "residual_td3_square_config",
@@ -53,8 +56,7 @@
     "output_root": "results/cf_resrl/m0/resfit_training"
   },
   "limitations": [
-    "This specification uses the author-owned ACT candidate; equivalence to the unavailable W&B checkpoint is unverified.",
-    "The ACT publisher did not provide a checkpoint license or model card.",
+    "The base policy is the fixed final checkpoint of the local ACT reproduction; the original W&B run was unavailable.",
     "No ResFiT training result exists until the long run completes and its checkpoint manifest is committed.",
     "Fixed checkpoints preserve model, target-network, optimizer, scheduler, normalization, and RNG state, but omit replay buffers and live environment state; they are evaluation-loadable, not complete training resumes."
   ]

@@ -9,7 +9,7 @@ import unittest
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 CONFIG_PATH = REPO_ROOT / "configs/cf_resrl/m0_resfit_training.json"
-PATCH_PATH = REPO_ROOT / "patches/resfit/residual_td3_cf_resrl.patch"
+PATCH_PATH = REPO_ROOT / "patches/resfit/residual_td3_cf_resrl_eval.patch"
 LAUNCHER_PATH = REPO_ROOT / "scripts/run_resfit_training.py"
 APPLY_PATCH_SCRIPT = REPO_ROOT / "scripts/apply_resfit_cf_resrl_patch.sh"
 RESFIT_ROOT = REPO_ROOT / "third_party/resfit"
@@ -106,13 +106,19 @@ class ResfitTrainingContractTests(unittest.TestCase):
         roll = training_patch.index("obs = next_obs  # roll", main_loop)
         advance = training_patch.index("global_step += cfg.num_envs", roll)
         ledger = training_patch.index('_record_applied_action(global_step, "main", info)', advance)
-        evaluation = training_patch.index("if global_step % cfg.eval_interval_every_steps == 0", ledger)
-        checkpoint = training_patch.index("if global_step % cfg.checkpoint_interval == 0", evaluation)
+        checkpoint = training_patch.index("if global_step % cfg.checkpoint_interval == 0", ledger)
         self.assertLess(roll, advance)
         self.assertLess(advance, ledger)
-        self.assertLess(ledger, evaluation)
-        self.assertLess(evaluation, checkpoint)
+        self.assertLess(ledger, checkpoint)
         self.assertNotIn('_record_applied_action(global_step + cfg.num_envs, "main", info)', training_patch)
+
+    def test_checkpoint_evaluation_is_bound_to_saved_weights(self) -> None:
+        save = self.added_lines.index("def _save_fixed_checkpoint(step: int)")
+        checkpoint = self.added_lines.index("_sha256_file(checkpoint_path)", save)
+        evaluation = self.added_lines.index("run_dexmg_evaluation(", checkpoint)
+        self.assertLess(checkpoint, evaluation)
+        self.assertIn("global_step=step", self.added_lines[evaluation:])
+        self.assertIn("episode_records=episodes", self.added_lines[evaluation:])
 
     def test_launcher_dry_run_resolves_exact_hydra_overrides(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
@@ -132,6 +138,8 @@ class ResfitTrainingContractTests(unittest.TestCase):
             self.assertTrue((attempt_dir / "cache").is_dir())
             self.assertFalse((attempt_dir / "training").exists())
             self.assertIn("--config-name=residual_td3_square_config", command)
+            self.assertIn("cf-resrl-resfit", command)
+            self.assertEqual(resolved["validation"]["base_policy_source"]["checkpoint_selection"]["checkpoint_step_label"], 49999)
             expected = {
                 "seed": "20261124",
                 "offline_data.name": "ankile/robomimic-mh-square-image",

@@ -27,8 +27,8 @@ EXPECTED_PATCHES = [
         "target_root": "resfit",
     },
     {
-        "path": "patches/resfit/residual_td3_cf_resrl.patch",
-        "sha256": "441a6070a30d2c2de8ff286c008e948a16d573febe07d72041255b42a5d9b35f",
+        "path": "patches/resfit/residual_td3_cf_resrl_eval.patch",
+        "sha256": "7fba47e4ee1fb75d22d162020df202f598f0117b549dbc0fa26159843722df0f",
         "target_root": "resfit",
     },
     {
@@ -69,6 +69,7 @@ def validate_spec(config: dict[str, Any]) -> dict[str, Any]:
     upstream = config["upstream"]
     dataset = config["dataset"]
     base = config["base_policy"]
+    runtime = config["runtime"]
     training = config["training"]
 
     expected_upstream = {
@@ -97,7 +98,20 @@ def validate_spec(config: dict[str, Any]) -> dict[str, Any]:
     if dataset["split"] != "train" or dataset["episodes"] != 240 or len(episode_indices) != 240:
         raise ValueError("ResFiT must use the registered 240-episode train split")
 
-    base_dir = _resolve(base["local_dir"])
+    source_status_path = _resolve(base["source_status"])
+    source_status = json.loads(source_status_path.read_text(encoding="utf-8"))
+    selection = source_status["checkpoint_selection"]
+    base_dir = _resolve(base["local_dir"]).resolve()
+    if (
+        source_status["status"] != "COMPLETED"
+        or source_status["returncode"] != 0
+        or source_status["dry_run"]
+        or selection["selection"] != "final_fixed_optimization_step"
+        or selection["optimization_steps_completed"] != 50000
+        or selection["checkpoint_step_label"] != 49999
+        or base_dir != source_status_path.resolve().parent / "training" / selection["relative_policy_path"]
+    ):
+        raise ValueError("ResFiT must start from the completed ACT 50k fixed final checkpoint")
     base_files = {
         "config.json": {
             "path": str((base_dir / "config.json").resolve()),
@@ -110,8 +124,17 @@ def validate_spec(config: dict[str, Any]) -> dict[str, Any]:
             "expected_sha256": base["model_sha256"],
         },
     }
-    if any(row["sha256"] != row["expected_sha256"] for row in base_files.values()):
+    if any(
+        row["sha256"] != row["expected_sha256"]
+        or row["sha256"] != source_status["fixed_final_checkpoint"][name]["sha256"]
+        for name, row in base_files.items()
+    ):
         raise ValueError("base policy artifact SHA-256 mismatch")
+    if runtime != {
+        "conda_environment": "cf-resrl-resfit",
+        "extension_requirements": "configs/cf_resrl/m0_resfit_runtime_requirements.txt",
+    }:
+        raise ValueError("ResFiT must use the registered runtime")
 
     expected_training = {
         "config_name": "residual_td3_square_config",
@@ -137,6 +160,12 @@ def validate_spec(config: dict[str, Any]) -> dict[str, Any]:
             "episode_indices": episode_indices,
         },
         "base_policy": base_files,
+        "base_policy_source": {
+            "status_path": base["source_status"],
+            "status_sha256": _sha256(source_status_path),
+            "git_commit": source_status["git_commit"],
+            "checkpoint_selection": selection,
+        },
     }
 
 
@@ -178,7 +207,7 @@ def patch_states(config: dict[str, Any], *, strict: bool = True) -> list[dict[st
 
 def restore_patch_checkouts() -> str:
     result = subprocess.run(
-        ["bash", str(REPO_ROOT / "scripts" / "apply_resfit_cf_resrl_patch.sh"), "reverse"],
+        ["bash", str(REPO_ROOT / "scripts" / "apply_resfit_cf_resrl_patch.sh"), "reverse", "fixed-evaluation"],
         cwd=REPO_ROOT,
         check=True,
         capture_output=True,
@@ -224,7 +253,7 @@ def build_command(config: dict[str, Any], attempt_dir: Path) -> list[str]:
         "run",
         "--no-capture-output",
         "-n",
-        "cf-resrl-m0",
+        config["runtime"]["conda_environment"],
         "env",
         "PYTHONNOUSERSITE=1",
         "PYTHONUNBUFFERED=1",
@@ -238,6 +267,34 @@ def build_command(config: dict[str, Any], attempt_dir: Path) -> list[str]:
         f"--config-name={training['config_name']}",
         *overrides,
     ]
+
+
+def capture_runtime(config: dict[str, Any], attempt_dir: Path) -> dict[str, Any]:
+    runtime = config["runtime"]
+    name = runtime["conda_environment"]
+    runtime_dir = attempt_dir / "runtime"
+    runtime_dir.mkdir()
+    commands = {
+        "environment.lock.txt": [
+            "conda", "run", "-n", name, "env", "PYTHONNOUSERSITE=1", "python", "-m", "pip", "freeze", "--all",
+        ],
+        "conda-explicit.txt": ["conda", "list", "-n", name, "--explicit"],
+    }
+    files = {}
+    for filename, command in commands.items():
+        path = runtime_dir / filename
+        path.write_bytes(subprocess.check_output(command, cwd=REPO_ROOT))
+        files[filename] = {"path": str(path.resolve()), "sha256": _sha256(path)}
+    requirements = _resolve(runtime["extension_requirements"])
+    frozen = set((runtime_dir / "environment.lock.txt").read_text().lower().replace("_", "-").splitlines())
+    for line in requirements.read_text().splitlines() + ["torch==2.7.1+cu128", "mujoco==3.3.2", "gymnasium==1.1.1"]:
+        if line.lower() not in frozen:
+            raise RuntimeError(f"ResFiT runtime is missing pinned distribution {line}")
+    return {
+        **runtime,
+        "extension_requirements_sha256": _sha256(requirements),
+        "locks": files,
+    }
 
 
 def _attempt_dir(output_root: Path, repo_head: str) -> tuple[Path, datetime]:
@@ -283,12 +340,14 @@ def main(argv: Sequence[str] | None = None) -> int:
 
         states_before = patch_states(config)
         apply_result = None
+        runtime = None
         if not args.dry_run:
             if _git(RESFIT_ROOT, "status", "--porcelain"):
                 raise RuntimeError("formal ResFiT training must start from the clean pinned checkout")
+            runtime = capture_runtime(config, attempt_dir)
             patch_apply_attempted = True
             apply_result = subprocess.run(
-                ["bash", str(REPO_ROOT / "scripts" / "apply_resfit_cf_resrl_patch.sh")],
+                ["bash", str(REPO_ROOT / "scripts" / "apply_resfit_cf_resrl_patch.sh"), "apply", "fixed-evaluation"],
                 cwd=REPO_ROOT,
                 check=True,
                 capture_output=True,
@@ -315,6 +374,8 @@ def main(argv: Sequence[str] | None = None) -> int:
             "training_output_dir": str((attempt_dir / "training").resolve()),
             "stdout_stderr_log": str((attempt_dir / "stdout_stderr.log").resolve()),
             "validation": validation,
+            "runtime": runtime,
+            "git_dirty_before_attempt": False if not args.dry_run else None,
             "environment_step_budget": {
                 "warmup": config["training"]["warmup_environment_steps"],
                 "main": config["training"]["main_environment_steps"],
