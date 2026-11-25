@@ -21,3 +21,5 @@ World models, Agent, Memory, Event Observer, Direction Classifier, selective rep
 A passing unit test is not a manipulation result. Do not fabricate CSVs, success rates, confidence intervals, screenshots, or checkpoints. Retain null and negative results. If resources or authentication block a run, add a precise `BLOCKED.md` without downgrading already completed stages.
 
 Push code, resolved configurations, raw per-branch and per-episode results, manifests, logs, checksums, and reports to `Adeline123456789/residual-rl-sim` on `research/cf-resrl-factorial-supervision`; update the PR. Never force-push or overwrite user work. Keep credentials and restricted data out of Git; use licensed external storage or Git LFS for large artifacts.
+
+ACT checkpoint binaries, optimizer state, and archives containing them stay local. Publish only their provenance and checksums alongside experiment records.
