@@ -1,0 +1,6064 @@
+{
+  "candidates": [
+    {
+      "episode_ids": [
+        "00001_validation_original_resfit_20268124",
+        "00002_validation_original_resfit_20268125",
+        "00003_validation_original_resfit_20268126",
+        "00004_validation_original_resfit_20268127",
+        "00005_validation_original_resfit_20268128",
+        "00006_validation_original_resfit_20268129",
+        "00007_validation_original_resfit_20268130",
+        "00008_validation_original_resfit_20268131",
+        "00009_validation_original_resfit_20268132",
+        "00010_validation_original_resfit_20268133",
+        "00011_validation_original_resfit_20268134",
+        "00012_validation_original_resfit_20268135",
+        "00013_validation_original_resfit_20268136",
+        "00014_validation_original_resfit_20268137",
+        "00015_validation_original_resfit_20268138",
+        "00016_validation_original_resfit_20268139",
+        "00017_validation_original_resfit_20268140",
+        "00018_validation_original_resfit_20268141",
+        "00019_validation_original_resfit_20268142",
+        "00020_validation_original_resfit_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            7.45,
+            9.75
+          ],
+          "mean": 8.45
+        },
+        "discounted_return": {
+          "ci95": [
+            0.18477386940512489,
+            0.2622426159223631
+          ],
+          "mean": 0.22565416770001004
+        },
+        "environment_steps": {
+          "ci95": [
+            137.745,
+            185.72749999999996
+          ],
+          "mean": 158.9
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.17624523871276324,
+            0.23586143980170163
+          ],
+          "mean": 0.20270236100113834
+        },
+        "refresh_activations": {
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "mean": 0.0
+        },
+        "refresh_requests": {
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "mean": 0.0
+        },
+        "return": {
+          "ci95": [
+            0.85,
+            1.0
+          ],
+          "mean": 0.95
+        },
+        "success": {
+          "ci95": [
+            0.85,
+            1.0
+          ],
+          "mean": 0.95
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.4041125465952793,
+            1.7544868684930224
+          ],
+          "mean": 1.5536227419994248
+        }
+      },
+      "setting": {
+        "act_budget": 15,
+        "method": "original_resfit",
+        "parameter": null
+      },
+      "successes": 19
+    },
+    {
+      "episode_ids": [
+        "00021_validation_fixed_period_refresh_20268124",
+        "00022_validation_fixed_period_refresh_20268125",
+        "00023_validation_fixed_period_refresh_20268126",
+        "00024_validation_fixed_period_refresh_20268127",
+        "00025_validation_fixed_period_refresh_20268128",
+        "00026_validation_fixed_period_refresh_20268129",
+        "00027_validation_fixed_period_refresh_20268130",
+        "00028_validation_fixed_period_refresh_20268131",
+        "00029_validation_fixed_period_refresh_20268132",
+        "00030_validation_fixed_period_refresh_20268133",
+        "00031_validation_fixed_period_refresh_20268134",
+        "00032_validation_fixed_period_refresh_20268135",
+        "00033_validation_fixed_period_refresh_20268136",
+        "00034_validation_fixed_period_refresh_20268137",
+        "00035_validation_fixed_period_refresh_20268138",
+        "00036_validation_fixed_period_refresh_20268139",
+        "00037_validation_fixed_period_refresh_20268140",
+        "00038_validation_fixed_period_refresh_20268141",
+        "00039_validation_fixed_period_refresh_20268142",
+        "00040_validation_fixed_period_refresh_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            8.39875,
+            10.8
+          ],
+          "mean": 9.55
+        },
+        "discounted_return": {
+          "ci95": [
+            0.14119010353489242,
+            0.22318085654834674
+          ],
+          "mean": 0.18250246656264454
+        },
+        "environment_steps": {
+          "ci95": [
+            157.1925,
+            205.85375
+          ],
+          "mean": 180.25
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.18836638278578902,
+            0.247370521875946
+          ],
+          "mean": 0.21649044972873527
+        },
+        "refresh_activations": {
+          "ci95": [
+            7.35,
+            9.701249999999998
+          ],
+          "mean": 8.5
+        },
+        "refresh_requests": {
+          "ci95": [
+            7.398750000000001,
+            9.8
+          ],
+          "mean": 8.55
+        },
+        "return": {
+          "ci95": [
+            0.75,
+            1.0
+          ],
+          "mean": 0.9
+        },
+        "success": {
+          "ci95": [
+            0.75,
+            1.0
+          ],
+          "mean": 0.9
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.5143819554182665,
+            1.885140599563074
+          ],
+          "mean": 1.6917810104510864
+        }
+      },
+      "setting": {
+        "act_budget": 15,
+        "method": "fixed_period_refresh",
+        "parameter": 10
+      },
+      "successes": 18
+    },
+    {
+      "episode_ids": [
+        "00041_validation_residual_norm_threshold_20268124",
+        "00042_validation_residual_norm_threshold_20268125",
+        "00043_validation_residual_norm_threshold_20268126",
+        "00044_validation_residual_norm_threshold_20268127",
+        "00045_validation_residual_norm_threshold_20268128",
+        "00046_validation_residual_norm_threshold_20268129",
+        "00047_validation_residual_norm_threshold_20268130",
+        "00048_validation_residual_norm_threshold_20268131",
+        "00049_validation_residual_norm_threshold_20268132",
+        "00050_validation_residual_norm_threshold_20268133",
+        "00051_validation_residual_norm_threshold_20268134",
+        "00052_validation_residual_norm_threshold_20268135",
+        "00053_validation_residual_norm_threshold_20268136",
+        "00054_validation_residual_norm_threshold_20268137",
+        "00055_validation_residual_norm_threshold_20268138",
+        "00056_validation_residual_norm_threshold_20268139",
+        "00057_validation_residual_norm_threshold_20268140",
+        "00058_validation_residual_norm_threshold_20268141",
+        "00059_validation_residual_norm_threshold_20268142",
+        "00060_validation_residual_norm_threshold_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            8.39875,
+            10.8
+          ],
+          "mean": 9.55
+        },
+        "discounted_return": {
+          "ci95": [
+            0.14119010353489242,
+            0.22318085654834674
+          ],
+          "mean": 0.18250246656264454
+        },
+        "environment_steps": {
+          "ci95": [
+            157.1925,
+            205.85375
+          ],
+          "mean": 180.25
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.18562730444915362,
+            0.2426549991687898
+          ],
+          "mean": 0.21278110824205215
+        },
+        "refresh_activations": {
+          "ci95": [
+            7.3,
+            9.55
+          ],
+          "mean": 8.4
+        },
+        "refresh_requests": {
+          "ci95": [
+            7.35,
+            9.65
+          ],
+          "mean": 8.45
+        },
+        "return": {
+          "ci95": [
+            0.75,
+            1.0
+          ],
+          "mean": 0.9
+        },
+        "success": {
+          "ci95": [
+            0.75,
+            1.0
+          ],
+          "mean": 0.9
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.502943544107693,
+            1.8694167612873207
+          ],
+          "mean": 1.677743021799688
+        }
+      },
+      "setting": {
+        "act_budget": 15,
+        "method": "residual_norm_threshold",
+        "parameter": 0.15
+      },
+      "successes": 18
+    },
+    {
+      "episode_ids": [
+        "00061_validation_residual_norm_threshold_20268124",
+        "00062_validation_residual_norm_threshold_20268125",
+        "00063_validation_residual_norm_threshold_20268126",
+        "00064_validation_residual_norm_threshold_20268127",
+        "00065_validation_residual_norm_threshold_20268128",
+        "00066_validation_residual_norm_threshold_20268129",
+        "00067_validation_residual_norm_threshold_20268130",
+        "00068_validation_residual_norm_threshold_20268131",
+        "00069_validation_residual_norm_threshold_20268132",
+        "00070_validation_residual_norm_threshold_20268133",
+        "00071_validation_residual_norm_threshold_20268134",
+        "00072_validation_residual_norm_threshold_20268135",
+        "00073_validation_residual_norm_threshold_20268136",
+        "00074_validation_residual_norm_threshold_20268137",
+        "00075_validation_residual_norm_threshold_20268138",
+        "00076_validation_residual_norm_threshold_20268139",
+        "00077_validation_residual_norm_threshold_20268140",
+        "00078_validation_residual_norm_threshold_20268141",
+        "00079_validation_residual_norm_threshold_20268142",
+        "00080_validation_residual_norm_threshold_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            8.9,
+            11.55
+          ],
+          "mean": 10.15
+        },
+        "discounted_return": {
+          "ci95": [
+            0.12073606958804058,
+            0.21036734499971949
+          ],
+          "mean": 0.16768053124511179
+        },
+        "environment_steps": {
+          "ci95": [
+            165.04875,
+            221.70125
+          ],
+          "mean": 191.5
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.1960515906364344,
+            0.2604025404697313
+          ],
+          "mean": 0.22620084847294492
+        },
+        "refresh_activations": {
+          "ci95": [
+            6.65,
+            8.95
+          ],
+          "mean": 7.8
+        },
+        "refresh_requests": {
+          "ci95": [
+            6.85,
+            9.15
+          ],
+          "mean": 8.0
+        },
+        "return": {
+          "ci95": [
+            0.69875,
+            1.0
+          ],
+          "mean": 0.85
+        },
+        "success": {
+          "ci95": [
+            0.69875,
+            1.0
+          ],
+          "mean": 0.85
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.5709975126585052,
+            1.9897504931890033
+          ],
+          "mean": 1.768076917300641
+        }
+      },
+      "setting": {
+        "act_budget": 15,
+        "method": "residual_norm_threshold",
+        "parameter": 0.19
+      },
+      "successes": 17
+    },
+    {
+      "episode_ids": [
+        "00081_validation_residual_norm_threshold_20268124",
+        "00082_validation_residual_norm_threshold_20268125",
+        "00083_validation_residual_norm_threshold_20268126",
+        "00084_validation_residual_norm_threshold_20268127",
+        "00085_validation_residual_norm_threshold_20268128",
+        "00086_validation_residual_norm_threshold_20268129",
+        "00087_validation_residual_norm_threshold_20268130",
+        "00088_validation_residual_norm_threshold_20268131",
+        "00089_validation_residual_norm_threshold_20268132",
+        "00090_validation_residual_norm_threshold_20268133",
+        "00091_validation_residual_norm_threshold_20268134",
+        "00092_validation_residual_norm_threshold_20268135",
+        "00093_validation_residual_norm_threshold_20268136",
+        "00094_validation_residual_norm_threshold_20268137",
+        "00095_validation_residual_norm_threshold_20268138",
+        "00096_validation_residual_norm_threshold_20268139",
+        "00097_validation_residual_norm_threshold_20268140",
+        "00098_validation_residual_norm_threshold_20268141",
+        "00099_validation_residual_norm_threshold_20268142",
+        "00100_validation_residual_norm_threshold_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            7.79875,
+            10.15
+          ],
+          "mean": 8.85
+        },
+        "discounted_return": {
+          "ci95": [
+            0.16434549641905066,
+            0.25032287520113733
+          ],
+          "mean": 0.20943158146060084
+        },
+        "environment_steps": {
+          "ci95": [
+            144.445,
+            193.30875
+          ],
+          "mean": 166.9
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.17022007907502484,
+            0.22601005418728165
+          ],
+          "mean": 0.19591416137554915
+        },
+        "refresh_activations": {
+          "ci95": [
+            1.5,
+            2.851249999999999
+          ],
+          "mean": 2.1
+        },
+        "refresh_requests": {
+          "ci95": [
+            1.5,
+            2.851249999999999
+          ],
+          "mean": 2.1
+        },
+        "return": {
+          "ci95": [
+            0.75,
+            1.0
+          ],
+          "mean": 0.9
+        },
+        "success": {
+          "ci95": [
+            0.75,
+            1.0
+          ],
+          "mean": 0.9
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.410999421826964,
+            1.771017945008025
+          ],
+          "mean": 1.5773404743500579
+        }
+      },
+      "setting": {
+        "act_budget": 15,
+        "method": "residual_norm_threshold",
+        "parameter": 0.23
+      },
+      "successes": 18
+    },
+    {
+      "episode_ids": [
+        "00101_validation_residual_norm_threshold_20268124",
+        "00102_validation_residual_norm_threshold_20268125",
+        "00103_validation_residual_norm_threshold_20268126",
+        "00104_validation_residual_norm_threshold_20268127",
+        "00105_validation_residual_norm_threshold_20268128",
+        "00106_validation_residual_norm_threshold_20268129",
+        "00107_validation_residual_norm_threshold_20268130",
+        "00108_validation_residual_norm_threshold_20268131",
+        "00109_validation_residual_norm_threshold_20268132",
+        "00110_validation_residual_norm_threshold_20268133",
+        "00111_validation_residual_norm_threshold_20268134",
+        "00112_validation_residual_norm_threshold_20268135",
+        "00113_validation_residual_norm_threshold_20268136",
+        "00114_validation_residual_norm_threshold_20268137",
+        "00115_validation_residual_norm_threshold_20268138",
+        "00116_validation_residual_norm_threshold_20268139",
+        "00117_validation_residual_norm_threshold_20268140",
+        "00118_validation_residual_norm_threshold_20268141",
+        "00119_validation_residual_norm_threshold_20268142",
+        "00120_validation_residual_norm_threshold_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            7.45,
+            9.75
+          ],
+          "mean": 8.45
+        },
+        "discounted_return": {
+          "ci95": [
+            0.18477386940512489,
+            0.2622426159223631
+          ],
+          "mean": 0.22565416770001004
+        },
+        "environment_steps": {
+          "ci95": [
+            137.745,
+            185.72749999999996
+          ],
+          "mean": 158.9
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.1625752669274698,
+            0.2178019956743628
+          ],
+          "mean": 0.18686808493512216
+        },
+        "refresh_activations": {
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "mean": 0.0
+        },
+        "refresh_requests": {
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "mean": 0.0
+        },
+        "return": {
+          "ci95": [
+            0.85,
+            1.0
+          ],
+          "mean": 0.95
+        },
+        "success": {
+          "ci95": [
+            0.85,
+            1.0
+          ],
+          "mean": 0.95
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.363732217554243,
+            1.7245589337130875
+          ],
+          "mean": 1.5231590612980654
+        }
+      },
+      "setting": {
+        "act_budget": 15,
+        "method": "residual_norm_threshold",
+        "parameter": 0.27
+      },
+      "successes": 19
+    },
+    {
+      "episode_ids": [
+        "00121_validation_B5_20268124",
+        "00122_validation_B5_20268125",
+        "00123_validation_B5_20268126",
+        "00124_validation_B5_20268127",
+        "00125_validation_B5_20268128",
+        "00126_validation_B5_20268129",
+        "00127_validation_B5_20268130",
+        "00128_validation_B5_20268131",
+        "00129_validation_B5_20268132",
+        "00130_validation_B5_20268133",
+        "00131_validation_B5_20268134",
+        "00132_validation_B5_20268135",
+        "00133_validation_B5_20268136",
+        "00134_validation_B5_20268137",
+        "00135_validation_B5_20268138",
+        "00136_validation_B5_20268139",
+        "00137_validation_B5_20268140",
+        "00138_validation_B5_20268141",
+        "00139_validation_B5_20268142",
+        "00140_validation_B5_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            7.9,
+            9.75
+          ],
+          "mean": 8.75
+        },
+        "discounted_return": {
+          "ci95": [
+            0.1743352204834881,
+            0.24343429576690304
+          ],
+          "mean": 0.2090552271367901
+        },
+        "environment_steps": {
+          "ci95": [
+            146.0,
+            185.65
+          ],
+          "mean": 164.05
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.1784810407510122,
+            0.22515180010212135
+          ],
+          "mean": 0.19985545436793473
+        },
+        "refresh_activations": {
+          "ci95": [
+            4.9,
+            6.5
+          ],
+          "mean": 5.7
+        },
+        "refresh_requests": {
+          "ci95": [
+            4.95,
+            6.551249999999999
+          ],
+          "mean": 5.75
+        },
+        "return": {
+          "ci95": [
+            0.85,
+            1.0
+          ],
+          "mean": 0.95
+        },
+        "success": {
+          "ci95": [
+            0.85,
+            1.0
+          ],
+          "mean": 0.95
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.4372332737270699,
+            1.73229259414471
+          ],
+          "mean": 1.5717660187510774
+        }
+      },
+      "setting": {
+        "act_budget": 15,
+        "method": "B5",
+        "parameter": 0.0
+      },
+      "successes": 19
+    },
+    {
+      "episode_ids": [
+        "00141_validation_B5_20268124",
+        "00142_validation_B5_20268125",
+        "00143_validation_B5_20268126",
+        "00144_validation_B5_20268127",
+        "00145_validation_B5_20268128",
+        "00146_validation_B5_20268129",
+        "00147_validation_B5_20268130",
+        "00148_validation_B5_20268131",
+        "00149_validation_B5_20268132",
+        "00150_validation_B5_20268133",
+        "00151_validation_B5_20268134",
+        "00152_validation_B5_20268135",
+        "00153_validation_B5_20268136",
+        "00154_validation_B5_20268137",
+        "00155_validation_B5_20268138",
+        "00156_validation_B5_20268139",
+        "00157_validation_B5_20268140",
+        "00158_validation_B5_20268141",
+        "00159_validation_B5_20268142",
+        "00160_validation_B5_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            7.9,
+            9.75
+          ],
+          "mean": 8.75
+        },
+        "discounted_return": {
+          "ci95": [
+            0.17339160466172465,
+            0.24222409286384786
+          ],
+          "mean": 0.2080450403355724
+        },
+        "environment_steps": {
+          "ci95": [
+            146.54875,
+            186.105
+          ],
+          "mean": 164.7
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.18056305836760655,
+            0.22769669801484269
+          ],
+          "mean": 0.2024587249929027
+        },
+        "refresh_activations": {
+          "ci95": [
+            4.65,
+            6.15
+          ],
+          "mean": 5.4
+        },
+        "refresh_requests": {
+          "ci95": [
+            4.7,
+            6.2
+          ],
+          "mean": 5.45
+        },
+        "return": {
+          "ci95": [
+            0.85,
+            1.0
+          ],
+          "mean": 0.95
+        },
+        "success": {
+          "ci95": [
+            0.85,
+            1.0
+          ],
+          "mean": 0.95
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.4475544567917131,
+            1.7454251054068117
+          ],
+          "mean": 1.58634288894973
+        }
+      },
+      "setting": {
+        "act_budget": 15,
+        "method": "B5",
+        "parameter": 0.01
+      },
+      "successes": 19
+    },
+    {
+      "episode_ids": [
+        "00161_validation_B5_20268124",
+        "00162_validation_B5_20268125",
+        "00163_validation_B5_20268126",
+        "00164_validation_B5_20268127",
+        "00165_validation_B5_20268128",
+        "00166_validation_B5_20268129",
+        "00167_validation_B5_20268130",
+        "00168_validation_B5_20268131",
+        "00169_validation_B5_20268132",
+        "00170_validation_B5_20268133",
+        "00171_validation_B5_20268134",
+        "00172_validation_B5_20268135",
+        "00173_validation_B5_20268136",
+        "00174_validation_B5_20268137",
+        "00175_validation_B5_20268138",
+        "00176_validation_B5_20268139",
+        "00177_validation_B5_20268140",
+        "00178_validation_B5_20268141",
+        "00179_validation_B5_20268142",
+        "00180_validation_B5_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            7.898750000000001,
+            9.85
+          ],
+          "mean": 8.8
+        },
+        "discounted_return": {
+          "ci95": [
+            0.16740748755609663,
+            0.24114464210369244
+          ],
+          "mean": 0.20477836662448773
+        },
+        "environment_steps": {
+          "ci95": [
+            147.49875,
+            190.25
+          ],
+          "mean": 167.5
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.17999082329066368,
+            0.23001490796832513
+          ],
+          "mean": 0.20338468293557527
+        },
+        "refresh_activations": {
+          "ci95": [
+            4.49875,
+            6.2
+          ],
+          "mean": 5.3
+        },
+        "refresh_requests": {
+          "ci95": [
+            4.49875,
+            6.2
+          ],
+          "mean": 5.3
+        },
+        "return": {
+          "ci95": [
+            0.85,
+            1.0
+          ],
+          "mean": 0.95
+        },
+        "success": {
+          "ci95": [
+            0.85,
+            1.0
+          ],
+          "mean": 0.95
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.4494930758644113,
+            1.7708161027275855
+          ],
+          "mean": 1.5999850298503588
+        }
+      },
+      "setting": {
+        "act_budget": 15,
+        "method": "B5",
+        "parameter": 0.025
+      },
+      "successes": 19
+    },
+    {
+      "episode_ids": [
+        "00181_validation_B5_20268124",
+        "00182_validation_B5_20268125",
+        "00183_validation_B5_20268126",
+        "00184_validation_B5_20268127",
+        "00185_validation_B5_20268128",
+        "00186_validation_B5_20268129",
+        "00187_validation_B5_20268130",
+        "00188_validation_B5_20268131",
+        "00189_validation_B5_20268132",
+        "00190_validation_B5_20268133",
+        "00191_validation_B5_20268134",
+        "00192_validation_B5_20268135",
+        "00193_validation_B5_20268136",
+        "00194_validation_B5_20268137",
+        "00195_validation_B5_20268138",
+        "00196_validation_B5_20268139",
+        "00197_validation_B5_20268140",
+        "00198_validation_B5_20268141",
+        "00199_validation_B5_20268142",
+        "00200_validation_B5_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            7.6,
+            9.5
+          ],
+          "mean": 8.5
+        },
+        "discounted_return": {
+          "ci95": [
+            0.17770377017773342,
+            0.25163319720045857
+          ],
+          "mean": 0.2163809857143281
+        },
+        "environment_steps": {
+          "ci95": [
+            141.945,
+            183.05625
+          ],
+          "mean": 161.15
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.1741461374743085,
+            0.22391586480311162
+          ],
+          "mean": 0.19725122780073434
+        },
+        "refresh_activations": {
+          "ci95": [
+            3.05,
+            4.651249999999999
+          ],
+          "mean": 3.9
+        },
+        "refresh_requests": {
+          "ci95": [
+            3.05,
+            4.651249999999999
+          ],
+          "mean": 3.9
+        },
+        "return": {
+          "ci95": [
+            0.85,
+            1.0
+          ],
+          "mean": 0.95
+        },
+        "success": {
+          "ci95": [
+            0.85,
+            1.0
+          ],
+          "mean": 0.95
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.4061724746230904,
+            1.7229751117855447
+          ],
+          "mean": 1.5539764378489054
+        }
+      },
+      "setting": {
+        "act_budget": 15,
+        "method": "B5",
+        "parameter": 0.05
+      },
+      "successes": 19
+    },
+    {
+      "episode_ids": [
+        "00201_validation_B5_20268124",
+        "00202_validation_B5_20268125",
+        "00203_validation_B5_20268126",
+        "00204_validation_B5_20268127",
+        "00205_validation_B5_20268128",
+        "00206_validation_B5_20268129",
+        "00207_validation_B5_20268130",
+        "00208_validation_B5_20268131",
+        "00209_validation_B5_20268132",
+        "00210_validation_B5_20268133",
+        "00211_validation_B5_20268134",
+        "00212_validation_B5_20268135",
+        "00213_validation_B5_20268136",
+        "00214_validation_B5_20268137",
+        "00215_validation_B5_20268138",
+        "00216_validation_B5_20268139",
+        "00217_validation_B5_20268140",
+        "00218_validation_B5_20268141",
+        "00219_validation_B5_20268142",
+        "00220_validation_B5_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            7.59875,
+            9.7
+          ],
+          "mean": 8.55
+        },
+        "discounted_return": {
+          "ci95": [
+            0.17729375901620134,
+            0.2548361208131148
+          ],
+          "mean": 0.21791960585930964
+        },
+        "environment_steps": {
+          "ci95": [
+            141.2975,
+            186.7
+          ],
+          "mean": 162.0
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.1728810170428369,
+            0.22650346955835632
+          ],
+          "mean": 0.19714290115298355
+        },
+        "refresh_activations": {
+          "ci95": [
+            1.6,
+            2.8
+          ],
+          "mean": 2.15
+        },
+        "refresh_requests": {
+          "ci95": [
+            1.6,
+            2.8
+          ],
+          "mean": 2.15
+        },
+        "return": {
+          "ci95": [
+            0.85,
+            1.0
+          ],
+          "mean": 0.95
+        },
+        "success": {
+          "ci95": [
+            0.85,
+            1.0
+          ],
+          "mean": 0.95
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.4093862586475916,
+            1.7517112780684148
+          ],
+          "mean": 1.5635644535999744
+        }
+      },
+      "setting": {
+        "act_budget": 15,
+        "method": "B5",
+        "parameter": 0.1
+      },
+      "successes": 19
+    },
+    {
+      "episode_ids": [
+        "00221_validation_B6_20268124",
+        "00222_validation_B6_20268125",
+        "00223_validation_B6_20268126",
+        "00224_validation_B6_20268127",
+        "00225_validation_B6_20268128",
+        "00226_validation_B6_20268129",
+        "00227_validation_B6_20268130",
+        "00228_validation_B6_20268131",
+        "00229_validation_B6_20268132",
+        "00230_validation_B6_20268133",
+        "00231_validation_B6_20268134",
+        "00232_validation_B6_20268135",
+        "00233_validation_B6_20268136",
+        "00234_validation_B6_20268137",
+        "00235_validation_B6_20268138",
+        "00236_validation_B6_20268139",
+        "00237_validation_B6_20268140",
+        "00238_validation_B6_20268141",
+        "00239_validation_B6_20268142",
+        "00240_validation_B6_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            7.6,
+            9.55
+          ],
+          "mean": 8.5
+        },
+        "discounted_return": {
+          "ci95": [
+            0.18261066929464073,
+            0.2529425956736089
+          ],
+          "mean": 0.2193081562131504
+        },
+        "environment_steps": {
+          "ci95": [
+            141.2475,
+            180.60375
+          ],
+          "mean": 159.15
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.17340104522256297,
+            0.21955156053103564
+          ],
+          "mean": 0.19429068085592008
+        },
+        "refresh_activations": {
+          "ci95": [
+            2.4,
+            3.65
+          ],
+          "mean": 3.0
+        },
+        "refresh_requests": {
+          "ci95": [
+            2.5,
+            3.7
+          ],
+          "mean": 3.05
+        },
+        "return": {
+          "ci95": [
+            0.85,
+            1.0
+          ],
+          "mean": 0.95
+        },
+        "success": {
+          "ci95": [
+            0.85,
+            1.0
+          ],
+          "mean": 0.95
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.4075551469588208,
+            1.7049729268114242
+          ],
+          "mean": 1.541879387699737
+        }
+      },
+      "setting": {
+        "act_budget": 15,
+        "method": "B6",
+        "parameter": 0.0
+      },
+      "successes": 19
+    },
+    {
+      "episode_ids": [
+        "00241_validation_B6_20268124",
+        "00242_validation_B6_20268125",
+        "00243_validation_B6_20268126",
+        "00244_validation_B6_20268127",
+        "00245_validation_B6_20268128",
+        "00246_validation_B6_20268129",
+        "00247_validation_B6_20268130",
+        "00248_validation_B6_20268131",
+        "00249_validation_B6_20268132",
+        "00250_validation_B6_20268133",
+        "00251_validation_B6_20268134",
+        "00252_validation_B6_20268135",
+        "00253_validation_B6_20268136",
+        "00254_validation_B6_20268137",
+        "00255_validation_B6_20268138",
+        "00256_validation_B6_20268139",
+        "00257_validation_B6_20268140",
+        "00258_validation_B6_20268141",
+        "00259_validation_B6_20268142",
+        "00260_validation_B6_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            7.5,
+            9.4
+          ],
+          "mean": 8.35
+        },
+        "discounted_return": {
+          "ci95": [
+            0.1880361833285547,
+            0.2566247033241464
+          ],
+          "mean": 0.22373387977309034
+        },
+        "environment_steps": {
+          "ci95": [
+            139.55,
+            178.3025
+          ],
+          "mean": 156.6
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.17091966341087753,
+            0.21692471639926225
+          ],
+          "mean": 0.1913876784303284
+        },
+        "refresh_activations": {
+          "ci95": [
+            2.3,
+            3.35
+          ],
+          "mean": 2.8
+        },
+        "refresh_requests": {
+          "ci95": [
+            2.3,
+            3.35
+          ],
+          "mean": 2.8
+        },
+        "return": {
+          "ci95": [
+            0.85,
+            1.0
+          ],
+          "mean": 0.95
+        },
+        "success": {
+          "ci95": [
+            0.85,
+            1.0
+          ],
+          "mean": 0.95
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.39396500651108,
+            1.6848495472765352
+          ],
+          "mean": 1.5229212322010426
+        }
+      },
+      "setting": {
+        "act_budget": 15,
+        "method": "B6",
+        "parameter": 0.01
+      },
+      "successes": 19
+    },
+    {
+      "episode_ids": [
+        "00261_validation_B6_20268124",
+        "00262_validation_B6_20268125",
+        "00263_validation_B6_20268126",
+        "00264_validation_B6_20268127",
+        "00265_validation_B6_20268128",
+        "00266_validation_B6_20268129",
+        "00267_validation_B6_20268130",
+        "00268_validation_B6_20268131",
+        "00269_validation_B6_20268132",
+        "00270_validation_B6_20268133",
+        "00271_validation_B6_20268134",
+        "00272_validation_B6_20268135",
+        "00273_validation_B6_20268136",
+        "00274_validation_B6_20268137",
+        "00275_validation_B6_20268138",
+        "00276_validation_B6_20268139",
+        "00277_validation_B6_20268140",
+        "00278_validation_B6_20268141",
+        "00279_validation_B6_20268142",
+        "00280_validation_B6_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            7.55,
+            9.4
+          ],
+          "mean": 8.4
+        },
+        "discounted_return": {
+          "ci95": [
+            0.18444248488005496,
+            0.25264835723082657
+          ],
+          "mean": 0.2199521532216145
+        },
+        "environment_steps": {
+          "ci95": [
+            140.99875,
+            179.25875
+          ],
+          "mean": 158.15
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.1726819353234896,
+            0.2190698843094833
+          ],
+          "mean": 0.19339602459222077
+        },
+        "refresh_activations": {
+          "ci95": [
+            1.95,
+            2.9
+          ],
+          "mean": 2.4
+        },
+        "refresh_requests": {
+          "ci95": [
+            1.95,
+            2.9
+          ],
+          "mean": 2.4
+        },
+        "return": {
+          "ci95": [
+            0.85,
+            1.0
+          ],
+          "mean": 0.95
+        },
+        "success": {
+          "ci95": [
+            0.85,
+            1.0
+          ],
+          "mean": 0.95
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.4055633636315361,
+            1.6950080711557165
+          ],
+          "mean": 1.533673002699652
+        }
+      },
+      "setting": {
+        "act_budget": 15,
+        "method": "B6",
+        "parameter": 0.025
+      },
+      "successes": 19
+    },
+    {
+      "episode_ids": [
+        "00281_validation_B6_20268124",
+        "00282_validation_B6_20268125",
+        "00283_validation_B6_20268126",
+        "00284_validation_B6_20268127",
+        "00285_validation_B6_20268128",
+        "00286_validation_B6_20268129",
+        "00287_validation_B6_20268130",
+        "00288_validation_B6_20268131",
+        "00289_validation_B6_20268132",
+        "00290_validation_B6_20268133",
+        "00291_validation_B6_20268134",
+        "00292_validation_B6_20268135",
+        "00293_validation_B6_20268136",
+        "00294_validation_B6_20268137",
+        "00295_validation_B6_20268138",
+        "00296_validation_B6_20268139",
+        "00297_validation_B6_20268140",
+        "00298_validation_B6_20268141",
+        "00299_validation_B6_20268142",
+        "00300_validation_B6_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            7.65,
+            9.90125
+          ],
+          "mean": 8.65
+        },
+        "discounted_return": {
+          "ci95": [
+            0.17018697295563942,
+            0.25194553493830013
+          ],
+          "mean": 0.21421438374473048
+        },
+        "environment_steps": {
+          "ci95": [
+            142.34625,
+            190.80875
+          ],
+          "mean": 163.2
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.17472263140813085,
+            0.23177833721038038
+          ],
+          "mean": 0.19943467371122098
+        },
+        "refresh_activations": {
+          "ci95": [
+            1.0,
+            2.0
+          ],
+          "mean": 1.5
+        },
+        "refresh_requests": {
+          "ci95": [
+            1.0,
+            2.0
+          ],
+          "mean": 1.5
+        },
+        "return": {
+          "ci95": [
+            0.75,
+            1.0
+          ],
+          "mean": 0.9
+        },
+        "success": {
+          "ci95": [
+            0.75,
+            1.0
+          ],
+          "mean": 0.9
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.4179460792821375,
+            1.7790153120782453
+          ],
+          "mean": 1.5738984079980582
+        }
+      },
+      "setting": {
+        "act_budget": 15,
+        "method": "B6",
+        "parameter": 0.05
+      },
+      "successes": 18
+    },
+    {
+      "episode_ids": [
+        "00301_validation_B6_20268124",
+        "00302_validation_B6_20268125",
+        "00303_validation_B6_20268126",
+        "00304_validation_B6_20268127",
+        "00305_validation_B6_20268128",
+        "00306_validation_B6_20268129",
+        "00307_validation_B6_20268130",
+        "00308_validation_B6_20268131",
+        "00309_validation_B6_20268132",
+        "00310_validation_B6_20268133",
+        "00311_validation_B6_20268134",
+        "00312_validation_B6_20268135",
+        "00313_validation_B6_20268136",
+        "00314_validation_B6_20268137",
+        "00315_validation_B6_20268138",
+        "00316_validation_B6_20268139",
+        "00317_validation_B6_20268140",
+        "00318_validation_B6_20268141",
+        "00319_validation_B6_20268142",
+        "00320_validation_B6_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            7.45,
+            9.95
+          ],
+          "mean": 8.6
+        },
+        "discounted_return": {
+          "ci95": [
+            0.16855300807710327,
+            0.2564169252658796
+          ],
+          "mean": 0.21588100264322713
+        },
+        "environment_steps": {
+          "ci95": [
+            139.99625,
+            191.81125
+          ],
+          "mean": 163.3
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.1702456534162593,
+            0.23178089418930536
+          ],
+          "mean": 0.19809473572022399
+        },
+        "refresh_activations": {
+          "ci95": [
+            0.5,
+            1.25
+          ],
+          "mean": 0.85
+        },
+        "refresh_requests": {
+          "ci95": [
+            0.5,
+            1.25
+          ],
+          "mean": 0.85
+        },
+        "return": {
+          "ci95": [
+            0.65,
+            1.0
+          ],
+          "mean": 0.85
+        },
+        "success": {
+          "ci95": [
+            0.65,
+            1.0
+          ],
+          "mean": 0.85
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.3939094845415274,
+            1.7771254598818813
+          ],
+          "mean": 1.5663995629496639
+        }
+      },
+      "setting": {
+        "act_budget": 15,
+        "method": "B6",
+        "parameter": 0.1
+      },
+      "successes": 17
+    },
+    {
+      "episode_ids": [
+        "00321_validation_P1_20268124",
+        "00322_validation_P1_20268125",
+        "00323_validation_P1_20268126",
+        "00324_validation_P1_20268127",
+        "00325_validation_P1_20268128",
+        "00326_validation_P1_20268129",
+        "00327_validation_P1_20268130",
+        "00328_validation_P1_20268131",
+        "00329_validation_P1_20268132",
+        "00330_validation_P1_20268133",
+        "00331_validation_P1_20268134",
+        "00332_validation_P1_20268135",
+        "00333_validation_P1_20268136",
+        "00334_validation_P1_20268137",
+        "00335_validation_P1_20268138",
+        "00336_validation_P1_20268139",
+        "00337_validation_P1_20268140",
+        "00338_validation_P1_20268141",
+        "00339_validation_P1_20268142",
+        "00340_validation_P1_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            8.04875,
+            10.25
+          ],
+          "mean": 9.05
+        },
+        "discounted_return": {
+          "ci95": [
+            0.15607056825672505,
+            0.2400983968806544
+          ],
+          "mean": 0.199695793240336
+        },
+        "environment_steps": {
+          "ci95": [
+            149.245,
+            196.5525
+          ],
+          "mean": 171.4
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.18319493303033596,
+            0.23891656880503434
+          ],
+          "mean": 0.20917812853513168
+        },
+        "refresh_activations": {
+          "ci95": [
+            4.85,
+            6.65
+          ],
+          "mean": 5.7
+        },
+        "refresh_requests": {
+          "ci95": [
+            5.0,
+            6.7
+          ],
+          "mean": 5.8
+        },
+        "return": {
+          "ci95": [
+            0.75,
+            1.0
+          ],
+          "mean": 0.9
+        },
+        "success": {
+          "ci95": [
+            0.75,
+            1.0
+          ],
+          "mean": 0.9
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.4676734492951253,
+            1.82345425844529
+          ],
+          "mean": 1.6338059194509698
+        }
+      },
+      "setting": {
+        "act_budget": 15,
+        "method": "P1",
+        "parameter": 0.0
+      },
+      "successes": 18
+    },
+    {
+      "episode_ids": [
+        "00341_validation_P1_20268124",
+        "00342_validation_P1_20268125",
+        "00343_validation_P1_20268126",
+        "00344_validation_P1_20268127",
+        "00345_validation_P1_20268128",
+        "00346_validation_P1_20268129",
+        "00347_validation_P1_20268130",
+        "00348_validation_P1_20268131",
+        "00349_validation_P1_20268132",
+        "00350_validation_P1_20268133",
+        "00351_validation_P1_20268134",
+        "00352_validation_P1_20268135",
+        "00353_validation_P1_20268136",
+        "00354_validation_P1_20268137",
+        "00355_validation_P1_20268138",
+        "00356_validation_P1_20268139",
+        "00357_validation_P1_20268140",
+        "00358_validation_P1_20268141",
+        "00359_validation_P1_20268142",
+        "00360_validation_P1_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            8.15,
+            10.85
+          ],
+          "mean": 9.45
+        },
+        "discounted_return": {
+          "ci95": [
+            0.13656972488463154,
+            0.23487600909372902
+          ],
+          "mean": 0.1871743285214939
+        },
+        "environment_steps": {
+          "ci95": [
+            152.74625,
+            210.10125
+          ],
+          "mean": 180.2
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.18613853464250496,
+            0.25485277915415283
+          ],
+          "mean": 0.21928961635494487
+        },
+        "refresh_activations": {
+          "ci95": [
+            4.7,
+            6.75
+          ],
+          "mean": 5.65
+        },
+        "refresh_requests": {
+          "ci95": [
+            4.85,
+            6.85
+          ],
+          "mean": 5.75
+        },
+        "return": {
+          "ci95": [
+            0.6,
+            0.95
+          ],
+          "mean": 0.8
+        },
+        "success": {
+          "ci95": [
+            0.6,
+            0.95
+          ],
+          "mean": 0.8
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.4941073025735387,
+            1.9240870293481385
+          ],
+          "mean": 1.699233173202083
+        }
+      },
+      "setting": {
+        "act_budget": 15,
+        "method": "P1",
+        "parameter": 0.01
+      },
+      "successes": 16
+    },
+    {
+      "episode_ids": [
+        "00361_validation_P1_20268124",
+        "00362_validation_P1_20268125",
+        "00363_validation_P1_20268126",
+        "00364_validation_P1_20268127",
+        "00365_validation_P1_20268128",
+        "00366_validation_P1_20268129",
+        "00367_validation_P1_20268130",
+        "00368_validation_P1_20268131",
+        "00369_validation_P1_20268132",
+        "00370_validation_P1_20268133",
+        "00371_validation_P1_20268134",
+        "00372_validation_P1_20268135",
+        "00373_validation_P1_20268136",
+        "00374_validation_P1_20268137",
+        "00375_validation_P1_20268138",
+        "00376_validation_P1_20268139",
+        "00377_validation_P1_20268140",
+        "00378_validation_P1_20268141",
+        "00379_validation_P1_20268142",
+        "00380_validation_P1_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            8.05,
+            10.85
+          ],
+          "mean": 9.4
+        },
+        "discounted_return": {
+          "ci95": [
+            0.1365663351270814,
+            0.2368636152734426
+          ],
+          "mean": 0.18861404819843447
+        },
+        "environment_steps": {
+          "ci95": [
+            152.2975,
+            209.7025
+          ],
+          "mean": 179.8
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.1861167256139197,
+            0.25448139599653585
+          ],
+          "mean": 0.21893848541149055
+        },
+        "refresh_activations": {
+          "ci95": [
+            4.4,
+            6.651249999999999
+          ],
+          "mean": 5.45
+        },
+        "refresh_requests": {
+          "ci95": [
+            4.5,
+            6.75
+          ],
+          "mean": 5.55
+        },
+        "return": {
+          "ci95": [
+            0.6,
+            0.95
+          ],
+          "mean": 0.8
+        },
+        "success": {
+          "ci95": [
+            0.6,
+            0.95
+          ],
+          "mean": 0.8
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.4940475698200133,
+            1.9244939792347941
+          ],
+          "mean": 1.7002059668018774
+        }
+      },
+      "setting": {
+        "act_budget": 15,
+        "method": "P1",
+        "parameter": 0.025
+      },
+      "successes": 16
+    },
+    {
+      "episode_ids": [
+        "00381_validation_P1_20268124",
+        "00382_validation_P1_20268125",
+        "00383_validation_P1_20268126",
+        "00384_validation_P1_20268127",
+        "00385_validation_P1_20268128",
+        "00386_validation_P1_20268129",
+        "00387_validation_P1_20268130",
+        "00388_validation_P1_20268131",
+        "00389_validation_P1_20268132",
+        "00390_validation_P1_20268133",
+        "00391_validation_P1_20268134",
+        "00392_validation_P1_20268135",
+        "00393_validation_P1_20268136",
+        "00394_validation_P1_20268137",
+        "00395_validation_P1_20268138",
+        "00396_validation_P1_20268139",
+        "00397_validation_P1_20268140",
+        "00398_validation_P1_20268141",
+        "00399_validation_P1_20268142",
+        "00400_validation_P1_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            8.15,
+            11.05125
+          ],
+          "mean": 9.55
+        },
+        "discounted_return": {
+          "ci95": [
+            0.12989773882816316,
+            0.23346676686582749
+          ],
+          "mean": 0.18344889865209907
+        },
+        "environment_steps": {
+          "ci95": [
+            154.4,
+            216.5525
+          ],
+          "mean": 183.9
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.18883577518341552,
+            0.2612317578022703
+          ],
+          "mean": 0.22328537171997595
+        },
+        "refresh_activations": {
+          "ci95": [
+            3.65,
+            6.15
+          ],
+          "mean": 4.85
+        },
+        "refresh_requests": {
+          "ci95": [
+            3.7487500000000002,
+            6.25
+          ],
+          "mean": 4.9
+        },
+        "return": {
+          "ci95": [
+            0.55,
+            0.95
+          ],
+          "mean": 0.75
+        },
+        "success": {
+          "ci95": [
+            0.55,
+            0.95
+          ],
+          "mean": 0.75
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.5090074045806794,
+            1.9690264634944832
+          ],
+          "mean": 1.727074525502394
+        }
+      },
+      "setting": {
+        "act_budget": 15,
+        "method": "P1",
+        "parameter": 0.05
+      },
+      "successes": 15
+    },
+    {
+      "episode_ids": [
+        "00401_validation_P1_20268124",
+        "00402_validation_P1_20268125",
+        "00403_validation_P1_20268126",
+        "00404_validation_P1_20268127",
+        "00405_validation_P1_20268128",
+        "00406_validation_P1_20268129",
+        "00407_validation_P1_20268130",
+        "00408_validation_P1_20268131",
+        "00409_validation_P1_20268132",
+        "00410_validation_P1_20268133",
+        "00411_validation_P1_20268134",
+        "00412_validation_P1_20268135",
+        "00413_validation_P1_20268136",
+        "00414_validation_P1_20268137",
+        "00415_validation_P1_20268138",
+        "00416_validation_P1_20268139",
+        "00417_validation_P1_20268140",
+        "00418_validation_P1_20268141",
+        "00419_validation_P1_20268142",
+        "00420_validation_P1_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            7.75,
+            9.75
+          ],
+          "mean": 8.7
+        },
+        "discounted_return": {
+          "ci95": [
+            0.17431547391039987,
+            0.2472360449972919
+          ],
+          "mean": 0.21210683468623026
+        },
+        "environment_steps": {
+          "ci95": [
+            145.19625,
+            185.51
+          ],
+          "mean": 164.55
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.1772227531941462,
+            0.22584096304373813
+          ],
+          "mean": 0.20047661008647993
+        },
+        "refresh_activations": {
+          "ci95": [
+            1.7,
+            3.451249999999999
+          ],
+          "mean": 2.5
+        },
+        "refresh_requests": {
+          "ci95": [
+            1.7,
+            3.451249999999999
+          ],
+          "mean": 2.5
+        },
+        "return": {
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "mean": 1.0
+        },
+        "success": {
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "mean": 1.0
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.4330493247368759,
+            1.7372451695169182
+          ],
+          "mean": 1.5795053137007926
+        }
+      },
+      "setting": {
+        "act_budget": 15,
+        "method": "P1",
+        "parameter": 0.1
+      },
+      "successes": 20
+    },
+    {
+      "episode_ids": [
+        "00421_validation_fixed_period_refresh_20268124",
+        "00422_validation_fixed_period_refresh_20268125",
+        "00423_validation_fixed_period_refresh_20268126",
+        "00424_validation_fixed_period_refresh_20268127",
+        "00425_validation_fixed_period_refresh_20268128",
+        "00426_validation_fixed_period_refresh_20268129",
+        "00427_validation_fixed_period_refresh_20268130",
+        "00428_validation_fixed_period_refresh_20268131",
+        "00429_validation_fixed_period_refresh_20268132",
+        "00430_validation_fixed_period_refresh_20268133",
+        "00431_validation_fixed_period_refresh_20268134",
+        "00432_validation_fixed_period_refresh_20268135",
+        "00433_validation_fixed_period_refresh_20268136",
+        "00434_validation_fixed_period_refresh_20268137",
+        "00435_validation_fixed_period_refresh_20268138",
+        "00436_validation_fixed_period_refresh_20268139",
+        "00437_validation_fixed_period_refresh_20268140",
+        "00438_validation_fixed_period_refresh_20268141",
+        "00439_validation_fixed_period_refresh_20268142",
+        "00440_validation_fixed_period_refresh_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            13.35,
+            15.6
+          ],
+          "mean": 14.45
+        },
+        "discounted_return": {
+          "ci95": [
+            0.14634249549731046,
+            0.22898168909881333
+          ],
+          "mean": 0.1861332457637658
+        },
+        "environment_steps": {
+          "ci95": [
+            155.04375000000002,
+            202.95125
+          ],
+          "mean": 178.0
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.20534784642688464,
+            0.260246417959861
+          ],
+          "mean": 0.23204309456486955
+        },
+        "refresh_activations": {
+          "ci95": [
+            12.35,
+            14.6
+          ],
+          "mean": 13.45
+        },
+        "refresh_requests": {
+          "ci95": [
+            12.35,
+            14.6
+          ],
+          "mean": 13.45
+        },
+        "return": {
+          "ci95": [
+            0.75,
+            1.0
+          ],
+          "mean": 0.9
+        },
+        "success": {
+          "ci95": [
+            0.75,
+            1.0
+          ],
+          "mean": 0.9
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.5280175428246368,
+            1.8872329831354908
+          ],
+          "mean": 1.7032139147006091
+        }
+      },
+      "setting": {
+        "act_budget": 20,
+        "method": "fixed_period_refresh",
+        "parameter": 10
+      },
+      "successes": 18
+    },
+    {
+      "episode_ids": [
+        "00441_validation_residual_norm_threshold_20268124",
+        "00442_validation_residual_norm_threshold_20268125",
+        "00443_validation_residual_norm_threshold_20268126",
+        "00444_validation_residual_norm_threshold_20268127",
+        "00445_validation_residual_norm_threshold_20268128",
+        "00446_validation_residual_norm_threshold_20268129",
+        "00447_validation_residual_norm_threshold_20268130",
+        "00448_validation_residual_norm_threshold_20268131",
+        "00449_validation_residual_norm_threshold_20268132",
+        "00450_validation_residual_norm_threshold_20268133",
+        "00451_validation_residual_norm_threshold_20268134",
+        "00452_validation_residual_norm_threshold_20268135",
+        "00453_validation_residual_norm_threshold_20268136",
+        "00454_validation_residual_norm_threshold_20268137",
+        "00455_validation_residual_norm_threshold_20268138",
+        "00456_validation_residual_norm_threshold_20268139",
+        "00457_validation_residual_norm_threshold_20268140",
+        "00458_validation_residual_norm_threshold_20268141",
+        "00459_validation_residual_norm_threshold_20268142",
+        "00460_validation_residual_norm_threshold_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            13.54875,
+            16.7
+          ],
+          "mean": 15.05
+        },
+        "discounted_return": {
+          "ci95": [
+            0.11659710622428233,
+            0.22226622073723193
+          ],
+          "mean": 0.17112360235892446
+        },
+        "environment_steps": {
+          "ci95": [
+            160.3975,
+            226.60875
+          ],
+          "mean": 192.25
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.21065054853714174,
+            0.28718707818852635
+          ],
+          "mean": 0.24743533239306997
+        },
+        "refresh_activations": {
+          "ci95": [
+            12.54875,
+            15.6
+          ],
+          "mean": 14.0
+        },
+        "refresh_requests": {
+          "ci95": [
+            12.54875,
+            15.6
+          ],
+          "mean": 14.0
+        },
+        "return": {
+          "ci95": [
+            0.55,
+            0.9
+          ],
+          "mean": 0.75
+        },
+        "success": {
+          "ci95": [
+            0.55,
+            0.9
+          ],
+          "mean": 0.75
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.574748414384012,
+            2.071588672056932
+          ],
+          "mean": 1.8123662913996668
+        }
+      },
+      "setting": {
+        "act_budget": 20,
+        "method": "residual_norm_threshold",
+        "parameter": 0.15
+      },
+      "successes": 15
+    },
+    {
+      "episode_ids": [
+        "00461_validation_residual_norm_threshold_20268124",
+        "00462_validation_residual_norm_threshold_20268125",
+        "00463_validation_residual_norm_threshold_20268126",
+        "00464_validation_residual_norm_threshold_20268127",
+        "00465_validation_residual_norm_threshold_20268128",
+        "00466_validation_residual_norm_threshold_20268129",
+        "00467_validation_residual_norm_threshold_20268130",
+        "00468_validation_residual_norm_threshold_20268131",
+        "00469_validation_residual_norm_threshold_20268132",
+        "00470_validation_residual_norm_threshold_20268133",
+        "00471_validation_residual_norm_threshold_20268134",
+        "00472_validation_residual_norm_threshold_20268135",
+        "00473_validation_residual_norm_threshold_20268136",
+        "00474_validation_residual_norm_threshold_20268137",
+        "00475_validation_residual_norm_threshold_20268138",
+        "00476_validation_residual_norm_threshold_20268139",
+        "00477_validation_residual_norm_threshold_20268140",
+        "00478_validation_residual_norm_threshold_20268141",
+        "00479_validation_residual_norm_threshold_20268142",
+        "00480_validation_residual_norm_threshold_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            14.0,
+            17.201249999999998
+          ],
+          "mean": 15.6
+        },
+        "discounted_return": {
+          "ci95": [
+            0.09455871927197947,
+            0.20806134306036408
+          ],
+          "mean": 0.15124603958827415
+        },
+        "environment_steps": {
+          "ci95": [
+            171.04250000000002,
+            239.25
+          ],
+          "mean": 204.9
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.22300976653084945,
+            0.3016360004866692
+          ],
+          "mean": 0.2618672515593062
+        },
+        "refresh_activations": {
+          "ci95": [
+            12.24875,
+            14.6
+          ],
+          "mean": 13.4
+        },
+        "refresh_requests": {
+          "ci95": [
+            12.24875,
+            14.6
+          ],
+          "mean": 13.4
+        },
+        "return": {
+          "ci95": [
+            0.45,
+            0.85
+          ],
+          "mean": 0.65
+        },
+        "success": {
+          "ci95": [
+            0.45,
+            0.85
+          ],
+          "mean": 0.65
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.6558909053181925,
+            2.164008801059681
+          ],
+          "mean": 1.9061718292497971
+        }
+      },
+      "setting": {
+        "act_budget": 20,
+        "method": "residual_norm_threshold",
+        "parameter": 0.19
+      },
+      "successes": 13
+    },
+    {
+      "episode_ids": [
+        "00481_validation_residual_norm_threshold_20268124",
+        "00482_validation_residual_norm_threshold_20268125",
+        "00483_validation_residual_norm_threshold_20268126",
+        "00484_validation_residual_norm_threshold_20268127",
+        "00485_validation_residual_norm_threshold_20268128",
+        "00486_validation_residual_norm_threshold_20268129",
+        "00487_validation_residual_norm_threshold_20268130",
+        "00488_validation_residual_norm_threshold_20268131",
+        "00489_validation_residual_norm_threshold_20268132",
+        "00490_validation_residual_norm_threshold_20268133",
+        "00491_validation_residual_norm_threshold_20268134",
+        "00492_validation_residual_norm_threshold_20268135",
+        "00493_validation_residual_norm_threshold_20268136",
+        "00494_validation_residual_norm_threshold_20268137",
+        "00495_validation_residual_norm_threshold_20268138",
+        "00496_validation_residual_norm_threshold_20268139",
+        "00497_validation_residual_norm_threshold_20268140",
+        "00498_validation_residual_norm_threshold_20268141",
+        "00499_validation_residual_norm_threshold_20268142",
+        "00500_validation_residual_norm_threshold_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            13.05,
+            15.7
+          ],
+          "mean": 14.25
+        },
+        "discounted_return": {
+          "ci95": [
+            0.14558000561562226,
+            0.24067003928730885
+          ],
+          "mean": 0.19534155407649917
+        },
+        "environment_steps": {
+          "ci95": [
+            150.195,
+            205.65125
+          ],
+          "mean": 175.35
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.19992906220462828,
+            0.2627772746873961
+          ],
+          "mean": 0.22824369888403453
+        },
+        "refresh_activations": {
+          "ci95": [
+            9.1,
+            10.25
+          ],
+          "mean": 9.65
+        },
+        "refresh_requests": {
+          "ci95": [
+            9.1,
+            10.25
+          ],
+          "mean": 9.65
+        },
+        "return": {
+          "ci95": [
+            0.7,
+            1.0
+          ],
+          "mean": 0.85
+        },
+        "success": {
+          "ci95": [
+            0.7,
+            1.0
+          ],
+          "mean": 0.85
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.4959928574507468,
+            1.8967240309917723
+          ],
+          "mean": 1.6772760520987504
+        }
+      },
+      "setting": {
+        "act_budget": 20,
+        "method": "residual_norm_threshold",
+        "parameter": 0.23
+      },
+      "successes": 17
+    },
+    {
+      "episode_ids": [
+        "00501_validation_residual_norm_threshold_20268124",
+        "00502_validation_residual_norm_threshold_20268125",
+        "00503_validation_residual_norm_threshold_20268126",
+        "00504_validation_residual_norm_threshold_20268127",
+        "00505_validation_residual_norm_threshold_20268128",
+        "00506_validation_residual_norm_threshold_20268129",
+        "00507_validation_residual_norm_threshold_20268130",
+        "00508_validation_residual_norm_threshold_20268131",
+        "00509_validation_residual_norm_threshold_20268132",
+        "00510_validation_residual_norm_threshold_20268133",
+        "00511_validation_residual_norm_threshold_20268134",
+        "00512_validation_residual_norm_threshold_20268135",
+        "00513_validation_residual_norm_threshold_20268136",
+        "00514_validation_residual_norm_threshold_20268137",
+        "00515_validation_residual_norm_threshold_20268138",
+        "00516_validation_residual_norm_threshold_20268139",
+        "00517_validation_residual_norm_threshold_20268140",
+        "00518_validation_residual_norm_threshold_20268141",
+        "00519_validation_residual_norm_threshold_20268142",
+        "00520_validation_residual_norm_threshold_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            7.45,
+            9.75
+          ],
+          "mean": 8.45
+        },
+        "discounted_return": {
+          "ci95": [
+            0.18477386940512489,
+            0.2622426159223631
+          ],
+          "mean": 0.22565416770001004
+        },
+        "environment_steps": {
+          "ci95": [
+            137.745,
+            185.72749999999996
+          ],
+          "mean": 158.9
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.16311959149365068,
+            0.2182837336472221
+          ],
+          "mean": 0.18734462969732704
+        },
+        "refresh_activations": {
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "mean": 0.0
+        },
+        "refresh_requests": {
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "mean": 0.0
+        },
+        "return": {
+          "ci95": [
+            0.85,
+            1.0
+          ],
+          "mean": 0.95
+        },
+        "success": {
+          "ci95": [
+            0.85,
+            1.0
+          ],
+          "mean": 0.95
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.3771827341508287,
+            1.7384548400394304
+          ],
+          "mean": 1.53530816029961
+        }
+      },
+      "setting": {
+        "act_budget": 20,
+        "method": "residual_norm_threshold",
+        "parameter": 0.27
+      },
+      "successes": 19
+    },
+    {
+      "episode_ids": [
+        "00521_validation_B5_20268124",
+        "00522_validation_B5_20268125",
+        "00523_validation_B5_20268126",
+        "00524_validation_B5_20268127",
+        "00525_validation_B5_20268128",
+        "00526_validation_B5_20268129",
+        "00527_validation_B5_20268130",
+        "00528_validation_B5_20268131",
+        "00529_validation_B5_20268132",
+        "00530_validation_B5_20268133",
+        "00531_validation_B5_20268134",
+        "00532_validation_B5_20268135",
+        "00533_validation_B5_20268136",
+        "00534_validation_B5_20268137",
+        "00535_validation_B5_20268138",
+        "00536_validation_B5_20268139",
+        "00537_validation_B5_20268140",
+        "00538_validation_B5_20268141",
+        "00539_validation_B5_20268142",
+        "00540_validation_B5_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            14.1,
+            16.95
+          ],
+          "mean": 15.55
+        },
+        "discounted_return": {
+          "ci95": [
+            0.09867630943659549,
+            0.20413788368924457
+          ],
+          "mean": 0.15013547617429512
+        },
+        "environment_steps": {
+          "ci95": [
+            171.645,
+            233.55125
+          ],
+          "mean": 203.0
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.24397381283961295,
+            0.31754815691650945
+          ],
+          "mean": 0.2813875547770294
+        },
+        "refresh_activations": {
+          "ci95": [
+            11.65,
+            13.9
+          ],
+          "mean": 12.7
+        },
+        "refresh_requests": {
+          "ci95": [
+            11.65,
+            13.9
+          ],
+          "mean": 12.7
+        },
+        "return": {
+          "ci95": [
+            0.5,
+            0.9
+          ],
+          "mean": 0.7
+        },
+        "success": {
+          "ci95": [
+            0.5,
+            0.9
+          ],
+          "mean": 0.7
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.6777101020029659,
+            2.1381894294909034
+          ],
+          "mean": 1.909474439600308
+        }
+      },
+      "setting": {
+        "act_budget": 20,
+        "method": "B5",
+        "parameter": 0.0
+      },
+      "successes": 14
+    },
+    {
+      "episode_ids": [
+        "00541_validation_B5_20268124",
+        "00542_validation_B5_20268125",
+        "00543_validation_B5_20268126",
+        "00544_validation_B5_20268127",
+        "00545_validation_B5_20268128",
+        "00546_validation_B5_20268129",
+        "00547_validation_B5_20268130",
+        "00548_validation_B5_20268131",
+        "00549_validation_B5_20268132",
+        "00550_validation_B5_20268133",
+        "00551_validation_B5_20268134",
+        "00552_validation_B5_20268135",
+        "00553_validation_B5_20268136",
+        "00554_validation_B5_20268137",
+        "00555_validation_B5_20268138",
+        "00556_validation_B5_20268139",
+        "00557_validation_B5_20268140",
+        "00558_validation_B5_20268141",
+        "00559_validation_B5_20268142",
+        "00560_validation_B5_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            13.65,
+            16.05
+          ],
+          "mean": 14.85
+        },
+        "discounted_return": {
+          "ci95": [
+            0.1290085201215382,
+            0.21697847848948829
+          ],
+          "mean": 0.17277770468772646
+        },
+        "environment_steps": {
+          "ci95": [
+            161.19125,
+            212.95125
+          ],
+          "mean": 186.95
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.2348149965401535,
+            0.294597380049363
+          ],
+          "mean": 0.26470102919483907
+        },
+        "refresh_activations": {
+          "ci95": [
+            10.85,
+            12.65
+          ],
+          "mean": 11.7
+        },
+        "refresh_requests": {
+          "ci95": [
+            10.95,
+            12.701249999999998
+          ],
+          "mean": 11.8
+        },
+        "return": {
+          "ci95": [
+            0.7,
+            1.0
+          ],
+          "mean": 0.85
+        },
+        "success": {
+          "ci95": [
+            0.7,
+            1.0
+          ],
+          "mean": 0.85
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.5974958978158793,
+            1.9768613991721942
+          ],
+          "mean": 1.7881906890506798
+        }
+      },
+      "setting": {
+        "act_budget": 20,
+        "method": "B5",
+        "parameter": 0.01
+      },
+      "successes": 17
+    },
+    {
+      "episode_ids": [
+        "00561_validation_B5_20268124",
+        "00562_validation_B5_20268125",
+        "00563_validation_B5_20268126",
+        "00564_validation_B5_20268127",
+        "00565_validation_B5_20268128",
+        "00566_validation_B5_20268129",
+        "00567_validation_B5_20268130",
+        "00568_validation_B5_20268131",
+        "00569_validation_B5_20268132",
+        "00570_validation_B5_20268133",
+        "00571_validation_B5_20268134",
+        "00572_validation_B5_20268135",
+        "00573_validation_B5_20268136",
+        "00574_validation_B5_20268137",
+        "00575_validation_B5_20268138",
+        "00576_validation_B5_20268139",
+        "00577_validation_B5_20268140",
+        "00578_validation_B5_20268141",
+        "00579_validation_B5_20268142",
+        "00580_validation_B5_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            13.85,
+            16.6
+          ],
+          "mean": 15.2
+        },
+        "discounted_return": {
+          "ci95": [
+            0.11776910735485949,
+            0.2153003845357004
+          ],
+          "mean": 0.1655761722936031
+        },
+        "environment_steps": {
+          "ci95": [
+            165.595,
+            222.86999999999998
+          ],
+          "mean": 193.55
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.24407692383594623,
+            0.3162090490320406
+          ],
+          "mean": 0.27863098756279214
+        },
+        "refresh_activations": {
+          "ci95": [
+            10.99875,
+            13.2
+          ],
+          "mean": 12.05
+        },
+        "refresh_requests": {
+          "ci95": [
+            10.99875,
+            13.2
+          ],
+          "mean": 12.05
+        },
+        "return": {
+          "ci95": [
+            0.6,
+            0.95
+          ],
+          "mean": 0.8
+        },
+        "success": {
+          "ci95": [
+            0.6,
+            0.95
+          ],
+          "mean": 0.8
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.6365306159654938,
+            2.0789665591796074
+          ],
+          "mean": 1.8470877220512194
+        }
+      },
+      "setting": {
+        "act_budget": 20,
+        "method": "B5",
+        "parameter": 0.025
+      },
+      "successes": 16
+    },
+    {
+      "episode_ids": [
+        "00581_validation_B5_20268124",
+        "00582_validation_B5_20268125",
+        "00583_validation_B5_20268126",
+        "00584_validation_B5_20268127",
+        "00585_validation_B5_20268128",
+        "00586_validation_B5_20268129",
+        "00587_validation_B5_20268130",
+        "00588_validation_B5_20268131",
+        "00589_validation_B5_20268132",
+        "00590_validation_B5_20268133",
+        "00591_validation_B5_20268134",
+        "00592_validation_B5_20268135",
+        "00593_validation_B5_20268136",
+        "00594_validation_B5_20268137",
+        "00595_validation_B5_20268138",
+        "00596_validation_B5_20268139",
+        "00597_validation_B5_20268140",
+        "00598_validation_B5_20268141",
+        "00599_validation_B5_20268142",
+        "00600_validation_B5_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            12.75,
+            14.851249999999999
+          ],
+          "mean": 13.7
+        },
+        "discounted_return": {
+          "ci95": [
+            0.1684942951209607,
+            0.24914556046112085
+          ],
+          "mean": 0.21062766277099007
+        },
+        "environment_steps": {
+          "ci95": [
+            144.5975,
+            189.20125
+          ],
+          "mean": 164.25
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.22937657981467055,
+            0.28592969512526906
+          ],
+          "mean": 0.25655789433803877
+        },
+        "refresh_activations": {
+          "ci95": [
+            9.3,
+            11.501249999999999
+          ],
+          "mean": 10.3
+        },
+        "refresh_requests": {
+          "ci95": [
+            9.3,
+            11.501249999999999
+          ],
+          "mean": 10.3
+        },
+        "return": {
+          "ci95": [
+            0.75,
+            1.0
+          ],
+          "mean": 0.9
+        },
+        "success": {
+          "ci95": [
+            0.75,
+            1.0
+          ],
+          "mean": 0.9
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.4905239548928513,
+            1.8200213989815348
+          ],
+          "mean": 1.6359729908494045
+        }
+      },
+      "setting": {
+        "act_budget": 20,
+        "method": "B5",
+        "parameter": 0.05
+      },
+      "successes": 18
+    },
+    {
+      "episode_ids": [
+        "00601_validation_B5_20268124",
+        "00602_validation_B5_20268125",
+        "00603_validation_B5_20268126",
+        "00604_validation_B5_20268127",
+        "00605_validation_B5_20268128",
+        "00606_validation_B5_20268129",
+        "00607_validation_B5_20268130",
+        "00608_validation_B5_20268131",
+        "00609_validation_B5_20268132",
+        "00610_validation_B5_20268133",
+        "00611_validation_B5_20268134",
+        "00612_validation_B5_20268135",
+        "00613_validation_B5_20268136",
+        "00614_validation_B5_20268137",
+        "00615_validation_B5_20268138",
+        "00616_validation_B5_20268139",
+        "00617_validation_B5_20268140",
+        "00618_validation_B5_20268141",
+        "00619_validation_B5_20268142",
+        "00620_validation_B5_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            12.448749999999999,
+            15.1
+          ],
+          "mean": 13.7
+        },
+        "discounted_return": {
+          "ci95": [
+            0.15696025808878944,
+            0.24510728393455167
+          ],
+          "mean": 0.20088541464885043
+        },
+        "environment_steps": {
+          "ci95": [
+            147.94125,
+            198.35375
+          ],
+          "mean": 171.85
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.25947159390671004,
+            0.33384559260497554
+          ],
+          "mean": 0.29484273715497694
+        },
+        "refresh_activations": {
+          "ci95": [
+            7.95,
+            10.25
+          ],
+          "mean": 9.0
+        },
+        "refresh_requests": {
+          "ci95": [
+            7.95,
+            10.25
+          ],
+          "mean": 9.0
+        },
+        "return": {
+          "ci95": [
+            0.7,
+            1.0
+          ],
+          "mean": 0.85
+        },
+        "success": {
+          "ci95": [
+            0.7,
+            1.0
+          ],
+          "mean": 0.85
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.5378408475297691,
+            1.9290020570716115
+          ],
+          "mean": 1.7238732096506282
+        }
+      },
+      "setting": {
+        "act_budget": 20,
+        "method": "B5",
+        "parameter": 0.1
+      },
+      "successes": 17
+    },
+    {
+      "episode_ids": [
+        "00621_validation_B6_20268124",
+        "00622_validation_B6_20268125",
+        "00623_validation_B6_20268126",
+        "00624_validation_B6_20268127",
+        "00625_validation_B6_20268128",
+        "00626_validation_B6_20268129",
+        "00627_validation_B6_20268130",
+        "00628_validation_B6_20268131",
+        "00629_validation_B6_20268132",
+        "00630_validation_B6_20268133",
+        "00631_validation_B6_20268134",
+        "00632_validation_B6_20268135",
+        "00633_validation_B6_20268136",
+        "00634_validation_B6_20268137",
+        "00635_validation_B6_20268138",
+        "00636_validation_B6_20268139",
+        "00637_validation_B6_20268140",
+        "00638_validation_B6_20268141",
+        "00639_validation_B6_20268142",
+        "00640_validation_B6_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            13.2,
+            15.95
+          ],
+          "mean": 14.5
+        },
+        "discounted_return": {
+          "ci95": [
+            0.14283318448383578,
+            0.2382239901187273
+          ],
+          "mean": 0.19207350878480117
+        },
+        "environment_steps": {
+          "ci95": [
+            152.19125,
+            209.5025
+          ],
+          "mean": 179.4
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.22420907937590528,
+            0.2939059124505911
+          ],
+          "mean": 0.2582601118985622
+        },
+        "refresh_activations": {
+          "ci95": [
+            9.55,
+            11.55
+          ],
+          "mean": 10.55
+        },
+        "refresh_requests": {
+          "ci95": [
+            9.55,
+            11.55
+          ],
+          "mean": 10.55
+        },
+        "return": {
+          "ci95": [
+            0.65,
+            1.0
+          ],
+          "mean": 0.85
+        },
+        "success": {
+          "ci95": [
+            0.65,
+            1.0
+          ],
+          "mean": 0.85
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.523538967706718,
+            1.9564183562849575
+          ],
+          "mean": 1.7308968240991818
+        }
+      },
+      "setting": {
+        "act_budget": 20,
+        "method": "B6",
+        "parameter": 0.0
+      },
+      "successes": 17
+    },
+    {
+      "episode_ids": [
+        "00641_validation_B6_20268124",
+        "00642_validation_B6_20268125",
+        "00643_validation_B6_20268126",
+        "00644_validation_B6_20268127",
+        "00645_validation_B6_20268128",
+        "00646_validation_B6_20268129",
+        "00647_validation_B6_20268130",
+        "00648_validation_B6_20268131",
+        "00649_validation_B6_20268132",
+        "00650_validation_B6_20268133",
+        "00651_validation_B6_20268134",
+        "00652_validation_B6_20268135",
+        "00653_validation_B6_20268136",
+        "00654_validation_B6_20268137",
+        "00655_validation_B6_20268138",
+        "00656_validation_B6_20268139",
+        "00657_validation_B6_20268140",
+        "00658_validation_B6_20268141",
+        "00659_validation_B6_20268142",
+        "00660_validation_B6_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            13.39875,
+            16.15
+          ],
+          "mean": 14.75
+        },
+        "discounted_return": {
+          "ci95": [
+            0.13194935679990677,
+            0.2324500653911398
+          ],
+          "mean": 0.1824400985463582
+        },
+        "environment_steps": {
+          "ci95": [
+            156.09625,
+            214.2
+          ],
+          "mean": 184.55
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.23142403228275726,
+            0.303358468557999
+          ],
+          "mean": 0.2667406536085764
+        },
+        "refresh_activations": {
+          "ci95": [
+            9.1,
+            10.65
+          ],
+          "mean": 9.85
+        },
+        "refresh_requests": {
+          "ci95": [
+            9.1,
+            10.65
+          ],
+          "mean": 9.85
+        },
+        "return": {
+          "ci95": [
+            0.6,
+            0.95
+          ],
+          "mean": 0.8
+        },
+        "success": {
+          "ci95": [
+            0.6,
+            0.95
+          ],
+          "mean": 0.8
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.5642772018377944,
+            1.9988457947736242
+          ],
+          "mean": 1.778654380748776
+        }
+      },
+      "setting": {
+        "act_budget": 20,
+        "method": "B6",
+        "parameter": 0.01
+      },
+      "successes": 16
+    },
+    {
+      "episode_ids": [
+        "00661_validation_B6_20268124",
+        "00662_validation_B6_20268125",
+        "00663_validation_B6_20268126",
+        "00664_validation_B6_20268127",
+        "00665_validation_B6_20268128",
+        "00666_validation_B6_20268129",
+        "00667_validation_B6_20268130",
+        "00668_validation_B6_20268131",
+        "00669_validation_B6_20268132",
+        "00670_validation_B6_20268133",
+        "00671_validation_B6_20268134",
+        "00672_validation_B6_20268135",
+        "00673_validation_B6_20268136",
+        "00674_validation_B6_20268137",
+        "00675_validation_B6_20268138",
+        "00676_validation_B6_20268139",
+        "00677_validation_B6_20268140",
+        "00678_validation_B6_20268141",
+        "00679_validation_B6_20268142",
+        "00680_validation_B6_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            13.05,
+            15.201249999999998
+          ],
+          "mean": 14.05
+        },
+        "discounted_return": {
+          "ci95": [
+            0.15786830430203624,
+            0.24101559946575196
+          ],
+          "mean": 0.20075598076880036
+        },
+        "environment_steps": {
+          "ci95": [
+            150.04625000000001,
+            195.8125
+          ],
+          "mean": 171.05
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.2319572018906183,
+            0.2880049235495244
+          ],
+          "mean": 0.2584151679962815
+        },
+        "refresh_activations": {
+          "ci95": [
+            8.65,
+            10.3
+          ],
+          "mean": 9.45
+        },
+        "refresh_requests": {
+          "ci95": [
+            8.65,
+            10.3
+          ],
+          "mean": 9.45
+        },
+        "return": {
+          "ci95": [
+            0.85,
+            1.0
+          ],
+          "mean": 0.95
+        },
+        "success": {
+          "ci95": [
+            0.85,
+            1.0
+          ],
+          "mean": 0.95
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.538005397036104,
+            1.88851287075895
+          ],
+          "mean": 1.6976413979013159
+        }
+      },
+      "setting": {
+        "act_budget": 20,
+        "method": "B6",
+        "parameter": 0.025
+      },
+      "successes": 19
+    },
+    {
+      "episode_ids": [
+        "00681_validation_B6_20268124",
+        "00682_validation_B6_20268125",
+        "00683_validation_B6_20268126",
+        "00684_validation_B6_20268127",
+        "00685_validation_B6_20268128",
+        "00686_validation_B6_20268129",
+        "00687_validation_B6_20268130",
+        "00688_validation_B6_20268131",
+        "00689_validation_B6_20268132",
+        "00690_validation_B6_20268133",
+        "00691_validation_B6_20268134",
+        "00692_validation_B6_20268135",
+        "00693_validation_B6_20268136",
+        "00694_validation_B6_20268137",
+        "00695_validation_B6_20268138",
+        "00696_validation_B6_20268139",
+        "00697_validation_B6_20268140",
+        "00698_validation_B6_20268141",
+        "00699_validation_B6_20268142",
+        "00700_validation_B6_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            12.55,
+            15.30125
+          ],
+          "mean": 13.85
+        },
+        "discounted_return": {
+          "ci95": [
+            0.1549964823054211,
+            0.24975045700840331
+          ],
+          "mean": 0.2051175460648257
+        },
+        "environment_steps": {
+          "ci95": [
+            145.04250000000002,
+            202.2
+          ],
+          "mean": 170.9
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.2440715866796563,
+            0.3149086542918485
+          ],
+          "mean": 0.2780964943754952
+        },
+        "refresh_activations": {
+          "ci95": [
+            7.85,
+            9.201249999999998
+          ],
+          "mean": 8.55
+        },
+        "refresh_requests": {
+          "ci95": [
+            7.85,
+            9.201249999999998
+          ],
+          "mean": 8.55
+        },
+        "return": {
+          "ci95": [
+            0.69875,
+            1.0
+          ],
+          "mean": 0.85
+        },
+        "success": {
+          "ci95": [
+            0.69875,
+            1.0
+          ],
+          "mean": 0.85
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.5269873794403976,
+            1.9539102484000068
+          ],
+          "mean": 1.7214538166990678
+        }
+      },
+      "setting": {
+        "act_budget": 20,
+        "method": "B6",
+        "parameter": 0.05
+      },
+      "successes": 17
+    },
+    {
+      "episode_ids": [
+        "00701_validation_B6_20268124",
+        "00702_validation_B6_20268125",
+        "00703_validation_B6_20268126",
+        "00704_validation_B6_20268127",
+        "00705_validation_B6_20268128",
+        "00706_validation_B6_20268129",
+        "00707_validation_B6_20268130",
+        "00708_validation_B6_20268131",
+        "00709_validation_B6_20268132",
+        "00710_validation_B6_20268133",
+        "00711_validation_B6_20268134",
+        "00712_validation_B6_20268135",
+        "00713_validation_B6_20268136",
+        "00714_validation_B6_20268137",
+        "00715_validation_B6_20268138",
+        "00716_validation_B6_20268139",
+        "00717_validation_B6_20268140",
+        "00718_validation_B6_20268141",
+        "00719_validation_B6_20268142",
+        "00720_validation_B6_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            11.2,
+            14.25
+          ],
+          "mean": 12.75
+        },
+        "discounted_return": {
+          "ci95": [
+            0.17109876234709137,
+            0.2525538058936155
+          ],
+          "mean": 0.21213051142020295
+        },
+        "environment_steps": {
+          "ci95": [
+            142.94625,
+            189.4075
+          ],
+          "mean": 164.45
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.26901410826758365,
+            0.34334499711148964
+          ],
+          "mean": 0.3056249676687003
+        },
+        "refresh_activations": {
+          "ci95": [
+            5.35,
+            7.6
+          ],
+          "mean": 6.5
+        },
+        "refresh_requests": {
+          "ci95": [
+            5.45,
+            7.7
+          ],
+          "mean": 6.6
+        },
+        "return": {
+          "ci95": [
+            0.75,
+            1.0
+          ],
+          "mean": 0.9
+        },
+        "success": {
+          "ci95": [
+            0.75,
+            1.0
+          ],
+          "mean": 0.9
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.5360651980939293,
+            1.9012897414770487
+          ],
+          "mean": 1.710853718501312
+        }
+      },
+      "setting": {
+        "act_budget": 20,
+        "method": "B6",
+        "parameter": 0.1
+      },
+      "successes": 18
+    },
+    {
+      "episode_ids": [
+        "00721_validation_P1_20268124",
+        "00722_validation_P1_20268125",
+        "00723_validation_P1_20268126",
+        "00724_validation_P1_20268127",
+        "00725_validation_P1_20268128",
+        "00726_validation_P1_20268129",
+        "00727_validation_P1_20268130",
+        "00728_validation_P1_20268131",
+        "00729_validation_P1_20268132",
+        "00730_validation_P1_20268133",
+        "00731_validation_P1_20268134",
+        "00732_validation_P1_20268135",
+        "00733_validation_P1_20268136",
+        "00734_validation_P1_20268137",
+        "00735_validation_P1_20268138",
+        "00736_validation_P1_20268139",
+        "00737_validation_P1_20268140",
+        "00738_validation_P1_20268141",
+        "00739_validation_P1_20268142",
+        "00740_validation_P1_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            14.15,
+            17.35
+          ],
+          "mean": 15.7
+        },
+        "discounted_return": {
+          "ci95": [
+            0.09209401342627489,
+            0.20458926470945793
+          ],
+          "mean": 0.14955724422219005
+        },
+        "environment_steps": {
+          "ci95": [
+            173.29500000000002,
+            240.47249999999997
+          ],
+          "mean": 206.4
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.26732200406066114,
+            0.35068697714630614
+          ],
+          "mean": 0.30872764690211624
+        },
+        "refresh_activations": {
+          "ci95": [
+            11.05,
+            13.6
+          ],
+          "mean": 12.35
+        },
+        "refresh_requests": {
+          "ci95": [
+            11.05,
+            13.6
+          ],
+          "mean": 12.35
+        },
+        "return": {
+          "ci95": [
+            0.45,
+            0.85
+          ],
+          "mean": 0.65
+        },
+        "success": {
+          "ci95": [
+            0.45,
+            0.85
+          ],
+          "mean": 0.65
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.7761943956377946,
+            2.2921110473144473
+          ],
+          "mean": 2.034746637100761
+        }
+      },
+      "setting": {
+        "act_budget": 20,
+        "method": "P1",
+        "parameter": 0.0
+      },
+      "successes": 13
+    },
+    {
+      "episode_ids": [
+        "00741_validation_P1_20268124",
+        "00742_validation_P1_20268125",
+        "00743_validation_P1_20268126",
+        "00744_validation_P1_20268127",
+        "00745_validation_P1_20268128",
+        "00746_validation_P1_20268129",
+        "00747_validation_P1_20268130",
+        "00748_validation_P1_20268131",
+        "00749_validation_P1_20268132",
+        "00750_validation_P1_20268133",
+        "00751_validation_P1_20268134",
+        "00752_validation_P1_20268135",
+        "00753_validation_P1_20268136",
+        "00754_validation_P1_20268137",
+        "00755_validation_P1_20268138",
+        "00756_validation_P1_20268139",
+        "00757_validation_P1_20268140",
+        "00758_validation_P1_20268141",
+        "00759_validation_P1_20268142",
+        "00760_validation_P1_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            14.3,
+            17.55125
+          ],
+          "mean": 16.0
+        },
+        "discounted_return": {
+          "ci95": [
+            0.08496972595627714,
+            0.1963904562190014
+          ],
+          "mean": 0.13969333477559961
+        },
+        "environment_steps": {
+          "ci95": [
+            180.8475,
+            246.3025
+          ],
+          "mean": 214.6
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.2634972401961022,
+            0.34572083982178814
+          ],
+          "mean": 0.30547916717405316
+        },
+        "refresh_activations": {
+          "ci95": [
+            10.9,
+            13.65125
+          ],
+          "mean": 12.25
+        },
+        "refresh_requests": {
+          "ci95": [
+            10.9,
+            13.65125
+          ],
+          "mean": 12.25
+        },
+        "return": {
+          "ci95": [
+            0.45,
+            0.85
+          ],
+          "mean": 0.65
+        },
+        "success": {
+          "ci95": [
+            0.45,
+            0.85
+          ],
+          "mean": 0.65
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.7839988177851591,
+            2.289223744212468
+          ],
+          "mean": 2.039179871898523
+        }
+      },
+      "setting": {
+        "act_budget": 20,
+        "method": "P1",
+        "parameter": 0.01
+      },
+      "successes": 13
+    },
+    {
+      "episode_ids": [
+        "00761_validation_P1_20268124",
+        "00762_validation_P1_20268125",
+        "00763_validation_P1_20268126",
+        "00764_validation_P1_20268127",
+        "00765_validation_P1_20268128",
+        "00766_validation_P1_20268129",
+        "00767_validation_P1_20268130",
+        "00768_validation_P1_20268131",
+        "00769_validation_P1_20268132",
+        "00770_validation_P1_20268133",
+        "00771_validation_P1_20268134",
+        "00772_validation_P1_20268135",
+        "00773_validation_P1_20268136",
+        "00774_validation_P1_20268137",
+        "00775_validation_P1_20268138",
+        "00776_validation_P1_20268139",
+        "00777_validation_P1_20268140",
+        "00778_validation_P1_20268141",
+        "00779_validation_P1_20268142",
+        "00780_validation_P1_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            13.1,
+            16.25
+          ],
+          "mean": 14.65
+        },
+        "discounted_return": {
+          "ci95": [
+            0.13056512241145862,
+            0.2380725237469328
+          ],
+          "mean": 0.18448554418238347
+        },
+        "environment_steps": {
+          "ci95": [
+            152.63,
+            217.60999999999999
+          ],
+          "mean": 184.35
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.2283603786957974,
+            0.30820709333806007
+          ],
+          "mean": 0.2677966600691434
+        },
+        "refresh_activations": {
+          "ci95": [
+            9.29875,
+            12.30125
+          ],
+          "mean": 10.7
+        },
+        "refresh_requests": {
+          "ci95": [
+            9.3,
+            12.35
+          ],
+          "mean": 10.75
+        },
+        "return": {
+          "ci95": [
+            0.6,
+            0.95
+          ],
+          "mean": 0.8
+        },
+        "success": {
+          "ci95": [
+            0.6,
+            0.95
+          ],
+          "mean": 0.8
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.571140624320251,
+            2.060219655974615
+          ],
+          "mean": 1.8085464162984863
+        }
+      },
+      "setting": {
+        "act_budget": 20,
+        "method": "P1",
+        "parameter": 0.025
+      },
+      "successes": 16
+    },
+    {
+      "episode_ids": [
+        "00781_validation_P1_20268124",
+        "00782_validation_P1_20268125",
+        "00783_validation_P1_20268126",
+        "00784_validation_P1_20268127",
+        "00785_validation_P1_20268128",
+        "00786_validation_P1_20268129",
+        "00787_validation_P1_20268130",
+        "00788_validation_P1_20268131",
+        "00789_validation_P1_20268132",
+        "00790_validation_P1_20268133",
+        "00791_validation_P1_20268134",
+        "00792_validation_P1_20268135",
+        "00793_validation_P1_20268136",
+        "00794_validation_P1_20268137",
+        "00795_validation_P1_20268138",
+        "00796_validation_P1_20268139",
+        "00797_validation_P1_20268140",
+        "00798_validation_P1_20268141",
+        "00799_validation_P1_20268142",
+        "00800_validation_P1_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            13.25,
+            15.75
+          ],
+          "mean": 14.45
+        },
+        "discounted_return": {
+          "ci95": [
+            0.14196501602017123,
+            0.23373577359918007
+          ],
+          "mean": 0.18885161944500933
+        },
+        "environment_steps": {
+          "ci95": [
+            153.94375,
+            207.10375
+          ],
+          "mean": 179.6
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.23447755627215883,
+            0.300466982495036
+          ],
+          "mean": 0.26718388055451214
+        },
+        "refresh_activations": {
+          "ci95": [
+            9.4,
+            11.65
+          ],
+          "mean": 10.45
+        },
+        "refresh_requests": {
+          "ci95": [
+            9.4,
+            11.65
+          ],
+          "mean": 10.45
+        },
+        "return": {
+          "ci95": [
+            0.7,
+            1.0
+          ],
+          "mean": 0.85
+        },
+        "success": {
+          "ci95": [
+            0.7,
+            1.0
+          ],
+          "mean": 0.85
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.5892201723772996,
+            1.9931524988524505
+          ],
+          "mean": 1.7853899674504645
+        }
+      },
+      "setting": {
+        "act_budget": 20,
+        "method": "P1",
+        "parameter": 0.05
+      },
+      "successes": 17
+    },
+    {
+      "episode_ids": [
+        "00801_validation_P1_20268124",
+        "00802_validation_P1_20268125",
+        "00803_validation_P1_20268126",
+        "00804_validation_P1_20268127",
+        "00805_validation_P1_20268128",
+        "00806_validation_P1_20268129",
+        "00807_validation_P1_20268130",
+        "00808_validation_P1_20268131",
+        "00809_validation_P1_20268132",
+        "00810_validation_P1_20268133",
+        "00811_validation_P1_20268134",
+        "00812_validation_P1_20268135",
+        "00813_validation_P1_20268136",
+        "00814_validation_P1_20268137",
+        "00815_validation_P1_20268138",
+        "00816_validation_P1_20268139",
+        "00817_validation_P1_20268140",
+        "00818_validation_P1_20268141",
+        "00819_validation_P1_20268142",
+        "00820_validation_P1_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            13.4,
+            16.201249999999998
+          ],
+          "mean": 14.75
+        },
+        "discounted_return": {
+          "ci95": [
+            0.12522376178935857,
+            0.22828901335260607
+          ],
+          "mean": 0.1782656326026766
+        },
+        "environment_steps": {
+          "ci95": [
+            157.19,
+            216.9125
+          ],
+          "mean": 185.7
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.24694256913320717,
+            0.3229053018479317
+          ],
+          "mean": 0.2842629928374663
+        },
+        "refresh_activations": {
+          "ci95": [
+            8.39875,
+            9.7
+          ],
+          "mean": 9.0
+        },
+        "refresh_requests": {
+          "ci95": [
+            8.39875,
+            9.7
+          ],
+          "mean": 9.0
+        },
+        "return": {
+          "ci95": [
+            0.6,
+            0.95
+          ],
+          "mean": 0.8
+        },
+        "success": {
+          "ci95": [
+            0.6,
+            0.95
+          ],
+          "mean": 0.8
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.6167197745652993,
+            2.0780144944390124
+          ],
+          "mean": 1.8382372099491477
+        }
+      },
+      "setting": {
+        "act_budget": 20,
+        "method": "P1",
+        "parameter": 0.1
+      },
+      "successes": 16
+    },
+    {
+      "episode_ids": [
+        "00821_validation_fixed_period_refresh_20268124",
+        "00822_validation_fixed_period_refresh_20268125",
+        "00823_validation_fixed_period_refresh_20268126",
+        "00824_validation_fixed_period_refresh_20268127",
+        "00825_validation_fixed_period_refresh_20268128",
+        "00826_validation_fixed_period_refresh_20268129",
+        "00827_validation_fixed_period_refresh_20268130",
+        "00828_validation_fixed_period_refresh_20268131",
+        "00829_validation_fixed_period_refresh_20268132",
+        "00830_validation_fixed_period_refresh_20268133",
+        "00831_validation_fixed_period_refresh_20268134",
+        "00832_validation_fixed_period_refresh_20268135",
+        "00833_validation_fixed_period_refresh_20268136",
+        "00834_validation_fixed_period_refresh_20268137",
+        "00835_validation_fixed_period_refresh_20268138",
+        "00836_validation_fixed_period_refresh_20268139",
+        "00837_validation_fixed_period_refresh_20268140",
+        "00838_validation_fixed_period_refresh_20268141",
+        "00839_validation_fixed_period_refresh_20268142",
+        "00840_validation_fixed_period_refresh_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            15.3,
+            19.1
+          ],
+          "mean": 17.15
+        },
+        "discounted_return": {
+          "ci95": [
+            0.15072244482674843,
+            0.23489965850679234
+          ],
+          "mean": 0.19282324472046147
+        },
+        "environment_steps": {
+          "ci95": [
+            152.7475,
+            201.76125
+          ],
+          "mean": 176.15
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.22374679396858482,
+            0.290563671861164
+          ],
+          "mean": 0.2558134264545515
+        },
+        "refresh_activations": {
+          "ci95": [
+            14.098749999999999,
+            17.95
+          ],
+          "mean": 15.95
+        },
+        "refresh_requests": {
+          "ci95": [
+            14.3,
+            18.1
+          ],
+          "mean": 16.15
+        },
+        "return": {
+          "ci95": [
+            0.75,
+            1.0
+          ],
+          "mean": 0.9
+        },
+        "success": {
+          "ci95": [
+            0.75,
+            1.0
+          ],
+          "mean": 0.9
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.573275283792609,
+            1.9594648216846327
+          ],
+          "mean": 1.75622831044966
+        }
+      },
+      "setting": {
+        "act_budget": 25,
+        "method": "fixed_period_refresh",
+        "parameter": 10
+      },
+      "successes": 18
+    },
+    {
+      "episode_ids": [
+        "00841_validation_residual_norm_threshold_20268124",
+        "00842_validation_residual_norm_threshold_20268125",
+        "00843_validation_residual_norm_threshold_20268126",
+        "00844_validation_residual_norm_threshold_20268127",
+        "00845_validation_residual_norm_threshold_20268128",
+        "00846_validation_residual_norm_threshold_20268129",
+        "00847_validation_residual_norm_threshold_20268130",
+        "00848_validation_residual_norm_threshold_20268131",
+        "00849_validation_residual_norm_threshold_20268132",
+        "00850_validation_residual_norm_threshold_20268133",
+        "00851_validation_residual_norm_threshold_20268134",
+        "00852_validation_residual_norm_threshold_20268135",
+        "00853_validation_residual_norm_threshold_20268136",
+        "00854_validation_residual_norm_threshold_20268137",
+        "00855_validation_residual_norm_threshold_20268138",
+        "00856_validation_residual_norm_threshold_20268139",
+        "00857_validation_residual_norm_threshold_20268140",
+        "00858_validation_residual_norm_threshold_20268141",
+        "00859_validation_residual_norm_threshold_20268142",
+        "00860_validation_residual_norm_threshold_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            18.05,
+            20.7
+          ],
+          "mean": 19.35
+        },
+        "discounted_return": {
+          "ci95": [
+            0.1436878594403852,
+            0.2355321028556366
+          ],
+          "mean": 0.19016925044865968
+        },
+        "environment_steps": {
+          "ci95": [
+            151.19875,
+            206.6625
+          ],
+          "mean": 177.8
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.23394727402679563,
+            0.30144775879762165
+          ],
+          "mean": 0.2659079669385392
+        },
+        "refresh_activations": {
+          "ci95": [
+            17.0,
+            19.55
+          ],
+          "mean": 18.25
+        },
+        "refresh_requests": {
+          "ci95": [
+            17.05,
+            19.55125
+          ],
+          "mean": 18.3
+        },
+        "return": {
+          "ci95": [
+            0.69875,
+            1.0
+          ],
+          "mean": 0.85
+        },
+        "success": {
+          "ci95": [
+            0.69875,
+            1.0
+          ],
+          "mean": 0.85
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.5707497078791675,
+            1.98857937340832
+          ],
+          "mean": 1.7713592865489773
+        }
+      },
+      "setting": {
+        "act_budget": 25,
+        "method": "residual_norm_threshold",
+        "parameter": 0.15
+      },
+      "successes": 17
+    },
+    {
+      "episode_ids": [
+        "00861_validation_residual_norm_threshold_20268124",
+        "00862_validation_residual_norm_threshold_20268125",
+        "00863_validation_residual_norm_threshold_20268126",
+        "00864_validation_residual_norm_threshold_20268127",
+        "00865_validation_residual_norm_threshold_20268128",
+        "00866_validation_residual_norm_threshold_20268129",
+        "00867_validation_residual_norm_threshold_20268130",
+        "00868_validation_residual_norm_threshold_20268131",
+        "00869_validation_residual_norm_threshold_20268132",
+        "00870_validation_residual_norm_threshold_20268133",
+        "00871_validation_residual_norm_threshold_20268134",
+        "00872_validation_residual_norm_threshold_20268135",
+        "00873_validation_residual_norm_threshold_20268136",
+        "00874_validation_residual_norm_threshold_20268137",
+        "00875_validation_residual_norm_threshold_20268138",
+        "00876_validation_residual_norm_threshold_20268139",
+        "00877_validation_residual_norm_threshold_20268140",
+        "00878_validation_residual_norm_threshold_20268141",
+        "00879_validation_residual_norm_threshold_20268142",
+        "00880_validation_residual_norm_threshold_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            18.0,
+            20.25125
+          ],
+          "mean": 19.05
+        },
+        "discounted_return": {
+          "ci95": [
+            0.15547763232402895,
+            0.2407512238441671
+          ],
+          "mean": 0.200315584021827
+        },
+        "environment_steps": {
+          "ci95": [
+            148.55,
+            196.8525
+          ],
+          "mean": 170.95
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.2331192443947657,
+            0.29359184949085826
+          ],
+          "mean": 0.26129084915010026
+        },
+        "refresh_activations": {
+          "ci95": [
+            16.4,
+            18.5
+          ],
+          "mean": 17.4
+        },
+        "refresh_requests": {
+          "ci95": [
+            16.45,
+            18.55
+          ],
+          "mean": 17.45
+        },
+        "return": {
+          "ci95": [
+            0.75,
+            1.0
+          ],
+          "mean": 0.9
+        },
+        "success": {
+          "ci95": [
+            0.75,
+            1.0
+          ],
+          "mean": 0.9
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.5689584052389727,
+            1.9316526749641525
+          ],
+          "mean": 1.7393072731516441
+        }
+      },
+      "setting": {
+        "act_budget": 25,
+        "method": "residual_norm_threshold",
+        "parameter": 0.19
+      },
+      "successes": 18
+    },
+    {
+      "episode_ids": [
+        "00881_validation_residual_norm_threshold_20268124",
+        "00882_validation_residual_norm_threshold_20268125",
+        "00883_validation_residual_norm_threshold_20268126",
+        "00884_validation_residual_norm_threshold_20268127",
+        "00885_validation_residual_norm_threshold_20268128",
+        "00886_validation_residual_norm_threshold_20268129",
+        "00887_validation_residual_norm_threshold_20268130",
+        "00888_validation_residual_norm_threshold_20268131",
+        "00889_validation_residual_norm_threshold_20268132",
+        "00890_validation_residual_norm_threshold_20268133",
+        "00891_validation_residual_norm_threshold_20268134",
+        "00892_validation_residual_norm_threshold_20268135",
+        "00893_validation_residual_norm_threshold_20268136",
+        "00894_validation_residual_norm_threshold_20268137",
+        "00895_validation_residual_norm_threshold_20268138",
+        "00896_validation_residual_norm_threshold_20268139",
+        "00897_validation_residual_norm_threshold_20268140",
+        "00898_validation_residual_norm_threshold_20268141",
+        "00899_validation_residual_norm_threshold_20268142",
+        "00900_validation_residual_norm_threshold_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            17.45,
+            20.1
+          ],
+          "mean": 18.75
+        },
+        "discounted_return": {
+          "ci95": [
+            0.16423370906617027,
+            0.2639928749505664
+          ],
+          "mean": 0.21621263822213263
+        },
+        "environment_steps": {
+          "ci95": [
+            138.39375,
+            196.95874999999998
+          ],
+          "mean": 166.25
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.22507135871837816,
+            0.29237529121846817
+          ],
+          "mean": 0.25730837548908314
+        },
+        "refresh_activations": {
+          "ci95": [
+            13.95,
+            15.05
+          ],
+          "mean": 14.5
+        },
+        "refresh_requests": {
+          "ci95": [
+            13.95,
+            15.2
+          ],
+          "mean": 14.55
+        },
+        "return": {
+          "ci95": [
+            0.7,
+            1.0
+          ],
+          "mean": 0.85
+        },
+        "success": {
+          "ci95": [
+            0.7,
+            1.0
+          ],
+          "mean": 0.85
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.4946133532576278,
+            1.9315953672453907
+          ],
+          "mean": 1.70474054325241
+        }
+      },
+      "setting": {
+        "act_budget": 25,
+        "method": "residual_norm_threshold",
+        "parameter": 0.23
+      },
+      "successes": 17
+    },
+    {
+      "episode_ids": [
+        "00901_validation_residual_norm_threshold_20268124",
+        "00902_validation_residual_norm_threshold_20268125",
+        "00903_validation_residual_norm_threshold_20268126",
+        "00904_validation_residual_norm_threshold_20268127",
+        "00905_validation_residual_norm_threshold_20268128",
+        "00906_validation_residual_norm_threshold_20268129",
+        "00907_validation_residual_norm_threshold_20268130",
+        "00908_validation_residual_norm_threshold_20268131",
+        "00909_validation_residual_norm_threshold_20268132",
+        "00910_validation_residual_norm_threshold_20268133",
+        "00911_validation_residual_norm_threshold_20268134",
+        "00912_validation_residual_norm_threshold_20268135",
+        "00913_validation_residual_norm_threshold_20268136",
+        "00914_validation_residual_norm_threshold_20268137",
+        "00915_validation_residual_norm_threshold_20268138",
+        "00916_validation_residual_norm_threshold_20268139",
+        "00917_validation_residual_norm_threshold_20268140",
+        "00918_validation_residual_norm_threshold_20268141",
+        "00919_validation_residual_norm_threshold_20268142",
+        "00920_validation_residual_norm_threshold_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            7.45,
+            9.75
+          ],
+          "mean": 8.45
+        },
+        "discounted_return": {
+          "ci95": [
+            0.18477386940512489,
+            0.2622426159223631
+          ],
+          "mean": 0.22565416770001004
+        },
+        "environment_steps": {
+          "ci95": [
+            137.745,
+            185.72749999999996
+          ],
+          "mean": 158.9
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.1642858818064451,
+            0.21894291637503555
+          ],
+          "mean": 0.18816935412760358
+        },
+        "refresh_activations": {
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "mean": 0.0
+        },
+        "refresh_requests": {
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "mean": 0.0
+        },
+        "return": {
+          "ci95": [
+            0.85,
+            1.0
+          ],
+          "mean": 0.95
+        },
+        "success": {
+          "ci95": [
+            0.85,
+            1.0
+          ],
+          "mean": 0.95
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.3864170821463084,
+            1.7424070244196626
+          ],
+          "mean": 1.5425964672998815
+        }
+      },
+      "setting": {
+        "act_budget": 25,
+        "method": "residual_norm_threshold",
+        "parameter": 0.27
+      },
+      "successes": 19
+    },
+    {
+      "episode_ids": [
+        "00921_validation_B5_20268124",
+        "00922_validation_B5_20268125",
+        "00923_validation_B5_20268126",
+        "00924_validation_B5_20268127",
+        "00925_validation_B5_20268128",
+        "00926_validation_B5_20268129",
+        "00927_validation_B5_20268130",
+        "00928_validation_B5_20268131",
+        "00929_validation_B5_20268132",
+        "00930_validation_B5_20268133",
+        "00931_validation_B5_20268134",
+        "00932_validation_B5_20268135",
+        "00933_validation_B5_20268136",
+        "00934_validation_B5_20268137",
+        "00935_validation_B5_20268138",
+        "00936_validation_B5_20268139",
+        "00937_validation_B5_20268140",
+        "00938_validation_B5_20268141",
+        "00939_validation_B5_20268142",
+        "00940_validation_B5_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            17.85,
+            20.00125
+          ],
+          "mean": 18.85
+        },
+        "discounted_return": {
+          "ci95": [
+            0.15995199918262584,
+            0.24342826305585052
+          ],
+          "mean": 0.20377211675742335
+        },
+        "environment_steps": {
+          "ci95": [
+            146.095,
+            191.71249999999998
+          ],
+          "mean": 167.25
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.2534710164764146,
+            0.3049077545850559
+          ],
+          "mean": 0.2782963239653327
+        },
+        "refresh_activations": {
+          "ci95": [
+            15.95,
+            18.151249999999997
+          ],
+          "mean": 17.0
+        },
+        "refresh_requests": {
+          "ci95": [
+            15.95,
+            18.151249999999997
+          ],
+          "mean": 17.0
+        },
+        "return": {
+          "ci95": [
+            0.75,
+            1.0
+          ],
+          "mean": 0.9
+        },
+        "success": {
+          "ci95": [
+            0.75,
+            1.0
+          ],
+          "mean": 0.9
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.5285903607241562,
+            1.8641437168619812
+          ],
+          "mean": 1.6861759235005593
+        }
+      },
+      "setting": {
+        "act_budget": 25,
+        "method": "B5",
+        "parameter": 0.0
+      },
+      "successes": 18
+    },
+    {
+      "episode_ids": [
+        "00941_validation_B5_20268124",
+        "00942_validation_B5_20268125",
+        "00943_validation_B5_20268126",
+        "00944_validation_B5_20268127",
+        "00945_validation_B5_20268128",
+        "00946_validation_B5_20268129",
+        "00947_validation_B5_20268130",
+        "00948_validation_B5_20268131",
+        "00949_validation_B5_20268132",
+        "00950_validation_B5_20268133",
+        "00951_validation_B5_20268134",
+        "00952_validation_B5_20268135",
+        "00953_validation_B5_20268136",
+        "00954_validation_B5_20268137",
+        "00955_validation_B5_20268138",
+        "00956_validation_B5_20268139",
+        "00957_validation_B5_20268140",
+        "00958_validation_B5_20268141",
+        "00959_validation_B5_20268142",
+        "00960_validation_B5_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            17.8,
+            20.00125
+          ],
+          "mean": 18.9
+        },
+        "discounted_return": {
+          "ci95": [
+            0.16394854430217173,
+            0.248519141330112
+          ],
+          "mean": 0.20581286496532342
+        },
+        "environment_steps": {
+          "ci95": [
+            146.04375000000002,
+            192.65
+          ],
+          "mean": 168.7
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.2580146921413689,
+            0.3177071422644803
+          ],
+          "mean": 0.28646202691088546
+        },
+        "refresh_activations": {
+          "ci95": [
+            15.8,
+            18.2
+          ],
+          "mean": 16.95
+        },
+        "refresh_requests": {
+          "ci95": [
+            15.8,
+            18.2
+          ],
+          "mean": 16.95
+        },
+        "return": {
+          "ci95": [
+            0.75,
+            1.0
+          ],
+          "mean": 0.9
+        },
+        "success": {
+          "ci95": [
+            0.75,
+            1.0
+          ],
+          "mean": 0.9
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.5302832344689887,
+            1.8830992890362177
+          ],
+          "mean": 1.7005274614013615
+        }
+      },
+      "setting": {
+        "act_budget": 25,
+        "method": "B5",
+        "parameter": 0.01
+      },
+      "successes": 18
+    },
+    {
+      "episode_ids": [
+        "00961_validation_B5_20268124",
+        "00962_validation_B5_20268125",
+        "00963_validation_B5_20268126",
+        "00964_validation_B5_20268127",
+        "00965_validation_B5_20268128",
+        "00966_validation_B5_20268129",
+        "00967_validation_B5_20268130",
+        "00968_validation_B5_20268131",
+        "00969_validation_B5_20268132",
+        "00970_validation_B5_20268133",
+        "00971_validation_B5_20268134",
+        "00972_validation_B5_20268135",
+        "00973_validation_B5_20268136",
+        "00974_validation_B5_20268137",
+        "00975_validation_B5_20268138",
+        "00976_validation_B5_20268139",
+        "00977_validation_B5_20268140",
+        "00978_validation_B5_20268141",
+        "00979_validation_B5_20268142",
+        "00980_validation_B5_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            17.7,
+            19.65
+          ],
+          "mean": 18.6
+        },
+        "discounted_return": {
+          "ci95": [
+            0.17622060053676555,
+            0.2508228271033925
+          ],
+          "mean": 0.21378341807518159
+        },
+        "environment_steps": {
+          "ci95": [
+            143.7425,
+            182.35
+          ],
+          "mean": 161.8
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.2631725561672647,
+            0.3103367739249006
+          ],
+          "mean": 0.2856814900093013
+        },
+        "refresh_activations": {
+          "ci95": [
+            15.4,
+            17.35
+          ],
+          "mean": 16.25
+        },
+        "refresh_requests": {
+          "ci95": [
+            15.45,
+            17.4
+          ],
+          "mean": 16.3
+        },
+        "return": {
+          "ci95": [
+            0.85,
+            1.0
+          ],
+          "mean": 0.95
+        },
+        "success": {
+          "ci95": [
+            0.85,
+            1.0
+          ],
+          "mean": 0.95
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.52387342461192,
+            1.808449987672684
+          ],
+          "mean": 1.6576675916010573
+        }
+      },
+      "setting": {
+        "act_budget": 25,
+        "method": "B5",
+        "parameter": 0.025
+      },
+      "successes": 19
+    },
+    {
+      "episode_ids": [
+        "00981_validation_B5_20268124",
+        "00982_validation_B5_20268125",
+        "00983_validation_B5_20268126",
+        "00984_validation_B5_20268127",
+        "00985_validation_B5_20268128",
+        "00986_validation_B5_20268129",
+        "00987_validation_B5_20268130",
+        "00988_validation_B5_20268131",
+        "00989_validation_B5_20268132",
+        "00990_validation_B5_20268133",
+        "00991_validation_B5_20268134",
+        "00992_validation_B5_20268135",
+        "00993_validation_B5_20268136",
+        "00994_validation_B5_20268137",
+        "00995_validation_B5_20268138",
+        "00996_validation_B5_20268139",
+        "00997_validation_B5_20268140",
+        "00998_validation_B5_20268141",
+        "00999_validation_B5_20268142",
+        "01000_validation_B5_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            16.69875,
+            18.701249999999998
+          ],
+          "mean": 17.65
+        },
+        "discounted_return": {
+          "ci95": [
+            0.1957416024783166,
+            0.26726656030396184
+          ],
+          "mean": 0.233884631920374
+        },
+        "environment_steps": {
+          "ci95": [
+            134.9475,
+            171.8
+          ],
+          "mean": 151.95
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.265390362253529,
+            0.30935697671420714
+          ],
+          "mean": 0.2870024114075932
+        },
+        "refresh_activations": {
+          "ci95": [
+            14.5,
+            16.1
+          ],
+          "mean": 15.25
+        },
+        "refresh_requests": {
+          "ci95": [
+            14.5,
+            16.1
+          ],
+          "mean": 15.25
+        },
+        "return": {
+          "ci95": [
+            0.85,
+            1.0
+          ],
+          "mean": 0.95
+        },
+        "success": {
+          "ci95": [
+            0.85,
+            1.0
+          ],
+          "mean": 0.95
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.4693886559206477,
+            1.7383867786469818
+          ],
+          "mean": 1.5949067843495868
+        }
+      },
+      "setting": {
+        "act_budget": 25,
+        "method": "B5",
+        "parameter": 0.05
+      },
+      "successes": 19
+    },
+    {
+      "episode_ids": [
+        "01001_validation_B5_20268124",
+        "01002_validation_B5_20268125",
+        "01003_validation_B5_20268126",
+        "01004_validation_B5_20268127",
+        "01005_validation_B5_20268128",
+        "01006_validation_B5_20268129",
+        "01007_validation_B5_20268130",
+        "01008_validation_B5_20268131",
+        "01009_validation_B5_20268132",
+        "01010_validation_B5_20268133",
+        "01011_validation_B5_20268134",
+        "01012_validation_B5_20268135",
+        "01013_validation_B5_20268136",
+        "01014_validation_B5_20268137",
+        "01015_validation_B5_20268138",
+        "01016_validation_B5_20268139",
+        "01017_validation_B5_20268140",
+        "01018_validation_B5_20268141",
+        "01019_validation_B5_20268142",
+        "01020_validation_B5_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            15.7,
+            19.701249999999998
+          ],
+          "mean": 17.65
+        },
+        "discounted_return": {
+          "ci95": [
+            0.1431772773931498,
+            0.2376297758957902
+          ],
+          "mean": 0.19286605743467883
+        },
+        "environment_steps": {
+          "ci95": [
+            151.2975,
+            207.555
+          ],
+          "mean": 177.1
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.3071566303624968,
+            0.40328858221429986
+          ],
+          "mean": 0.3505833899551362
+        },
+        "refresh_activations": {
+          "ci95": [
+            11.55,
+            14.75
+          ],
+          "mean": 13.2
+        },
+        "refresh_requests": {
+          "ci95": [
+            11.65,
+            14.9
+          ],
+          "mean": 13.3
+        },
+        "return": {
+          "ci95": [
+            0.6,
+            0.95
+          ],
+          "mean": 0.8
+        },
+        "success": {
+          "ci95": [
+            0.6,
+            0.95
+          ],
+          "mean": 0.8
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.6192040750729393,
+            2.0738739360422005
+          ],
+          "mean": 1.8269094063463853
+        }
+      },
+      "setting": {
+        "act_budget": 25,
+        "method": "B5",
+        "parameter": 0.1
+      },
+      "successes": 16
+    },
+    {
+      "episode_ids": [
+        "01021_validation_B6_20268124",
+        "01022_validation_B6_20268125",
+        "01023_validation_B6_20268126",
+        "01024_validation_B6_20268127",
+        "01025_validation_B6_20268128",
+        "01026_validation_B6_20268129",
+        "01027_validation_B6_20268130",
+        "01028_validation_B6_20268131",
+        "01029_validation_B6_20268132",
+        "01030_validation_B6_20268133",
+        "01031_validation_B6_20268134",
+        "01032_validation_B6_20268135",
+        "01033_validation_B6_20268136",
+        "01034_validation_B6_20268137",
+        "01035_validation_B6_20268138",
+        "01036_validation_B6_20268139",
+        "01037_validation_B6_20268140",
+        "01038_validation_B6_20268141",
+        "01039_validation_B6_20268142",
+        "01040_validation_B6_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            17.85,
+            20.2
+          ],
+          "mean": 19.0
+        },
+        "discounted_return": {
+          "ci95": [
+            0.16260216547075979,
+            0.2509267690370488
+          ],
+          "mean": 0.20733328133645074
+        },
+        "environment_steps": {
+          "ci95": [
+            144.7975,
+            193.65
+          ],
+          "mean": 169.35
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.2568124299169358,
+            0.31872053277487794
+          ],
+          "mean": 0.28670608181128043
+        },
+        "refresh_activations": {
+          "ci95": [
+            15.25,
+            17.05125
+          ],
+          "mean": 16.15
+        },
+        "refresh_requests": {
+          "ci95": [
+            15.25,
+            17.05125
+          ],
+          "mean": 16.15
+        },
+        "return": {
+          "ci95": [
+            0.75,
+            1.0
+          ],
+          "mean": 0.9
+        },
+        "success": {
+          "ci95": [
+            0.75,
+            1.0
+          ],
+          "mean": 0.9
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.5201101659655252,
+            1.8985271492266473
+          ],
+          "mean": 1.7103857788002643
+        }
+      },
+      "setting": {
+        "act_budget": 25,
+        "method": "B6",
+        "parameter": 0.0
+      },
+      "successes": 18
+    },
+    {
+      "episode_ids": [
+        "01041_validation_B6_20268124",
+        "01042_validation_B6_20268125",
+        "01043_validation_B6_20268126",
+        "01044_validation_B6_20268127",
+        "01045_validation_B6_20268128",
+        "01046_validation_B6_20268129",
+        "01047_validation_B6_20268130",
+        "01048_validation_B6_20268131",
+        "01049_validation_B6_20268132",
+        "01050_validation_B6_20268133",
+        "01051_validation_B6_20268134",
+        "01052_validation_B6_20268135",
+        "01053_validation_B6_20268136",
+        "01054_validation_B6_20268137",
+        "01055_validation_B6_20268138",
+        "01056_validation_B6_20268139",
+        "01057_validation_B6_20268140",
+        "01058_validation_B6_20268141",
+        "01059_validation_B6_20268142",
+        "01060_validation_B6_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            17.75,
+            20.1
+          ],
+          "mean": 18.85
+        },
+        "discounted_return": {
+          "ci95": [
+            0.1637949741601178,
+            0.25041336534696873
+          ],
+          "mean": 0.2097658082295238
+        },
+        "environment_steps": {
+          "ci95": [
+            143.435,
+            193.405
+          ],
+          "mean": 167.2
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.25514717780355567,
+            0.3165744587250083
+          ],
+          "mean": 0.2847691182527342
+        },
+        "refresh_activations": {
+          "ci95": [
+            14.4,
+            16.35125
+          ],
+          "mean": 15.35
+        },
+        "refresh_requests": {
+          "ci95": [
+            14.45,
+            16.451249999999998
+          ],
+          "mean": 15.4
+        },
+        "return": {
+          "ci95": [
+            0.7,
+            1.0
+          ],
+          "mean": 0.85
+        },
+        "success": {
+          "ci95": [
+            0.7,
+            1.0
+          ],
+          "mean": 0.85
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.5111566333273914,
+            1.8906365515488686
+          ],
+          "mean": 1.6930755009016139
+        }
+      },
+      "setting": {
+        "act_budget": 25,
+        "method": "B6",
+        "parameter": 0.01
+      },
+      "successes": 17
+    },
+    {
+      "episode_ids": [
+        "01061_validation_B6_20268124",
+        "01062_validation_B6_20268125",
+        "01063_validation_B6_20268126",
+        "01064_validation_B6_20268127",
+        "01065_validation_B6_20268128",
+        "01066_validation_B6_20268129",
+        "01067_validation_B6_20268130",
+        "01068_validation_B6_20268131",
+        "01069_validation_B6_20268132",
+        "01070_validation_B6_20268133",
+        "01071_validation_B6_20268134",
+        "01072_validation_B6_20268135",
+        "01073_validation_B6_20268136",
+        "01074_validation_B6_20268137",
+        "01075_validation_B6_20268138",
+        "01076_validation_B6_20268139",
+        "01077_validation_B6_20268140",
+        "01078_validation_B6_20268141",
+        "01079_validation_B6_20268142",
+        "01080_validation_B6_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            17.75,
+            20.3
+          ],
+          "mean": 19.05
+        },
+        "discounted_return": {
+          "ci95": [
+            0.15816328319197484,
+            0.24895458205300328
+          ],
+          "mean": 0.20268297511290645
+        },
+        "environment_steps": {
+          "ci95": [
+            146.3475,
+            196.80375
+          ],
+          "mean": 171.9
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.2699942528651445,
+            0.3458566539696221
+          ],
+          "mean": 0.3064979332695657
+        },
+        "refresh_activations": {
+          "ci95": [
+            14.4,
+            15.5
+          ],
+          "mean": 14.95
+        },
+        "refresh_requests": {
+          "ci95": [
+            14.4,
+            15.5
+          ],
+          "mean": 14.95
+        },
+        "return": {
+          "ci95": [
+            0.75,
+            1.0
+          ],
+          "mean": 0.9
+        },
+        "success": {
+          "ci95": [
+            0.75,
+            1.0
+          ],
+          "mean": 0.9
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.5507872418490662,
+            1.941413369549955
+          ],
+          "mean": 1.7457198715514095
+        }
+      },
+      "setting": {
+        "act_budget": 25,
+        "method": "B6",
+        "parameter": 0.025
+      },
+      "successes": 18
+    },
+    {
+      "episode_ids": [
+        "01081_validation_B6_20268124",
+        "01082_validation_B6_20268125",
+        "01083_validation_B6_20268126",
+        "01084_validation_B6_20268127",
+        "01085_validation_B6_20268128",
+        "01086_validation_B6_20268129",
+        "01087_validation_B6_20268130",
+        "01088_validation_B6_20268131",
+        "01089_validation_B6_20268132",
+        "01090_validation_B6_20268133",
+        "01091_validation_B6_20268134",
+        "01092_validation_B6_20268135",
+        "01093_validation_B6_20268136",
+        "01094_validation_B6_20268137",
+        "01095_validation_B6_20268138",
+        "01096_validation_B6_20268139",
+        "01097_validation_B6_20268140",
+        "01098_validation_B6_20268141",
+        "01099_validation_B6_20268142",
+        "01100_validation_B6_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            16.4,
+            19.60125
+          ],
+          "mean": 18.0
+        },
+        "discounted_return": {
+          "ci95": [
+            0.17035464989031507,
+            0.2601582998625488
+          ],
+          "mean": 0.21601250047207374
+        },
+        "environment_steps": {
+          "ci95": [
+            140.9475,
+            191.35875
+          ],
+          "mean": 164.9
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.2750894095764488,
+            0.3510852675733076
+          ],
+          "mean": 0.3103064282295236
+        },
+        "refresh_activations": {
+          "ci95": [
+            12.4,
+            14.9
+          ],
+          "mean": 13.75
+        },
+        "refresh_requests": {
+          "ci95": [
+            12.45,
+            14.90125
+          ],
+          "mean": 13.8
+        },
+        "return": {
+          "ci95": [
+            0.75,
+            1.0
+          ],
+          "mean": 0.9
+        },
+        "success": {
+          "ci95": [
+            0.75,
+            1.0
+          ],
+          "mean": 0.9
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.5235412325303697,
+            1.917787126925632
+          ],
+          "mean": 1.7080919707994326
+        }
+      },
+      "setting": {
+        "act_budget": 25,
+        "method": "B6",
+        "parameter": 0.05
+      },
+      "successes": 18
+    },
+    {
+      "episode_ids": [
+        "01101_validation_B6_20268124",
+        "01102_validation_B6_20268125",
+        "01103_validation_B6_20268126",
+        "01104_validation_B6_20268127",
+        "01105_validation_B6_20268128",
+        "01106_validation_B6_20268129",
+        "01107_validation_B6_20268130",
+        "01108_validation_B6_20268131",
+        "01109_validation_B6_20268132",
+        "01110_validation_B6_20268133",
+        "01111_validation_B6_20268134",
+        "01112_validation_B6_20268135",
+        "01113_validation_B6_20268136",
+        "01114_validation_B6_20268137",
+        "01115_validation_B6_20268138",
+        "01116_validation_B6_20268139",
+        "01117_validation_B6_20268140",
+        "01118_validation_B6_20268141",
+        "01119_validation_B6_20268142",
+        "01120_validation_B6_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            12.6,
+            16.80125
+          ],
+          "mean": 14.8
+        },
+        "discounted_return": {
+          "ci95": [
+            0.1824922101676683,
+            0.25612286331652395
+          ],
+          "mean": 0.2214120861799373
+        },
+        "environment_steps": {
+          "ci95": [
+            139.85,
+            179.20125
+          ],
+          "mean": 158.15
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.28403756421981596,
+            0.354338793339557
+          ],
+          "mean": 0.3176615201366076
+        },
+        "refresh_activations": {
+          "ci95": [
+            7.3,
+            11.251249999999999
+          ],
+          "mean": 9.35
+        },
+        "refresh_requests": {
+          "ci95": [
+            7.3,
+            11.251249999999999
+          ],
+          "mean": 9.35
+        },
+        "return": {
+          "ci95": [
+            0.85,
+            1.0
+          ],
+          "mean": 0.95
+        },
+        "success": {
+          "ci95": [
+            0.85,
+            1.0
+          ],
+          "mean": 0.95
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.5250144124070901,
+            1.8345443265435641
+          ],
+          "mean": 1.6694834630507103
+        }
+      },
+      "setting": {
+        "act_budget": 25,
+        "method": "B6",
+        "parameter": 0.1
+      },
+      "successes": 19
+    },
+    {
+      "episode_ids": [
+        "01121_validation_P1_20268124",
+        "01122_validation_P1_20268125",
+        "01123_validation_P1_20268126",
+        "01124_validation_P1_20268127",
+        "01125_validation_P1_20268128",
+        "01126_validation_P1_20268129",
+        "01127_validation_P1_20268130",
+        "01128_validation_P1_20268131",
+        "01129_validation_P1_20268132",
+        "01130_validation_P1_20268133",
+        "01131_validation_P1_20268134",
+        "01132_validation_P1_20268135",
+        "01133_validation_P1_20268136",
+        "01134_validation_P1_20268137",
+        "01135_validation_P1_20268138",
+        "01136_validation_P1_20268139",
+        "01137_validation_P1_20268140",
+        "01138_validation_P1_20268141",
+        "01139_validation_P1_20268142",
+        "01140_validation_P1_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            18.45,
+            21.25
+          ],
+          "mean": 19.75
+        },
+        "discounted_return": {
+          "ci95": [
+            0.12251568828807519,
+            0.21905657246737675
+          ],
+          "mean": 0.1737662929595046
+        },
+        "environment_steps": {
+          "ci95": [
+            159.645,
+            217.855
+          ],
+          "mean": 186.4
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.26366008781664274,
+            0.33568559436371287
+          ],
+          "mean": 0.2964974276103021
+        },
+        "refresh_activations": {
+          "ci95": [
+            16.25,
+            18.0
+          ],
+          "mean": 17.1
+        },
+        "refresh_requests": {
+          "ci95": [
+            16.3,
+            18.05
+          ],
+          "mean": 17.15
+        },
+        "return": {
+          "ci95": [
+            0.6,
+            0.95
+          ],
+          "mean": 0.8
+        },
+        "success": {
+          "ci95": [
+            0.6,
+            0.95
+          ],
+          "mean": 0.8
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.624369521833032,
+            2.060145459424439
+          ],
+          "mean": 1.8242407633508264
+        }
+      },
+      "setting": {
+        "act_budget": 25,
+        "method": "P1",
+        "parameter": 0.0
+      },
+      "successes": 16
+    },
+    {
+      "episode_ids": [
+        "01141_validation_P1_20268124",
+        "01142_validation_P1_20268125",
+        "01143_validation_P1_20268126",
+        "01144_validation_P1_20268127",
+        "01145_validation_P1_20268128",
+        "01146_validation_P1_20268129",
+        "01147_validation_P1_20268130",
+        "01148_validation_P1_20268131",
+        "01149_validation_P1_20268132",
+        "01150_validation_P1_20268133",
+        "01151_validation_P1_20268134",
+        "01152_validation_P1_20268135",
+        "01153_validation_P1_20268136",
+        "01154_validation_P1_20268137",
+        "01155_validation_P1_20268138",
+        "01156_validation_P1_20268139",
+        "01157_validation_P1_20268140",
+        "01158_validation_P1_20268141",
+        "01159_validation_P1_20268142",
+        "01160_validation_P1_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            18.35,
+            21.1
+          ],
+          "mean": 19.65
+        },
+        "discounted_return": {
+          "ci95": [
+            0.1264087402148998,
+            0.22154094654014198
+          ],
+          "mean": 0.17640153998597113
+        },
+        "environment_steps": {
+          "ci95": [
+            158.54500000000002,
+            215.405
+          ],
+          "mean": 185.7
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.2649854821394183,
+            0.3333686663026492
+          ],
+          "mean": 0.29758612954683483
+        },
+        "refresh_activations": {
+          "ci95": [
+            16.4,
+            19.00125
+          ],
+          "mean": 17.6
+        },
+        "refresh_requests": {
+          "ci95": [
+            16.4,
+            19.00125
+          ],
+          "mean": 17.6
+        },
+        "return": {
+          "ci95": [
+            0.6,
+            0.95
+          ],
+          "mean": 0.8
+        },
+        "success": {
+          "ci95": [
+            0.6,
+            0.95
+          ],
+          "mean": 0.8
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.6209939001575913,
+            2.046115286489039
+          ],
+          "mean": 1.8223996116998022
+        }
+      },
+      "setting": {
+        "act_budget": 25,
+        "method": "P1",
+        "parameter": 0.01
+      },
+      "successes": 16
+    },
+    {
+      "episode_ids": [
+        "01161_validation_P1_20268124",
+        "01162_validation_P1_20268125",
+        "01163_validation_P1_20268126",
+        "01164_validation_P1_20268127",
+        "01165_validation_P1_20268128",
+        "01166_validation_P1_20268129",
+        "01167_validation_P1_20268130",
+        "01168_validation_P1_20268131",
+        "01169_validation_P1_20268132",
+        "01170_validation_P1_20268133",
+        "01171_validation_P1_20268134",
+        "01172_validation_P1_20268135",
+        "01173_validation_P1_20268136",
+        "01174_validation_P1_20268137",
+        "01175_validation_P1_20268138",
+        "01176_validation_P1_20268139",
+        "01177_validation_P1_20268140",
+        "01178_validation_P1_20268141",
+        "01179_validation_P1_20268142",
+        "01180_validation_P1_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            17.8,
+            20.00125
+          ],
+          "mean": 18.85
+        },
+        "discounted_return": {
+          "ci95": [
+            0.1551487648553472,
+            0.23373813243824046
+          ],
+          "mean": 0.19660060285706413
+        },
+        "environment_steps": {
+          "ci95": [
+            150.3,
+            194.10375
+          ],
+          "mean": 170.55
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.25758098634076304,
+            0.30967080754364357
+          ],
+          "mean": 0.28242640467506136
+        },
+        "refresh_activations": {
+          "ci95": [
+            15.15,
+            17.05125
+          ],
+          "mean": 16.05
+        },
+        "refresh_requests": {
+          "ci95": [
+            15.15,
+            17.05125
+          ],
+          "mean": 16.05
+        },
+        "return": {
+          "ci95": [
+            0.75,
+            1.0
+          ],
+          "mean": 0.9
+        },
+        "success": {
+          "ci95": [
+            0.75,
+            1.0
+          ],
+          "mean": 0.9
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.5661275098582337,
+            1.8882744852397808
+          ],
+          "mean": 1.7154908721495303
+        }
+      },
+      "setting": {
+        "act_budget": 25,
+        "method": "P1",
+        "parameter": 0.025
+      },
+      "successes": 18
+    },
+    {
+      "episode_ids": [
+        "01181_validation_P1_20268124",
+        "01182_validation_P1_20268125",
+        "01183_validation_P1_20268126",
+        "01184_validation_P1_20268127",
+        "01185_validation_P1_20268128",
+        "01186_validation_P1_20268129",
+        "01187_validation_P1_20268130",
+        "01188_validation_P1_20268131",
+        "01189_validation_P1_20268132",
+        "01190_validation_P1_20268133",
+        "01191_validation_P1_20268134",
+        "01192_validation_P1_20268135",
+        "01193_validation_P1_20268136",
+        "01194_validation_P1_20268137",
+        "01195_validation_P1_20268138",
+        "01196_validation_P1_20268139",
+        "01197_validation_P1_20268140",
+        "01198_validation_P1_20268141",
+        "01199_validation_P1_20268142",
+        "01200_validation_P1_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            18.05,
+            20.6
+          ],
+          "mean": 19.3
+        },
+        "discounted_return": {
+          "ci95": [
+            0.144856224571856,
+            0.23287817237471395
+          ],
+          "mean": 0.18898738049517422
+        },
+        "environment_steps": {
+          "ci95": [
+            152.49,
+            205.21249999999998
+          ],
+          "mean": 178.1
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.26443919064875443,
+            0.3328173961042739
+          ],
+          "mean": 0.2982255444076145
+        },
+        "refresh_activations": {
+          "ci95": [
+            14.45,
+            16.75
+          ],
+          "mean": 15.55
+        },
+        "refresh_requests": {
+          "ci95": [
+            14.6,
+            16.85
+          ],
+          "mean": 15.65
+        },
+        "return": {
+          "ci95": [
+            0.7,
+            1.0
+          ],
+          "mean": 0.85
+        },
+        "success": {
+          "ci95": [
+            0.7,
+            1.0
+          ],
+          "mean": 0.85
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.5852487719784587,
+            1.9787068029549117
+          ],
+          "mean": 1.776231459149858
+        }
+      },
+      "setting": {
+        "act_budget": 25,
+        "method": "P1",
+        "parameter": 0.05
+      },
+      "successes": 17
+    },
+    {
+      "episode_ids": [
+        "01201_validation_P1_20268124",
+        "01202_validation_P1_20268125",
+        "01203_validation_P1_20268126",
+        "01204_validation_P1_20268127",
+        "01205_validation_P1_20268128",
+        "01206_validation_P1_20268129",
+        "01207_validation_P1_20268130",
+        "01208_validation_P1_20268131",
+        "01209_validation_P1_20268132",
+        "01210_validation_P1_20268133",
+        "01211_validation_P1_20268134",
+        "01212_validation_P1_20268135",
+        "01213_validation_P1_20268136",
+        "01214_validation_P1_20268137",
+        "01215_validation_P1_20268138",
+        "01216_validation_P1_20268139",
+        "01217_validation_P1_20268140",
+        "01218_validation_P1_20268141",
+        "01219_validation_P1_20268142",
+        "01220_validation_P1_20268143"
+      ],
+      "episodes": 20,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            18.3,
+            21.7
+          ],
+          "mean": 19.95
+        },
+        "discounted_return": {
+          "ci95": [
+            0.10370102194433775,
+            0.2094216831412826
+          ],
+          "mean": 0.15918215828465185
+        },
+        "environment_steps": {
+          "ci95": [
+            167.39875,
+            231.5525
+          ],
+          "mean": 198.55
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.3061328987970592,
+            0.3949240011670008
+          ],
+          "mean": 0.35108550656586884
+        },
+        "refresh_activations": {
+          "ci95": [
+            13.24875,
+            15.7
+          ],
+          "mean": 14.45
+        },
+        "refresh_requests": {
+          "ci95": [
+            13.24875,
+            15.7
+          ],
+          "mean": 14.45
+        },
+        "return": {
+          "ci95": [
+            0.5,
+            0.9
+          ],
+          "mean": 0.7
+        },
+        "success": {
+          "ci95": [
+            0.5,
+            0.9
+          ],
+          "mean": 0.7
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.7304011863439155,
+            2.213234727607123
+          ],
+          "mean": 1.965374890203384
+        }
+      },
+      "setting": {
+        "act_budget": 25,
+        "method": "P1",
+        "parameter": 0.1
+      },
+      "successes": 14
+    }
+  ],
+  "fixed_budget": {
+    "15": {
+      "B5": {
+        "act_budget": 15,
+        "method": "B5",
+        "parameter": 0.05
+      },
+      "B6": {
+        "act_budget": 15,
+        "method": "B6",
+        "parameter": 0.01
+      },
+      "P1": {
+        "act_budget": 15,
+        "method": "P1",
+        "parameter": 0.1
+      },
+      "fixed_period_refresh": {
+        "act_budget": 15,
+        "method": "fixed_period_refresh",
+        "parameter": 10
+      },
+      "original_resfit": {
+        "act_budget": 15,
+        "method": "original_resfit",
+        "parameter": null
+      },
+      "residual_norm_threshold": {
+        "act_budget": 15,
+        "method": "residual_norm_threshold",
+        "parameter": 0.27
+      }
+    },
+    "20": {
+      "B5": {
+        "act_budget": 20,
+        "method": "B5",
+        "parameter": 0.05
+      },
+      "B6": {
+        "act_budget": 20,
+        "method": "B6",
+        "parameter": 0.025
+      },
+      "P1": {
+        "act_budget": 20,
+        "method": "P1",
+        "parameter": 0.05
+      },
+      "fixed_period_refresh": {
+        "act_budget": 20,
+        "method": "fixed_period_refresh",
+        "parameter": 10
+      },
+      "original_resfit": {
+        "act_budget": 15,
+        "method": "original_resfit",
+        "parameter": null
+      },
+      "residual_norm_threshold": {
+        "act_budget": 20,
+        "method": "residual_norm_threshold",
+        "parameter": 0.27
+      }
+    },
+    "25": {
+      "B5": {
+        "act_budget": 25,
+        "method": "B5",
+        "parameter": 0.05
+      },
+      "B6": {
+        "act_budget": 25,
+        "method": "B6",
+        "parameter": 0.1
+      },
+      "P1": {
+        "act_budget": 25,
+        "method": "P1",
+        "parameter": 0.025
+      },
+      "fixed_period_refresh": {
+        "act_budget": 25,
+        "method": "fixed_period_refresh",
+        "parameter": 10
+      },
+      "original_resfit": {
+        "act_budget": 15,
+        "method": "original_resfit",
+        "parameter": null
+      },
+      "residual_norm_threshold": {
+        "act_budget": 25,
+        "method": "residual_norm_threshold",
+        "parameter": 0.27
+      }
+    }
+  },
+  "fixed_performance": {
+    "B5": {
+      "act_budget": 15,
+      "method": "B5",
+      "parameter": 0.05
+    },
+    "B6": {
+      "act_budget": 15,
+      "method": "B6",
+      "parameter": 0.01
+    },
+    "P1": {
+      "act_budget": 15,
+      "method": "P1",
+      "parameter": 0.1
+    },
+    "fixed_period_refresh": null,
+    "original_resfit": {
+      "act_budget": 15,
+      "method": "original_resfit",
+      "parameter": null
+    },
+    "residual_norm_threshold": {
+      "act_budget": 15,
+      "method": "residual_norm_threshold",
+      "parameter": 0.27
+    }
+  },
+  "fixed_performance_rule": "meet the original ResFiT validation success rate, then minimize calls and use the lower cap",
+  "locked_test_seeds": [
+    20269124,
+    20269125,
+    20269126,
+    20269127,
+    20269128,
+    20269129,
+    20269130,
+    20269131,
+    20269132,
+    20269133,
+    20269134,
+    20269135,
+    20269136,
+    20269137,
+    20269138,
+    20269139,
+    20269140,
+    20269141,
+    20269142,
+    20269143,
+    20269144,
+    20269145,
+    20269146,
+    20269147,
+    20269148,
+    20269149,
+    20269150,
+    20269151,
+    20269152,
+    20269153,
+    20269154,
+    20269155,
+    20269156,
+    20269157,
+    20269158,
+    20269159,
+    20269160,
+    20269161,
+    20269162,
+    20269163,
+    20269164,
+    20269165,
+    20269166,
+    20269167,
+    20269168,
+    20269169,
+    20269170,
+    20269171,
+    20269172,
+    20269173
+  ],
+  "rule": "maximize validation successes, then minimize calls, then use the preregistered parameter order",
+  "target_success_rate": 0.95,
+  "target_validation_successes": 19,
+  "validation_seeds": [
+    20268124,
+    20268125,
+    20268126,
+    20268127,
+    20268128,
+    20268129,
+    20268130,
+    20268131,
+    20268132,
+    20268133,
+    20268134,
+    20268135,
+    20268136,
+    20268137,
+    20268138,
+    20268139,
+    20268140,
+    20268141,
+    20268142,
+    20268143
+  ]
+}

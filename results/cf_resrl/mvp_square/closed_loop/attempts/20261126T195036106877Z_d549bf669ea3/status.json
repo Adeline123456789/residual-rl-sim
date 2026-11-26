@@ -1,0 +1,10 @@
+{
+  "episodes_completed": 2020,
+  "finished_at_utc": "2026-11-26T20:53:16.041900+00:00",
+  "index_sha256": "0425f0bb8df24f5e0802864f1f4615386ff8af20af16671f8aa99dc45c9a437f",
+  "pid": 3341975,
+  "selection_sha256": "d95472caad2f5605f12f83da3f250ebe628e3efa36116859e73c8a8ae92921a0",
+  "started_at_utc": "2026-11-26T19:50:37.293835+00:00",
+  "status": "COMPLETED",
+  "summary_sha256": "9f4252deea23c99bbd740bc8d5da744f61351df0c58cda33eb72d80dcdceac3d"
+}

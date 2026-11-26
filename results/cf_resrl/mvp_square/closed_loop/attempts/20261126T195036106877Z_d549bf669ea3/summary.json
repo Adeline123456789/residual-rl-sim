@@ -1,0 +1,2945 @@
+{
+  "fixed_act_budgets": {
+    "15": {
+      "B5": {
+        "episode_ids": [
+          "01371_test_B5_20269124",
+          "01372_test_B5_20269125",
+          "01373_test_B5_20269126",
+          "01374_test_B5_20269127",
+          "01375_test_B5_20269128",
+          "01376_test_B5_20269129",
+          "01377_test_B5_20269130",
+          "01378_test_B5_20269131",
+          "01379_test_B5_20269132",
+          "01380_test_B5_20269133",
+          "01381_test_B5_20269134",
+          "01382_test_B5_20269135",
+          "01383_test_B5_20269136",
+          "01384_test_B5_20269137",
+          "01385_test_B5_20269138",
+          "01386_test_B5_20269139",
+          "01387_test_B5_20269140",
+          "01388_test_B5_20269141",
+          "01389_test_B5_20269142",
+          "01390_test_B5_20269143",
+          "01391_test_B5_20269144",
+          "01392_test_B5_20269145",
+          "01393_test_B5_20269146",
+          "01394_test_B5_20269147",
+          "01395_test_B5_20269148",
+          "01396_test_B5_20269149",
+          "01397_test_B5_20269150",
+          "01398_test_B5_20269151",
+          "01399_test_B5_20269152",
+          "01400_test_B5_20269153",
+          "01401_test_B5_20269154",
+          "01402_test_B5_20269155",
+          "01403_test_B5_20269156",
+          "01404_test_B5_20269157",
+          "01405_test_B5_20269158",
+          "01406_test_B5_20269159",
+          "01407_test_B5_20269160",
+          "01408_test_B5_20269161",
+          "01409_test_B5_20269162",
+          "01410_test_B5_20269163",
+          "01411_test_B5_20269164",
+          "01412_test_B5_20269165",
+          "01413_test_B5_20269166",
+          "01414_test_B5_20269167",
+          "01415_test_B5_20269168",
+          "01416_test_B5_20269169",
+          "01417_test_B5_20269170",
+          "01418_test_B5_20269171",
+          "01419_test_B5_20269172",
+          "01420_test_B5_20269173"
+        ],
+        "episodes": 50,
+        "estimates": {
+          "act_calls": {
+            "ci95": [
+              8.0,
+              9.58
+            ],
+            "mean": 8.78
+          },
+          "discounted_return": {
+            "ci95": [
+              0.18492027115282086,
+              0.24116329531882527
+            ],
+            "mean": 0.21309336926852324
+          },
+          "environment_steps": {
+            "ci95": [
+              149.8765,
+              182.942
+            ],
+            "mean": 166.32
+          },
+          "policy_wall_seconds": {
+            "ci95": [
+              0.18337488222348475,
+              0.22288370125795337
+            ],
+            "mean": 0.2029551799490582
+          },
+          "refresh_activations": {
+            "ci95": [
+              3.74,
+              5.14
+            ],
+            "mean": 4.44
+          },
+          "refresh_requests": {
+            "ci95": [
+              3.74,
+              5.14
+            ],
+            "mean": 4.44
+          },
+          "return": {
+            "ci95": [
+              0.74,
+              0.94
+            ],
+            "mean": 0.84
+          },
+          "success": {
+            "ci95": [
+              0.74,
+              0.94
+            ],
+            "mean": 0.84
+          },
+          "wall_seconds": {
+            "ci95": [
+              1.4807410570394715,
+              1.7278198987224895
+            ],
+            "mean": 1.604468896019389
+          }
+        },
+        "setting": {
+          "act_budget": 15,
+          "method": "B5",
+          "parameter": 0.05
+        },
+        "successes": 42
+      },
+      "B6": {
+        "episode_ids": [
+          "01421_test_B6_20269124",
+          "01422_test_B6_20269125",
+          "01423_test_B6_20269126",
+          "01424_test_B6_20269127",
+          "01425_test_B6_20269128",
+          "01426_test_B6_20269129",
+          "01427_test_B6_20269130",
+          "01428_test_B6_20269131",
+          "01429_test_B6_20269132",
+          "01430_test_B6_20269133",
+          "01431_test_B6_20269134",
+          "01432_test_B6_20269135",
+          "01433_test_B6_20269136",
+          "01434_test_B6_20269137",
+          "01435_test_B6_20269138",
+          "01436_test_B6_20269139",
+          "01437_test_B6_20269140",
+          "01438_test_B6_20269141",
+          "01439_test_B6_20269142",
+          "01440_test_B6_20269143",
+          "01441_test_B6_20269144",
+          "01442_test_B6_20269145",
+          "01443_test_B6_20269146",
+          "01444_test_B6_20269147",
+          "01445_test_B6_20269148",
+          "01446_test_B6_20269149",
+          "01447_test_B6_20269150",
+          "01448_test_B6_20269151",
+          "01449_test_B6_20269152",
+          "01450_test_B6_20269153",
+          "01451_test_B6_20269154",
+          "01452_test_B6_20269155",
+          "01453_test_B6_20269156",
+          "01454_test_B6_20269157",
+          "01455_test_B6_20269158",
+          "01456_test_B6_20269159",
+          "01457_test_B6_20269160",
+          "01458_test_B6_20269161",
+          "01459_test_B6_20269162",
+          "01460_test_B6_20269163",
+          "01461_test_B6_20269164",
+          "01462_test_B6_20269165",
+          "01463_test_B6_20269166",
+          "01464_test_B6_20269167",
+          "01465_test_B6_20269168",
+          "01466_test_B6_20269169",
+          "01467_test_B6_20269170",
+          "01468_test_B6_20269171",
+          "01469_test_B6_20269172",
+          "01470_test_B6_20269173"
+        ],
+        "episodes": 50,
+        "estimates": {
+          "act_calls": {
+            "ci95": [
+              7.92,
+              9.46
+            ],
+            "mean": 8.68
+          },
+          "discounted_return": {
+            "ci95": [
+              0.18780252688777105,
+              0.24286348674043193
+            ],
+            "mean": 0.21558328244006514
+          },
+          "environment_steps": {
+            "ci95": [
+              148.7585,
+              181.20499999999998
+            ],
+            "mean": 164.6
+          },
+          "policy_wall_seconds": {
+            "ci95": [
+              0.18205786446123967,
+              0.22068709604300238
+            ],
+            "mean": 0.2006705829690327
+          },
+          "refresh_activations": {
+            "ci95": [
+              2.7994999999999997,
+              3.8604999999999996
+            ],
+            "mean": 3.32
+          },
+          "refresh_requests": {
+            "ci95": [
+              2.8,
+              3.88
+            ],
+            "mean": 3.34
+          },
+          "return": {
+            "ci95": [
+              0.76,
+              0.96
+            ],
+            "mean": 0.86
+          },
+          "success": {
+            "ci95": [
+              0.76,
+              0.96
+            ],
+            "mean": 0.86
+          },
+          "wall_seconds": {
+            "ci95": [
+              1.4789447080588287,
+              1.7237442528420506
+            ],
+            "mean": 1.596643709000491
+          }
+        },
+        "setting": {
+          "act_budget": 15,
+          "method": "B6",
+          "parameter": 0.01
+        },
+        "successes": 43
+      },
+      "P1": {
+        "episode_ids": [
+          "01471_test_P1_20269124",
+          "01472_test_P1_20269125",
+          "01473_test_P1_20269126",
+          "01474_test_P1_20269127",
+          "01475_test_P1_20269128",
+          "01476_test_P1_20269129",
+          "01477_test_P1_20269130",
+          "01478_test_P1_20269131",
+          "01479_test_P1_20269132",
+          "01480_test_P1_20269133",
+          "01481_test_P1_20269134",
+          "01482_test_P1_20269135",
+          "01483_test_P1_20269136",
+          "01484_test_P1_20269137",
+          "01485_test_P1_20269138",
+          "01486_test_P1_20269139",
+          "01487_test_P1_20269140",
+          "01488_test_P1_20269141",
+          "01489_test_P1_20269142",
+          "01490_test_P1_20269143",
+          "01491_test_P1_20269144",
+          "01492_test_P1_20269145",
+          "01493_test_P1_20269146",
+          "01494_test_P1_20269147",
+          "01495_test_P1_20269148",
+          "01496_test_P1_20269149",
+          "01497_test_P1_20269150",
+          "01498_test_P1_20269151",
+          "01499_test_P1_20269152",
+          "01500_test_P1_20269153",
+          "01501_test_P1_20269154",
+          "01502_test_P1_20269155",
+          "01503_test_P1_20269156",
+          "01504_test_P1_20269157",
+          "01505_test_P1_20269158",
+          "01506_test_P1_20269159",
+          "01507_test_P1_20269160",
+          "01508_test_P1_20269161",
+          "01509_test_P1_20269162",
+          "01510_test_P1_20269163",
+          "01511_test_P1_20269164",
+          "01512_test_P1_20269165",
+          "01513_test_P1_20269166",
+          "01514_test_P1_20269167",
+          "01515_test_P1_20269168",
+          "01516_test_P1_20269169",
+          "01517_test_P1_20269170",
+          "01518_test_P1_20269171",
+          "01519_test_P1_20269172",
+          "01520_test_P1_20269173"
+        ],
+        "episodes": 50,
+        "estimates": {
+          "act_calls": {
+            "ci95": [
+              8.06,
+              9.7
+            ],
+            "mean": 8.86
+          },
+          "discounted_return": {
+            "ci95": [
+              0.18238024996966642,
+              0.23984983903956913
+            ],
+            "mean": 0.2113091419203084
+          },
+          "environment_steps": {
+            "ci95": [
+              151.63799999999998,
+              185.58350000000002
+            ],
+            "mean": 168.24
+          },
+          "policy_wall_seconds": {
+            "ci95": [
+              0.1856190478558856,
+              0.22599317033900296
+            ],
+            "mean": 0.20528986463061302
+          },
+          "refresh_activations": {
+            "ci95": [
+              1.7,
+              2.5
+            ],
+            "mean": 2.1
+          },
+          "refresh_requests": {
+            "ci95": [
+              1.7,
+              2.5
+            ],
+            "mean": 2.1
+          },
+          "return": {
+            "ci95": [
+              0.76,
+              0.94
+            ],
+            "mean": 0.86
+          },
+          "success": {
+            "ci95": [
+              0.76,
+              0.94
+            ],
+            "mean": 0.86
+          },
+          "wall_seconds": {
+            "ci95": [
+              1.500133646062779,
+              1.7522877245704076
+            ],
+            "mean": 1.6234806333406595
+          }
+        },
+        "setting": {
+          "act_budget": 15,
+          "method": "P1",
+          "parameter": 0.1
+        },
+        "successes": 43
+      },
+      "fixed_period_refresh": {
+        "episode_ids": [
+          "01271_test_fixed_period_refresh_20269124",
+          "01272_test_fixed_period_refresh_20269125",
+          "01273_test_fixed_period_refresh_20269126",
+          "01274_test_fixed_period_refresh_20269127",
+          "01275_test_fixed_period_refresh_20269128",
+          "01276_test_fixed_period_refresh_20269129",
+          "01277_test_fixed_period_refresh_20269130",
+          "01278_test_fixed_period_refresh_20269131",
+          "01279_test_fixed_period_refresh_20269132",
+          "01280_test_fixed_period_refresh_20269133",
+          "01281_test_fixed_period_refresh_20269134",
+          "01282_test_fixed_period_refresh_20269135",
+          "01283_test_fixed_period_refresh_20269136",
+          "01284_test_fixed_period_refresh_20269137",
+          "01285_test_fixed_period_refresh_20269138",
+          "01286_test_fixed_period_refresh_20269139",
+          "01287_test_fixed_period_refresh_20269140",
+          "01288_test_fixed_period_refresh_20269141",
+          "01289_test_fixed_period_refresh_20269142",
+          "01290_test_fixed_period_refresh_20269143",
+          "01291_test_fixed_period_refresh_20269144",
+          "01292_test_fixed_period_refresh_20269145",
+          "01293_test_fixed_period_refresh_20269146",
+          "01294_test_fixed_period_refresh_20269147",
+          "01295_test_fixed_period_refresh_20269148",
+          "01296_test_fixed_period_refresh_20269149",
+          "01297_test_fixed_period_refresh_20269150",
+          "01298_test_fixed_period_refresh_20269151",
+          "01299_test_fixed_period_refresh_20269152",
+          "01300_test_fixed_period_refresh_20269153",
+          "01301_test_fixed_period_refresh_20269154",
+          "01302_test_fixed_period_refresh_20269155",
+          "01303_test_fixed_period_refresh_20269156",
+          "01304_test_fixed_period_refresh_20269157",
+          "01305_test_fixed_period_refresh_20269158",
+          "01306_test_fixed_period_refresh_20269159",
+          "01307_test_fixed_period_refresh_20269160",
+          "01308_test_fixed_period_refresh_20269161",
+          "01309_test_fixed_period_refresh_20269162",
+          "01310_test_fixed_period_refresh_20269163",
+          "01311_test_fixed_period_refresh_20269164",
+          "01312_test_fixed_period_refresh_20269165",
+          "01313_test_fixed_period_refresh_20269166",
+          "01314_test_fixed_period_refresh_20269167",
+          "01315_test_fixed_period_refresh_20269168",
+          "01316_test_fixed_period_refresh_20269169",
+          "01317_test_fixed_period_refresh_20269170",
+          "01318_test_fixed_period_refresh_20269171",
+          "01319_test_fixed_period_refresh_20269172",
+          "01320_test_fixed_period_refresh_20269173"
+        ],
+        "episodes": 50,
+        "estimates": {
+          "act_calls": {
+            "ci95": [
+              8.2395,
+              9.740499999999999
+            ],
+            "mean": 8.96
+          },
+          "discounted_return": {
+            "ci95": [
+              0.17536124326631042,
+              0.23081098176620948
+            ],
+            "mean": 0.20351957949871674
+          },
+          "environment_steps": {
+            "ci95": [
+              153.2585,
+              185.806
+            ],
+            "mean": 168.92
+          },
+          "policy_wall_seconds": {
+            "ci95": [
+              0.1822014058969726,
+              0.21913588239455567
+            ],
+            "mean": 0.1997521425166633
+          },
+          "refresh_activations": {
+            "ci95": [
+              7.12,
+              8.68
+            ],
+            "mean": 7.88
+          },
+          "refresh_requests": {
+            "ci95": [
+              7.2395000000000005,
+              8.740499999999999
+            ],
+            "mean": 7.96
+          },
+          "return": {
+            "ci95": [
+              0.76,
+              0.94
+            ],
+            "mean": 0.86
+          },
+          "success": {
+            "ci95": [
+              0.76,
+              0.94
+            ],
+            "mean": 0.86
+          },
+          "wall_seconds": {
+            "ci95": [
+              1.502516492156188,
+              1.7451020005364772
+            ],
+            "mean": 1.6190539745992283
+          }
+        },
+        "setting": {
+          "act_budget": 15,
+          "method": "fixed_period_refresh",
+          "parameter": 10
+        },
+        "successes": 43
+      },
+      "original_resfit": {
+        "episode_ids": [
+          "01221_test_original_resfit_20269124",
+          "01222_test_original_resfit_20269125",
+          "01223_test_original_resfit_20269126",
+          "01224_test_original_resfit_20269127",
+          "01225_test_original_resfit_20269128",
+          "01226_test_original_resfit_20269129",
+          "01227_test_original_resfit_20269130",
+          "01228_test_original_resfit_20269131",
+          "01229_test_original_resfit_20269132",
+          "01230_test_original_resfit_20269133",
+          "01231_test_original_resfit_20269134",
+          "01232_test_original_resfit_20269135",
+          "01233_test_original_resfit_20269136",
+          "01234_test_original_resfit_20269137",
+          "01235_test_original_resfit_20269138",
+          "01236_test_original_resfit_20269139",
+          "01237_test_original_resfit_20269140",
+          "01238_test_original_resfit_20269141",
+          "01239_test_original_resfit_20269142",
+          "01240_test_original_resfit_20269143",
+          "01241_test_original_resfit_20269144",
+          "01242_test_original_resfit_20269145",
+          "01243_test_original_resfit_20269146",
+          "01244_test_original_resfit_20269147",
+          "01245_test_original_resfit_20269148",
+          "01246_test_original_resfit_20269149",
+          "01247_test_original_resfit_20269150",
+          "01248_test_original_resfit_20269151",
+          "01249_test_original_resfit_20269152",
+          "01250_test_original_resfit_20269153",
+          "01251_test_original_resfit_20269154",
+          "01252_test_original_resfit_20269155",
+          "01253_test_original_resfit_20269156",
+          "01254_test_original_resfit_20269157",
+          "01255_test_original_resfit_20269158",
+          "01256_test_original_resfit_20269159",
+          "01257_test_original_resfit_20269160",
+          "01258_test_original_resfit_20269161",
+          "01259_test_original_resfit_20269162",
+          "01260_test_original_resfit_20269163",
+          "01261_test_original_resfit_20269164",
+          "01262_test_original_resfit_20269165",
+          "01263_test_original_resfit_20269166",
+          "01264_test_original_resfit_20269167",
+          "01265_test_original_resfit_20269168",
+          "01266_test_original_resfit_20269169",
+          "01267_test_original_resfit_20269170",
+          "01268_test_original_resfit_20269171",
+          "01269_test_original_resfit_20269172",
+          "01270_test_original_resfit_20269173"
+        ],
+        "episodes": 50,
+        "estimates": {
+          "act_calls": {
+            "ci95": [
+              8.439499999999999,
+              10.18
+            ],
+            "mean": 9.32
+          },
+          "discounted_return": {
+            "ci95": [
+              0.16661191480687731,
+              0.22916445516543402
+            ],
+            "mean": 0.1975211921913072
+          },
+          "environment_steps": {
+            "ci95": [
+              159.2785,
+              195.80100000000002
+            ],
+            "mean": 177.64
+          },
+          "policy_wall_seconds": {
+            "ci95": [
+              0.18767629177410708,
+              0.22942872700795125
+            ],
+            "mean": 0.20864738647796913
+          },
+          "refresh_activations": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "mean": 0.0
+          },
+          "refresh_requests": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "mean": 0.0
+          },
+          "return": {
+            "ci95": [
+              0.74,
+              0.94
+            ],
+            "mean": 0.84
+          },
+          "success": {
+            "ci95": [
+              0.74,
+              0.94
+            ],
+            "mean": 0.84
+          },
+          "wall_seconds": {
+            "ci95": [
+              1.5452714309056754,
+              1.8165145063494492
+            ],
+            "mean": 1.68265543962043
+          }
+        },
+        "setting": {
+          "act_budget": 15,
+          "method": "original_resfit",
+          "parameter": null
+        },
+        "successes": 42
+      },
+      "residual_norm_threshold": {
+        "episode_ids": [
+          "01321_test_residual_norm_threshold_20269124",
+          "01322_test_residual_norm_threshold_20269125",
+          "01323_test_residual_norm_threshold_20269126",
+          "01324_test_residual_norm_threshold_20269127",
+          "01325_test_residual_norm_threshold_20269128",
+          "01326_test_residual_norm_threshold_20269129",
+          "01327_test_residual_norm_threshold_20269130",
+          "01328_test_residual_norm_threshold_20269131",
+          "01329_test_residual_norm_threshold_20269132",
+          "01330_test_residual_norm_threshold_20269133",
+          "01331_test_residual_norm_threshold_20269134",
+          "01332_test_residual_norm_threshold_20269135",
+          "01333_test_residual_norm_threshold_20269136",
+          "01334_test_residual_norm_threshold_20269137",
+          "01335_test_residual_norm_threshold_20269138",
+          "01336_test_residual_norm_threshold_20269139",
+          "01337_test_residual_norm_threshold_20269140",
+          "01338_test_residual_norm_threshold_20269141",
+          "01339_test_residual_norm_threshold_20269142",
+          "01340_test_residual_norm_threshold_20269143",
+          "01341_test_residual_norm_threshold_20269144",
+          "01342_test_residual_norm_threshold_20269145",
+          "01343_test_residual_norm_threshold_20269146",
+          "01344_test_residual_norm_threshold_20269147",
+          "01345_test_residual_norm_threshold_20269148",
+          "01346_test_residual_norm_threshold_20269149",
+          "01347_test_residual_norm_threshold_20269150",
+          "01348_test_residual_norm_threshold_20269151",
+          "01349_test_residual_norm_threshold_20269152",
+          "01350_test_residual_norm_threshold_20269153",
+          "01351_test_residual_norm_threshold_20269154",
+          "01352_test_residual_norm_threshold_20269155",
+          "01353_test_residual_norm_threshold_20269156",
+          "01354_test_residual_norm_threshold_20269157",
+          "01355_test_residual_norm_threshold_20269158",
+          "01356_test_residual_norm_threshold_20269159",
+          "01357_test_residual_norm_threshold_20269160",
+          "01358_test_residual_norm_threshold_20269161",
+          "01359_test_residual_norm_threshold_20269162",
+          "01360_test_residual_norm_threshold_20269163",
+          "01361_test_residual_norm_threshold_20269164",
+          "01362_test_residual_norm_threshold_20269165",
+          "01363_test_residual_norm_threshold_20269166",
+          "01364_test_residual_norm_threshold_20269167",
+          "01365_test_residual_norm_threshold_20269168",
+          "01366_test_residual_norm_threshold_20269169",
+          "01367_test_residual_norm_threshold_20269170",
+          "01368_test_residual_norm_threshold_20269171",
+          "01369_test_residual_norm_threshold_20269172",
+          "01370_test_residual_norm_threshold_20269173"
+        ],
+        "episodes": 50,
+        "estimates": {
+          "act_calls": {
+            "ci95": [
+              8.439499999999999,
+              10.18
+            ],
+            "mean": 9.32
+          },
+          "discounted_return": {
+            "ci95": [
+              0.16661191480687731,
+              0.22916445516543402
+            ],
+            "mean": 0.1975211921913072
+          },
+          "environment_steps": {
+            "ci95": [
+              159.2785,
+              195.80100000000002
+            ],
+            "mean": 177.64
+          },
+          "policy_wall_seconds": {
+            "ci95": [
+              0.18736170185848458,
+              0.2288876452883924
+            ],
+            "mean": 0.20831854328600458
+          },
+          "refresh_activations": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "mean": 0.0
+          },
+          "refresh_requests": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "mean": 0.0
+          },
+          "return": {
+            "ci95": [
+              0.74,
+              0.94
+            ],
+            "mean": 0.84
+          },
+          "success": {
+            "ci95": [
+              0.74,
+              0.94
+            ],
+            "mean": 0.84
+          },
+          "wall_seconds": {
+            "ci95": [
+              1.5452344340110211,
+              1.8164012900309754
+            ],
+            "mean": 1.6831871092572692
+          }
+        },
+        "setting": {
+          "act_budget": 15,
+          "method": "residual_norm_threshold",
+          "parameter": 0.27
+        },
+        "successes": 42
+      }
+    },
+    "20": {
+      "B5": {
+        "episode_ids": [
+          "01621_test_B5_20269124",
+          "01622_test_B5_20269125",
+          "01623_test_B5_20269126",
+          "01624_test_B5_20269127",
+          "01625_test_B5_20269128",
+          "01626_test_B5_20269129",
+          "01627_test_B5_20269130",
+          "01628_test_B5_20269131",
+          "01629_test_B5_20269132",
+          "01630_test_B5_20269133",
+          "01631_test_B5_20269134",
+          "01632_test_B5_20269135",
+          "01633_test_B5_20269136",
+          "01634_test_B5_20269137",
+          "01635_test_B5_20269138",
+          "01636_test_B5_20269139",
+          "01637_test_B5_20269140",
+          "01638_test_B5_20269141",
+          "01639_test_B5_20269142",
+          "01640_test_B5_20269143",
+          "01641_test_B5_20269144",
+          "01642_test_B5_20269145",
+          "01643_test_B5_20269146",
+          "01644_test_B5_20269147",
+          "01645_test_B5_20269148",
+          "01646_test_B5_20269149",
+          "01647_test_B5_20269150",
+          "01648_test_B5_20269151",
+          "01649_test_B5_20269152",
+          "01650_test_B5_20269153",
+          "01651_test_B5_20269154",
+          "01652_test_B5_20269155",
+          "01653_test_B5_20269156",
+          "01654_test_B5_20269157",
+          "01655_test_B5_20269158",
+          "01656_test_B5_20269159",
+          "01657_test_B5_20269160",
+          "01658_test_B5_20269161",
+          "01659_test_B5_20269162",
+          "01660_test_B5_20269163",
+          "01661_test_B5_20269164",
+          "01662_test_B5_20269165",
+          "01663_test_B5_20269166",
+          "01664_test_B5_20269167",
+          "01665_test_B5_20269168",
+          "01666_test_B5_20269169",
+          "01667_test_B5_20269170",
+          "01668_test_B5_20269171",
+          "01669_test_B5_20269172",
+          "01670_test_B5_20269173"
+        ],
+        "episodes": 50,
+        "estimates": {
+          "act_calls": {
+            "ci95": [
+              13.18,
+              14.8205
+            ],
+            "mean": 13.98
+          },
+          "discounted_return": {
+            "ci95": [
+              0.1736450451942513,
+              0.23073448036454697
+            ],
+            "mean": 0.20330157756234357
+          },
+          "environment_steps": {
+            "ci95": [
+              154.75199999999998,
+              188.121
+            ],
+            "mean": 170.88
+          },
+          "policy_wall_seconds": {
+            "ci95": [
+              0.24970560575817216,
+              0.2897833113647139
+            ],
+            "mean": 0.2697042008774588
+          },
+          "refresh_activations": {
+            "ci95": [
+              9.44,
+              10.5
+            ],
+            "mean": 9.98
+          },
+          "refresh_requests": {
+            "ci95": [
+              9.44,
+              10.5
+            ],
+            "mean": 9.98
+          },
+          "return": {
+            "ci95": [
+              0.7995000000000001,
+              0.96
+            ],
+            "mean": 0.88
+          },
+          "success": {
+            "ci95": [
+              0.7995000000000001,
+              0.96
+            ],
+            "mean": 0.88
+          },
+          "wall_seconds": {
+            "ci95": [
+              1.6119552045262462,
+              1.8630552268262255
+            ],
+            "mean": 1.7357557042595
+          }
+        },
+        "setting": {
+          "act_budget": 20,
+          "method": "B5",
+          "parameter": 0.05
+        },
+        "successes": 44
+      },
+      "B6": {
+        "episode_ids": [
+          "01671_test_B6_20269124",
+          "01672_test_B6_20269125",
+          "01673_test_B6_20269126",
+          "01674_test_B6_20269127",
+          "01675_test_B6_20269128",
+          "01676_test_B6_20269129",
+          "01677_test_B6_20269130",
+          "01678_test_B6_20269131",
+          "01679_test_B6_20269132",
+          "01680_test_B6_20269133",
+          "01681_test_B6_20269134",
+          "01682_test_B6_20269135",
+          "01683_test_B6_20269136",
+          "01684_test_B6_20269137",
+          "01685_test_B6_20269138",
+          "01686_test_B6_20269139",
+          "01687_test_B6_20269140",
+          "01688_test_B6_20269141",
+          "01689_test_B6_20269142",
+          "01690_test_B6_20269143",
+          "01691_test_B6_20269144",
+          "01692_test_B6_20269145",
+          "01693_test_B6_20269146",
+          "01694_test_B6_20269147",
+          "01695_test_B6_20269148",
+          "01696_test_B6_20269149",
+          "01697_test_B6_20269150",
+          "01698_test_B6_20269151",
+          "01699_test_B6_20269152",
+          "01700_test_B6_20269153",
+          "01701_test_B6_20269154",
+          "01702_test_B6_20269155",
+          "01703_test_B6_20269156",
+          "01704_test_B6_20269157",
+          "01705_test_B6_20269158",
+          "01706_test_B6_20269159",
+          "01707_test_B6_20269160",
+          "01708_test_B6_20269161",
+          "01709_test_B6_20269162",
+          "01710_test_B6_20269163",
+          "01711_test_B6_20269164",
+          "01712_test_B6_20269165",
+          "01713_test_B6_20269166",
+          "01714_test_B6_20269167",
+          "01715_test_B6_20269168",
+          "01716_test_B6_20269169",
+          "01717_test_B6_20269170",
+          "01718_test_B6_20269171",
+          "01719_test_B6_20269172",
+          "01720_test_B6_20269173"
+        ],
+        "episodes": 50,
+        "estimates": {
+          "act_calls": {
+            "ci95": [
+              12.86,
+              14.46
+            ],
+            "mean": 13.66
+          },
+          "discounted_return": {
+            "ci95": [
+              0.1910987028177526,
+              0.24771644301260162
+            ],
+            "mean": 0.21902272875818155
+          },
+          "environment_steps": {
+            "ci95": [
+              146.91799999999998,
+              179.944
+            ],
+            "mean": 163.44
+          },
+          "policy_wall_seconds": {
+            "ci95": [
+              0.24514509083976738,
+              0.28826116499400084
+            ],
+            "mean": 0.26634836572251513
+          },
+          "refresh_activations": {
+            "ci95": [
+              8.679499999999999,
+              9.74
+            ],
+            "mean": 9.18
+          },
+          "refresh_requests": {
+            "ci95": [
+              8.72,
+              9.78
+            ],
+            "mean": 9.22
+          },
+          "return": {
+            "ci95": [
+              0.76,
+              0.94
+            ],
+            "mean": 0.86
+          },
+          "success": {
+            "ci95": [
+              0.76,
+              0.94
+            ],
+            "mean": 0.86
+          },
+          "wall_seconds": {
+            "ci95": [
+              1.568168989246864,
+              1.8189433645808313
+            ],
+            "mean": 1.6940257566192303
+          }
+        },
+        "setting": {
+          "act_budget": 20,
+          "method": "B6",
+          "parameter": 0.025
+        },
+        "successes": 43
+      },
+      "P1": {
+        "episode_ids": [
+          "01721_test_P1_20269124",
+          "01722_test_P1_20269125",
+          "01723_test_P1_20269126",
+          "01724_test_P1_20269127",
+          "01725_test_P1_20269128",
+          "01726_test_P1_20269129",
+          "01727_test_P1_20269130",
+          "01728_test_P1_20269131",
+          "01729_test_P1_20269132",
+          "01730_test_P1_20269133",
+          "01731_test_P1_20269134",
+          "01732_test_P1_20269135",
+          "01733_test_P1_20269136",
+          "01734_test_P1_20269137",
+          "01735_test_P1_20269138",
+          "01736_test_P1_20269139",
+          "01737_test_P1_20269140",
+          "01738_test_P1_20269141",
+          "01739_test_P1_20269142",
+          "01740_test_P1_20269143",
+          "01741_test_P1_20269144",
+          "01742_test_P1_20269145",
+          "01743_test_P1_20269146",
+          "01744_test_P1_20269147",
+          "01745_test_P1_20269148",
+          "01746_test_P1_20269149",
+          "01747_test_P1_20269150",
+          "01748_test_P1_20269151",
+          "01749_test_P1_20269152",
+          "01750_test_P1_20269153",
+          "01751_test_P1_20269154",
+          "01752_test_P1_20269155",
+          "01753_test_P1_20269156",
+          "01754_test_P1_20269157",
+          "01755_test_P1_20269158",
+          "01756_test_P1_20269159",
+          "01757_test_P1_20269160",
+          "01758_test_P1_20269161",
+          "01759_test_P1_20269162",
+          "01760_test_P1_20269163",
+          "01761_test_P1_20269164",
+          "01762_test_P1_20269165",
+          "01763_test_P1_20269166",
+          "01764_test_P1_20269167",
+          "01765_test_P1_20269168",
+          "01766_test_P1_20269169",
+          "01767_test_P1_20269170",
+          "01768_test_P1_20269171",
+          "01769_test_P1_20269172",
+          "01770_test_P1_20269173"
+        ],
+        "episodes": 50,
+        "estimates": {
+          "act_calls": {
+            "ci95": [
+              13.2195,
+              14.920499999999999
+            ],
+            "mean": 14.04
+          },
+          "discounted_return": {
+            "ci95": [
+              0.17484324189635897,
+              0.2341218558599377
+            ],
+            "mean": 0.20508203753618914
+          },
+          "environment_steps": {
+            "ci95": [
+              154.839,
+              190.64499999999998
+            ],
+            "mean": 171.98
+          },
+          "policy_wall_seconds": {
+            "ci95": [
+              0.24089603925367556,
+              0.2865597440924248
+            ],
+            "mean": 0.261983820227033
+          },
+          "refresh_activations": {
+            "ci95": [
+              9.2395,
+              10.42
+            ],
+            "mean": 9.82
+          },
+          "refresh_requests": {
+            "ci95": [
+              9.28,
+              10.4605
+            ],
+            "mean": 9.86
+          },
+          "return": {
+            "ci95": [
+              0.76,
+              0.96
+            ],
+            "mean": 0.86
+          },
+          "success": {
+            "ci95": [
+              0.76,
+              0.96
+            ],
+            "mean": 0.86
+          },
+          "wall_seconds": {
+            "ci95": [
+              1.6249250054038202,
+              1.892920807299146
+            ],
+            "mean": 1.751289514559321
+          }
+        },
+        "setting": {
+          "act_budget": 20,
+          "method": "P1",
+          "parameter": 0.05
+        },
+        "successes": 43
+      },
+      "fixed_period_refresh": {
+        "episode_ids": [
+          "01521_test_fixed_period_refresh_20269124",
+          "01522_test_fixed_period_refresh_20269125",
+          "01523_test_fixed_period_refresh_20269126",
+          "01524_test_fixed_period_refresh_20269127",
+          "01525_test_fixed_period_refresh_20269128",
+          "01526_test_fixed_period_refresh_20269129",
+          "01527_test_fixed_period_refresh_20269130",
+          "01528_test_fixed_period_refresh_20269131",
+          "01529_test_fixed_period_refresh_20269132",
+          "01530_test_fixed_period_refresh_20269133",
+          "01531_test_fixed_period_refresh_20269134",
+          "01532_test_fixed_period_refresh_20269135",
+          "01533_test_fixed_period_refresh_20269136",
+          "01534_test_fixed_period_refresh_20269137",
+          "01535_test_fixed_period_refresh_20269138",
+          "01536_test_fixed_period_refresh_20269139",
+          "01537_test_fixed_period_refresh_20269140",
+          "01538_test_fixed_period_refresh_20269141",
+          "01539_test_fixed_period_refresh_20269142",
+          "01540_test_fixed_period_refresh_20269143",
+          "01541_test_fixed_period_refresh_20269144",
+          "01542_test_fixed_period_refresh_20269145",
+          "01543_test_fixed_period_refresh_20269146",
+          "01544_test_fixed_period_refresh_20269147",
+          "01545_test_fixed_period_refresh_20269148",
+          "01546_test_fixed_period_refresh_20269149",
+          "01547_test_fixed_period_refresh_20269150",
+          "01548_test_fixed_period_refresh_20269151",
+          "01549_test_fixed_period_refresh_20269152",
+          "01550_test_fixed_period_refresh_20269153",
+          "01551_test_fixed_period_refresh_20269154",
+          "01552_test_fixed_period_refresh_20269155",
+          "01553_test_fixed_period_refresh_20269156",
+          "01554_test_fixed_period_refresh_20269157",
+          "01555_test_fixed_period_refresh_20269158",
+          "01556_test_fixed_period_refresh_20269159",
+          "01557_test_fixed_period_refresh_20269160",
+          "01558_test_fixed_period_refresh_20269161",
+          "01559_test_fixed_period_refresh_20269162",
+          "01560_test_fixed_period_refresh_20269163",
+          "01561_test_fixed_period_refresh_20269164",
+          "01562_test_fixed_period_refresh_20269165",
+          "01563_test_fixed_period_refresh_20269166",
+          "01564_test_fixed_period_refresh_20269167",
+          "01565_test_fixed_period_refresh_20269168",
+          "01566_test_fixed_period_refresh_20269169",
+          "01567_test_fixed_period_refresh_20269170",
+          "01568_test_fixed_period_refresh_20269171",
+          "01569_test_fixed_period_refresh_20269172",
+          "01570_test_fixed_period_refresh_20269173"
+        ],
+        "episodes": 50,
+        "estimates": {
+          "act_calls": {
+            "ci95": [
+              13.02,
+              14.3
+            ],
+            "mean": 13.68
+          },
+          "discounted_return": {
+            "ci95": [
+              0.19098066042414408,
+              0.24002624009952203
+            ],
+            "mean": 0.21415918808119547
+          },
+          "environment_steps": {
+            "ci95": [
+              149.3375,
+              176.4605
+            ],
+            "mean": 163.08
+          },
+          "policy_wall_seconds": {
+            "ci95": [
+              0.1993815277331305,
+              0.23041992236521036
+            ],
+            "mean": 0.2151664344035089
+          },
+          "refresh_activations": {
+            "ci95": [
+              11.98,
+              13.28
+            ],
+            "mean": 12.64
+          },
+          "refresh_requests": {
+            "ci95": [
+              12.02,
+              13.3
+            ],
+            "mean": 12.68
+          },
+          "return": {
+            "ci95": [
+              0.84,
+              0.98
+            ],
+            "mean": 0.92
+          },
+          "success": {
+            "ci95": [
+              0.84,
+              0.98
+            ],
+            "mean": 0.92
+          },
+          "wall_seconds": {
+            "ci95": [
+              1.5018615705890044,
+              1.7022127892925418
+            ],
+            "mean": 1.603892021199572
+          }
+        },
+        "setting": {
+          "act_budget": 20,
+          "method": "fixed_period_refresh",
+          "parameter": 10
+        },
+        "successes": 46
+      },
+      "original_resfit": {
+        "episode_ids": [
+          "01221_test_original_resfit_20269124",
+          "01222_test_original_resfit_20269125",
+          "01223_test_original_resfit_20269126",
+          "01224_test_original_resfit_20269127",
+          "01225_test_original_resfit_20269128",
+          "01226_test_original_resfit_20269129",
+          "01227_test_original_resfit_20269130",
+          "01228_test_original_resfit_20269131",
+          "01229_test_original_resfit_20269132",
+          "01230_test_original_resfit_20269133",
+          "01231_test_original_resfit_20269134",
+          "01232_test_original_resfit_20269135",
+          "01233_test_original_resfit_20269136",
+          "01234_test_original_resfit_20269137",
+          "01235_test_original_resfit_20269138",
+          "01236_test_original_resfit_20269139",
+          "01237_test_original_resfit_20269140",
+          "01238_test_original_resfit_20269141",
+          "01239_test_original_resfit_20269142",
+          "01240_test_original_resfit_20269143",
+          "01241_test_original_resfit_20269144",
+          "01242_test_original_resfit_20269145",
+          "01243_test_original_resfit_20269146",
+          "01244_test_original_resfit_20269147",
+          "01245_test_original_resfit_20269148",
+          "01246_test_original_resfit_20269149",
+          "01247_test_original_resfit_20269150",
+          "01248_test_original_resfit_20269151",
+          "01249_test_original_resfit_20269152",
+          "01250_test_original_resfit_20269153",
+          "01251_test_original_resfit_20269154",
+          "01252_test_original_resfit_20269155",
+          "01253_test_original_resfit_20269156",
+          "01254_test_original_resfit_20269157",
+          "01255_test_original_resfit_20269158",
+          "01256_test_original_resfit_20269159",
+          "01257_test_original_resfit_20269160",
+          "01258_test_original_resfit_20269161",
+          "01259_test_original_resfit_20269162",
+          "01260_test_original_resfit_20269163",
+          "01261_test_original_resfit_20269164",
+          "01262_test_original_resfit_20269165",
+          "01263_test_original_resfit_20269166",
+          "01264_test_original_resfit_20269167",
+          "01265_test_original_resfit_20269168",
+          "01266_test_original_resfit_20269169",
+          "01267_test_original_resfit_20269170",
+          "01268_test_original_resfit_20269171",
+          "01269_test_original_resfit_20269172",
+          "01270_test_original_resfit_20269173"
+        ],
+        "episodes": 50,
+        "estimates": {
+          "act_calls": {
+            "ci95": [
+              8.439499999999999,
+              10.18
+            ],
+            "mean": 9.32
+          },
+          "discounted_return": {
+            "ci95": [
+              0.16661191480687731,
+              0.22916445516543402
+            ],
+            "mean": 0.1975211921913072
+          },
+          "environment_steps": {
+            "ci95": [
+              159.2785,
+              195.80100000000002
+            ],
+            "mean": 177.64
+          },
+          "policy_wall_seconds": {
+            "ci95": [
+              0.18767629177410708,
+              0.22942872700795125
+            ],
+            "mean": 0.20864738647796913
+          },
+          "refresh_activations": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "mean": 0.0
+          },
+          "refresh_requests": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "mean": 0.0
+          },
+          "return": {
+            "ci95": [
+              0.74,
+              0.94
+            ],
+            "mean": 0.84
+          },
+          "success": {
+            "ci95": [
+              0.74,
+              0.94
+            ],
+            "mean": 0.84
+          },
+          "wall_seconds": {
+            "ci95": [
+              1.5452714309056754,
+              1.8165145063494492
+            ],
+            "mean": 1.68265543962043
+          }
+        },
+        "setting": {
+          "act_budget": 15,
+          "method": "original_resfit",
+          "parameter": null
+        },
+        "successes": 42
+      },
+      "residual_norm_threshold": {
+        "episode_ids": [
+          "01571_test_residual_norm_threshold_20269124",
+          "01572_test_residual_norm_threshold_20269125",
+          "01573_test_residual_norm_threshold_20269126",
+          "01574_test_residual_norm_threshold_20269127",
+          "01575_test_residual_norm_threshold_20269128",
+          "01576_test_residual_norm_threshold_20269129",
+          "01577_test_residual_norm_threshold_20269130",
+          "01578_test_residual_norm_threshold_20269131",
+          "01579_test_residual_norm_threshold_20269132",
+          "01580_test_residual_norm_threshold_20269133",
+          "01581_test_residual_norm_threshold_20269134",
+          "01582_test_residual_norm_threshold_20269135",
+          "01583_test_residual_norm_threshold_20269136",
+          "01584_test_residual_norm_threshold_20269137",
+          "01585_test_residual_norm_threshold_20269138",
+          "01586_test_residual_norm_threshold_20269139",
+          "01587_test_residual_norm_threshold_20269140",
+          "01588_test_residual_norm_threshold_20269141",
+          "01589_test_residual_norm_threshold_20269142",
+          "01590_test_residual_norm_threshold_20269143",
+          "01591_test_residual_norm_threshold_20269144",
+          "01592_test_residual_norm_threshold_20269145",
+          "01593_test_residual_norm_threshold_20269146",
+          "01594_test_residual_norm_threshold_20269147",
+          "01595_test_residual_norm_threshold_20269148",
+          "01596_test_residual_norm_threshold_20269149",
+          "01597_test_residual_norm_threshold_20269150",
+          "01598_test_residual_norm_threshold_20269151",
+          "01599_test_residual_norm_threshold_20269152",
+          "01600_test_residual_norm_threshold_20269153",
+          "01601_test_residual_norm_threshold_20269154",
+          "01602_test_residual_norm_threshold_20269155",
+          "01603_test_residual_norm_threshold_20269156",
+          "01604_test_residual_norm_threshold_20269157",
+          "01605_test_residual_norm_threshold_20269158",
+          "01606_test_residual_norm_threshold_20269159",
+          "01607_test_residual_norm_threshold_20269160",
+          "01608_test_residual_norm_threshold_20269161",
+          "01609_test_residual_norm_threshold_20269162",
+          "01610_test_residual_norm_threshold_20269163",
+          "01611_test_residual_norm_threshold_20269164",
+          "01612_test_residual_norm_threshold_20269165",
+          "01613_test_residual_norm_threshold_20269166",
+          "01614_test_residual_norm_threshold_20269167",
+          "01615_test_residual_norm_threshold_20269168",
+          "01616_test_residual_norm_threshold_20269169",
+          "01617_test_residual_norm_threshold_20269170",
+          "01618_test_residual_norm_threshold_20269171",
+          "01619_test_residual_norm_threshold_20269172",
+          "01620_test_residual_norm_threshold_20269173"
+        ],
+        "episodes": 50,
+        "estimates": {
+          "act_calls": {
+            "ci95": [
+              8.439499999999999,
+              10.18
+            ],
+            "mean": 9.32
+          },
+          "discounted_return": {
+            "ci95": [
+              0.16661191480687731,
+              0.22916445516543402
+            ],
+            "mean": 0.1975211921913072
+          },
+          "environment_steps": {
+            "ci95": [
+              159.2785,
+              195.80100000000002
+            ],
+            "mean": 177.64
+          },
+          "policy_wall_seconds": {
+            "ci95": [
+              0.18780144138219476,
+              0.22999893307787717
+            ],
+            "mean": 0.20917631048389013
+          },
+          "refresh_activations": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "mean": 0.0
+          },
+          "refresh_requests": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "mean": 0.0
+          },
+          "return": {
+            "ci95": [
+              0.74,
+              0.94
+            ],
+            "mean": 0.84
+          },
+          "success": {
+            "ci95": [
+              0.74,
+              0.94
+            ],
+            "mean": 0.84
+          },
+          "wall_seconds": {
+            "ci95": [
+              1.5491594410338,
+              1.8210704060768694
+            ],
+            "mean": 1.6867200413404497
+          }
+        },
+        "setting": {
+          "act_budget": 20,
+          "method": "residual_norm_threshold",
+          "parameter": 0.27
+        },
+        "successes": 42
+      }
+    },
+    "25": {
+      "B5": {
+        "episode_ids": [
+          "01871_test_B5_20269124",
+          "01872_test_B5_20269125",
+          "01873_test_B5_20269126",
+          "01874_test_B5_20269127",
+          "01875_test_B5_20269128",
+          "01876_test_B5_20269129",
+          "01877_test_B5_20269130",
+          "01878_test_B5_20269131",
+          "01879_test_B5_20269132",
+          "01880_test_B5_20269133",
+          "01881_test_B5_20269134",
+          "01882_test_B5_20269135",
+          "01883_test_B5_20269136",
+          "01884_test_B5_20269137",
+          "01885_test_B5_20269138",
+          "01886_test_B5_20269139",
+          "01887_test_B5_20269140",
+          "01888_test_B5_20269141",
+          "01889_test_B5_20269142",
+          "01890_test_B5_20269143",
+          "01891_test_B5_20269144",
+          "01892_test_B5_20269145",
+          "01893_test_B5_20269146",
+          "01894_test_B5_20269147",
+          "01895_test_B5_20269148",
+          "01896_test_B5_20269149",
+          "01897_test_B5_20269150",
+          "01898_test_B5_20269151",
+          "01899_test_B5_20269152",
+          "01900_test_B5_20269153",
+          "01901_test_B5_20269154",
+          "01902_test_B5_20269155",
+          "01903_test_B5_20269156",
+          "01904_test_B5_20269157",
+          "01905_test_B5_20269158",
+          "01906_test_B5_20269159",
+          "01907_test_B5_20269160",
+          "01908_test_B5_20269161",
+          "01909_test_B5_20269162",
+          "01910_test_B5_20269163",
+          "01911_test_B5_20269164",
+          "01912_test_B5_20269165",
+          "01913_test_B5_20269166",
+          "01914_test_B5_20269167",
+          "01915_test_B5_20269168",
+          "01916_test_B5_20269169",
+          "01917_test_B5_20269170",
+          "01918_test_B5_20269171",
+          "01919_test_B5_20269172",
+          "01920_test_B5_20269173"
+        ],
+        "episodes": 50,
+        "estimates": {
+          "act_calls": {
+            "ci95": [
+              17.38,
+              19.12
+            ],
+            "mean": 18.26
+          },
+          "discounted_return": {
+            "ci95": [
+              0.19457624519329772,
+              0.24925347017530664
+            ],
+            "mean": 0.22041325623357355
+          },
+          "environment_steps": {
+            "ci95": [
+              146.136,
+              177.82049999999998
+            ],
+            "mean": 162.3
+          },
+          "policy_wall_seconds": {
+            "ci95": [
+              0.2936147328965453,
+              0.3388894511968756
+            ],
+            "mean": 0.3164154400792904
+          },
+          "refresh_activations": {
+            "ci95": [
+              14.4,
+              15.76
+            ],
+            "mean": 15.1
+          },
+          "refresh_requests": {
+            "ci95": [
+              14.4,
+              15.76
+            ],
+            "mean": 15.1
+          },
+          "return": {
+            "ci95": [
+              0.82,
+              0.98
+            ],
+            "mean": 0.9
+          },
+          "success": {
+            "ci95": [
+              0.82,
+              0.98
+            ],
+            "mean": 0.9
+          },
+          "wall_seconds": {
+            "ci95": [
+              1.6312094667464117,
+              1.8746254902044384
+            ],
+            "mean": 1.7552436229801969
+          }
+        },
+        "setting": {
+          "act_budget": 25,
+          "method": "B5",
+          "parameter": 0.05
+        },
+        "successes": 45
+      },
+      "B6": {
+        "episode_ids": [
+          "01921_test_B6_20269124",
+          "01922_test_B6_20269125",
+          "01923_test_B6_20269126",
+          "01924_test_B6_20269127",
+          "01925_test_B6_20269128",
+          "01926_test_B6_20269129",
+          "01927_test_B6_20269130",
+          "01928_test_B6_20269131",
+          "01929_test_B6_20269132",
+          "01930_test_B6_20269133",
+          "01931_test_B6_20269134",
+          "01932_test_B6_20269135",
+          "01933_test_B6_20269136",
+          "01934_test_B6_20269137",
+          "01935_test_B6_20269138",
+          "01936_test_B6_20269139",
+          "01937_test_B6_20269140",
+          "01938_test_B6_20269141",
+          "01939_test_B6_20269142",
+          "01940_test_B6_20269143",
+          "01941_test_B6_20269144",
+          "01942_test_B6_20269145",
+          "01943_test_B6_20269146",
+          "01944_test_B6_20269147",
+          "01945_test_B6_20269148",
+          "01946_test_B6_20269149",
+          "01947_test_B6_20269150",
+          "01948_test_B6_20269151",
+          "01949_test_B6_20269152",
+          "01950_test_B6_20269153",
+          "01951_test_B6_20269154",
+          "01952_test_B6_20269155",
+          "01953_test_B6_20269156",
+          "01954_test_B6_20269157",
+          "01955_test_B6_20269158",
+          "01956_test_B6_20269159",
+          "01957_test_B6_20269160",
+          "01958_test_B6_20269161",
+          "01959_test_B6_20269162",
+          "01960_test_B6_20269163",
+          "01961_test_B6_20269164",
+          "01962_test_B6_20269165",
+          "01963_test_B6_20269166",
+          "01964_test_B6_20269167",
+          "01965_test_B6_20269168",
+          "01966_test_B6_20269169",
+          "01967_test_B6_20269170",
+          "01968_test_B6_20269171",
+          "01969_test_B6_20269172",
+          "01970_test_B6_20269173"
+        ],
+        "episodes": 50,
+        "estimates": {
+          "act_calls": {
+            "ci95": [
+              14.22,
+              16.700499999999998
+            ],
+            "mean": 15.46
+          },
+          "discounted_return": {
+            "ci95": [
+              0.1836702222905767,
+              0.23904299965429052
+            ],
+            "mean": 0.2112263830488308
+          },
+          "environment_steps": {
+            "ci95": [
+              150.879,
+              183.9825
+            ],
+            "mean": 166.78
+          },
+          "policy_wall_seconds": {
+            "ci95": [
+              0.3287630448416385,
+              0.39145416322272647
+            ],
+            "mean": 0.35858369108405896
+          },
+          "refresh_activations": {
+            "ci95": [
+              8.519499999999999,
+              10.94
+            ],
+            "mean": 9.76
+          },
+          "refresh_requests": {
+            "ci95": [
+              8.539499999999999,
+              10.9805
+            ],
+            "mean": 9.8
+          },
+          "return": {
+            "ci95": [
+              0.78,
+              0.96
+            ],
+            "mean": 0.88
+          },
+          "success": {
+            "ci95": [
+              0.78,
+              0.96
+            ],
+            "mean": 0.88
+          },
+          "wall_seconds": {
+            "ci95": [
+              1.7058833470479002,
+              1.991268687686832
+            ],
+            "mean": 1.8406191392600886
+          }
+        },
+        "setting": {
+          "act_budget": 25,
+          "method": "B6",
+          "parameter": 0.1
+        },
+        "successes": 44
+      },
+      "P1": {
+        "episode_ids": [
+          "01971_test_P1_20269124",
+          "01972_test_P1_20269125",
+          "01973_test_P1_20269126",
+          "01974_test_P1_20269127",
+          "01975_test_P1_20269128",
+          "01976_test_P1_20269129",
+          "01977_test_P1_20269130",
+          "01978_test_P1_20269131",
+          "01979_test_P1_20269132",
+          "01980_test_P1_20269133",
+          "01981_test_P1_20269134",
+          "01982_test_P1_20269135",
+          "01983_test_P1_20269136",
+          "01984_test_P1_20269137",
+          "01985_test_P1_20269138",
+          "01986_test_P1_20269139",
+          "01987_test_P1_20269140",
+          "01988_test_P1_20269141",
+          "01989_test_P1_20269142",
+          "01990_test_P1_20269143",
+          "01991_test_P1_20269144",
+          "01992_test_P1_20269145",
+          "01993_test_P1_20269146",
+          "01994_test_P1_20269147",
+          "01995_test_P1_20269148",
+          "01996_test_P1_20269149",
+          "01997_test_P1_20269150",
+          "01998_test_P1_20269151",
+          "01999_test_P1_20269152",
+          "02000_test_P1_20269153",
+          "02001_test_P1_20269154",
+          "02002_test_P1_20269155",
+          "02003_test_P1_20269156",
+          "02004_test_P1_20269157",
+          "02005_test_P1_20269158",
+          "02006_test_P1_20269159",
+          "02007_test_P1_20269160",
+          "02008_test_P1_20269161",
+          "02009_test_P1_20269162",
+          "02010_test_P1_20269163",
+          "02011_test_P1_20269164",
+          "02012_test_P1_20269165",
+          "02013_test_P1_20269166",
+          "02014_test_P1_20269167",
+          "02015_test_P1_20269168",
+          "02016_test_P1_20269169",
+          "02017_test_P1_20269170",
+          "02018_test_P1_20269171",
+          "02019_test_P1_20269172",
+          "02020_test_P1_20269173"
+        ],
+        "episodes": 50,
+        "estimates": {
+          "act_calls": {
+            "ci95": [
+              18.24,
+              20.02
+            ],
+            "mean": 19.16
+          },
+          "discounted_return": {
+            "ci95": [
+              0.1729274132139999,
+              0.23436793398553077
+            ],
+            "mean": 0.20188761317794104
+          },
+          "environment_steps": {
+            "ci95": [
+              155.39950000000002,
+              192.701
+            ],
+            "mean": 174.74
+          },
+          "policy_wall_seconds": {
+            "ci95": [
+              0.27934318180273116,
+              0.3273919379815198
+            ],
+            "mean": 0.3036712159676245
+          },
+          "refresh_activations": {
+            "ci95": [
+              15.5,
+              16.84
+            ],
+            "mean": 16.16
+          },
+          "refresh_requests": {
+            "ci95": [
+              15.52,
+              16.8605
+            ],
+            "mean": 16.18
+          },
+          "return": {
+            "ci95": [
+              0.74,
+              0.94
+            ],
+            "mean": 0.84
+          },
+          "success": {
+            "ci95": [
+              0.74,
+              0.94
+            ],
+            "mean": 0.84
+          },
+          "wall_seconds": {
+            "ci95": [
+              1.685088088279903,
+              1.9724212914810413
+            ],
+            "mean": 1.8331577249002293
+          }
+        },
+        "setting": {
+          "act_budget": 25,
+          "method": "P1",
+          "parameter": 0.025
+        },
+        "successes": 42
+      },
+      "fixed_period_refresh": {
+        "episode_ids": [
+          "01771_test_fixed_period_refresh_20269124",
+          "01772_test_fixed_period_refresh_20269125",
+          "01773_test_fixed_period_refresh_20269126",
+          "01774_test_fixed_period_refresh_20269127",
+          "01775_test_fixed_period_refresh_20269128",
+          "01776_test_fixed_period_refresh_20269129",
+          "01777_test_fixed_period_refresh_20269130",
+          "01778_test_fixed_period_refresh_20269131",
+          "01779_test_fixed_period_refresh_20269132",
+          "01780_test_fixed_period_refresh_20269133",
+          "01781_test_fixed_period_refresh_20269134",
+          "01782_test_fixed_period_refresh_20269135",
+          "01783_test_fixed_period_refresh_20269136",
+          "01784_test_fixed_period_refresh_20269137",
+          "01785_test_fixed_period_refresh_20269138",
+          "01786_test_fixed_period_refresh_20269139",
+          "01787_test_fixed_period_refresh_20269140",
+          "01788_test_fixed_period_refresh_20269141",
+          "01789_test_fixed_period_refresh_20269142",
+          "01790_test_fixed_period_refresh_20269143",
+          "01791_test_fixed_period_refresh_20269144",
+          "01792_test_fixed_period_refresh_20269145",
+          "01793_test_fixed_period_refresh_20269146",
+          "01794_test_fixed_period_refresh_20269147",
+          "01795_test_fixed_period_refresh_20269148",
+          "01796_test_fixed_period_refresh_20269149",
+          "01797_test_fixed_period_refresh_20269150",
+          "01798_test_fixed_period_refresh_20269151",
+          "01799_test_fixed_period_refresh_20269152",
+          "01800_test_fixed_period_refresh_20269153",
+          "01801_test_fixed_period_refresh_20269154",
+          "01802_test_fixed_period_refresh_20269155",
+          "01803_test_fixed_period_refresh_20269156",
+          "01804_test_fixed_period_refresh_20269157",
+          "01805_test_fixed_period_refresh_20269158",
+          "01806_test_fixed_period_refresh_20269159",
+          "01807_test_fixed_period_refresh_20269160",
+          "01808_test_fixed_period_refresh_20269161",
+          "01809_test_fixed_period_refresh_20269162",
+          "01810_test_fixed_period_refresh_20269163",
+          "01811_test_fixed_period_refresh_20269164",
+          "01812_test_fixed_period_refresh_20269165",
+          "01813_test_fixed_period_refresh_20269166",
+          "01814_test_fixed_period_refresh_20269167",
+          "01815_test_fixed_period_refresh_20269168",
+          "01816_test_fixed_period_refresh_20269169",
+          "01817_test_fixed_period_refresh_20269170",
+          "01818_test_fixed_period_refresh_20269171",
+          "01819_test_fixed_period_refresh_20269172",
+          "01820_test_fixed_period_refresh_20269173"
+        ],
+        "episodes": 50,
+        "estimates": {
+          "act_calls": {
+            "ci95": [
+              14.699,
+              17.22
+            ],
+            "mean": 16.02
+          },
+          "discounted_return": {
+            "ci95": [
+              0.18520266754041687,
+              0.24407268458230957
+            ],
+            "mean": 0.2130120768798574
+          },
+          "environment_steps": {
+            "ci95": [
+              148.97799999999998,
+              183.221
+            ],
+            "mean": 166.5
+          },
+          "policy_wall_seconds": {
+            "ci95": [
+              0.21753889908214477,
+              0.2639073726853094
+            ],
+            "mean": 0.24147470724390588
+          },
+          "refresh_activations": {
+            "ci95": [
+              13.6585,
+              16.14
+            ],
+            "mean": 14.96
+          },
+          "refresh_requests": {
+            "ci95": [
+              13.699,
+              16.22
+            ],
+            "mean": 15.02
+          },
+          "return": {
+            "ci95": [
+              0.74,
+              0.94
+            ],
+            "mean": 0.84
+          },
+          "success": {
+            "ci95": [
+              0.74,
+              0.94
+            ],
+            "mean": 0.84
+          },
+          "wall_seconds": {
+            "ci95": [
+              1.5544367212049837,
+              1.8238365332485336
+            ],
+            "mean": 1.6926523990405258
+          }
+        },
+        "setting": {
+          "act_budget": 25,
+          "method": "fixed_period_refresh",
+          "parameter": 10
+        },
+        "successes": 42
+      },
+      "original_resfit": {
+        "episode_ids": [
+          "01221_test_original_resfit_20269124",
+          "01222_test_original_resfit_20269125",
+          "01223_test_original_resfit_20269126",
+          "01224_test_original_resfit_20269127",
+          "01225_test_original_resfit_20269128",
+          "01226_test_original_resfit_20269129",
+          "01227_test_original_resfit_20269130",
+          "01228_test_original_resfit_20269131",
+          "01229_test_original_resfit_20269132",
+          "01230_test_original_resfit_20269133",
+          "01231_test_original_resfit_20269134",
+          "01232_test_original_resfit_20269135",
+          "01233_test_original_resfit_20269136",
+          "01234_test_original_resfit_20269137",
+          "01235_test_original_resfit_20269138",
+          "01236_test_original_resfit_20269139",
+          "01237_test_original_resfit_20269140",
+          "01238_test_original_resfit_20269141",
+          "01239_test_original_resfit_20269142",
+          "01240_test_original_resfit_20269143",
+          "01241_test_original_resfit_20269144",
+          "01242_test_original_resfit_20269145",
+          "01243_test_original_resfit_20269146",
+          "01244_test_original_resfit_20269147",
+          "01245_test_original_resfit_20269148",
+          "01246_test_original_resfit_20269149",
+          "01247_test_original_resfit_20269150",
+          "01248_test_original_resfit_20269151",
+          "01249_test_original_resfit_20269152",
+          "01250_test_original_resfit_20269153",
+          "01251_test_original_resfit_20269154",
+          "01252_test_original_resfit_20269155",
+          "01253_test_original_resfit_20269156",
+          "01254_test_original_resfit_20269157",
+          "01255_test_original_resfit_20269158",
+          "01256_test_original_resfit_20269159",
+          "01257_test_original_resfit_20269160",
+          "01258_test_original_resfit_20269161",
+          "01259_test_original_resfit_20269162",
+          "01260_test_original_resfit_20269163",
+          "01261_test_original_resfit_20269164",
+          "01262_test_original_resfit_20269165",
+          "01263_test_original_resfit_20269166",
+          "01264_test_original_resfit_20269167",
+          "01265_test_original_resfit_20269168",
+          "01266_test_original_resfit_20269169",
+          "01267_test_original_resfit_20269170",
+          "01268_test_original_resfit_20269171",
+          "01269_test_original_resfit_20269172",
+          "01270_test_original_resfit_20269173"
+        ],
+        "episodes": 50,
+        "estimates": {
+          "act_calls": {
+            "ci95": [
+              8.439499999999999,
+              10.18
+            ],
+            "mean": 9.32
+          },
+          "discounted_return": {
+            "ci95": [
+              0.16661191480687731,
+              0.22916445516543402
+            ],
+            "mean": 0.1975211921913072
+          },
+          "environment_steps": {
+            "ci95": [
+              159.2785,
+              195.80100000000002
+            ],
+            "mean": 177.64
+          },
+          "policy_wall_seconds": {
+            "ci95": [
+              0.18767629177410708,
+              0.22942872700795125
+            ],
+            "mean": 0.20864738647796913
+          },
+          "refresh_activations": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "mean": 0.0
+          },
+          "refresh_requests": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "mean": 0.0
+          },
+          "return": {
+            "ci95": [
+              0.74,
+              0.94
+            ],
+            "mean": 0.84
+          },
+          "success": {
+            "ci95": [
+              0.74,
+              0.94
+            ],
+            "mean": 0.84
+          },
+          "wall_seconds": {
+            "ci95": [
+              1.5452714309056754,
+              1.8165145063494492
+            ],
+            "mean": 1.68265543962043
+          }
+        },
+        "setting": {
+          "act_budget": 15,
+          "method": "original_resfit",
+          "parameter": null
+        },
+        "successes": 42
+      },
+      "residual_norm_threshold": {
+        "episode_ids": [
+          "01821_test_residual_norm_threshold_20269124",
+          "01822_test_residual_norm_threshold_20269125",
+          "01823_test_residual_norm_threshold_20269126",
+          "01824_test_residual_norm_threshold_20269127",
+          "01825_test_residual_norm_threshold_20269128",
+          "01826_test_residual_norm_threshold_20269129",
+          "01827_test_residual_norm_threshold_20269130",
+          "01828_test_residual_norm_threshold_20269131",
+          "01829_test_residual_norm_threshold_20269132",
+          "01830_test_residual_norm_threshold_20269133",
+          "01831_test_residual_norm_threshold_20269134",
+          "01832_test_residual_norm_threshold_20269135",
+          "01833_test_residual_norm_threshold_20269136",
+          "01834_test_residual_norm_threshold_20269137",
+          "01835_test_residual_norm_threshold_20269138",
+          "01836_test_residual_norm_threshold_20269139",
+          "01837_test_residual_norm_threshold_20269140",
+          "01838_test_residual_norm_threshold_20269141",
+          "01839_test_residual_norm_threshold_20269142",
+          "01840_test_residual_norm_threshold_20269143",
+          "01841_test_residual_norm_threshold_20269144",
+          "01842_test_residual_norm_threshold_20269145",
+          "01843_test_residual_norm_threshold_20269146",
+          "01844_test_residual_norm_threshold_20269147",
+          "01845_test_residual_norm_threshold_20269148",
+          "01846_test_residual_norm_threshold_20269149",
+          "01847_test_residual_norm_threshold_20269150",
+          "01848_test_residual_norm_threshold_20269151",
+          "01849_test_residual_norm_threshold_20269152",
+          "01850_test_residual_norm_threshold_20269153",
+          "01851_test_residual_norm_threshold_20269154",
+          "01852_test_residual_norm_threshold_20269155",
+          "01853_test_residual_norm_threshold_20269156",
+          "01854_test_residual_norm_threshold_20269157",
+          "01855_test_residual_norm_threshold_20269158",
+          "01856_test_residual_norm_threshold_20269159",
+          "01857_test_residual_norm_threshold_20269160",
+          "01858_test_residual_norm_threshold_20269161",
+          "01859_test_residual_norm_threshold_20269162",
+          "01860_test_residual_norm_threshold_20269163",
+          "01861_test_residual_norm_threshold_20269164",
+          "01862_test_residual_norm_threshold_20269165",
+          "01863_test_residual_norm_threshold_20269166",
+          "01864_test_residual_norm_threshold_20269167",
+          "01865_test_residual_norm_threshold_20269168",
+          "01866_test_residual_norm_threshold_20269169",
+          "01867_test_residual_norm_threshold_20269170",
+          "01868_test_residual_norm_threshold_20269171",
+          "01869_test_residual_norm_threshold_20269172",
+          "01870_test_residual_norm_threshold_20269173"
+        ],
+        "episodes": 50,
+        "estimates": {
+          "act_calls": {
+            "ci95": [
+              8.439499999999999,
+              10.18
+            ],
+            "mean": 9.32
+          },
+          "discounted_return": {
+            "ci95": [
+              0.16661191480687731,
+              0.22916445516543402
+            ],
+            "mean": 0.1975211921913072
+          },
+          "environment_steps": {
+            "ci95": [
+              159.2785,
+              195.80100000000002
+            ],
+            "mean": 177.64
+          },
+          "policy_wall_seconds": {
+            "ci95": [
+              0.19576144887618283,
+              0.23978472071451687
+            ],
+            "mean": 0.21815044211834902
+          },
+          "refresh_activations": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "mean": 0.0
+          },
+          "refresh_requests": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "mean": 0.0
+          },
+          "return": {
+            "ci95": [
+              0.74,
+              0.94
+            ],
+            "mean": 0.84
+          },
+          "success": {
+            "ci95": [
+              0.74,
+              0.94
+            ],
+            "mean": 0.84
+          },
+          "wall_seconds": {
+            "ci95": [
+              1.5901240163985275,
+              1.8694863145662601
+            ],
+            "mean": 1.7318136972992215
+          }
+        },
+        "setting": {
+          "act_budget": 25,
+          "method": "residual_norm_threshold",
+          "parameter": 0.27
+        },
+        "successes": 42
+      }
+    }
+  },
+  "fixed_performance_success_target": 0.95,
+  "fixed_task_performance": {
+    "B5": {
+      "episode_ids": [
+        "01371_test_B5_20269124",
+        "01372_test_B5_20269125",
+        "01373_test_B5_20269126",
+        "01374_test_B5_20269127",
+        "01375_test_B5_20269128",
+        "01376_test_B5_20269129",
+        "01377_test_B5_20269130",
+        "01378_test_B5_20269131",
+        "01379_test_B5_20269132",
+        "01380_test_B5_20269133",
+        "01381_test_B5_20269134",
+        "01382_test_B5_20269135",
+        "01383_test_B5_20269136",
+        "01384_test_B5_20269137",
+        "01385_test_B5_20269138",
+        "01386_test_B5_20269139",
+        "01387_test_B5_20269140",
+        "01388_test_B5_20269141",
+        "01389_test_B5_20269142",
+        "01390_test_B5_20269143",
+        "01391_test_B5_20269144",
+        "01392_test_B5_20269145",
+        "01393_test_B5_20269146",
+        "01394_test_B5_20269147",
+        "01395_test_B5_20269148",
+        "01396_test_B5_20269149",
+        "01397_test_B5_20269150",
+        "01398_test_B5_20269151",
+        "01399_test_B5_20269152",
+        "01400_test_B5_20269153",
+        "01401_test_B5_20269154",
+        "01402_test_B5_20269155",
+        "01403_test_B5_20269156",
+        "01404_test_B5_20269157",
+        "01405_test_B5_20269158",
+        "01406_test_B5_20269159",
+        "01407_test_B5_20269160",
+        "01408_test_B5_20269161",
+        "01409_test_B5_20269162",
+        "01410_test_B5_20269163",
+        "01411_test_B5_20269164",
+        "01412_test_B5_20269165",
+        "01413_test_B5_20269166",
+        "01414_test_B5_20269167",
+        "01415_test_B5_20269168",
+        "01416_test_B5_20269169",
+        "01417_test_B5_20269170",
+        "01418_test_B5_20269171",
+        "01419_test_B5_20269172",
+        "01420_test_B5_20269173"
+      ],
+      "episodes": 50,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            8.0,
+            9.58
+          ],
+          "mean": 8.78
+        },
+        "discounted_return": {
+          "ci95": [
+            0.18492027115282086,
+            0.24116329531882527
+          ],
+          "mean": 0.21309336926852324
+        },
+        "environment_steps": {
+          "ci95": [
+            149.8765,
+            182.942
+          ],
+          "mean": 166.32
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.18337488222348475,
+            0.22288370125795337
+          ],
+          "mean": 0.2029551799490582
+        },
+        "refresh_activations": {
+          "ci95": [
+            3.74,
+            5.14
+          ],
+          "mean": 4.44
+        },
+        "refresh_requests": {
+          "ci95": [
+            3.74,
+            5.14
+          ],
+          "mean": 4.44
+        },
+        "return": {
+          "ci95": [
+            0.74,
+            0.94
+          ],
+          "mean": 0.84
+        },
+        "success": {
+          "ci95": [
+            0.74,
+            0.94
+          ],
+          "mean": 0.84
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.4807410570394715,
+            1.7278198987224895
+          ],
+          "mean": 1.604468896019389
+        }
+      },
+      "met_target_on_test": false,
+      "setting": {
+        "act_budget": 15,
+        "method": "B5",
+        "parameter": 0.05
+      },
+      "status": "EVALUATED",
+      "successes": 42
+    },
+    "B6": {
+      "episode_ids": [
+        "01421_test_B6_20269124",
+        "01422_test_B6_20269125",
+        "01423_test_B6_20269126",
+        "01424_test_B6_20269127",
+        "01425_test_B6_20269128",
+        "01426_test_B6_20269129",
+        "01427_test_B6_20269130",
+        "01428_test_B6_20269131",
+        "01429_test_B6_20269132",
+        "01430_test_B6_20269133",
+        "01431_test_B6_20269134",
+        "01432_test_B6_20269135",
+        "01433_test_B6_20269136",
+        "01434_test_B6_20269137",
+        "01435_test_B6_20269138",
+        "01436_test_B6_20269139",
+        "01437_test_B6_20269140",
+        "01438_test_B6_20269141",
+        "01439_test_B6_20269142",
+        "01440_test_B6_20269143",
+        "01441_test_B6_20269144",
+        "01442_test_B6_20269145",
+        "01443_test_B6_20269146",
+        "01444_test_B6_20269147",
+        "01445_test_B6_20269148",
+        "01446_test_B6_20269149",
+        "01447_test_B6_20269150",
+        "01448_test_B6_20269151",
+        "01449_test_B6_20269152",
+        "01450_test_B6_20269153",
+        "01451_test_B6_20269154",
+        "01452_test_B6_20269155",
+        "01453_test_B6_20269156",
+        "01454_test_B6_20269157",
+        "01455_test_B6_20269158",
+        "01456_test_B6_20269159",
+        "01457_test_B6_20269160",
+        "01458_test_B6_20269161",
+        "01459_test_B6_20269162",
+        "01460_test_B6_20269163",
+        "01461_test_B6_20269164",
+        "01462_test_B6_20269165",
+        "01463_test_B6_20269166",
+        "01464_test_B6_20269167",
+        "01465_test_B6_20269168",
+        "01466_test_B6_20269169",
+        "01467_test_B6_20269170",
+        "01468_test_B6_20269171",
+        "01469_test_B6_20269172",
+        "01470_test_B6_20269173"
+      ],
+      "episodes": 50,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            7.92,
+            9.46
+          ],
+          "mean": 8.68
+        },
+        "discounted_return": {
+          "ci95": [
+            0.18780252688777105,
+            0.24286348674043193
+          ],
+          "mean": 0.21558328244006514
+        },
+        "environment_steps": {
+          "ci95": [
+            148.7585,
+            181.20499999999998
+          ],
+          "mean": 164.6
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.18205786446123967,
+            0.22068709604300238
+          ],
+          "mean": 0.2006705829690327
+        },
+        "refresh_activations": {
+          "ci95": [
+            2.7994999999999997,
+            3.8604999999999996
+          ],
+          "mean": 3.32
+        },
+        "refresh_requests": {
+          "ci95": [
+            2.8,
+            3.88
+          ],
+          "mean": 3.34
+        },
+        "return": {
+          "ci95": [
+            0.76,
+            0.96
+          ],
+          "mean": 0.86
+        },
+        "success": {
+          "ci95": [
+            0.76,
+            0.96
+          ],
+          "mean": 0.86
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.4789447080588287,
+            1.7237442528420506
+          ],
+          "mean": 1.596643709000491
+        }
+      },
+      "met_target_on_test": false,
+      "setting": {
+        "act_budget": 15,
+        "method": "B6",
+        "parameter": 0.01
+      },
+      "status": "EVALUATED",
+      "successes": 43
+    },
+    "P1": {
+      "episode_ids": [
+        "01471_test_P1_20269124",
+        "01472_test_P1_20269125",
+        "01473_test_P1_20269126",
+        "01474_test_P1_20269127",
+        "01475_test_P1_20269128",
+        "01476_test_P1_20269129",
+        "01477_test_P1_20269130",
+        "01478_test_P1_20269131",
+        "01479_test_P1_20269132",
+        "01480_test_P1_20269133",
+        "01481_test_P1_20269134",
+        "01482_test_P1_20269135",
+        "01483_test_P1_20269136",
+        "01484_test_P1_20269137",
+        "01485_test_P1_20269138",
+        "01486_test_P1_20269139",
+        "01487_test_P1_20269140",
+        "01488_test_P1_20269141",
+        "01489_test_P1_20269142",
+        "01490_test_P1_20269143",
+        "01491_test_P1_20269144",
+        "01492_test_P1_20269145",
+        "01493_test_P1_20269146",
+        "01494_test_P1_20269147",
+        "01495_test_P1_20269148",
+        "01496_test_P1_20269149",
+        "01497_test_P1_20269150",
+        "01498_test_P1_20269151",
+        "01499_test_P1_20269152",
+        "01500_test_P1_20269153",
+        "01501_test_P1_20269154",
+        "01502_test_P1_20269155",
+        "01503_test_P1_20269156",
+        "01504_test_P1_20269157",
+        "01505_test_P1_20269158",
+        "01506_test_P1_20269159",
+        "01507_test_P1_20269160",
+        "01508_test_P1_20269161",
+        "01509_test_P1_20269162",
+        "01510_test_P1_20269163",
+        "01511_test_P1_20269164",
+        "01512_test_P1_20269165",
+        "01513_test_P1_20269166",
+        "01514_test_P1_20269167",
+        "01515_test_P1_20269168",
+        "01516_test_P1_20269169",
+        "01517_test_P1_20269170",
+        "01518_test_P1_20269171",
+        "01519_test_P1_20269172",
+        "01520_test_P1_20269173"
+      ],
+      "episodes": 50,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            8.06,
+            9.7
+          ],
+          "mean": 8.86
+        },
+        "discounted_return": {
+          "ci95": [
+            0.18238024996966642,
+            0.23984983903956913
+          ],
+          "mean": 0.2113091419203084
+        },
+        "environment_steps": {
+          "ci95": [
+            151.63799999999998,
+            185.58350000000002
+          ],
+          "mean": 168.24
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.1856190478558856,
+            0.22599317033900296
+          ],
+          "mean": 0.20528986463061302
+        },
+        "refresh_activations": {
+          "ci95": [
+            1.7,
+            2.5
+          ],
+          "mean": 2.1
+        },
+        "refresh_requests": {
+          "ci95": [
+            1.7,
+            2.5
+          ],
+          "mean": 2.1
+        },
+        "return": {
+          "ci95": [
+            0.76,
+            0.94
+          ],
+          "mean": 0.86
+        },
+        "success": {
+          "ci95": [
+            0.76,
+            0.94
+          ],
+          "mean": 0.86
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.500133646062779,
+            1.7522877245704076
+          ],
+          "mean": 1.6234806333406595
+        }
+      },
+      "met_target_on_test": false,
+      "setting": {
+        "act_budget": 15,
+        "method": "P1",
+        "parameter": 0.1
+      },
+      "status": "EVALUATED",
+      "successes": 43
+    },
+    "fixed_period_refresh": {
+      "status": "NO_VALIDATION_SETTING_MEETS_TARGET"
+    },
+    "original_resfit": {
+      "episode_ids": [
+        "01221_test_original_resfit_20269124",
+        "01222_test_original_resfit_20269125",
+        "01223_test_original_resfit_20269126",
+        "01224_test_original_resfit_20269127",
+        "01225_test_original_resfit_20269128",
+        "01226_test_original_resfit_20269129",
+        "01227_test_original_resfit_20269130",
+        "01228_test_original_resfit_20269131",
+        "01229_test_original_resfit_20269132",
+        "01230_test_original_resfit_20269133",
+        "01231_test_original_resfit_20269134",
+        "01232_test_original_resfit_20269135",
+        "01233_test_original_resfit_20269136",
+        "01234_test_original_resfit_20269137",
+        "01235_test_original_resfit_20269138",
+        "01236_test_original_resfit_20269139",
+        "01237_test_original_resfit_20269140",
+        "01238_test_original_resfit_20269141",
+        "01239_test_original_resfit_20269142",
+        "01240_test_original_resfit_20269143",
+        "01241_test_original_resfit_20269144",
+        "01242_test_original_resfit_20269145",
+        "01243_test_original_resfit_20269146",
+        "01244_test_original_resfit_20269147",
+        "01245_test_original_resfit_20269148",
+        "01246_test_original_resfit_20269149",
+        "01247_test_original_resfit_20269150",
+        "01248_test_original_resfit_20269151",
+        "01249_test_original_resfit_20269152",
+        "01250_test_original_resfit_20269153",
+        "01251_test_original_resfit_20269154",
+        "01252_test_original_resfit_20269155",
+        "01253_test_original_resfit_20269156",
+        "01254_test_original_resfit_20269157",
+        "01255_test_original_resfit_20269158",
+        "01256_test_original_resfit_20269159",
+        "01257_test_original_resfit_20269160",
+        "01258_test_original_resfit_20269161",
+        "01259_test_original_resfit_20269162",
+        "01260_test_original_resfit_20269163",
+        "01261_test_original_resfit_20269164",
+        "01262_test_original_resfit_20269165",
+        "01263_test_original_resfit_20269166",
+        "01264_test_original_resfit_20269167",
+        "01265_test_original_resfit_20269168",
+        "01266_test_original_resfit_20269169",
+        "01267_test_original_resfit_20269170",
+        "01268_test_original_resfit_20269171",
+        "01269_test_original_resfit_20269172",
+        "01270_test_original_resfit_20269173"
+      ],
+      "episodes": 50,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            8.439499999999999,
+            10.18
+          ],
+          "mean": 9.32
+        },
+        "discounted_return": {
+          "ci95": [
+            0.16661191480687731,
+            0.22916445516543402
+          ],
+          "mean": 0.1975211921913072
+        },
+        "environment_steps": {
+          "ci95": [
+            159.2785,
+            195.80100000000002
+          ],
+          "mean": 177.64
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.18767629177410708,
+            0.22942872700795125
+          ],
+          "mean": 0.20864738647796913
+        },
+        "refresh_activations": {
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "mean": 0.0
+        },
+        "refresh_requests": {
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "mean": 0.0
+        },
+        "return": {
+          "ci95": [
+            0.74,
+            0.94
+          ],
+          "mean": 0.84
+        },
+        "success": {
+          "ci95": [
+            0.74,
+            0.94
+          ],
+          "mean": 0.84
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.5452714309056754,
+            1.8165145063494492
+          ],
+          "mean": 1.68265543962043
+        }
+      },
+      "met_target_on_test": false,
+      "setting": {
+        "act_budget": 15,
+        "method": "original_resfit",
+        "parameter": null
+      },
+      "status": "EVALUATED",
+      "successes": 42
+    },
+    "residual_norm_threshold": {
+      "episode_ids": [
+        "01321_test_residual_norm_threshold_20269124",
+        "01322_test_residual_norm_threshold_20269125",
+        "01323_test_residual_norm_threshold_20269126",
+        "01324_test_residual_norm_threshold_20269127",
+        "01325_test_residual_norm_threshold_20269128",
+        "01326_test_residual_norm_threshold_20269129",
+        "01327_test_residual_norm_threshold_20269130",
+        "01328_test_residual_norm_threshold_20269131",
+        "01329_test_residual_norm_threshold_20269132",
+        "01330_test_residual_norm_threshold_20269133",
+        "01331_test_residual_norm_threshold_20269134",
+        "01332_test_residual_norm_threshold_20269135",
+        "01333_test_residual_norm_threshold_20269136",
+        "01334_test_residual_norm_threshold_20269137",
+        "01335_test_residual_norm_threshold_20269138",
+        "01336_test_residual_norm_threshold_20269139",
+        "01337_test_residual_norm_threshold_20269140",
+        "01338_test_residual_norm_threshold_20269141",
+        "01339_test_residual_norm_threshold_20269142",
+        "01340_test_residual_norm_threshold_20269143",
+        "01341_test_residual_norm_threshold_20269144",
+        "01342_test_residual_norm_threshold_20269145",
+        "01343_test_residual_norm_threshold_20269146",
+        "01344_test_residual_norm_threshold_20269147",
+        "01345_test_residual_norm_threshold_20269148",
+        "01346_test_residual_norm_threshold_20269149",
+        "01347_test_residual_norm_threshold_20269150",
+        "01348_test_residual_norm_threshold_20269151",
+        "01349_test_residual_norm_threshold_20269152",
+        "01350_test_residual_norm_threshold_20269153",
+        "01351_test_residual_norm_threshold_20269154",
+        "01352_test_residual_norm_threshold_20269155",
+        "01353_test_residual_norm_threshold_20269156",
+        "01354_test_residual_norm_threshold_20269157",
+        "01355_test_residual_norm_threshold_20269158",
+        "01356_test_residual_norm_threshold_20269159",
+        "01357_test_residual_norm_threshold_20269160",
+        "01358_test_residual_norm_threshold_20269161",
+        "01359_test_residual_norm_threshold_20269162",
+        "01360_test_residual_norm_threshold_20269163",
+        "01361_test_residual_norm_threshold_20269164",
+        "01362_test_residual_norm_threshold_20269165",
+        "01363_test_residual_norm_threshold_20269166",
+        "01364_test_residual_norm_threshold_20269167",
+        "01365_test_residual_norm_threshold_20269168",
+        "01366_test_residual_norm_threshold_20269169",
+        "01367_test_residual_norm_threshold_20269170",
+        "01368_test_residual_norm_threshold_20269171",
+        "01369_test_residual_norm_threshold_20269172",
+        "01370_test_residual_norm_threshold_20269173"
+      ],
+      "episodes": 50,
+      "estimates": {
+        "act_calls": {
+          "ci95": [
+            8.439499999999999,
+            10.18
+          ],
+          "mean": 9.32
+        },
+        "discounted_return": {
+          "ci95": [
+            0.16661191480687731,
+            0.22916445516543402
+          ],
+          "mean": 0.1975211921913072
+        },
+        "environment_steps": {
+          "ci95": [
+            159.2785,
+            195.80100000000002
+          ],
+          "mean": 177.64
+        },
+        "policy_wall_seconds": {
+          "ci95": [
+            0.18736170185848458,
+            0.2288876452883924
+          ],
+          "mean": 0.20831854328600458
+        },
+        "refresh_activations": {
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "mean": 0.0
+        },
+        "refresh_requests": {
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "mean": 0.0
+        },
+        "return": {
+          "ci95": [
+            0.74,
+            0.94
+          ],
+          "mean": 0.84
+        },
+        "success": {
+          "ci95": [
+            0.74,
+            0.94
+          ],
+          "mean": 0.84
+        },
+        "wall_seconds": {
+          "ci95": [
+            1.5452344340110211,
+            1.8164012900309754
+          ],
+          "mean": 1.6831871092572692
+        }
+      },
+      "met_target_on_test": false,
+      "setting": {
+        "act_budget": 15,
+        "method": "residual_norm_threshold",
+        "parameter": 0.27
+      },
+      "status": "EVALUATED",
+      "successes": 42
+    }
+  },
+  "physical_rollout_budget": {
+    "test": {
+      "act_calls": 9841,
+      "environment_steps": 135917,
+      "episodes": 800,
+      "policy_wall_seconds": 194.31541640184878,
+      "refresh_activations": 5767,
+      "refresh_requests": 5784,
+      "wall_seconds": 1356.7329691647901
+    },
+    "validation": {
+      "act_calls": 16697,
+      "environment_steps": 212680,
+      "episodes": 1220,
+      "policy_wall_seconds": 307.4148334509664,
+      "refresh_activations": 11698,
+      "refresh_requests": 11734,
+      "wall_seconds": 2080.828066351227
+    }
+  },
+  "validation_selection_sha256": "d95472caad2f5605f12f83da3f250ebe628e3efa36116859e73c8a8ae92921a0"
+}
