@@ -1,0 +1,170 @@
+hydra:
+  run:
+    dir: /media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261125T123800379100Z_428ea7773bc9/hydra
+  sweep:
+    dir: multirun/${now:%Y-%m-%d}/${now:%H-%M-%S}
+    subdir: ${hydra.job.num}
+  launcher:
+    _target_: hydra._internal.core_plugins.basic_launcher.BasicLauncher
+  sweeper:
+    _target_: hydra._internal.core_plugins.basic_sweeper.BasicSweeper
+    max_batch_size: null
+    params: null
+  help:
+    app_name: ${hydra.job.name}
+    header: '${hydra.help.app_name} is powered by Hydra.
+
+      '
+    footer: 'Powered by Hydra (https://hydra.cc)
+
+      Use --hydra-help to view Hydra specific help
+
+      '
+    template: '${hydra.help.header}
+
+      == Configuration groups ==
+
+      Compose your configuration from those groups (group=option)
+
+
+      $APP_CONFIG_GROUPS
+
+
+      == Config ==
+
+      Override anything in the config (foo.bar=value)
+
+
+      $CONFIG
+
+
+      ${hydra.help.footer}
+
+      '
+  hydra_help:
+    template: 'Hydra (${hydra.runtime.version})
+
+      See https://hydra.cc for more info.
+
+
+      == Flags ==
+
+      $FLAGS_HELP
+
+
+      == Configuration groups ==
+
+      Compose your configuration from those groups (For example, append hydra/job_logging=disabled
+      to command line)
+
+
+      $HYDRA_CONFIG_GROUPS
+
+
+      Use ''--cfg hydra'' to Show the Hydra config.
+
+      '
+    hydra_help: ???
+  hydra_logging:
+    version: 1
+    formatters:
+      simple:
+        format: '[%(asctime)s][HYDRA] %(message)s'
+    handlers:
+      console:
+        class: logging.StreamHandler
+        formatter: simple
+        stream: ext://sys.stdout
+    root:
+      level: INFO
+      handlers:
+      - console
+    loggers:
+      logging_example:
+        level: DEBUG
+    disable_existing_loggers: false
+  job_logging:
+    version: 1
+    formatters:
+      simple:
+        format: '[%(asctime)s][%(name)s][%(levelname)s] - %(message)s'
+    handlers:
+      console:
+        class: logging.StreamHandler
+        formatter: simple
+        stream: ext://sys.stdout
+      file:
+        class: logging.FileHandler
+        formatter: simple
+        filename: ${hydra.runtime.output_dir}/${hydra.job.name}.log
+    root:
+      level: INFO
+      handlers:
+      - console
+      - file
+    disable_existing_loggers: false
+  env: {}
+  mode: RUN
+  searchpath: []
+  callbacks: {}
+  output_subdir: .hydra
+  overrides:
+    hydra:
+    - hydra.run.dir=/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261125T123800379100Z_428ea7773bc9/hydra
+    - hydra.job.chdir=false
+    - hydra.mode=RUN
+    task:
+    - seed=20261124
+    - base_policy.local_dir=/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/act_training/attempts/20261125T005956570423Z_3dfd8208847a/training/policy_step_49999/policy
+    - base_policy.expected_config_sha256=4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb
+    - base_policy.expected_model_sha256=e5f5b3c7fa7512a2ae202d5912922289a52348f8a3bb5a9da33f606d671cb859
+    - offline_data.name=ankile/robomimic-mh-square-image
+    - offline_data.revision=4e5cee7ea7d63b920ff76c2529b781c2474697da
+    - offline_data.root=/media/midea/work/CF-ResRL/residual-rl-sim/data/cf_resrl/square
+    - offline_data.split_manifest=/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/dataset_audit/attempts/20261124T131023495428Z_a9dcb4b558af/split_manifest.json
+    - offline_data.expected_split_manifest_sha256=629d01857156c691f297218e0cda3e3b3a802a91122f006a1ca70fd31163afcd
+    - offline_data.split=train
+    - offline_data.video_backend=pyav
+    - offline_data.num_episodes=240
+    - algo.learning_starts=10000
+    - algo.total_timesteps=300000
+    - checkpoint_interval=10000
+    - output_dir=/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261125T123800379100Z_428ea7773bc9/training
+    - wandb.mode=disabled
+  job:
+    name: train_residual_td3
+    chdir: false
+    override_dirname: algo.learning_starts=10000,algo.total_timesteps=300000,base_policy.expected_config_sha256=4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb,base_policy.expected_model_sha256=e5f5b3c7fa7512a2ae202d5912922289a52348f8a3bb5a9da33f606d671cb859,base_policy.local_dir=/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/act_training/attempts/20261125T005956570423Z_3dfd8208847a/training/policy_step_49999/policy,checkpoint_interval=10000,offline_data.expected_split_manifest_sha256=629d01857156c691f297218e0cda3e3b3a802a91122f006a1ca70fd31163afcd,offline_data.name=ankile/robomimic-mh-square-image,offline_data.num_episodes=240,offline_data.revision=4e5cee7ea7d63b920ff76c2529b781c2474697da,offline_data.root=/media/midea/work/CF-ResRL/residual-rl-sim/data/cf_resrl/square,offline_data.split=train,offline_data.split_manifest=/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/dataset_audit/attempts/20261124T131023495428Z_a9dcb4b558af/split_manifest.json,offline_data.video_backend=pyav,output_dir=/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261125T123800379100Z_428ea7773bc9/training,seed=20261124,wandb.mode=disabled
+    id: ???
+    num: ???
+    config_name: residual_td3_square_config
+    env_set: {}
+    env_copy: []
+    config:
+      override_dirname:
+        kv_sep: '='
+        item_sep: ','
+        exclude_keys: []
+  runtime:
+    version: 1.3.2
+    version_base: '1.3'
+    cwd: /media/midea/work/CF-ResRL/residual-rl-sim
+    config_sources:
+    - path: hydra.conf
+      schema: pkg
+      provider: hydra
+    - path: ''
+      schema: structured
+      provider: schema
+    output_dir: /media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261125T123800379100Z_428ea7773bc9/hydra
+    choices:
+      hydra/env: default
+      hydra/callbacks: null
+      hydra/job_logging: default
+      hydra/hydra_logging: default
+      hydra/hydra_help: default
+      hydra/help: default
+      hydra/sweeper: basic
+      hydra/launcher: basic
+      hydra/output: default
+  verbose: false

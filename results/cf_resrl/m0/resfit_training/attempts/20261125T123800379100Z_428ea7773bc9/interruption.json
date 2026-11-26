@@ -1,0 +1,36 @@
+{
+  "action_ledger": {
+    "bytes": 240297370,
+    "path": "training/action_ledger.jsonl",
+    "rows": 235800,
+    "sha256": "61bd16d905765ec8be79402aae15b0518467ad7baf2d34929895bcdcdd563f5b"
+  },
+  "all_fixed_evaluation_shas_verified": true,
+  "checkpoint_manifest_sha256": "6d4390e7364ebb039f5de9b29ec70b65b32e37e9bd09a4653da04b795fc0a23c",
+  "complete_training_resume_available": false,
+  "fixed_checkpoints_recorded": 23,
+  "last_fixed_checkpoint": {
+    "bytes": 432435576,
+    "environment_step": 230000,
+    "evaluation_episodes": 50,
+    "evaluation_successes": 49,
+    "path": "training/models/step_000230000.pt",
+    "sha256": "bc2585bd3503e093097d140f93fc5f0c424fc9b8661c61e1c79ce24301ccc90d"
+  },
+  "last_log_environment_step": 235800,
+  "last_log_write": "2026-11-26T08:51:10.148276+08:00",
+  "launch_commit": "428ea7773bc95b748a2677f55fc9d64402f07b55",
+  "launcher_status_before_recovery": "RUNNING",
+  "missing_resume_state": [
+    "online replay buffer at the checkpoint",
+    "live simulator and rollout state"
+  ],
+  "observed_at": "2026-11-26T09:09:51.797985+08:00",
+  "previous_conda_pid": 1177294,
+  "previous_launcher_pid": 1177220,
+  "previous_training_pid": 1177305,
+  "reason": "Host freeze and forced power-off reported by the user",
+  "resfit_and_lerobot_overlay_reversed_and_checkouts_clean": true,
+  "status": "INTERRUPTED",
+  "stdout_stderr_sha256": "d495a5df2643aaa0783878baf8954226efac77ab0a8eb773e3ff8297ccb2c993"
+}
