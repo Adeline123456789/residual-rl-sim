@@ -67,7 +67,7 @@ def _source(config):
     return attempt, status, resolved, act, model, pins
 
 
-def _run(config, out):
+def load_square_runner(config):
     os.environ.setdefault("MUJOCO_GL", "egl")
     os.environ.setdefault("MUJOCO_EGL_DEVICE_ID", "0")
     os.environ.setdefault("OMP_NUM_THREADS", "1")
@@ -75,7 +75,7 @@ def _run(config, out):
     import mujoco
     from omegaconf import OmegaConf
     import torch
-    from cf_resrl.branch_runner import BRANCHES, PROVIDER_ID, SquareBranchRunner
+    from cf_resrl.branch_runner import PROVIDER_ID, SquareBranchRunner
     from resfit.dexmg.environments.dexmg import RobosuiteGymWrapper
     from resfit.lerobot.policies.act.configuration_act import ACTConfig
     from resfit.lerobot.policies.act.modeling_act import ACTPolicy
@@ -83,11 +83,6 @@ def _run(config, out):
 
     if not torch.cuda.is_available() or mujoco.__version__ != "3.3.2":
         raise RuntimeError("Square branch gate requires the pinned CUDA and MuJoCo runtime")
-    if config["task"] != "Square" or tuple(config["branch_labels"]) != BRANCHES:
-        raise ValueError("Unexpected registered branch treatments")
-    expected_pairs = list(zip(config["source_seeds"], config["source_ticks"], strict=True))
-    if len(expected_pairs) != 8 or len(set(config["source_seeds"])) != 8 or config["refresh_delay_steps"] != 2:
-        raise ValueError("Square gate requires eight independent seeds and two-tick refresh latency")
     attempt, status, resolved, act, model, pins = _source(config)
     device = torch.device("cuda:0")
     act_cfg = ACTConfig.from_pretrained(act, local_files_only=True)
@@ -115,7 +110,7 @@ def _run(config, out):
         "provider_identity": PROVIDER_ID,
         "normalization_identity": hashlib.sha256(json.dumps(normalization, sort_keys=True).encode()).hexdigest(),
     }
-    _write(out / "run_manifest.json", {
+    provenance = {
         "command": [sys.executable, *sys.argv],
         "git_commit": _git(REPO_ROOT, "rev-parse", "HEAD"),
         "git_status_at_start": _git(REPO_ROOT, "status", "--porcelain", "--untracked-files=no").splitlines(),
@@ -132,21 +127,36 @@ def _run(config, out):
             "mujoco": mujoco.__version__,
             "gpu": torch.cuda.get_device_name(device),
         },
-        "protocol": config,
         "fallback_when_pending_and_old_chunk_exhausted": "zero residual-normalized base action",
         "after_intervention": "original frozen residual actor per step and nominal ACT inference at chunk exhaustion",
         "time": "logical control ticks measure refresh latency, wall time includes inference",
-    })
+    }
 
     wrapper = RobosuiteGymWrapper("Square", camera_size=84, render_gpu_device_id=0)
     if wrapper.horizon != config["simulation_horizon_steps"]:
+        wrapper.close()
         raise RuntimeError("Environment horizon disagrees with the registered gate")
     runner = SquareBranchRunner(
         wrapper, policy, agent, normalization, identities, device,
         delay=config["refresh_delay_steps"], gamma=resolved["config"]["algo"]["gamma"],
     )
+    return runner, provenance
+
+
+def _run(config, out):
+    expected_pairs = list(zip(config["source_seeds"], config["source_ticks"], strict=True))
+    if (
+        config["task"] != "Square"
+        or config["branch_labels"] != ["V00", "V01", "V10", "V11"]
+        or len(expected_pairs) != 8
+        or len(set(config["source_seeds"])) != 8
+        or config["refresh_delay_steps"] != 2
+    ):
+        raise ValueError("Square gate requires the four treatments, eight seeds, and two-tick refresh latency")
+    runner, provenance = load_square_runner(config)
     groups = []
     try:
+        _write(out / "run_manifest.json", {**provenance, "protocol": config})
         for index, (seed, tick) in enumerate(expected_pairs, start=1):
             group = runner.group(seed, tick, verify_replay=index == 1)
             group["source_episode_id"] = f"square_gate_{seed}"
@@ -169,7 +179,7 @@ def _run(config, out):
             })
             print(f"Square gate {index}/8: source {seed} at tick {tick}, saved four real branches", flush=True)
     finally:
-        wrapper.close()
+        runner.wrapper.close()
     all_branches = [row for group in groups for row in group["branches"].values()]
     _write(out / "summary.json", {
         "status": "PASS",

@@ -1,0 +1,27 @@
+{
+  "status": "SPECIFICATION_NOT_A_RUN_RESULT",
+  "task": "Square",
+  "dataset": "cf_square_factorial_v1",
+  "gate_attempt": "results/cf_resrl/m0/branch_gate/attempts/20261126T184315156219Z_ba645f8ba348",
+  "gate_summary_sha256": "a14850a3fa98e8bb37713ae3c2b38368eb520c4c663e8bc5b9cb4c67ec4abd10",
+  "refresh_delay_steps": 2,
+  "factorial_cohorts": {
+    "natural": {"first_seed": 20264124, "size": 200},
+    "enriched": {"first_seed": 20265124, "size": 200}
+  },
+  "pair_training_cohorts": {
+    "natural": {"first_seed": 20266124, "size": 160},
+    "enriched": {"first_seed": 20267124, "size": 160}
+  },
+  "split_seed": 20261127,
+  "factorial_split_counts": {"train": 160, "validation": 20, "test": 20},
+  "selector_seed": 20261227,
+  "selection_rules": {
+    "natural": "one uniformly sampled visited pre-action tick per nominal source episode",
+    "enriched": "maximum L2 norm of the frozen actor residual over visited pre-action ticks; earliest tick breaks ties"
+  },
+  "decision_costs": [0.0, 0.01, 0.025, 0.05, 0.10],
+  "bootstrap_episodes": 1000,
+  "bootstrap_seed": 20261327,
+  "output_root": "results/cf_resrl/mvp_square/e0_data"
+}
