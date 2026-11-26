@@ -1,0 +1,518 @@
+{
+  "branch_act_calls": 265,
+  "branch_environment_steps": 5175,
+  "branch_rollouts": 32,
+  "checks": [
+    "exact paired first actions and waiting trajectories",
+    "post-action request",
+    "absolute-tick chunk activation",
+    "physical action bounds",
+    "deterministic replay"
+  ],
+  "groups": [
+    {
+      "branches": {
+        "V00": {
+          "act_calls": 14,
+          "discounted_return": 0.0,
+          "environment_steps": 293,
+          "label": "V00",
+          "remaining_horizon": 293,
+          "return": 0.0,
+          "success": false,
+          "wall_seconds": 2.2082838260030258
+        },
+        "V01": {
+          "act_calls": 15,
+          "discounted_return": 0.0,
+          "environment_steps": 293,
+          "label": "V01",
+          "remaining_horizon": 293,
+          "return": 0.0,
+          "success": false,
+          "wall_seconds": 2.140928515997075
+        },
+        "V10": {
+          "act_calls": 14,
+          "discounted_return": 0.0,
+          "environment_steps": 293,
+          "label": "V10",
+          "remaining_horizon": 293,
+          "return": 0.0,
+          "success": false,
+          "wall_seconds": 2.207434985000873
+        },
+        "V11": {
+          "act_calls": 15,
+          "discounted_return": 0.0,
+          "environment_steps": 293,
+          "label": "V11",
+          "remaining_horizon": 293,
+          "return": 0.0,
+          "success": false,
+          "wall_seconds": 2.1392380420002155
+        }
+      },
+      "factorial_values": {
+        "G0": 0.0,
+        "G_delta": 0.0,
+        "I_delta": 0.0,
+        "v00": 0.0,
+        "v01": 0.0,
+        "v10": 0.0,
+        "v11": 0.0
+      },
+      "path": "group_01.json",
+      "prefix_act_calls": 1,
+      "prefix_control_steps": 7,
+      "replay_verification": {
+        "act_calls": 15,
+        "comparison": "exact",
+        "environment_steps": 293,
+        "label": "V11",
+        "wall_seconds": 2.1716349390044343
+      },
+      "seed": 20263124,
+      "sha256": "fe20c90543116fabc12733ca884a6bc4ee095a2b43121fabc3a1661bf853a46d",
+      "source_episode_id": "square_gate_20263124",
+      "source_tick": 7
+    },
+    {
+      "branches": {
+        "V00": {
+          "act_calls": 6,
+          "discounted_return": 0.3054590259283046,
+          "environment_steps": 119,
+          "label": "V00",
+          "remaining_horizon": 292,
+          "return": 1.0,
+          "success": true,
+          "wall_seconds": 0.8493656610007747
+        },
+        "V01": {
+          "act_calls": 6,
+          "discounted_return": 0.34116606151404244,
+          "environment_steps": 108,
+          "label": "V01",
+          "remaining_horizon": 292,
+          "return": 1.0,
+          "success": true,
+          "wall_seconds": 0.778531069001474
+        },
+        "V10": {
+          "act_calls": 6,
+          "discounted_return": 0.30240443566902153,
+          "environment_steps": 120,
+          "label": "V10",
+          "remaining_horizon": 292,
+          "return": 1.0,
+          "success": true,
+          "wall_seconds": 0.8616262469950016
+        },
+        "V11": {
+          "act_calls": 6,
+          "discounted_return": 0.34116606151404244,
+          "environment_steps": 108,
+          "label": "V11",
+          "remaining_horizon": 292,
+          "return": 1.0,
+          "success": true,
+          "wall_seconds": 0.7631723550002789
+        }
+      },
+      "factorial_values": {
+        "G0": 0.035707035585737845,
+        "G_delta": 0.03876162584502091,
+        "I_delta": 0.003054590259283063,
+        "v00": 0.3054590259283046,
+        "v01": 0.34116606151404244,
+        "v10": 0.30240443566902153,
+        "v11": 0.34116606151404244
+      },
+      "path": "group_02.json",
+      "prefix_act_calls": 1,
+      "prefix_control_steps": 8,
+      "replay_verification": null,
+      "seed": 20263125,
+      "sha256": "9b826d15dd4db13b817e8eb3f41d10df44ba9a8ac0f1892278ee5736a04760a9",
+      "source_episode_id": "square_gate_20263125",
+      "source_tick": 8
+    },
+    {
+      "branches": {
+        "V00": {
+          "act_calls": 5,
+          "discounted_return": 0.334376856889913,
+          "environment_steps": 110,
+          "label": "V00",
+          "remaining_horizon": 291,
+          "return": 1.0,
+          "success": true,
+          "wall_seconds": 0.7974616080027772
+        },
+        "V01": {
+          "act_calls": 6,
+          "discounted_return": 0.334376856889913,
+          "environment_steps": 110,
+          "label": "V01",
+          "remaining_horizon": 291,
+          "return": 1.0,
+          "success": true,
+          "wall_seconds": 0.8006874159982544
+        },
+        "V10": {
+          "act_calls": 5,
+          "discounted_return": 0.37346428045426916,
+          "environment_steps": 99,
+          "label": "V10",
+          "remaining_horizon": 291,
+          "return": 1.0,
+          "success": true,
+          "wall_seconds": 0.7060609930049395
+        },
+        "V11": {
+          "act_calls": 6,
+          "discounted_return": 0.33103308832101386,
+          "environment_steps": 111,
+          "label": "V11",
+          "remaining_horizon": 291,
+          "return": 1.0,
+          "success": true,
+          "wall_seconds": 0.8120154450007249
+        }
+      },
+      "factorial_values": {
+        "G0": 0.0,
+        "G_delta": -0.0424311921332553,
+        "I_delta": -0.0424311921332553,
+        "v00": 0.334376856889913,
+        "v01": 0.334376856889913,
+        "v10": 0.37346428045426916,
+        "v11": 0.33103308832101386
+      },
+      "path": "group_03.json",
+      "prefix_act_calls": 1,
+      "prefix_control_steps": 9,
+      "replay_verification": null,
+      "seed": 20263126,
+      "sha256": "04ce911d1f4a4d46b1b8fcefa788b99f2701a8e80bafc205aa895a896c8256f8",
+      "source_episode_id": "square_gate_20263126",
+      "source_tick": 9
+    },
+    {
+      "branches": {
+        "V00": {
+          "act_calls": 14,
+          "discounted_return": 0.0,
+          "environment_steps": 290,
+          "label": "V00",
+          "remaining_horizon": 290,
+          "return": 0.0,
+          "success": false,
+          "wall_seconds": 2.1155787690004217
+        },
+        "V01": {
+          "act_calls": 9,
+          "discounted_return": 0.19827425658891443,
+          "environment_steps": 162,
+          "label": "V01",
+          "remaining_horizon": 290,
+          "return": 1.0,
+          "success": true,
+          "wall_seconds": 1.182304080000904
+        },
+        "V10": {
+          "act_calls": 14,
+          "discounted_return": 0.0,
+          "environment_steps": 290,
+          "label": "V10",
+          "remaining_horizon": 290,
+          "return": 0.0,
+          "success": false,
+          "wall_seconds": 2.1724132250019466
+        },
+        "V11": {
+          "act_calls": 15,
+          "discounted_return": 0.0,
+          "environment_steps": 290,
+          "label": "V11",
+          "remaining_horizon": 290,
+          "return": 0.0,
+          "success": false,
+          "wall_seconds": 2.211523247002333
+        }
+      },
+      "factorial_values": {
+        "G0": 0.19827425658891443,
+        "G_delta": 0.0,
+        "I_delta": -0.19827425658891443,
+        "v00": 0.0,
+        "v01": 0.19827425658891443,
+        "v10": 0.0,
+        "v11": 0.0
+      },
+      "path": "group_04.json",
+      "prefix_act_calls": 1,
+      "prefix_control_steps": 10,
+      "replay_verification": null,
+      "seed": 20263127,
+      "sha256": "bb579f84e36a3218cf966e4b17461f370b6b6d5f2377f4bda4a99b951e6a2ffc",
+      "source_episode_id": "square_gate_20263127",
+      "source_tick": 10
+    },
+    {
+      "branches": {
+        "V00": {
+          "act_calls": 5,
+          "discounted_return": 0.3660323412732292,
+          "environment_steps": 101,
+          "label": "V00",
+          "remaining_horizon": 289,
+          "return": 1.0,
+          "success": true,
+          "wall_seconds": 0.762111999996705
+        },
+        "V01": {
+          "act_calls": 6,
+          "discounted_return": 0.3244455298634257,
+          "environment_steps": 113,
+          "label": "V01",
+          "remaining_horizon": 289,
+          "return": 1.0,
+          "success": true,
+          "wall_seconds": 0.9135381060041254
+        },
+        "V10": {
+          "act_calls": 5,
+          "discounted_return": 0.355160814705073,
+          "environment_steps": 104,
+          "label": "V10",
+          "remaining_horizon": 289,
+          "return": 1.0,
+          "success": true,
+          "wall_seconds": 0.9175014590000501
+        },
+        "V11": {
+          "act_calls": 6,
+          "discounted_return": 0.337754400898902,
+          "environment_steps": 109,
+          "label": "V11",
+          "remaining_horizon": 289,
+          "return": 1.0,
+          "success": true,
+          "wall_seconds": 0.8089124629987055
+        }
+      },
+      "factorial_values": {
+        "G0": -0.041586811409803526,
+        "G_delta": -0.017406413806170973,
+        "I_delta": 0.024180397603632553,
+        "v00": 0.3660323412732292,
+        "v01": 0.3244455298634257,
+        "v10": 0.355160814705073,
+        "v11": 0.337754400898902
+      },
+      "path": "group_05.json",
+      "prefix_act_calls": 1,
+      "prefix_control_steps": 11,
+      "replay_verification": null,
+      "seed": 20263128,
+      "sha256": "60a9b9bb0dac7d2e19dd58343b7b5e4da519286b7d9351f90db129346d64e222",
+      "source_episode_id": "square_gate_20263128",
+      "source_tick": 11
+    },
+    {
+      "branches": {
+        "V00": {
+          "act_calls": 8,
+          "discounted_return": 0.2127257032290187,
+          "environment_steps": 155,
+          "label": "V00",
+          "remaining_horizon": 288,
+          "return": 1.0,
+          "success": true,
+          "wall_seconds": 1.1422290549962781
+        },
+        "V01": {
+          "act_calls": 15,
+          "discounted_return": 0.0,
+          "environment_steps": 288,
+          "label": "V01",
+          "remaining_horizon": 288,
+          "return": 0.0,
+          "success": false,
+          "wall_seconds": 2.116623416004586
+        },
+        "V10": {
+          "act_calls": 8,
+          "discounted_return": 0.22145178723886091,
+          "environment_steps": 151,
+          "label": "V10",
+          "remaining_horizon": 288,
+          "return": 1.0,
+          "success": true,
+          "wall_seconds": 1.0923781709934701
+        },
+        "V11": {
+          "act_calls": 8,
+          "discounted_return": 0.2148744477060795,
+          "environment_steps": 154,
+          "label": "V11",
+          "remaining_horizon": 288,
+          "return": 1.0,
+          "success": true,
+          "wall_seconds": 1.1194339610010502
+        }
+      },
+      "factorial_values": {
+        "G0": -0.2127257032290187,
+        "G_delta": -0.006577339532781418,
+        "I_delta": 0.2061483636962373,
+        "v00": 0.2127257032290187,
+        "v01": 0.0,
+        "v10": 0.22145178723886091,
+        "v11": 0.2148744477060795
+      },
+      "path": "group_06.json",
+      "prefix_act_calls": 1,
+      "prefix_control_steps": 12,
+      "replay_verification": null,
+      "seed": 20263129,
+      "sha256": "4528a69f092257decd94652c2e516024e198383fccbbe9ac1090941a677d47cd",
+      "source_episode_id": "square_gate_20263129",
+      "source_tick": 12
+    },
+    {
+      "branches": {
+        "V00": {
+          "act_calls": 6,
+          "discounted_return": 0.31480917318095203,
+          "environment_steps": 116,
+          "label": "V00",
+          "remaining_horizon": 287,
+          "return": 1.0,
+          "success": true,
+          "wall_seconds": 0.8468875210019178
+        },
+        "V01": {
+          "act_calls": 6,
+          "discounted_return": 0.2993803913123313,
+          "environment_steps": 121,
+          "label": "V01",
+          "remaining_horizon": 287,
+          "return": 1.0,
+          "success": true,
+          "wall_seconds": 0.8882625469996128
+        },
+        "V10": {
+          "act_calls": 6,
+          "discounted_return": 0.3116610814491425,
+          "environment_steps": 117,
+          "label": "V10",
+          "remaining_horizon": 287,
+          "return": 1.0,
+          "success": true,
+          "wall_seconds": 0.8453509190003388
+        },
+        "V11": {
+          "act_calls": 6,
+          "discounted_return": 0.3212010745647914,
+          "environment_steps": 114,
+          "label": "V11",
+          "remaining_horizon": 287,
+          "return": 1.0,
+          "success": true,
+          "wall_seconds": 0.8138425329962047
+        }
+      },
+      "factorial_values": {
+        "G0": -0.015428781868620733,
+        "G_delta": 0.009539993115648904,
+        "I_delta": 0.024968774984269637,
+        "v00": 0.31480917318095203,
+        "v01": 0.2993803913123313,
+        "v10": 0.3116610814491425,
+        "v11": 0.3212010745647914
+      },
+      "path": "group_07.json",
+      "prefix_act_calls": 1,
+      "prefix_control_steps": 13,
+      "replay_verification": null,
+      "seed": 20263130,
+      "sha256": "56867f77cf8ca8225d0edf49a662ecfbd4cba9fec9cad174e216c2d7e5a7dfb1",
+      "source_episode_id": "square_gate_20263130",
+      "source_tick": 13
+    },
+    {
+      "branches": {
+        "V00": {
+          "act_calls": 6,
+          "discounted_return": 0.3212010745647914,
+          "environment_steps": 114,
+          "label": "V00",
+          "remaining_horizon": 286,
+          "return": 1.0,
+          "success": true,
+          "wall_seconds": 0.8253105850017164
+        },
+        "V01": {
+          "act_calls": 6,
+          "discounted_return": 0.34116606151404244,
+          "environment_steps": 108,
+          "label": "V01",
+          "remaining_horizon": 286,
+          "return": 1.0,
+          "success": true,
+          "wall_seconds": 0.7843215769971721
+        },
+        "V10": {
+          "act_calls": 6,
+          "discounted_return": 0.3244455298634257,
+          "environment_steps": 113,
+          "label": "V10",
+          "remaining_horizon": 286,
+          "return": 1.0,
+          "success": true,
+          "wall_seconds": 0.815172080998309
+        },
+        "V11": {
+          "act_calls": 6,
+          "discounted_return": 0.34116606151404244,
+          "environment_steps": 108,
+          "label": "V11",
+          "remaining_horizon": 286,
+          "return": 1.0,
+          "success": true,
+          "wall_seconds": 0.7684259949965053
+        }
+      },
+      "factorial_values": {
+        "G0": 0.01996498694925103,
+        "G_delta": 0.016720531650616766,
+        "I_delta": -0.0032444552986342634,
+        "v00": 0.3212010745647914,
+        "v01": 0.34116606151404244,
+        "v10": 0.3244455298634257,
+        "v11": 0.34116606151404244
+      },
+      "path": "group_08.json",
+      "prefix_act_calls": 1,
+      "prefix_control_steps": 14,
+      "replay_verification": null,
+      "seed": 20263131,
+      "sha256": "38828e9d622c520cc52db169d6476819164a67ec949f2f4b8f71a688e1f37c23",
+      "source_episode_id": "square_gate_20263131",
+      "source_tick": 14
+    }
+  ],
+  "separate_replay_verification": {
+    "act_calls": 15,
+    "comparison": "exact",
+    "environment_steps": 293,
+    "label": "V11",
+    "wall_seconds": 2.1716349390044343
+  },
+  "source_prefix_act_calls": 8,
+  "source_prefix_environment_steps": 84,
+  "status": "PASS"
+}
