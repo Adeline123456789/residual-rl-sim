@@ -1,0 +1,1808 @@
+{
+  "checkpoints": [
+    {
+      "checkpoint_step_label": 49999,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "e5f5b3c7fa7512a2ae202d5912922289a52348f8a3bb5a9da33f606d671cb859"
+      },
+      "optimization_steps_completed": 50000,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 234.5,
+        "episodes": 100,
+        "optimization_steps_completed": 50000,
+        "rollout_seconds": 108.29,
+        "same_post_update_weights": true,
+        "successes": 68,
+        "vectorized_environment_steps": 25392,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_50000_2026-11-25_19-37-47.mp4",
+        "video_evidence": {
+          "bytes": 14935244,
+          "kind": "rollout_video",
+          "sha256": "806ab92d5bab8cef139819becbe4befd6455f78753b58e81dc0304827cb1c838"
+        }
+      },
+      "policy_directory": "training/policy_step_49999/policy"
+    },
+    {
+      "checkpoint_step_label": 1000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "284519e91af9eb33675f6aa3cccc7cca27cd9976d4611ea04c2526f62c19ea35"
+      },
+      "optimization_steps_completed": 1001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 261.8,
+        "episodes": 100,
+        "optimization_steps_completed": 1000,
+        "rollout_seconds": 115.24,
+        "same_post_update_weights": false,
+        "successes": 21,
+        "vectorized_environment_steps": 30160,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_1000_2026-11-25_09-10-52.mp4",
+        "video_evidence": {
+          "bytes": 13101030,
+          "kind": "rollout_video",
+          "sha256": "83df07c623030f8ce371c5ebf7af83d86e8ea1ff3881463c41714c1944ec8b3a"
+        }
+      },
+      "policy_directory": "training/policy_step_1000/policy"
+    },
+    {
+      "checkpoint_step_label": 2000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "bee3300eb3e157e81803314580adcd8bfe5e5b82bfcfe73b4f5ff5e873fc0b8a"
+      },
+      "optimization_steps_completed": 2001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 237.7,
+        "episodes": 100,
+        "optimization_steps_completed": 2000,
+        "rollout_seconds": 119.44,
+        "same_post_update_weights": false,
+        "successes": 54,
+        "vectorized_environment_steps": 28384,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_2000_2026-11-25_09-22-44.mp4",
+        "video_evidence": {
+          "bytes": 15398340,
+          "kind": "rollout_video",
+          "sha256": "a78c86b4ae7c200c5a6cf87c9c991e86f512f07113b179e65bc7fd1760fade67"
+        }
+      },
+      "policy_directory": "training/policy_step_2000/policy"
+    },
+    {
+      "checkpoint_step_label": 3000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "da6d65e1461abefa821364ccf11cdedc51de3e2bf7efc51ccfb025ab0446410c"
+      },
+      "optimization_steps_completed": 3001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 240.6,
+        "episodes": 100,
+        "optimization_steps_completed": 3000,
+        "rollout_seconds": 116.2,
+        "same_post_update_weights": false,
+        "successes": 41,
+        "vectorized_environment_steps": 27952,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_3000_2026-11-25_09-34-33.mp4",
+        "video_evidence": {
+          "bytes": 15417703,
+          "kind": "rollout_video",
+          "sha256": "03041c7a04c0a0fdb842499eac08c7371b222dc92e3a8fdc529b6f9f5ebb2886"
+        }
+      },
+      "policy_directory": "training/policy_step_3000/policy"
+    },
+    {
+      "checkpoint_step_label": 4000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "2d1e1e63c9d4a8a983304ba617d6718f5ac3af4dd91ab06ad09adab2469d37c7"
+      },
+      "optimization_steps_completed": 4001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 232.5,
+        "episodes": 100,
+        "optimization_steps_completed": 4000,
+        "rollout_seconds": 120.15,
+        "same_post_update_weights": false,
+        "successes": 48,
+        "vectorized_environment_steps": 27936,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_4000_2026-11-25_09-46-14.mp4",
+        "video_evidence": {
+          "bytes": 15525339,
+          "kind": "rollout_video",
+          "sha256": "f7019c90ef97fc13f1d4f7209f8ebdd0d53ac53f0e91abc9c899affeacc3fd73"
+        }
+      },
+      "policy_directory": "training/policy_step_4000/policy"
+    },
+    {
+      "checkpoint_step_label": 5000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "6f559ac829fb0bc4e0513b2faa08488a7a97fb04dcca7cf7e12825bd2ac3608f"
+      },
+      "optimization_steps_completed": 5001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 239.5,
+        "episodes": 100,
+        "optimization_steps_completed": 5000,
+        "rollout_seconds": 115.76,
+        "same_post_update_weights": false,
+        "successes": 52,
+        "vectorized_environment_steps": 27728,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_5000_2026-11-25_09-58-01.mp4",
+        "video_evidence": {
+          "bytes": 15262745,
+          "kind": "rollout_video",
+          "sha256": "d02e7c97110f458eeb55f75092ee4cb8e552ec20cb6b19f76368bb436cf0e328"
+        }
+      },
+      "policy_directory": "training/policy_step_5000/policy"
+    },
+    {
+      "checkpoint_step_label": 6000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "2ecdd092f3c0c8a0db44fb73654a51f6d7b05e2fc0ac5a3bc238a5ba610ce699"
+      },
+      "optimization_steps_completed": 6001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 230.8,
+        "episodes": 100,
+        "optimization_steps_completed": 6000,
+        "rollout_seconds": 120.09,
+        "same_post_update_weights": false,
+        "successes": 47,
+        "vectorized_environment_steps": 27712,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_6000_2026-11-25_10-09-50.mp4",
+        "video_evidence": {
+          "bytes": 16264908,
+          "kind": "rollout_video",
+          "sha256": "8927f8f641a13eca7f8e3b097a707e2c9783b584c9df3ee18532fa9106998f6a"
+        }
+      },
+      "policy_directory": "training/policy_step_6000/policy"
+    },
+    {
+      "checkpoint_step_label": 7000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "c22ccb0b84702914deb7e9c67883a205c207c5a8dee0758becf71ddb04962fad"
+      },
+      "optimization_steps_completed": 7001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 236.3,
+        "episodes": 100,
+        "optimization_steps_completed": 7000,
+        "rollout_seconds": 117.56,
+        "same_post_update_weights": false,
+        "successes": 47,
+        "vectorized_environment_steps": 27776,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_7000_2026-11-25_10-21-37.mp4",
+        "video_evidence": {
+          "bytes": 16267059,
+          "kind": "rollout_video",
+          "sha256": "e39ca593631afb5ad922f25aa65c340459704e3e208d9500c54e49fb3d306536"
+        }
+      },
+      "policy_directory": "training/policy_step_7000/policy"
+    },
+    {
+      "checkpoint_step_label": 8000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "4fdf1420de0b950e79e3f4cc783094c69a940722cf900f8526865ac1164bafd8"
+      },
+      "optimization_steps_completed": 8001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 231.5,
+        "episodes": 100,
+        "optimization_steps_completed": 8000,
+        "rollout_seconds": 117.75,
+        "same_post_update_weights": false,
+        "successes": 49,
+        "vectorized_environment_steps": 27264,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_8000_2026-11-25_10-33-27.mp4",
+        "video_evidence": {
+          "bytes": 15954780,
+          "kind": "rollout_video",
+          "sha256": "0af36a8be14986f8d1b4bc7dba7e0ff90ce670855b34dcd072bb6ba8dfa3d35d"
+        }
+      },
+      "policy_directory": "training/policy_step_8000/policy"
+    },
+    {
+      "checkpoint_step_label": 9000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "e14b833928d4ae1d9bbd6ebc16e073a4b56c28459df7befcbdf0602525555f87"
+      },
+      "optimization_steps_completed": 9001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 228.2,
+        "episodes": 100,
+        "optimization_steps_completed": 9000,
+        "rollout_seconds": 115.9,
+        "same_post_update_weights": false,
+        "successes": 60,
+        "vectorized_environment_steps": 26448,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_9000_2026-11-25_10-45-07.mp4",
+        "video_evidence": {
+          "bytes": 15725837,
+          "kind": "rollout_video",
+          "sha256": "2a8dce9147c3a000ec9e960e74a140a97f0d5a0eee1b628a28bb32a5f15033fb"
+        }
+      },
+      "policy_directory": "training/policy_step_9000/policy"
+    },
+    {
+      "checkpoint_step_label": 10000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "776dee41ce44c1f9159afdf9d23438c1700ec49ed383b72dbb1bb0aa153aa740"
+      },
+      "optimization_steps_completed": 10001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 224.1,
+        "episodes": 100,
+        "optimization_steps_completed": 10000,
+        "rollout_seconds": 113.95,
+        "same_post_update_weights": false,
+        "successes": 67,
+        "vectorized_environment_steps": 25536,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_10000_2026-11-25_10-57-02.mp4",
+        "video_evidence": {
+          "bytes": 15150479,
+          "kind": "rollout_video",
+          "sha256": "4eb7392bf06cded8310e9e0ea9b3b9a3ab4254e2e5113929e23fa2c8e3d4f2e3"
+        }
+      },
+      "policy_directory": "training/policy_step_10000/policy"
+    },
+    {
+      "checkpoint_step_label": 11000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "e07216a3f24731668f9f290fafa86e84d2c416bee9f8afb300f9ceee29455485"
+      },
+      "optimization_steps_completed": 11001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 238.7,
+        "episodes": 100,
+        "optimization_steps_completed": 11000,
+        "rollout_seconds": 114.18,
+        "same_post_update_weights": false,
+        "successes": 53,
+        "vectorized_environment_steps": 27248,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_11000_2026-11-25_11-09-01.mp4",
+        "video_evidence": {
+          "bytes": 15477586,
+          "kind": "rollout_video",
+          "sha256": "ec69974713aa8e8ed3a8c8b6a1ef153e13acb5f5633732e5d0418779e11ecee0"
+        }
+      },
+      "policy_directory": "training/policy_step_11000/policy"
+    },
+    {
+      "checkpoint_step_label": 12000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "3f7389beb63683acaa2498ff4a8ce7a7c142f15840aa777c1a564bd1fb025a57"
+      },
+      "optimization_steps_completed": 12001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 218.8,
+        "episodes": 100,
+        "optimization_steps_completed": 12000,
+        "rollout_seconds": 120.67,
+        "same_post_update_weights": false,
+        "successes": 62,
+        "vectorized_environment_steps": 26400,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_12000_2026-11-25_11-21-03.mp4",
+        "video_evidence": {
+          "bytes": 15543359,
+          "kind": "rollout_video",
+          "sha256": "be24db24766ec7fe6dd0fb2aa522bfa05152cadd9c911a575b2ad2507ee7f42c"
+        }
+      },
+      "policy_directory": "training/policy_step_12000/policy"
+    },
+    {
+      "checkpoint_step_label": 13000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "01ae1bb7dd851918eb148f256a87affab4d51f87b2e092360d2e430f941aeea1"
+      },
+      "optimization_steps_completed": 13001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 230.9,
+        "episodes": 100,
+        "optimization_steps_completed": 13000,
+        "rollout_seconds": 114.96,
+        "same_post_update_weights": false,
+        "successes": 63,
+        "vectorized_environment_steps": 26544,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_13000_2026-11-25_11-33-04.mp4",
+        "video_evidence": {
+          "bytes": 14707673,
+          "kind": "rollout_video",
+          "sha256": "2072781387f1ad04dc213604bb80ed72dd7d737d466774f9654b1ff4f8c02c5c"
+        }
+      },
+      "policy_directory": "training/policy_step_13000/policy"
+    },
+    {
+      "checkpoint_step_label": 14000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "41ecaf12a3325fdb6861fe4e11ac63f249e2fa5a9c47b5c18f7cc045521c9999"
+      },
+      "optimization_steps_completed": 14001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 248.8,
+        "episodes": 100,
+        "optimization_steps_completed": 14000,
+        "rollout_seconds": 104.75,
+        "same_post_update_weights": false,
+        "successes": 66,
+        "vectorized_environment_steps": 26064,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_14000_2026-11-25_11-45-02.mp4",
+        "video_evidence": {
+          "bytes": 15304718,
+          "kind": "rollout_video",
+          "sha256": "84182990bcc4f62f72bf62abab2af63e6ec42e65ff99237c75514cc9735cbe77"
+        }
+      },
+      "policy_directory": "training/policy_step_14000/policy"
+    },
+    {
+      "checkpoint_step_label": 15000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "786b346203240c4c5347384940b8c635b10e19ff1db10f15bb9bc6ea28c1aaf0"
+      },
+      "optimization_steps_completed": 15001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 187.8,
+        "episodes": 100,
+        "optimization_steps_completed": 15000,
+        "rollout_seconds": 137.56,
+        "same_post_update_weights": false,
+        "successes": 67,
+        "vectorized_environment_steps": 25824,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_15000_2026-11-25_11-57-18.mp4",
+        "video_evidence": {
+          "bytes": 14477661,
+          "kind": "rollout_video",
+          "sha256": "a9c823b1c38820db1638874ee39ee0ec61169933f9b3f0374ebfe0c511a3cbbe"
+        }
+      },
+      "policy_directory": "training/policy_step_15000/policy"
+    },
+    {
+      "checkpoint_step_label": 16000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "952f64331df8b9570a8418765ec0993e6f97495b7a66610f5daa0921e7176545"
+      },
+      "optimization_steps_completed": 16001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 181.9,
+        "episodes": 100,
+        "optimization_steps_completed": 16000,
+        "rollout_seconds": 146.42,
+        "same_post_update_weights": false,
+        "successes": 60,
+        "vectorized_environment_steps": 26640,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_16000_2026-11-25_12-10-26.mp4",
+        "video_evidence": {
+          "bytes": 15175450,
+          "kind": "rollout_video",
+          "sha256": "bd63b28607ef6a60496da9b6404f1677d085fe55e6164e5e041641ec50f57d37"
+        }
+      },
+      "policy_directory": "training/policy_step_16000/policy"
+    },
+    {
+      "checkpoint_step_label": 17000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "392e2f1e461c5a3003ebc896fd20e47027758935fecb12943d80df3e045f6a30"
+      },
+      "optimization_steps_completed": 17001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 213.6,
+        "episodes": 100,
+        "optimization_steps_completed": 17000,
+        "rollout_seconds": 120.81,
+        "same_post_update_weights": false,
+        "successes": 69,
+        "vectorized_environment_steps": 25808,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_17000_2026-11-25_12-23-29.mp4",
+        "video_evidence": {
+          "bytes": 15105518,
+          "kind": "rollout_video",
+          "sha256": "0221bd7181ac7863bd8d5fa56dde3bf7d7a6f33863776d1506c83b3d895a6d4b"
+        }
+      },
+      "policy_directory": "training/policy_step_17000/policy"
+    },
+    {
+      "checkpoint_step_label": 18000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "22203f0de6ba2e79d90405c94d685d281f96ee6229c78ecadda74f17a958ebdc"
+      },
+      "optimization_steps_completed": 18001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 226.2,
+        "episodes": 100,
+        "optimization_steps_completed": 18000,
+        "rollout_seconds": 115.66,
+        "same_post_update_weights": false,
+        "successes": 61,
+        "vectorized_environment_steps": 26160,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_18000_2026-11-25_12-35-47.mp4",
+        "video_evidence": {
+          "bytes": 15177790,
+          "kind": "rollout_video",
+          "sha256": "5e50e7ae17291cc5350a891d5b332ad7739a62cc354e43ad0c53089d8890596a"
+        }
+      },
+      "policy_directory": "training/policy_step_18000/policy"
+    },
+    {
+      "checkpoint_step_label": 19000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "fff7ef4e7998ac9bc69e3d0a384488db7a1624a2d9edae88af73eec65ee6e7fc"
+      },
+      "optimization_steps_completed": 19001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 249.2,
+        "episodes": 100,
+        "optimization_steps_completed": 19000,
+        "rollout_seconds": 102.82,
+        "same_post_update_weights": false,
+        "successes": 66,
+        "vectorized_environment_steps": 25616,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_19000_2026-11-25_12-47-52.mp4",
+        "video_evidence": {
+          "bytes": 14888838,
+          "kind": "rollout_video",
+          "sha256": "3a615d73a8ba61cb5cfa9a6b96403ee643ae166b7eda653324eaba32b4b9c481"
+        }
+      },
+      "policy_directory": "training/policy_step_19000/policy"
+    },
+    {
+      "checkpoint_step_label": 20000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "03c6924c136e092f10c49f31287bc0687b3691872a95cb03bb7ec8b44f41c5f5"
+      },
+      "optimization_steps_completed": 20001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 237.6,
+        "episodes": 100,
+        "optimization_steps_completed": 20000,
+        "rollout_seconds": 104.09,
+        "same_post_update_weights": false,
+        "successes": 72,
+        "vectorized_environment_steps": 24736,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_20000_2026-11-25_13-00-03.mp4",
+        "video_evidence": {
+          "bytes": 14349547,
+          "kind": "rollout_video",
+          "sha256": "fb9dd0965f7512089791bf40e5f8c985bd54c827fc445864ccfacf1c63fcd555"
+        }
+      },
+      "policy_directory": "training/policy_step_20000/policy"
+    },
+    {
+      "checkpoint_step_label": 21000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "3ec6585f7ffe42ddec3f30e1dc56403d5e906921dd3cb21e8dc67eb6088974ab"
+      },
+      "optimization_steps_completed": 21001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 230.7,
+        "episodes": 100,
+        "optimization_steps_completed": 21000,
+        "rollout_seconds": 114.59,
+        "same_post_update_weights": false,
+        "successes": 56,
+        "vectorized_environment_steps": 26432,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_21000_2026-11-25_13-12-20.mp4",
+        "video_evidence": {
+          "bytes": 15593511,
+          "kind": "rollout_video",
+          "sha256": "1aa505c1a86a2030a78735cf010c65d12d23d43a28097a5ab9e95b80617d89fb"
+        }
+      },
+      "policy_directory": "training/policy_step_21000/policy"
+    },
+    {
+      "checkpoint_step_label": 22000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "0a5dcd27c836b836a1dde909381493d697b343c7b00e28ba2f2450f5aeb83174"
+      },
+      "optimization_steps_completed": 22001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 180.1,
+        "episodes": 100,
+        "optimization_steps_completed": 22000,
+        "rollout_seconds": 149.04,
+        "same_post_update_weights": false,
+        "successes": 58,
+        "vectorized_environment_steps": 26848,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_22000_2026-11-25_13-24-53.mp4",
+        "video_evidence": {
+          "bytes": 15246717,
+          "kind": "rollout_video",
+          "sha256": "903e7561ca905a80fdcdc6ed68717fa1441c9562b27db6dd0829bc65ba35a685"
+        }
+      },
+      "policy_directory": "training/policy_step_22000/policy"
+    },
+    {
+      "checkpoint_step_label": 23000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "c9c990ded1ee9b91824e8ca9e5b9ec992f391d4a0732c85c4a675b506793d810"
+      },
+      "optimization_steps_completed": 23001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 183.5,
+        "episodes": 100,
+        "optimization_steps_completed": 23000,
+        "rollout_seconds": 140.5,
+        "same_post_update_weights": false,
+        "successes": 65,
+        "vectorized_environment_steps": 25776,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_23000_2026-11-25_13-38-23.mp4",
+        "video_evidence": {
+          "bytes": 14979942,
+          "kind": "rollout_video",
+          "sha256": "1e99ca9c9ec09fb7e1500f671dfcc06a8fc3aa2da60b52743288ae0d97d704fe"
+        }
+      },
+      "policy_directory": "training/policy_step_23000/policy"
+    },
+    {
+      "checkpoint_step_label": 24000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "33e1f42e1b71e6475be282bd873074ba31740eed9e54289e3914f002933aa40f"
+      },
+      "optimization_steps_completed": 24001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 179.6,
+        "episodes": 100,
+        "optimization_steps_completed": 24000,
+        "rollout_seconds": 141.07,
+        "same_post_update_weights": false,
+        "successes": 67,
+        "vectorized_environment_steps": 25328,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_24000_2026-11-25_13-51-25.mp4",
+        "video_evidence": {
+          "bytes": 14783801,
+          "kind": "rollout_video",
+          "sha256": "3e4920df9c66a9f14556a64cca48ce18cbe400ca8dd5ed4c63e0d262eb373f4c"
+        }
+      },
+      "policy_directory": "training/policy_step_24000/policy"
+    },
+    {
+      "checkpoint_step_label": 25000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "861de2dd0fe5ef102353be9eaec217fe4ff733684564708eb568dd11e8b96b5d"
+      },
+      "optimization_steps_completed": 25001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 180.1,
+        "episodes": 100,
+        "optimization_steps_completed": 25000,
+        "rollout_seconds": 140.82,
+        "same_post_update_weights": false,
+        "successes": 72,
+        "vectorized_environment_steps": 25360,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_25000_2026-11-25_14-04-45.mp4",
+        "video_evidence": {
+          "bytes": 14867406,
+          "kind": "rollout_video",
+          "sha256": "5ca7ac31be0280dcd24b0a3b1961c283951059ef0aa4b31ed1df982e9d396451"
+        }
+      },
+      "policy_directory": "training/policy_step_25000/policy"
+    },
+    {
+      "checkpoint_step_label": 26000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "3b6c50bb04b800e27811f382c94580b72e04406a16146eea74f7938ba0ea6f07"
+      },
+      "optimization_steps_completed": 26001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 178.7,
+        "episodes": 100,
+        "optimization_steps_completed": 26000,
+        "rollout_seconds": 143.44,
+        "same_post_update_weights": false,
+        "successes": 63,
+        "vectorized_environment_steps": 25632,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_26000_2026-11-25_14-17-52.mp4",
+        "video_evidence": {
+          "bytes": 15104528,
+          "kind": "rollout_video",
+          "sha256": "3fcd3d6fdb0367bf7e98118cffaf7e5bb329e191db133a00f008af6d6df5f1e0"
+        }
+      },
+      "policy_directory": "training/policy_step_26000/policy"
+    },
+    {
+      "checkpoint_step_label": 27000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "0cb8624848cc493944e2bfac922f05a9bda9ec4f3ead9dfc923de1ec1042ae3c"
+      },
+      "optimization_steps_completed": 27001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 170.8,
+        "episodes": 100,
+        "optimization_steps_completed": 27000,
+        "rollout_seconds": 148.72,
+        "same_post_update_weights": false,
+        "successes": 64,
+        "vectorized_environment_steps": 25408,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_27000_2026-11-25_14-31-34.mp4",
+        "video_evidence": {
+          "bytes": 15114168,
+          "kind": "rollout_video",
+          "sha256": "c3d660f23d550ed5d9780310521dbf7716ed76921e5de33849a5edcfb6513e69"
+        }
+      },
+      "policy_directory": "training/policy_step_27000/policy"
+    },
+    {
+      "checkpoint_step_label": 28000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "e861d7cdf92de01fb26acb213bf58e635a4655b24cdad9576101082a19403d15"
+      },
+      "optimization_steps_completed": 28001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 204.3,
+        "episodes": 100,
+        "optimization_steps_completed": 28000,
+        "rollout_seconds": 127.01,
+        "same_post_update_weights": false,
+        "successes": 68,
+        "vectorized_environment_steps": 25952,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_28000_2026-11-25_14-44-22.mp4",
+        "video_evidence": {
+          "bytes": 15136988,
+          "kind": "rollout_video",
+          "sha256": "d684696180591e8b7f03539a5f686c677b23c5f79d54abfadf19add846e54894"
+        }
+      },
+      "policy_directory": "training/policy_step_28000/policy"
+    },
+    {
+      "checkpoint_step_label": 29000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "ec1d43f8ececa2db551db08b21ec5e30908873acdaa9533f7dc3fd90d3267982"
+      },
+      "optimization_steps_completed": 29001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 185.5,
+        "episodes": 100,
+        "optimization_steps_completed": 29000,
+        "rollout_seconds": 139.08,
+        "same_post_update_weights": false,
+        "successes": 63,
+        "vectorized_environment_steps": 25792,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_29000_2026-11-25_14-57-01.mp4",
+        "video_evidence": {
+          "bytes": 14960897,
+          "kind": "rollout_video",
+          "sha256": "65b04440cc95037cb0ad2b5bb6af108ce6aa664ded1c3fe593ec78c4ae620d42"
+        }
+      },
+      "policy_directory": "training/policy_step_29000/policy"
+    },
+    {
+      "checkpoint_step_label": 30000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "1609f27035071ea08ee5a6a949efb04e059c905f7bc54bb38b33ff44ec76b22d"
+      },
+      "optimization_steps_completed": 30001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 222.0,
+        "episodes": 100,
+        "optimization_steps_completed": 30000,
+        "rollout_seconds": 115.61,
+        "same_post_update_weights": false,
+        "successes": 70,
+        "vectorized_environment_steps": 25664,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_30000_2026-11-25_15-10-01.mp4",
+        "video_evidence": {
+          "bytes": 15436059,
+          "kind": "rollout_video",
+          "sha256": "cd24809fd9e9e0ac959dbe9a0eaf5dbba7dccf8a5031364b4e52464edd501122"
+        }
+      },
+      "policy_directory": "training/policy_step_30000/policy"
+    },
+    {
+      "checkpoint_step_label": 31000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "97ecaf484985791fa3e482800ba3de7d3ee10be66b3ce90fad841ed025fce034"
+      },
+      "optimization_steps_completed": 31001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 227.4,
+        "episodes": 100,
+        "optimization_steps_completed": 31000,
+        "rollout_seconds": 109.06,
+        "same_post_update_weights": false,
+        "successes": 68,
+        "vectorized_environment_steps": 24800,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_31000_2026-11-25_15-22-03.mp4",
+        "video_evidence": {
+          "bytes": 14232227,
+          "kind": "rollout_video",
+          "sha256": "fb3c8987964096577eb4216b61ff134a404141fca67b491caab2fe1072763a8a"
+        }
+      },
+      "policy_directory": "training/policy_step_31000/policy"
+    },
+    {
+      "checkpoint_step_label": 32000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "688aaf15b32d6b3abaed5ac0261e86f1e4ea7e1faf5ada45da74f3c41751b5cb"
+      },
+      "optimization_steps_completed": 32001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 191.5,
+        "episodes": 100,
+        "optimization_steps_completed": 32000,
+        "rollout_seconds": 135.46,
+        "same_post_update_weights": false,
+        "successes": 60,
+        "vectorized_environment_steps": 25936,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_32000_2026-11-25_15-33-43.mp4",
+        "video_evidence": {
+          "bytes": 15001927,
+          "kind": "rollout_video",
+          "sha256": "6f24041290f2c6d52feaa32b310bb28fb8143d2a41f548c5cc27ba43e8b8ae5c"
+        }
+      },
+      "policy_directory": "training/policy_step_32000/policy"
+    },
+    {
+      "checkpoint_step_label": 33000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "e05ec52fa56595c389f292438fbb974c1abeaa0156e589cf8a37a4d0a561480e"
+      },
+      "optimization_steps_completed": 33001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 220.0,
+        "episodes": 100,
+        "optimization_steps_completed": 33000,
+        "rollout_seconds": 115.54,
+        "same_post_update_weights": false,
+        "successes": 67,
+        "vectorized_environment_steps": 25424,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_33000_2026-11-25_15-46-25.mp4",
+        "video_evidence": {
+          "bytes": 15087875,
+          "kind": "rollout_video",
+          "sha256": "1bb85ac446c3acb6637ec948b900aeef9157df371877eea36a0a5866e837de58"
+        }
+      },
+      "policy_directory": "training/policy_step_33000/policy"
+    },
+    {
+      "checkpoint_step_label": 34000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "9b6ab36ec7bec20385e2a31672412570f23bbfce5b66bae27a3d79fdc2c22af4"
+      },
+      "optimization_steps_completed": 34001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 247.1,
+        "episodes": 100,
+        "optimization_steps_completed": 34000,
+        "rollout_seconds": 107.97,
+        "same_post_update_weights": false,
+        "successes": 60,
+        "vectorized_environment_steps": 26672,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_34000_2026-11-25_15-59-12.mp4",
+        "video_evidence": {
+          "bytes": 15420238,
+          "kind": "rollout_video",
+          "sha256": "3e14d13032f1aa32eb75e913a57e1ae543da273febad3b55fc0ab2269c935447"
+        }
+      },
+      "policy_directory": "training/policy_step_34000/policy"
+    },
+    {
+      "checkpoint_step_label": 35000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "154ecf892835f5e2f087d7835a312c305bad9a1f15ef3a2034de8b609a90cf67"
+      },
+      "optimization_steps_completed": 35001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 224.8,
+        "episodes": 100,
+        "optimization_steps_completed": 35000,
+        "rollout_seconds": 119.31,
+        "same_post_update_weights": false,
+        "successes": 67,
+        "vectorized_environment_steps": 26816,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_35000_2026-11-25_16-16-04.mp4",
+        "video_evidence": {
+          "bytes": 14961287,
+          "kind": "rollout_video",
+          "sha256": "793cc7fb1be396a4015982fd267314ec00f225c0b296312a8aead58840c997ee"
+        }
+      },
+      "policy_directory": "training/policy_step_35000/policy"
+    },
+    {
+      "checkpoint_step_label": 36000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "cbe84f90d7ad068ad51dff282c9da56e033422cd5e3d6a9f9788637d797d9236"
+      },
+      "optimization_steps_completed": 36001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 221.6,
+        "episodes": 100,
+        "optimization_steps_completed": 36000,
+        "rollout_seconds": 116.42,
+        "same_post_update_weights": false,
+        "successes": 66,
+        "vectorized_environment_steps": 25792,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_36000_2026-11-25_16-29-31.mp4",
+        "video_evidence": {
+          "bytes": 15081380,
+          "kind": "rollout_video",
+          "sha256": "df82a771c8768bbd6e84e14e6d48c6590273baa8a951b8a3fd38d1b43b6957ff"
+        }
+      },
+      "policy_directory": "training/policy_step_36000/policy"
+    },
+    {
+      "checkpoint_step_label": 37000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "11bb439f2e9ac36bab3f4fe83a3641e883f3f68bd1c2ede7be2de2c25d82e5ac"
+      },
+      "optimization_steps_completed": 37001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 208.6,
+        "episodes": 100,
+        "optimization_steps_completed": 37000,
+        "rollout_seconds": 126.83,
+        "same_post_update_weights": false,
+        "successes": 60,
+        "vectorized_environment_steps": 26448,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_37000_2026-11-25_16-44-06.mp4",
+        "video_evidence": {
+          "bytes": 15137006,
+          "kind": "rollout_video",
+          "sha256": "b0250eeb031fd09cbacd10dfa0444f79ea65cf22cad8136613942a5b46a7476e"
+        }
+      },
+      "policy_directory": "training/policy_step_37000/policy"
+    },
+    {
+      "checkpoint_step_label": 38000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "371049fe7380b9691403c2bcc540d973b8d7dc1c247dab4d22946ad4ff8e5cae"
+      },
+      "optimization_steps_completed": 38001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 236.1,
+        "episodes": 100,
+        "optimization_steps_completed": 38000,
+        "rollout_seconds": 107.73,
+        "same_post_update_weights": false,
+        "successes": 63,
+        "vectorized_environment_steps": 25440,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_38000_2026-11-25_17-03-58.mp4",
+        "video_evidence": {
+          "bytes": 14859886,
+          "kind": "rollout_video",
+          "sha256": "9708b1d2a11522fc8f739c0afc160fd5a3f8329c8c608d6232f2f2211543e821"
+        }
+      },
+      "policy_directory": "training/policy_step_38000/policy"
+    },
+    {
+      "checkpoint_step_label": 39000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "fd540c6c2c2798212434d7b29ec5f6b8822405ef23ff8f596351ae88c7a9822a"
+      },
+      "optimization_steps_completed": 39001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 213.8,
+        "episodes": 100,
+        "optimization_steps_completed": 39000,
+        "rollout_seconds": 120.05,
+        "same_post_update_weights": false,
+        "successes": 68,
+        "vectorized_environment_steps": 25664,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_39000_2026-11-25_17-22-36.mp4",
+        "video_evidence": {
+          "bytes": 15064891,
+          "kind": "rollout_video",
+          "sha256": "41d62435733ad4096fc00f7f06c5631dc7e5cbdbf8812d24fcd6699046a85a1e"
+        }
+      },
+      "policy_directory": "training/policy_step_39000/policy"
+    },
+    {
+      "checkpoint_step_label": 40000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "8f61ecb679949545c3d96ed44809c25a48f49016c6c60ae88b29e228743c93ea"
+      },
+      "optimization_steps_completed": 40001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 215.8,
+        "episodes": 100,
+        "optimization_steps_completed": 40000,
+        "rollout_seconds": 115.55,
+        "same_post_update_weights": false,
+        "successes": 66,
+        "vectorized_environment_steps": 24928,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_40000_2026-11-25_17-34-45.mp4",
+        "video_evidence": {
+          "bytes": 14569241,
+          "kind": "rollout_video",
+          "sha256": "e1c434057f96105bd7dc562e865afdc7a08ec3e3888942165d62982bf3ccde30"
+        }
+      },
+      "policy_directory": "training/policy_step_40000/policy"
+    },
+    {
+      "checkpoint_step_label": 41000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "6ea30151a8c3e42cb074c44a0349fff8995ae03a0c4e2e630514afb1816d4a3c"
+      },
+      "optimization_steps_completed": 41001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 218.7,
+        "episodes": 100,
+        "optimization_steps_completed": 41000,
+        "rollout_seconds": 117.36,
+        "same_post_update_weights": false,
+        "successes": 66,
+        "vectorized_environment_steps": 25664,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_41000_2026-11-25_17-46-57.mp4",
+        "video_evidence": {
+          "bytes": 15550239,
+          "kind": "rollout_video",
+          "sha256": "710d159d5dba27bfdbd0fbfb83ae28a6203d69e3ce62910498539c09dfa93a13"
+        }
+      },
+      "policy_directory": "training/policy_step_41000/policy"
+    },
+    {
+      "checkpoint_step_label": 42000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "5fdb06e831a11d8ae0dd6fa9d97e1d3e9f0886f77f3835d8e4d18b8515855b7d"
+      },
+      "optimization_steps_completed": 42001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 217.5,
+        "episodes": 100,
+        "optimization_steps_completed": 42000,
+        "rollout_seconds": 115.89,
+        "same_post_update_weights": false,
+        "successes": 69,
+        "vectorized_environment_steps": 25200,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_42000_2026-11-25_17-59-10.mp4",
+        "video_evidence": {
+          "bytes": 14578983,
+          "kind": "rollout_video",
+          "sha256": "f686e25a3941836930e676dcdc31d2b4e1e8cf72d0c7289554223dc47fcbc886"
+        }
+      },
+      "policy_directory": "training/policy_step_42000/policy"
+    },
+    {
+      "checkpoint_step_label": 43000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "160ae053f302a91f541233b6c93fd1f704cd34db4a4e06d58dfd028afbd6be04"
+      },
+      "optimization_steps_completed": 43001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 217.7,
+        "episodes": 100,
+        "optimization_steps_completed": 43000,
+        "rollout_seconds": 115.59,
+        "same_post_update_weights": false,
+        "successes": 69,
+        "vectorized_environment_steps": 25168,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_43000_2026-11-25_18-11-19.mp4",
+        "video_evidence": {
+          "bytes": 15005744,
+          "kind": "rollout_video",
+          "sha256": "44181557d8a030cf838b4a78a0099445c52b582d67d8054c6b0106bdeb78f091"
+        }
+      },
+      "policy_directory": "training/policy_step_43000/policy"
+    },
+    {
+      "checkpoint_step_label": 44000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "42825eacf244780b13a878513f9c1d9c0a9e82f1195170f763da4001cbdd639c"
+      },
+      "optimization_steps_completed": 44001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 217.8,
+        "episodes": 100,
+        "optimization_steps_completed": 44000,
+        "rollout_seconds": 117.01,
+        "same_post_update_weights": false,
+        "successes": 65,
+        "vectorized_environment_steps": 25488,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_44000_2026-11-25_18-23-25.mp4",
+        "video_evidence": {
+          "bytes": 14639277,
+          "kind": "rollout_video",
+          "sha256": "a7da44430cf3ffaae12a4bfbf4db2f331d6e980b2af83cf6300390e2e6e0c50c"
+        }
+      },
+      "policy_directory": "training/policy_step_44000/policy"
+    },
+    {
+      "checkpoint_step_label": 45000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "f039ec229bc415982da1a5e079a90395a9f69b824c33e8fcfb6d5c8ecefa52f5"
+      },
+      "optimization_steps_completed": 45001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 218.3,
+        "episodes": 100,
+        "optimization_steps_completed": 45000,
+        "rollout_seconds": 115.62,
+        "same_post_update_weights": false,
+        "successes": 63,
+        "vectorized_environment_steps": 25232,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_45000_2026-11-25_18-35-33.mp4",
+        "video_evidence": {
+          "bytes": 14590934,
+          "kind": "rollout_video",
+          "sha256": "7ec85096fe42a5ded3b3c05a20d527cba38ea18961342fea2845527675b5dcdd"
+        }
+      },
+      "policy_directory": "training/policy_step_45000/policy"
+    },
+    {
+      "checkpoint_step_label": 46000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "d46b3848e1fe2bf5a0aa6b7759e479556db38b4e2bfeed64b9691ee99da79c4f"
+      },
+      "optimization_steps_completed": 46001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 211.1,
+        "episodes": 100,
+        "optimization_steps_completed": 46000,
+        "rollout_seconds": 115.67,
+        "same_post_update_weights": false,
+        "successes": 65,
+        "vectorized_environment_steps": 24416,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_46000_2026-11-25_18-47-42.mp4",
+        "video_evidence": {
+          "bytes": 14579204,
+          "kind": "rollout_video",
+          "sha256": "b37db3c80efef7cd05889735d0d24513725278b0d7573df83f98fd7c1e7cafad"
+        }
+      },
+      "policy_directory": "training/policy_step_46000/policy"
+    },
+    {
+      "checkpoint_step_label": 47000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "8ae52078bf96d0fcff923032977c6bddfb040b8c8a3312aa92e3a1ed95cbd564"
+      },
+      "optimization_steps_completed": 47001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 237.5,
+        "episodes": 100,
+        "optimization_steps_completed": 47000,
+        "rollout_seconds": 111.42,
+        "same_post_update_weights": false,
+        "successes": 55,
+        "vectorized_environment_steps": 26464,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_47000_2026-11-25_19-00-10.mp4",
+        "video_evidence": {
+          "bytes": 15536721,
+          "kind": "rollout_video",
+          "sha256": "cecf492a1b37e39689d89f77341c6e9d44a3a93784b8cbc9b14d71d1fa97d88b"
+        }
+      },
+      "policy_directory": "training/policy_step_47000/policy"
+    },
+    {
+      "checkpoint_step_label": 48000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "fdc91650b910109145b4c370283b372a0404b2a698c624cb9e608be183d4dba4"
+      },
+      "optimization_steps_completed": 48001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 237.5,
+        "episodes": 100,
+        "optimization_steps_completed": 48000,
+        "rollout_seconds": 108.33,
+        "same_post_update_weights": false,
+        "successes": 66,
+        "vectorized_environment_steps": 25728,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_48000_2026-11-25_19-12-37.mp4",
+        "video_evidence": {
+          "bytes": 15486296,
+          "kind": "rollout_video",
+          "sha256": "a4549b6786b1e9d5220ac25f7d86a8a075834a2a2ab00f0b01db47a30f399230"
+        }
+      },
+      "policy_directory": "training/policy_step_48000/policy"
+    },
+    {
+      "checkpoint_step_label": 49000,
+      "config": {
+        "bytes": 1523,
+        "kind": "text_evidence",
+        "sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb"
+      },
+      "model": {
+        "bytes": 136837212,
+        "kind": "checkpoint_payload",
+        "sha256": "db002ff4b85a620661f4f3477d8fc47b1bc0cd75375cc6d00768e0f431eeae66"
+      },
+      "optimization_steps_completed": 49001,
+      "original_during_training_rollout": {
+        "environment_steps_per_second": 234.3,
+        "episodes": 100,
+        "optimization_steps_completed": 49000,
+        "rollout_seconds": 106.03,
+        "same_post_update_weights": false,
+        "successes": 73,
+        "vectorized_environment_steps": 24848,
+        "video": "training/eval_square/2026-11-25_09-00-05/eval_step_49000_2026-11-25_19-25-20.mp4",
+        "video_evidence": {
+          "bytes": 14529966,
+          "kind": "rollout_video",
+          "sha256": "a59ee9587b98aac0a85acf6a1ce1b27f25b4bd4d10fd36dd0c43757e969a8b10"
+        }
+      },
+      "policy_directory": "training/policy_step_49000/policy"
+    }
+  ],
+  "command": [
+    "/home/midea/miniconda3/envs/cf-resrl-m0/bin/python",
+    "/media/midea/work/CF-ResRL/residual-rl-sim/scripts/run_act_fixed_eval.py"
+  ],
+  "device": "cuda",
+  "evaluation": {
+    "action_rule": "clip to the registered Square action space",
+    "camera_size": 84,
+    "environment": "Square",
+    "num_environments": 16,
+    "num_episodes": 100,
+    "seed": 20262124,
+    "seed_rule": "episode_seed = seed + episode_index; lane = episode_index % num_environments",
+    "seed_scope": "matches the formal ResFiT evaluation base seed; original ACT workers had unseeded resets",
+    "unused_lane_interactions": "step the full vector batch and count every extra transition",
+    "video_key": "observation.images.agentview"
+  },
+  "expected_torch": "2.7.1+cu128",
+  "experiment_kind": "ACT_FROZEN_FIXED_CHECKPOINT_SQUARE_EVALUATION",
+  "git_commit": "0a675afe324353d5c454a934b3bcaefbd6b3e496",
+  "git_status_before_run": "",
+  "runtime_locks": {
+    "conda_environment": "cf-resrl-m0",
+    "conda_explicit_lock": {
+      "path": "results/cf_resrl/m0/act_runtime/conda-explicit.txt",
+      "sha256": "2b5538025ba240838ad5e1798a4a1556748b191c0790bce16a2e169afc4e7f7d"
+    },
+    "pip_freeze_lock": {
+      "path": "results/cf_resrl/m0/act_runtime/environment.lock.txt",
+      "sha256": "ce0fd3f7d80633ba96054f17a046fc3a4cc806ca945fd8e70928c9ec2a424eda"
+    }
+  },
+  "source_attempt": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/act_training/attempts/20261125T005956570423Z_3dfd8208847a",
+  "source_commit": "3dfd8208847a92e21061aa7f12f2137e91b54e56",
+  "source_manifest_sha256": "1a8e058622c0f8d29e7ec6c2ecf4d7a5477b2ff223341fcc353da1379663a10b",
+  "source_status_sha256": "8f363c8441daeb347ff31728e1246b473481d2ca4f96469c8565f0c2b6a065ee",
+  "source_training_log_sha256": "c001bcc52869fe93c2be1516f956892c22abb28cd07b354b69d990943ca041e8",
+  "source_training_spec_sha256": "9221758655ab53994348a490fdc07ea2b65fa48a476d6c065a5cc3ec218f2685",
+  "started_at_utc": "2026-11-26T17:19:37.930946+00:00",
+  "training_dataset": {
+    "episode_count": 240,
+    "repo_id": "ankile/robomimic-mh-square-image",
+    "revision": "4e5cee7ea7d63b920ff76c2529b781c2474697da",
+    "root": "data/cf_resrl/square",
+    "split": "train",
+    "split_manifest": "results/cf_resrl/m0/dataset_audit/attempts/20261124T131023495428Z_a9dcb4b558af/split_manifest.json",
+    "split_manifest_sha256": "629d01857156c691f297218e0cda3e3b3a802a91122f006a1ca70fd31163afcd",
+    "video_backend": "pyav"
+  },
+  "training_episode_indices": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    14,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    30,
+    32,
+    33,
+    34,
+    35,
+    36,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    47,
+    48,
+    50,
+    52,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    73,
+    74,
+    75,
+    76,
+    78,
+    79,
+    80,
+    82,
+    84,
+    85,
+    86,
+    87,
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    95,
+    96,
+    97,
+    98,
+    99,
+    100,
+    101,
+    102,
+    104,
+    105,
+    106,
+    107,
+    108,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    117,
+    118,
+    119,
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    127,
+    129,
+    133,
+    134,
+    136,
+    138,
+    139,
+    140,
+    141,
+    142,
+    143,
+    144,
+    146,
+    147,
+    148,
+    150,
+    151,
+    152,
+    153,
+    156,
+    157,
+    158,
+    159,
+    160,
+    161,
+    162,
+    163,
+    164,
+    166,
+    168,
+    169,
+    170,
+    172,
+    173,
+    174,
+    175,
+    176,
+    177,
+    178,
+    179,
+    181,
+    182,
+    183,
+    184,
+    185,
+    187,
+    189,
+    190,
+    191,
+    192,
+    193,
+    194,
+    195,
+    196,
+    197,
+    198,
+    199,
+    200,
+    201,
+    202,
+    204,
+    206,
+    207,
+    208,
+    209,
+    210,
+    211,
+    212,
+    213,
+    214,
+    215,
+    216,
+    218,
+    219,
+    220,
+    222,
+    223,
+    225,
+    226,
+    227,
+    228,
+    229,
+    232,
+    233,
+    234,
+    235,
+    236,
+    237,
+    240,
+    241,
+    242,
+    243,
+    244,
+    246,
+    247,
+    248,
+    249,
+    251,
+    252,
+    253,
+    254,
+    255,
+    256,
+    257,
+    259,
+    260,
+    261,
+    262,
+    263,
+    264,
+    265,
+    266,
+    267,
+    268,
+    269,
+    271,
+    272,
+    273,
+    274,
+    275,
+    276,
+    278,
+    279,
+    280,
+    281,
+    283,
+    284,
+    285,
+    286,
+    288,
+    290,
+    292,
+    294,
+    295,
+    296,
+    298,
+    299
+  ],
+  "upstream": {
+    "lerobot_commit": "69901b9b6a2300914ca3de0ea14b6fa6e0203bd4",
+    "lerobot_repository": "https://github.com/huggingface/lerobot.git",
+    "resfit_commit": "66262b06a0caf159fb001504949b7b48ccda5f64",
+    "robosuite_commit": "77a4751233c29456a5381209e30dd0dbf39a6557"
+  },
+  "worker_command": [
+    "/home/midea/miniconda3/envs/cf-resrl-m0/bin/python",
+    "-u",
+    "/media/midea/work/CF-ResRL/residual-rl-sim/scripts/run_act_fixed_eval.py",
+    "--worker-plan",
+    "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/act_fixed_eval/attempts/20261126T171937930946Z_0a675afe3243/resolved_config.json"
+  ]
+}

@@ -1,0 +1,454 @@
+{
+  "completed_checkpoints": [
+    {
+      "checkpoint_step_label": 49999,
+      "environment_steps": 29168,
+      "episode_count": 100,
+      "path": "policy_step_49999_evaluation.json",
+      "sha256": "c7e6e00e21d34299bb167fb650063580fc34acd6e7ebef3c7b3bbf93abeaef41",
+      "success_rate": 0.55,
+      "successes": 55
+    },
+    {
+      "checkpoint_step_label": 1000,
+      "environment_steps": 33600,
+      "episode_count": 100,
+      "path": "policy_step_1000_evaluation.json",
+      "sha256": "b3bdedc4db29de29c716e4179db577ec442ce9cacc1be3680edb42f80ca9f23c",
+      "success_rate": 0.13,
+      "successes": 13
+    },
+    {
+      "checkpoint_step_label": 2000,
+      "environment_steps": 30160,
+      "episode_count": 100,
+      "path": "policy_step_2000_evaluation.json",
+      "sha256": "5387065e9f41a97b38f618d7cc6ce501091862cb069b29c58235f0cb47e4efcf",
+      "success_rate": 0.49,
+      "successes": 49
+    },
+    {
+      "checkpoint_step_label": 3000,
+      "environment_steps": 32800,
+      "episode_count": 100,
+      "path": "policy_step_3000_evaluation.json",
+      "sha256": "3181d49e4d72e3251ea42d649eabecd5cdaf2ec905b8bd88a561abaedd88a3e0",
+      "success_rate": 0.42,
+      "successes": 42
+    },
+    {
+      "checkpoint_step_label": 4000,
+      "environment_steps": 29952,
+      "episode_count": 100,
+      "path": "policy_step_4000_evaluation.json",
+      "sha256": "a7471d05aa41224ce181ab95ca762d5bc3aceb3a317e3b0b575690c604447e07",
+      "success_rate": 0.49,
+      "successes": 49
+    },
+    {
+      "checkpoint_step_label": 5000,
+      "environment_steps": 30048,
+      "episode_count": 100,
+      "path": "policy_step_5000_evaluation.json",
+      "sha256": "51cea1a38f3fa19a3786dd08998f52ce7c0776ef380103dbbed94d90d29297bc",
+      "success_rate": 0.55,
+      "successes": 55
+    },
+    {
+      "checkpoint_step_label": 6000,
+      "environment_steps": 29072,
+      "episode_count": 100,
+      "path": "policy_step_6000_evaluation.json",
+      "sha256": "9194f7885d47ed5d79fbf9390e32a70036998ef64ad8df6a085ccdcf312af603",
+      "success_rate": 0.59,
+      "successes": 59
+    },
+    {
+      "checkpoint_step_label": 7000,
+      "environment_steps": 28800,
+      "episode_count": 100,
+      "path": "policy_step_7000_evaluation.json",
+      "sha256": "6b3152320847186d7354de867d9d1231e808e81e3745d1584599acc29ae6017a",
+      "success_rate": 0.54,
+      "successes": 54
+    },
+    {
+      "checkpoint_step_label": 8000,
+      "environment_steps": 30480,
+      "episode_count": 100,
+      "path": "policy_step_8000_evaluation.json",
+      "sha256": "b60c6425c6dff43047a7f813c74f0da3b97cf476041d1c2219dd4a1cf3cad370",
+      "success_rate": 0.52,
+      "successes": 52
+    },
+    {
+      "checkpoint_step_label": 9000,
+      "environment_steps": 28144,
+      "episode_count": 100,
+      "path": "policy_step_9000_evaluation.json",
+      "sha256": "4a9998d6219b9f4de535b973d3c223cc6c85049a9685b19a7b814c8d373d0773",
+      "success_rate": 0.57,
+      "successes": 57
+    },
+    {
+      "checkpoint_step_label": 10000,
+      "environment_steps": 31616,
+      "episode_count": 100,
+      "path": "policy_step_10000_evaluation.json",
+      "sha256": "dc26eccc8fa267cdbeea0a16dd390bb3040d236ded0d7cc3169b0518eb9906ff",
+      "success_rate": 0.56,
+      "successes": 56
+    },
+    {
+      "checkpoint_step_label": 11000,
+      "environment_steps": 28928,
+      "episode_count": 100,
+      "path": "policy_step_11000_evaluation.json",
+      "sha256": "048d7f1a8be6b2e8f7d01a8b15e89f97b7a06a948ed30351ec7e4b97e60949d7",
+      "success_rate": 0.62,
+      "successes": 62
+    },
+    {
+      "checkpoint_step_label": 12000,
+      "environment_steps": 31504,
+      "episode_count": 100,
+      "path": "policy_step_12000_evaluation.json",
+      "sha256": "e69ead48d5f526cd235a31e1ae5d99793f05eab6249dca345b4bb8a45a2facc5",
+      "success_rate": 0.52,
+      "successes": 52
+    },
+    {
+      "checkpoint_step_label": 13000,
+      "environment_steps": 29632,
+      "episode_count": 100,
+      "path": "policy_step_13000_evaluation.json",
+      "sha256": "05b8cca5444b2ae3f629e62d6459b9d636e7a368744cc5002c5978531fdffeb2",
+      "success_rate": 0.53,
+      "successes": 53
+    },
+    {
+      "checkpoint_step_label": 14000,
+      "environment_steps": 30064,
+      "episode_count": 100,
+      "path": "policy_step_14000_evaluation.json",
+      "sha256": "ff28e8efdf4158e9a4367bcee8a551b3ef33a3fde0247a1c95c352f149863b4a",
+      "success_rate": 0.56,
+      "successes": 56
+    },
+    {
+      "checkpoint_step_label": 15000,
+      "environment_steps": 28112,
+      "episode_count": 100,
+      "path": "policy_step_15000_evaluation.json",
+      "sha256": "663ab46e023cf9095f22f26f0a0a841e8254980cf737ab9f8fe35d96bc349a95",
+      "success_rate": 0.62,
+      "successes": 62
+    },
+    {
+      "checkpoint_step_label": 16000,
+      "environment_steps": 29952,
+      "episode_count": 100,
+      "path": "policy_step_16000_evaluation.json",
+      "sha256": "3b7a928a930a9ef90592b4f06db5fa5554d31d87338360293708e7a126674720",
+      "success_rate": 0.61,
+      "successes": 61
+    },
+    {
+      "checkpoint_step_label": 17000,
+      "environment_steps": 27440,
+      "episode_count": 100,
+      "path": "policy_step_17000_evaluation.json",
+      "sha256": "881fb31efaccd7f453b524d3f0f7076315f16994cd9360d9e25733fdcb19c75e",
+      "success_rate": 0.61,
+      "successes": 61
+    },
+    {
+      "checkpoint_step_label": 18000,
+      "environment_steps": 30736,
+      "episode_count": 100,
+      "path": "policy_step_18000_evaluation.json",
+      "sha256": "39370c518cf32095b284d677d3fb3fc81c8a185377a2afa62724b0fe3dfb3a6c",
+      "success_rate": 0.54,
+      "successes": 54
+    },
+    {
+      "checkpoint_step_label": 19000,
+      "environment_steps": 29616,
+      "episode_count": 100,
+      "path": "policy_step_19000_evaluation.json",
+      "sha256": "b155b611dd8806c33d5a0e18b40e5c670b9474839bde6bc19d416cca0063643e",
+      "success_rate": 0.54,
+      "successes": 54
+    },
+    {
+      "checkpoint_step_label": 20000,
+      "environment_steps": 29744,
+      "episode_count": 100,
+      "path": "policy_step_20000_evaluation.json",
+      "sha256": "8d6ffcce3bc8d35c66064fef54fc3e34e3adcb3bc6195491debb40ec5a834bd4",
+      "success_rate": 0.58,
+      "successes": 58
+    },
+    {
+      "checkpoint_step_label": 21000,
+      "environment_steps": 32048,
+      "episode_count": 100,
+      "path": "policy_step_21000_evaluation.json",
+      "sha256": "9dcf0522b4467e88481abdfa0fdad264ead2fdb9b079f3f01567e2b2c5de0d76",
+      "success_rate": 0.58,
+      "successes": 58
+    },
+    {
+      "checkpoint_step_label": 22000,
+      "environment_steps": 29936,
+      "episode_count": 100,
+      "path": "policy_step_22000_evaluation.json",
+      "sha256": "f09abe2b54495b4c7f67c173d36bbbb97ae64565b6177c2e48dd08048265394b",
+      "success_rate": 0.53,
+      "successes": 53
+    },
+    {
+      "checkpoint_step_label": 23000,
+      "environment_steps": 29312,
+      "episode_count": 100,
+      "path": "policy_step_23000_evaluation.json",
+      "sha256": "31393174c41ef835a1396660eedf743e05fd71f5657fb0b42f19a1f21d5db537",
+      "success_rate": 0.69,
+      "successes": 69
+    },
+    {
+      "checkpoint_step_label": 24000,
+      "environment_steps": 27712,
+      "episode_count": 100,
+      "path": "policy_step_24000_evaluation.json",
+      "sha256": "caa68d82d091e422454516116168d4c383d0c762b6ab2d5c4461c3c5870d8316",
+      "success_rate": 0.59,
+      "successes": 59
+    },
+    {
+      "checkpoint_step_label": 25000,
+      "environment_steps": 31232,
+      "episode_count": 100,
+      "path": "policy_step_25000_evaluation.json",
+      "sha256": "f846bca55093c93f53a04d5a249ba53eb9e6fe368086a48737f279eac56d5a7c",
+      "success_rate": 0.6,
+      "successes": 60
+    },
+    {
+      "checkpoint_step_label": 26000,
+      "environment_steps": 29584,
+      "episode_count": 100,
+      "path": "policy_step_26000_evaluation.json",
+      "sha256": "9b4d4dd5b0598a21193daf4bd76c4cd5c6117cd53d0e6903e22a67976477aef0",
+      "success_rate": 0.69,
+      "successes": 69
+    },
+    {
+      "checkpoint_step_label": 27000,
+      "environment_steps": 30432,
+      "episode_count": 100,
+      "path": "policy_step_27000_evaluation.json",
+      "sha256": "40e43a3fd6df32a95d042ddedcf55f0fc7f4f285d5fa48b35049448d402cca01",
+      "success_rate": 0.59,
+      "successes": 59
+    },
+    {
+      "checkpoint_step_label": 28000,
+      "environment_steps": 29600,
+      "episode_count": 100,
+      "path": "policy_step_28000_evaluation.json",
+      "sha256": "f8ec2c4b8bfbd3cf99a325d33bd12751b31c732aad8af327b95067f8308817ec",
+      "success_rate": 0.59,
+      "successes": 59
+    },
+    {
+      "checkpoint_step_label": 29000,
+      "environment_steps": 31504,
+      "episode_count": 100,
+      "path": "policy_step_29000_evaluation.json",
+      "sha256": "5dca6968c6549e986a028ac863597c31dfefc30da4e781b6264ed47a2a4eb4da",
+      "success_rate": 0.61,
+      "successes": 61
+    },
+    {
+      "checkpoint_step_label": 30000,
+      "environment_steps": 29472,
+      "episode_count": 100,
+      "path": "policy_step_30000_evaluation.json",
+      "sha256": "d4f6f4f939b372b78f1b75e5e8e35cef5924aaaac064ba058a1d491ece990aa0",
+      "success_rate": 0.67,
+      "successes": 67
+    },
+    {
+      "checkpoint_step_label": 31000,
+      "environment_steps": 29344,
+      "episode_count": 100,
+      "path": "policy_step_31000_evaluation.json",
+      "sha256": "4c4bf080cc010f675268535a9567270c168023dcb6b965f82a56fe41c0c43ccc",
+      "success_rate": 0.66,
+      "successes": 66
+    },
+    {
+      "checkpoint_step_label": 32000,
+      "environment_steps": 29232,
+      "episode_count": 100,
+      "path": "policy_step_32000_evaluation.json",
+      "sha256": "d2ac63a2232d646ce7c777c7c6353644e746116fa79ad601c2a7c14b650d1366",
+      "success_rate": 0.64,
+      "successes": 64
+    },
+    {
+      "checkpoint_step_label": 33000,
+      "environment_steps": 30784,
+      "episode_count": 100,
+      "path": "policy_step_33000_evaluation.json",
+      "sha256": "e842fee4863332f25bc8c2165ee45569c7956486582053001cf7c24208bd2dcc",
+      "success_rate": 0.61,
+      "successes": 61
+    },
+    {
+      "checkpoint_step_label": 34000,
+      "environment_steps": 31648,
+      "episode_count": 100,
+      "path": "policy_step_34000_evaluation.json",
+      "sha256": "981496bf505102e9a61b73822e0ed947d69c1fe3effe9d88ca118e1fc3e85b08",
+      "success_rate": 0.62,
+      "successes": 62
+    },
+    {
+      "checkpoint_step_label": 35000,
+      "environment_steps": 29040,
+      "episode_count": 100,
+      "path": "policy_step_35000_evaluation.json",
+      "sha256": "10139f952fbb871a2eae178457202bd5049f5834603127909c77e1cf045e22d0",
+      "success_rate": 0.54,
+      "successes": 54
+    },
+    {
+      "checkpoint_step_label": 36000,
+      "environment_steps": 30128,
+      "episode_count": 100,
+      "path": "policy_step_36000_evaluation.json",
+      "sha256": "290d3525bfa4c443a9b3246d50ec3d66c565d9d83135da519aa09b3adda151b4",
+      "success_rate": 0.6,
+      "successes": 60
+    },
+    {
+      "checkpoint_step_label": 37000,
+      "environment_steps": 30528,
+      "episode_count": 100,
+      "path": "policy_step_37000_evaluation.json",
+      "sha256": "e7e5a19911b9769accf600df8d8358eba6803108572324356454f8c4fd549be6",
+      "success_rate": 0.64,
+      "successes": 64
+    },
+    {
+      "checkpoint_step_label": 38000,
+      "environment_steps": 28208,
+      "episode_count": 100,
+      "path": "policy_step_38000_evaluation.json",
+      "sha256": "c81ae2815ea2bfa001e759f3fd8cbd60d8ed1eb8f621b4c3cfe92848ab5eb64a",
+      "success_rate": 0.6,
+      "successes": 60
+    },
+    {
+      "checkpoint_step_label": 39000,
+      "environment_steps": 26704,
+      "episode_count": 100,
+      "path": "policy_step_39000_evaluation.json",
+      "sha256": "0afc33d60903a9ca8dfb1f10ee36815ab53c870c837eeafc79a4ef44654ba927",
+      "success_rate": 0.74,
+      "successes": 74
+    },
+    {
+      "checkpoint_step_label": 40000,
+      "environment_steps": 29712,
+      "episode_count": 100,
+      "path": "policy_step_40000_evaluation.json",
+      "sha256": "19dda56279cdc71351819eafc2042d7ed0e832aeae8312df1792ff5ca787569b",
+      "success_rate": 0.68,
+      "successes": 68
+    },
+    {
+      "checkpoint_step_label": 41000,
+      "environment_steps": 31552,
+      "episode_count": 100,
+      "path": "policy_step_41000_evaluation.json",
+      "sha256": "28aee623b0d7b54f787feab82d7b446547e05c6e7b0431101a7d921f6213f0f0",
+      "success_rate": 0.64,
+      "successes": 64
+    },
+    {
+      "checkpoint_step_label": 42000,
+      "environment_steps": 29936,
+      "episode_count": 100,
+      "path": "policy_step_42000_evaluation.json",
+      "sha256": "008a9e7f977e14dba961b0a5fc918dc6c284f3bf619dba7077d7da225caada24",
+      "success_rate": 0.69,
+      "successes": 69
+    },
+    {
+      "checkpoint_step_label": 43000,
+      "environment_steps": 30928,
+      "episode_count": 100,
+      "path": "policy_step_43000_evaluation.json",
+      "sha256": "cf54f78920003bf49f717997f727abe6ba2d1bc063746cdab76b8726e0ecd887",
+      "success_rate": 0.61,
+      "successes": 61
+    },
+    {
+      "checkpoint_step_label": 44000,
+      "environment_steps": 30064,
+      "episode_count": 100,
+      "path": "policy_step_44000_evaluation.json",
+      "sha256": "c44fb6aecc592f1951f66da41b900517f657ce5e3550bec187e61ecdcdcb5c17",
+      "success_rate": 0.67,
+      "successes": 67
+    },
+    {
+      "checkpoint_step_label": 45000,
+      "environment_steps": 28992,
+      "episode_count": 100,
+      "path": "policy_step_45000_evaluation.json",
+      "sha256": "d424abbf0aaf8b1d3b3a4cef78e62558d8297652dd973ec02106e03f3ee4d2c1",
+      "success_rate": 0.63,
+      "successes": 63
+    },
+    {
+      "checkpoint_step_label": 46000,
+      "environment_steps": 28288,
+      "episode_count": 100,
+      "path": "policy_step_46000_evaluation.json",
+      "sha256": "43904bd2354f84ee717daf27b735d789db87a8254503bc4815054dbeb88a93e8",
+      "success_rate": 0.56,
+      "successes": 56
+    },
+    {
+      "checkpoint_step_label": 47000,
+      "environment_steps": 28544,
+      "episode_count": 100,
+      "path": "policy_step_47000_evaluation.json",
+      "sha256": "af36d848d1b46ade962d59016191bd51d4376ea2d9349788ec1b3d53e5fb0c13",
+      "success_rate": 0.6,
+      "successes": 60
+    },
+    {
+      "checkpoint_step_label": 48000,
+      "environment_steps": 28816,
+      "episode_count": 100,
+      "path": "policy_step_48000_evaluation.json",
+      "sha256": "3645cbd5269d906526703d28f1af7b71f81572bd6adde94b335cfadb1c56c392",
+      "success_rate": 0.68,
+      "successes": 68
+    },
+    {
+      "checkpoint_step_label": 49000,
+      "environment_steps": 29888,
+      "episode_count": 100,
+      "path": "policy_step_49000_evaluation.json",
+      "sha256": "8d72599e53df549392863ce189ca386efe915d427b01ddbc8379a48b84ca971d",
+      "success_rate": 0.7,
+      "successes": 70
+    }
+  ]
+}

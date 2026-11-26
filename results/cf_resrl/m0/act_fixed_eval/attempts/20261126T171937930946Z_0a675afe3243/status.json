@@ -1,0 +1,8 @@
+{
+  "finished_at_utc": "2026-11-26T18:32:15.236664+00:00",
+  "resolved_config_sha256": "b854fc33125723c3c5cb7d0dd2e2c63059ab73fbd5dc3e08313df7dec05877a2",
+  "returncode": 0,
+  "started_at_utc": "2026-11-26T17:19:37.930946+00:00",
+  "status": "COMPLETED",
+  "stdout_stderr_sha256": "3a177514cb504e77ebe180f9e1d2e8f1e65e739ee4ce795dd73d94eb8235ebb9"
+}
