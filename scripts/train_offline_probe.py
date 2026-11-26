@@ -156,7 +156,7 @@ def _curves(out, results):
                "branch_environment_steps", "source_scout_environment_steps", "regret",
                "g_delta_mae", "interaction_mae", "calibration_error"]
     with (out / "test_curve.csv").open("x", newline="") as stream:
-        writer = csv.writer(stream)
+        writer = csv.writer(stream, lineterminator="\n")
         writer.writerow(metrics)
         for row in results:
             if row["status"] != "COMPLETED":

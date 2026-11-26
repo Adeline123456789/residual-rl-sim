@@ -1,0 +1,8 @@
+{
+  "comparisons_sha256": "2265f58eb03660c3c888bbc95314d5dc5981453c55f5151a0698e5bc735f3011",
+  "finished_at_utc": "2026-11-26T19:46:29.194756+00:00",
+  "predictions_sha256": "cc7d4e7cac896400901395549f3d1c5fd03b2066c01bbcf61098da777e21cace",
+  "results_sha256": "df7aa57b88751ae5a40b0dd43f6261b8e1f0e0861fb95784863f85aef811dd6e",
+  "started_at_utc": "2026-11-26T19:46:10.060048+00:00",
+  "status": "COMPLETED"
+}

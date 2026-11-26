@@ -1,0 +1,131 @@
+{
+  "command": [
+    "/home/midea/miniconda3/envs/cf-resrl-resfit/bin/python",
+    "scripts/train_offline_probe.py",
+    "--out",
+    "results/cf_resrl/mvp_square/offline_probe/attempts/20261126T194609984038Z_bfdd16f86003"
+  ],
+  "config": {
+    "bootstrap_samples": 1000,
+    "bootstrap_seed": 20261130,
+    "calibration_bins": 5,
+    "critical_margin": 0.05,
+    "data_attempt": "results/cf_resrl/mvp_square/e0_data/attempts/20261126T184751184660Z_90a4f137d61c",
+    "decision_costs": [
+      0.0,
+      0.01,
+      0.025,
+      0.05,
+      0.1
+    ],
+    "distributions": [
+      "natural",
+      "enriched"
+    ],
+    "nested_fractions": [
+      0.05,
+      0.1,
+      0.25,
+      0.5,
+      1.0
+    ],
+    "output_root": "results/cf_resrl/mvp_square/offline_probe",
+    "selection_seed": 20261128,
+    "source_index_sha256": "5c6a55180126514fb99434e588fc659e786ff4959257453292d3d984111b13a1",
+    "status": "SPECIFICATION_NOT_A_RUN_RESULT",
+    "training": {
+      "batch_size": 32,
+      "learning_rate": 0.001,
+      "seed": 20261129,
+      "steps": 600,
+      "width": 64
+    }
+  },
+  "data": {
+    "attempt": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/mvp_square/e0_data/attempts/20261126T184751184660Z_90a4f137d61c",
+    "dataset": "cf_square_factorial_v1",
+    "feature_schema_sha256": "c9a93db77e65d2b5e93699f4dc33896528df43623447d00330e19e83f740cb32",
+    "identities": {
+      "normalization_identity": "1587787c83942143d48b8bcd35445cb512924b57f0f91d808c9c20b0870283cb",
+      "policy_identity": "e5f5b3c7fa7512a2ae202d5912922289a52348f8a3bb5a9da33f606d671cb859",
+      "provider_identity": "resfit_native_act_queue__absolute_tick",
+      "residual_policy_identity": "d0c8e8020ec91f84fc65edc7ff586b128c341dbc362c3020b4c4b2a8c8e401f7"
+    },
+    "index_sha256": "5c6a55180126514fb99434e588fc659e786ff4959257453292d3d984111b13a1",
+    "run_manifest_sha256": "5351ce40375e0fad6e715b06b4d3d8a3249a7530dcefa76847bcc2536efc2e75",
+    "status_sha256": "3b8a3248175e376886f91618e587b736d9879887235abbf5d35fd95b20e6ba40",
+    "summary_sha256": "735c9239f38b14cdd20ab55b6141b1a9115ea4914ef3534224614104cafca773"
+  },
+  "device": "cpu",
+  "feature_schema": {
+    "context_dim": 306,
+    "context_fields": [
+      "visual",
+      "state",
+      "base",
+      "chunk_suffix",
+      "chunk_mask",
+      "tick",
+      "chunk_index"
+    ],
+    "fields": {
+      "base": {
+        "dtype": "float32",
+        "shape": [
+          7
+        ]
+      },
+      "chunk_index": {
+        "dtype": "float32",
+        "shape": [
+          1
+        ]
+      },
+      "chunk_mask": {
+        "dtype": "float32",
+        "shape": [
+          20
+        ]
+      },
+      "chunk_suffix": {
+        "dtype": "float32",
+        "shape": [
+          20,
+          7
+        ]
+      },
+      "residual": {
+        "dtype": "float32",
+        "shape": [
+          7
+        ]
+      },
+      "state": {
+        "dtype": "float32",
+        "shape": [
+          9
+        ]
+      },
+      "tick": {
+        "dtype": "float32",
+        "shape": [
+          1
+        ]
+      },
+      "visual": {
+        "dtype": "float32",
+        "shape": [
+          128
+        ]
+      }
+    },
+    "residual_dim": 7,
+    "residual_field": "residual"
+  },
+  "git_commit": "bfdd16f860031892d47831463e55835d1a41f2e2",
+  "git_tracked_status_at_start": [],
+  "numpy": "1.26.4",
+  "python": "3.10.22 | packaged by conda-forge | (main, Oct  6 2026, 23:02:24) [GCC 14.4.0]",
+  "test_estimand": "equal mean over source episodes and the registered decision costs",
+  "torch": "2.7.1+cu128"
+}
