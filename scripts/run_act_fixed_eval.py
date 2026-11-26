@@ -209,12 +209,8 @@ def _worker(plan_path: Path) -> int:
     if not Path(robosuite.__file__).resolve().is_relative_to(ROBOSUITE_ROOT):
         raise RuntimeError("Robosuite must load from the registered pinned checkout")
     runtime = plan["runtime_locks"]
-    for lock, command in (
-        ("pip_freeze_lock", [sys.executable, "-m", "pip", "freeze", "--all"]),
-        ("conda_explicit_lock", ["conda", "list", "-p", sys.prefix, "--explicit"]),
-    ):
+    for lock in ("pip_freeze_lock", "conda_explicit_lock"):
         path = output / Path(runtime[lock]["path"]).name
-        path.write_bytes(subprocess.check_output(command))
         if _sha256(path) != runtime[lock]["sha256"]:
             raise RuntimeError(f"Local ACT environment differs from {lock}")
     _write_json(output / "runtime.json", {
@@ -386,6 +382,14 @@ def main() -> int:
     }
     log = output / "stdout_stderr.log"
     status_path = output / "status.json"
+    # Match the training launcher's lock capture before replacing PYTHONPATH for policy imports.
+    lock_environment = {**os.environ, "PYTHONNOUSERSITE": "1"}
+    for lock, command in (
+        ("pip_freeze_lock", [sys.executable, "-m", "pip", "freeze", "--all"]),
+        ("conda_explicit_lock", ["conda", "list", "-p", sys.prefix, "--explicit"]),
+    ):
+        path = output / Path(plan["runtime_locks"][lock]["path"]).name
+        path.write_bytes(subprocess.check_output(command, env=lock_environment))
     with log.open("wb") as stream, subprocess.Popen(worker_command, env=env, stdout=stream,
                                                     stderr=subprocess.STDOUT, cwd=REPO_ROOT) as worker:
         _write_json(status_path, {"status": "RUNNING", "pid": worker.pid, "started_at_utc": started})
