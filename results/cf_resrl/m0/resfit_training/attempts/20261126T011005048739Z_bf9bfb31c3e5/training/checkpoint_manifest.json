@@ -1,0 +1,351 @@
+{
+  "action_ledger": {
+    "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/action_ledger.jsonl",
+    "records": 300000,
+    "sha256": "e9ecbfe69a97ce8bfdff0f7f97e94ae7e5b7f68ee3393c789c92699c146caaec"
+  },
+  "checkpoint_contract": "evaluation_loadable_not_training_resumable",
+  "checkpoint_interval_environment_steps": 10000,
+  "checkpoints": [
+    {
+      "evaluation": {
+        "episodes": 50,
+        "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/outputs/step_000010000_evaluation.json",
+        "sha256": "85992b72330d9ecfe66a0a59a154d5db9cc9cff859f70fab0170f377b32d15db"
+      },
+      "global_step": 10000,
+      "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/models/step_000010000.pt",
+      "selection": "fixed_environment_step",
+      "sha256": "64b152770b2b06003ed77b6a5c1914fcca397d4e87314b17510af6e7e7c0cdc5"
+    },
+    {
+      "evaluation": {
+        "episodes": 50,
+        "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/outputs/step_000020000_evaluation.json",
+        "sha256": "159f0f5859bbf0dc6b60d37b0f01dbb690f5f6b3efa28542dbacee83db14f814"
+      },
+      "global_step": 20000,
+      "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/models/step_000020000.pt",
+      "selection": "fixed_environment_step",
+      "sha256": "9087376662bea914ee46175dd6304f1d7dd3f74a25600b371ee4ab936d72a705"
+    },
+    {
+      "evaluation": {
+        "episodes": 50,
+        "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/outputs/step_000030000_evaluation.json",
+        "sha256": "0d488a7fa033a9c11ff6f5bb416df08a9cf7eaff59082d7110b5d75f08524eeb"
+      },
+      "global_step": 30000,
+      "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/models/step_000030000.pt",
+      "selection": "fixed_environment_step",
+      "sha256": "146b459ecb519e59ae47efd91f9d0e4b0b8eaf25aab1a350af7b3643509e5d64"
+    },
+    {
+      "evaluation": {
+        "episodes": 50,
+        "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/outputs/step_000040000_evaluation.json",
+        "sha256": "cdfc7f7e6ba7cb682679a7d0b31561240dcb6126d9dba61c24b605f0447e42ae"
+      },
+      "global_step": 40000,
+      "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/models/step_000040000.pt",
+      "selection": "fixed_environment_step",
+      "sha256": "2598b3925e47d24614cdbe8e31cbf99aa49e8dca9fc547beac7f816105dcf650"
+    },
+    {
+      "evaluation": {
+        "episodes": 50,
+        "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/outputs/step_000050000_evaluation.json",
+        "sha256": "011869a701670b309a61620c1bd75e28dd09b9783700dfe5e66b84430f955ae3"
+      },
+      "global_step": 50000,
+      "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/models/step_000050000.pt",
+      "selection": "fixed_environment_step",
+      "sha256": "5aad60cf836fc80b9cf9fff9dfe050d6bebb2c3af576187b120b20b84ba1229b"
+    },
+    {
+      "evaluation": {
+        "episodes": 50,
+        "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/outputs/step_000060000_evaluation.json",
+        "sha256": "e1dafdd0e00d772fb72a22ad1b7d7771186f19d6cf5fe1c8d63d5b0cfcc47355"
+      },
+      "global_step": 60000,
+      "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/models/step_000060000.pt",
+      "selection": "fixed_environment_step",
+      "sha256": "4ff45e9b69aaaaa773b3904884fd7f1d9c2f7ed3fd5d2f141c9d24ff5a90c1bb"
+    },
+    {
+      "evaluation": {
+        "episodes": 50,
+        "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/outputs/step_000070000_evaluation.json",
+        "sha256": "b94df86ac23a8359faeeaacdbdf7e62f9fc31bcfa6a6a9c1a38156bf34a844f7"
+      },
+      "global_step": 70000,
+      "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/models/step_000070000.pt",
+      "selection": "fixed_environment_step",
+      "sha256": "f8efa3494139f4e219d17d8d97ff636050d9fef4a61d1442ea1d574fe69a7288"
+    },
+    {
+      "evaluation": {
+        "episodes": 50,
+        "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/outputs/step_000080000_evaluation.json",
+        "sha256": "5c2cb9ca247c3e7aee48d11f583686cac1769fe0b70b6777320927db301d2abb"
+      },
+      "global_step": 80000,
+      "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/models/step_000080000.pt",
+      "selection": "fixed_environment_step",
+      "sha256": "ede70d65ab5403c9d0ea8b9272cee5e2805ca5a3a8d379f911af9b53721948ca"
+    },
+    {
+      "evaluation": {
+        "episodes": 50,
+        "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/outputs/step_000090000_evaluation.json",
+        "sha256": "103ab00e26e6e76ade8ee00b7639cd659f983da4b0229c9d71c574057c511f66"
+      },
+      "global_step": 90000,
+      "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/models/step_000090000.pt",
+      "selection": "fixed_environment_step",
+      "sha256": "48bfcc97b4587657796257c2b71de9262a9c1f51aa9b1ad5decd893238cedfdf"
+    },
+    {
+      "evaluation": {
+        "episodes": 50,
+        "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/outputs/step_000100000_evaluation.json",
+        "sha256": "97924f6c64f78e9ec4c11312598f12b9db29a9d4a948e4aa904b20ce18516e2e"
+      },
+      "global_step": 100000,
+      "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/models/step_000100000.pt",
+      "selection": "fixed_environment_step",
+      "sha256": "0415b15527e48636123b625343b796be9085168c5af763ec5c2a797bf5ef394d"
+    },
+    {
+      "evaluation": {
+        "episodes": 50,
+        "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/outputs/step_000110000_evaluation.json",
+        "sha256": "5f4b6840611118c966babb129953121078c8c0695d5e795f0a7e4d78ef75a2c6"
+      },
+      "global_step": 110000,
+      "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/models/step_000110000.pt",
+      "selection": "fixed_environment_step",
+      "sha256": "f78221593f0faf43fd680bb597dade9af455b285e90ceb9cd8084b7113033e95"
+    },
+    {
+      "evaluation": {
+        "episodes": 50,
+        "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/outputs/step_000120000_evaluation.json",
+        "sha256": "ccff58f00e50b591963b2008afc7ec5458c660a26707f6b67de0e1468531df36"
+      },
+      "global_step": 120000,
+      "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/models/step_000120000.pt",
+      "selection": "fixed_environment_step",
+      "sha256": "c13117655496f2d6959a55a58265e1d17075829e2df4483d831321b71eb2ab7a"
+    },
+    {
+      "evaluation": {
+        "episodes": 50,
+        "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/outputs/step_000130000_evaluation.json",
+        "sha256": "526f68aae8eb68053dbd75d82e0507de10d17858df4eddc7d0b9726706b46053"
+      },
+      "global_step": 130000,
+      "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/models/step_000130000.pt",
+      "selection": "fixed_environment_step",
+      "sha256": "99681d416bbbd6ea249942600122caa43cb25187e1dbfdee87e3812076f735d4"
+    },
+    {
+      "evaluation": {
+        "episodes": 50,
+        "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/outputs/step_000140000_evaluation.json",
+        "sha256": "7156ba0bd42e9a167e9605b965ecb8d158d0fb0f6a81549748c99229dce9c400"
+      },
+      "global_step": 140000,
+      "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/models/step_000140000.pt",
+      "selection": "fixed_environment_step",
+      "sha256": "92098ba73e4c534eb235acba757518c911a63b171a7c4f33cd9e866b4c86db3c"
+    },
+    {
+      "evaluation": {
+        "episodes": 50,
+        "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/outputs/step_000150000_evaluation.json",
+        "sha256": "d2119777ada0385019dbcd472c33cef05b24228f49f660df839a56a454a540f9"
+      },
+      "global_step": 150000,
+      "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/models/step_000150000.pt",
+      "selection": "fixed_environment_step",
+      "sha256": "af2b00ae7cc0a5e4ce90d997856e13258b3caa40f45c78619c06ccc73a8e97ac"
+    },
+    {
+      "evaluation": {
+        "episodes": 50,
+        "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/outputs/step_000160000_evaluation.json",
+        "sha256": "fb2994f0dc49b5a3760db99596cb8dbed230c624aa42391132ab0387619bbb26"
+      },
+      "global_step": 160000,
+      "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/models/step_000160000.pt",
+      "selection": "fixed_environment_step",
+      "sha256": "746a50f20f5c5fe18cf69792d047efd7f4ac47c73b6e2fc681166f5718751545"
+    },
+    {
+      "evaluation": {
+        "episodes": 50,
+        "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/outputs/step_000170000_evaluation.json",
+        "sha256": "af682d1fb747320f7266babebb17a02863083f4f032149eaa86dd14aef042190"
+      },
+      "global_step": 170000,
+      "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/models/step_000170000.pt",
+      "selection": "fixed_environment_step",
+      "sha256": "4c912affcc5a232a0baa8b4c1470fbc887af4a4bc4689b23135190bd74bbd99f"
+    },
+    {
+      "evaluation": {
+        "episodes": 50,
+        "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/outputs/step_000180000_evaluation.json",
+        "sha256": "36172b73ec7e35714b91b55e39f9e425b964bd6bc76674815bb9687808fb7f86"
+      },
+      "global_step": 180000,
+      "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/models/step_000180000.pt",
+      "selection": "fixed_environment_step",
+      "sha256": "caae2c4f806cbd9e4df5bb0b5d7c9bfe8ff705377bd2d0e1fd02f618980e5f20"
+    },
+    {
+      "evaluation": {
+        "episodes": 50,
+        "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/outputs/step_000190000_evaluation.json",
+        "sha256": "34c07b78c7f98e4dd3da77b17b6c0dc21af39ae5232dba7d8df14ac043f6c04c"
+      },
+      "global_step": 190000,
+      "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/models/step_000190000.pt",
+      "selection": "fixed_environment_step",
+      "sha256": "5c535b10087dcb679da299b0c12d8572b29e89d06c38b55c6006d39f1ba5b084"
+    },
+    {
+      "evaluation": {
+        "episodes": 50,
+        "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/outputs/step_000200000_evaluation.json",
+        "sha256": "51fd0194faf772f3d2b7820dfd1f26590ae53c4b7857d4195f4fe3c9f6608dbc"
+      },
+      "global_step": 200000,
+      "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/models/step_000200000.pt",
+      "selection": "fixed_environment_step",
+      "sha256": "9baca6690b956644472b0b27533a1f84a0ab4d54029d401b927d88cd24e27371"
+    },
+    {
+      "evaluation": {
+        "episodes": 50,
+        "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/outputs/step_000210000_evaluation.json",
+        "sha256": "eadfcee3007e4f0e71e5328d0c340deabd7ed4acf341c7cc96e5e8f6cc3fceeb"
+      },
+      "global_step": 210000,
+      "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/models/step_000210000.pt",
+      "selection": "fixed_environment_step",
+      "sha256": "de14d78bde2a199f3082e39696aa452426eec88581d763a2a10addab59311706"
+    },
+    {
+      "evaluation": {
+        "episodes": 50,
+        "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/outputs/step_000220000_evaluation.json",
+        "sha256": "5ea9f5b5d891dd2cbb32bbdbd68a83c4b370ea8f63e1f229a395eae2b358cbda"
+      },
+      "global_step": 220000,
+      "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/models/step_000220000.pt",
+      "selection": "fixed_environment_step",
+      "sha256": "476c4baca58536994be3133ee10708b58e8e01ccc9410d77253f3f4d422316ba"
+    },
+    {
+      "evaluation": {
+        "episodes": 50,
+        "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/outputs/step_000230000_evaluation.json",
+        "sha256": "982ca3682ce4137222e715bb4ec956e5f7a9dbd5a27ce9aa73c844ebc4f910fe"
+      },
+      "global_step": 230000,
+      "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/models/step_000230000.pt",
+      "selection": "fixed_environment_step",
+      "sha256": "d06562c3fd3cf18a75c53dda740f3779e39f05c4870f9ed0b83f11dcaef5fb17"
+    },
+    {
+      "evaluation": {
+        "episodes": 50,
+        "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/outputs/step_000240000_evaluation.json",
+        "sha256": "8d907b977c608baf0da619d4c9d9dcbfd783f4a76495e72fc3064f3e23af6f93"
+      },
+      "global_step": 240000,
+      "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/models/step_000240000.pt",
+      "selection": "fixed_environment_step",
+      "sha256": "f72c21597abe4ca977092ab518f01a4d1d9d7aac902a2f619cd8e2fc14accbae"
+    },
+    {
+      "evaluation": {
+        "episodes": 50,
+        "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/outputs/step_000250000_evaluation.json",
+        "sha256": "7d4dad499e982ebba7fec70101e1be2a49edd65b493ec75ad46d882615ceaaa6"
+      },
+      "global_step": 250000,
+      "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/models/step_000250000.pt",
+      "selection": "fixed_environment_step",
+      "sha256": "10b9e7f595b9bbe30471cc5cc5b13687b3ef62bfee570f571672979828a68db0"
+    },
+    {
+      "evaluation": {
+        "episodes": 50,
+        "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/outputs/step_000260000_evaluation.json",
+        "sha256": "12777986f4942e927b2d2072d1940bd9cba2766e2da67075c3020df959e5acd3"
+      },
+      "global_step": 260000,
+      "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/models/step_000260000.pt",
+      "selection": "fixed_environment_step",
+      "sha256": "eba84762e00348f212da676314ed446a194c7e479976b50507388960c45b182c"
+    },
+    {
+      "evaluation": {
+        "episodes": 50,
+        "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/outputs/step_000270000_evaluation.json",
+        "sha256": "38fda830a7732e00e72ba50a7972b1d0d9985a4b2a9f6be0f54ed69181261a2d"
+      },
+      "global_step": 270000,
+      "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/models/step_000270000.pt",
+      "selection": "fixed_environment_step",
+      "sha256": "689f7760e42c46c3ff9f39420f39a3ef3684e571b66a22e709682721ccbccfaa"
+    },
+    {
+      "evaluation": {
+        "episodes": 50,
+        "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/outputs/step_000280000_evaluation.json",
+        "sha256": "33795c2fcdededb2acdf63371f56b0cdf915952dadf75187f9cef1d48eca9e6f"
+      },
+      "global_step": 280000,
+      "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/models/step_000280000.pt",
+      "selection": "fixed_environment_step",
+      "sha256": "81cba8f68a3ddefc1db110ebff6cbbde450b31a1bc268b900427c205284a9ce9"
+    },
+    {
+      "evaluation": {
+        "episodes": 50,
+        "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/outputs/step_000290000_evaluation.json",
+        "sha256": "2ec42e7d56bac1ed2b69e998eba839d22204175d2bcae5bbd24e8d05db3984fc"
+      },
+      "global_step": 290000,
+      "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/models/step_000290000.pt",
+      "selection": "fixed_environment_step",
+      "sha256": "caf6899c79a47c0a958cba5e55968967c01817a7b4f7248676a76ab2f7001c2c"
+    },
+    {
+      "evaluation": {
+        "episodes": 50,
+        "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/outputs/step_000300000_evaluation.json",
+        "sha256": "98e9805553f26f00a40aad54a849a23074f46cab43ebe9c23663343ab5ab7bd1"
+      },
+      "global_step": 300000,
+      "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/training/models/step_000300000.pt",
+      "selection": "fixed_environment_step",
+      "sha256": "d0c8e8020ec91f84fc65edc7ff586b128c341dbc362c3020b4c4b2a8c8e401f7"
+    }
+  ],
+  "environment_step_budget": {
+    "main": 290000,
+    "total": 300000,
+    "warmup": 10000
+  },
+  "resume_limitations": [
+    "replay buffers are not included",
+    "live environment state is not included"
+  ],
+  "selection": "fixed_environment_step"
+}
