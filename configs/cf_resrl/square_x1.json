@@ -1,0 +1,69 @@
+{
+  "status": "SPECIFICATION_NOT_A_RUN_RESULT",
+  "task": "Square",
+  "axes": {
+    "resfit_seed": [20261124, 20261125, 20261126],
+    "resfit_step": [150000, 300000],
+    "act_label": [25000, 49999],
+    "delay": [0, 2, 4],
+    "residual_scale": [0.5, 1.0, 1.5],
+    "distribution": ["natural", "enriched"]
+  },
+  "act_call_caps": [15, 20, 25],
+  "residual_component_limit": 0.1,
+  "residual_transform": "multiply_normalized_actor_output_then_clip_each_component_to_registered_actor_scale",
+  "act_evaluation_modes": {
+    "25000": "base_swap_without_resfit_retraining",
+    "49999": "matched_training_base"
+  },
+  "split_seed": 20261127,
+  "selector_seed": 20261128,
+  "factorial_split": {"train": 60, "validation": 20, "test": 20},
+  "factorial_cohorts": {
+    "natural": {"first_seed": 20270124, "size": 100},
+    "enriched": {"first_seed": 20271124, "size": 100}
+  },
+  "pair_training_cohorts": {
+    "natural": {"first_seed": 20272124, "size": 60},
+    "enriched": {"first_seed": 20273124, "size": 60}
+  },
+  "closed_loop_cohorts": {
+    "validation": {"first_seed": 20274124, "size": 20},
+    "test": {"first_seed": 20275124, "size": 50}
+  },
+  "closed_loop": {
+    "fixed_period": 10,
+    "norm_thresholds": [0.15, 0.23],
+    "norm_threshold_transform": "multiply_by_minimum_of_1_and_residual_scale",
+    "learned_costs": [0.01, 0.05],
+    "bootstrap_samples": 1000,
+    "bootstrap_seed": 20261201
+  },
+  "upstream": {
+    "resfit_commit": "66262b06a0caf159fb001504949b7b48ccda5f64",
+    "robosuite_commit": "77a4751233c29456a5381209e30dd0dbf39a6557",
+    "lerobot_commit": "69901b9b6a2300914ca3de0ea14b6fa6e0203bd4"
+  },
+  "act": {
+    "attempt": "results/cf_resrl/m0/act_training/attempts/20261125T005956570423Z_3dfd8208847a",
+    "evidence_manifest_sha256": "1a8e058622c0f8d29e7ec6c2ecf4d7a5477b2ff223341fcc353da1379663a10b",
+    "training_base_label": 49999,
+    "config_sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb",
+    "models": {
+      "25000": "861de2dd0fe5ef102353be9eaec217fe4ff733684564708eb568dd11e8b96b5d",
+      "49999": "e5f5b3c7fa7512a2ae202d5912922289a52348f8a3bb5a9da33f606d671cb859"
+    }
+  },
+  "resfit": {
+    "training_config": "configs/cf_resrl/square_resfit_x1_training.json",
+    "registered_budget": {"warmup": 10000, "main": 290000, "total": 300000},
+    "m0_seed": 20261124,
+    "m0_attempt": "results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5",
+    "m0_manifest_sha256": "438c3a3b039261ccfc44e8ca72ca0e2e7cfddb6c5ffef6f42f069f3ccfac1c71",
+    "m0_resolved_training_sha256": "c35b431924f33c2cbb563bc2537b84ac3f32bfae82a872c150f976eae29dda9a",
+    "m0_models": {
+      "150000": "af2b00ae7cc0a5e4ce90d997856e13258b3caa40f45c78619c06ccc73a8e97ac",
+      "300000": "d0c8e8020ec91f84fc65edc7ff586b128c341dbc362c3020b4c4b2a8c8e401f7"
+    }
+  }
+}

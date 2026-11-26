@@ -20,11 +20,11 @@ CANDIDATE = [0.1, -0.2]
 DELAY = 2
 
 
-def _paired_branches(source_tick, remaining, *, terminal_after=None):
+def _paired_branches(source_tick, remaining, *, terminal_after=None, delay=DELAY):
     scheduler = AbsoluteTickScheduler(
         initial_chunk=[[0.5, 0.5]] * 20,
         provider=lambda _obs, _tick, _generation: [[0.7, 0.7]] * 20,
-        latency_steps=DELAY,
+        latency_steps=delay,
         fallback_action=[0.0, 0.0],
     )
     for _ in range(source_tick):
@@ -102,6 +102,18 @@ class E0CollectorTests(unittest.TestCase):
             results, scheduler_snapshot=snapshot, delay=DELAY,
             remaining=remaining, candidate=CANDIDATE, low=[-1.0, -1.0], high=[1.0, 1.0],
         )
+
+    def test_registered_x1_delays_preserve_absolute_chunk_index(self):
+        for delay in (0, 2, 4):
+            with self.subTest(delay=delay):
+                snapshot, results = _paired_branches(18, 7, delay=delay)
+                _validate_branches(
+                    results, scheduler_snapshot=snapshot, delay=delay,
+                    remaining=7, candidate=CANDIDATE, low=[-1.0, -1.0], high=[1.0, 1.0],
+                )
+                refresh = results["V11"]
+                self.assertEqual(refresh["refresh_activation_tick"], 19 + delay)
+                self.assertEqual(refresh["steps"][1 + delay]["chunk_index"], delay)
 
     def test_terminal_before_refresh_is_not_replaced(self):
         snapshot, results = _paired_branches(19, 6, terminal_after=1)

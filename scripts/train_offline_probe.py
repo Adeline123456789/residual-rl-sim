@@ -41,8 +41,7 @@ def _git(*args):
 
 
 def _validate(config, source):
-    source_index_sha256 = sha256_file(source / "group_index.jsonl")
-    if source_index_sha256 != config["source_index_sha256"]:
+    if source is not None and sha256_file(source / "group_index.jsonl") != config["source_index_sha256"]:
         raise ValueError("Offline probe source index checksum differs from the registered E0 dataset")
     mvp = _read(ROOT / "configs/cf_resrl/mvp_square.json")
     e0 = _read(ROOT / "configs/cf_resrl/square_e0.json")
@@ -168,8 +167,12 @@ def _curves(out, results):
                 resources["source_scout"]["environment_steps"], test["regret"]["mean"],
                 test["g_delta_mae"], test["interaction_mae"], test["calibration_mean_absolute_bin_error"],
             ])
-    figure, axes = plt.subplots(2, 2, figsize=(11, 7), layout="constrained", sharey=True)
-    for axis_row, distribution in zip(axes, ("natural", "enriched")):
+    distributions = list(dict.fromkeys(row["distribution"] for row in results))
+    figure, axes = plt.subplots(
+        len(distributions), 2, figsize=(11, 3.5 * len(distributions)),
+        layout="constrained", sharey=True, squeeze=False,
+    )
+    for axis_row, distribution in zip(axes, distributions, strict=True):
         for axis, resource in zip(axis_row, ("rollouts", "environment_steps")):
             for method, _, _ in METHODS:
                 series = [row for row in results if row["status"] == "COMPLETED"
@@ -186,16 +189,28 @@ def _curves(out, results):
     plt.close(figure)
 
 
-def _run(config, out):
+def _run(config, out, *, x1_config=None, data_attempt=None):
     import numpy as np
     import torch
-    from cf_resrl.offline_data import load_e0
+    from cf_resrl.offline_data import load_e0, load_x1
 
     torch.set_num_threads(1)
     torch.use_deterministic_algorithms(True)
-    source = ROOT / config["data_attempt"]
-    _validate(config, source)
-    dataset = load_e0(source)
+    if x1_config is None:
+        source = ROOT / config["data_attempt"]
+        _validate(config, source)
+        dataset = load_e0(source)
+    else:
+        _validate(config, None)
+        dataset = load_x1(data_attempt, x1_config)
+        data = dataset.provenance
+        config = {
+            **config,
+            "data_attempt": data["attempt"],
+            "source_index_sha256": data["index_sha256"],
+            "distributions": [data["x1_cell"]["distribution"]],
+            "output_root": "results/cf_resrl/expansion_square/offline_probe",
+        }
     _write(out / "run_manifest.json", {
         "command": [sys.executable, *sys.argv],
         "git_commit": _git("rev-parse", "HEAD"),
@@ -215,26 +230,36 @@ def _run(config, out):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config", type=Path, default=DEFAULT_CONFIG)
+    parser.add_argument("--x1-config", type=Path, help="Registered Square X1 grid specification")
+    parser.add_argument("--data-attempt", type=Path, help="Completed branch collection for one Square X1 cell")
     parser.add_argument("--out", type=Path)
     args = parser.parse_args()
+    if (args.x1_config is None) != (args.data_attempt is None):
+        parser.error("--x1-config and --data-attempt must be supplied together")
     config = _read(args.config)
     stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
-    out = args.out or ROOT / config["output_root"] / "attempts" / stamp
+    output_root = (
+        "results/cf_resrl/expansion_square/offline_probe" if args.x1_config else config["output_root"]
+    )
+    out = args.out or ROOT / output_root / "attempts" / stamp
     out.mkdir(parents=True, exist_ok=False)
     started = datetime.now(timezone.utc).isoformat()
     print(f"Square offline probe evidence: {out}", flush=True)
     _write(out / "status.json", {"status": "RUNNING", "started_at_utc": started})
     try:
-        _run(config, out)
+        _run(config, out, x1_config=args.x1_config, data_attempt=args.data_attempt)
     except Exception as error:
         _write(out / "status.json", {"status": "FAILED", "error": str(error), "type": type(error).__name__})
         raise
+    checksums = {
+        "results": "results.json", "comparisons": "comparisons.json", "predictions": "predictions.jsonl",
+    }
+    if args.x1_config:
+        checksums["run_manifest"] = "run_manifest.json"
     _write(out / "status.json", {
         "status": "COMPLETED", "started_at_utc": started,
         "finished_at_utc": datetime.now(timezone.utc).isoformat(),
-        **{f"{stem}_sha256": sha256_file(out / filename) for stem, filename in (
-            ("results", "results.json"), ("comparisons", "comparisons.json"), ("predictions", "predictions.jsonl")
-        )},
+        **{f"{stem}_sha256": sha256_file(out / filename) for stem, filename in checksums.items()},
     })
 
 

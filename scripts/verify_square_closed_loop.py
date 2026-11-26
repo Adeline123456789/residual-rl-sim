@@ -32,6 +32,10 @@ from scripts.collect_factorial import _json, _sha256
 ACT_CHUNK_LENGTH = 20
 ACTION_DIMENSION = 7
 CONTROL_SECONDS = 0.05
+X1_RUN_EVIDENCE = (
+    "x1_cell", "x1_config_sha256", "source_index_sha256", "source_manifest_sha256",
+    "offline_results_sha256", "test_reset_scope",
+)
 
 
 def _require(condition, message):
@@ -49,7 +53,7 @@ def _physical_action(values):
     )
 
 
-def _verify_steps(trace, *, horizon, delay, gamma):
+def _verify_steps(trace, *, horizon, delay, gamma, residual_transform=None):
     """Reconstruct the chunk clock and ACT consumption from the step ledger."""
     steps = trace["steps"]
     _require(0 < len(steps) == trace["environment_steps"] <= horizon, "Bad episode length")
@@ -74,6 +78,21 @@ def _verify_steps(trace, *, horizon, delay, gamma):
             and len(residual) == ACTION_DIMENSION and all(map(_numeric, residual)),
             f"Invalid normalized base or residual at step {tick}",
         )
+        if residual_transform is not None:
+            scale, limit = residual_transform
+            original = row["actor_original_residual"]
+            _require(
+                isinstance(original, list) and len(original) == ACTION_DIMENSION
+                and all(_numeric(value) and abs(value) <= limit + 1e-8 for value in original),
+                f"Invalid original X1 actor residual at step {tick}",
+            )
+            scaled = [scale * value for value in original]
+            _require(
+                row["actor_scaled_residual"] == scaled
+                and row["actor_scale_clip_mask"] == [abs(value) > limit for value in scaled]
+                and residual == [max(-limit, min(value, limit)) for value in scaled],
+                f"Wrong X1 residual scaling or clamp at step {tick}",
+            )
         proposal = [value + delta for value, delta in zip(base, residual)]
         _require(
             row["proposed_action"] == proposal
@@ -179,15 +198,54 @@ def _verify_steps(trace, *, horizon, delay, gamma):
     )
 
 
-def _source_protocol(manifest):
-    protocol = manifest["protocol"]
+def _archived_attempt(recorded, bucket):
+    path = Path(recorded)
+    if not path.is_absolute():
+        path = ROOT / path
+    if path.is_dir():
+        return path
+    prefix = Path("results/cf_resrl") / bucket
+    parts = path.parts
+    for offset, part in enumerate(parts):
+        if part == "results" and parts[offset:offset + len(prefix.parts)] == prefix.parts:
+            restored = ROOT.joinpath(*parts[offset:])
+            if restored.is_dir():
+                return restored
+    raise ValueError(f"Cannot locate archived {bucket} evidence for {recorded}")
+
+
+def _verify_probe_rows(manifest, offline_results, distribution):
+    _require(set(manifest["probes"]) == PROBE_ROWS.keys(), "Missing frozen probe provenance")
+    for method, name in PROBE_ROWS.items():
+        probe = manifest["probes"][method]
+        matching = [row for row in offline_results if row["method"] == name and row["status"] == "COMPLETED"
+                    and row["distribution"] == distribution and row["fraction"] == 1.0]
+        _require(
+            len(matching) == 1 and probe["offline_method"] == name
+            and all(probe[key] == matching[0][key] for key in (
+                "distribution", "fraction", "model", "model_sha256", "training_budget",
+            )),
+            f"Wrong frozen {method} probe provenance",
+        )
+
+
+def _verify_runtime(source, runtime_locks):
+    _require(
+        runtime_locks.keys() == {"conda-explicit.txt", "environment.lock.txt"}
+        and all(_sha256(source / "runtime" / name) == entry["sha256"]
+                for name, entry in runtime_locks.items()),
+        "Pinned runtime lock SHA differs from the original ResFiT evidence",
+    )
+
+
+def _mvp_source_protocol(manifest, protocol, locked_gate):
     _require(
         protocol == _json(ROOT / "configs/cf_resrl/square_closed_loop.json"),
         "Run protocol differs from the registered closed-loop config",
     )
     frozen = manifest["frozen_square_protocol"]
     _require(
-        frozen == _json(ROOT / "configs/cf_resrl/m0_square_branch_gate.json"),
+        frozen == locked_gate,
         "Gate provenance differs from the registered Square policy",
     )
     offline = ROOT / protocol["offline_attempt"]
@@ -204,21 +262,7 @@ def _source_protocol(manifest):
         and identities["residual_policy_identity"] == frozen["resfit_checkpoint_sha256"],
         "Frozen model or normalization identity differs from pipeline evidence",
     )
-    offline_results = _json(offline / "results.json")
-    _require(set(manifest["probes"]) == PROBE_ROWS.keys(), "Missing frozen probe provenance")
-    for method, name in PROBE_ROWS.items():
-        probe = manifest["probes"][method]
-        matching = [
-            row for row in offline_results if row["method"] == name and row["status"] == "COMPLETED"
-            and row["distribution"] == "natural" and row["fraction"] == 1.0
-        ]
-        _require(
-            len(matching) == 1 and probe["offline_method"] == name
-            and all(probe[key] == matching[0][key] for key in (
-                "distribution", "fraction", "model", "model_sha256", "training_budget",
-            )),
-            f"Wrong frozen {method} probe provenance",
-        )
+    _verify_probe_rows(manifest, _json(offline / "results.json"), "natural")
     data = offline_manifest["data"]
     e0_path = Path(data["attempt"])
     e0_relative = Path("results/cf_resrl/mvp_square/e0_data/attempts") / e0_path.name
@@ -226,7 +270,203 @@ def _source_protocol(manifest):
     e0_manifest = ROOT / e0_relative / "run_manifest.json"
     _require(_sha256(e0_manifest) == data["run_manifest_sha256"], "E0 source manifest SHA differs")
     prior = {row["seed"] for row in _json(e0_manifest)["source_plan"]}
-    prior.update(frozen["source_seeds"])
+    source = ROOT / frozen["resfit_attempt"]
+    _verify_runtime(source, manifest["source_resfit_dependency_locks"])
+    gamma = _json(source / "training/resolved_training_config.json")["config"]["algo"]["gamma"]
+    return frozen, gamma, prior
+
+
+def _x1_act_artifacts(registration, label):
+    act = registration["act"]
+    source = ROOT / act["attempt"]
+    evidence = source / "evidence_manifest.json"
+    _require(_sha256(evidence) == act["evidence_manifest_sha256"], "X1 ACT text evidence differs")
+    evidence = _json(evidence)
+    _require(
+        evidence["status"] == "COMPLETED" and evidence["attempt_id"] == source.name
+        and all(evidence["upstream"][key] == value for key, value in registration["upstream"].items()),
+        "X1 ACT evidence differs from the frozen training run",
+    )
+    digests = {"config.json": act["config_sha256"], "model.safetensors": act["models"][str(label)]}
+    for name, digest in digests.items():
+        record = evidence["files"][f"training/policy_step_{label}/policy/{name}"]
+        _require(record["sha256"] == digest, f"X1 ACT step {label} checksum differs for {name}")
+    return digests
+
+
+def _x1_resfit_source(manifest, registration, cell):
+    resfit = registration["resfit"]
+    seed, step = cell["resfit_seed"], cell["resfit_step"]
+    is_m0 = seed == resfit["m0_seed"]
+    source = _archived_attempt(
+        manifest["source_resfit_attempt"], "m0/resfit_training" if is_m0 else "expansion_square/resfit_training",
+    )
+    if is_m0:
+        _require(source.resolve() == (ROOT / resfit["m0_attempt"]).resolve(), "Wrong pinned M0 ResFiT source")
+    else:
+        launch = _json(source / "resolved_launcher.json")
+        _require(
+            launch["config_sha256"] == _sha256(ROOT / resfit["training_config"])
+            and launch["training_seed"] == seed and launch["overlay_mode"] == "resumable"
+            and launch["resume_checkpoint_interval_environment_steps"] == 100000
+            and launch["resume_checkpoint_retention"] == 3,
+            "X1 training provenance differs from the registered resumable launch",
+        )
+
+    launch_status = _json(source / "status.json")
+    training = source / "training"
+    checkpoints = training / "checkpoint_manifest.json"
+    resolved = training / "resolved_training_config.json"
+    _require(
+        launch_status["status"] == "COMPLETED" and launch_status["dry_run"] is False
+        and launch_status["child_returncode"] == 0 and launch_status["resfit_clean_after_cleanup"] is True
+        and launch_status["lerobot_clean_after_cleanup"] is True
+        and launch_status["environment_step_budget"] == resfit["registered_budget"]
+        and _sha256(checkpoints) == launch_status["checkpoint_manifest_sha256"],
+        "X1 ResFiT source is missing completed training evidence",
+    )
+    if is_m0:
+        _require(
+            _sha256(checkpoints) == resfit["m0_manifest_sha256"]
+            and _sha256(resolved) == resfit["m0_resolved_training_sha256"],
+            "Pinned M0 ResFiT training metadata differs",
+        )
+    _require(
+        manifest["source_resfit_dependency_locks"] == launch_status["runtime"]["locks"],
+        "X1 runtime lock records differ from completed training",
+    )
+    _verify_runtime(source, manifest["source_resfit_dependency_locks"])
+    checkpoints = _json(checkpoints)
+    records = checkpoints["checkpoints"]
+    _require(
+        checkpoints["selection"] == "fixed_environment_step"
+        and checkpoints["checkpoint_interval_environment_steps"] == 10000
+        and checkpoints["environment_step_budget"] == resfit["registered_budget"]
+        and checkpoints["action_ledger"]["records"] == resfit["registered_budget"]["total"]
+        and [record["global_step"] for record in records] == list(range(10000, 300001, 10000)),
+        "X1 ResFiT checkpoint manifest differs from the fixed budget and schedule",
+    )
+    record = records[step // 10000 - 1]
+    identity = manifest["identities"]["residual_policy_identity"]
+    _require(
+        record["selection"] == "fixed_environment_step" and record["sha256"] == identity
+        and Path(record["path"]).parts[-3:] == ("training", "models", f"step_{step:09d}.pt")
+        and (not is_m0 or identity == resfit["m0_models"][str(step)]),
+        "X1 ResFiT policy digest differs from its registered fixed checkpoint",
+    )
+
+    resolved = _json(resolved)
+    base_label = registration["act"]["training_base_label"]
+    training_base = _x1_act_artifacts(registration, base_label)
+    selected_act = _x1_act_artifacts(registration, cell["act_label"])
+    _require(
+        resolved["config"]["seed"] == seed and resolved["config"]["task"] == registration["task"]
+        and resolved["environment_step_budget"] == resfit["registered_budget"]
+        and resolved["normalization"]["action_scale"] == registration["residual_component_limit"]
+        and resolved["base_policy_artifacts"] == manifest["resfit_training_base_artifacts"] == training_base
+        and manifest["upstream"] == registration["upstream"] and manifest["dataset"] == resolved["dataset"]
+        and manifest["act_artifacts"] == selected_act
+        and manifest["identities"]["policy_identity"] == selected_act["model.safetensors"]
+        and manifest["act_base_swap"] is (selected_act != training_base),
+        "X1 frozen policies, dataset or upstream do not match the registered training and evaluation modes",
+    )
+    return resolved["config"]["algo"]["gamma"]
+
+
+def _x1_source_protocol(manifest, protocol):
+    from cf_resrl.x1_plan import DEFAULT_CONFIG, load_x1_config, plan_x1, source_cohort
+    from scripts.eval_scheduler import X1Run, _x1_closed_loop_protocol
+
+    registration = load_x1_config(DEFAULT_CONFIG)
+    config_sha = _sha256(DEFAULT_CONFIG)
+    cell = manifest["x1_cell"]
+    offline = _archived_attempt(manifest["offline_attempt"], "expansion_square/offline_probe")
+    x1 = X1Run(registration, config_sha, cell, offline, None)
+    _require(
+        manifest["x1_config_sha256"] == config_sha and cell in plan_x1(registration)
+        and protocol == _x1_closed_loop_protocol(x1),
+        "X1 rollout protocol differs from the registered cell",
+    )
+    offline_status = _json(offline / "status.json")
+    _require(offline_status["status"] == "COMPLETED", "X1 offline probe attempt did not complete")
+    for name, filename in (("run_manifest", "run_manifest.json"), ("results", "results.json")):
+        report_key = "offline_manifest_sha256" if name == "run_manifest" else "offline_results_sha256"
+        _require(
+            _sha256(offline / filename) == manifest[report_key] == offline_status[f"{name}_sha256"],
+            f"X1 offline provenance differs for {filename}",
+        )
+    offline_manifest = _json(offline / "run_manifest.json")
+    data = offline_manifest["data"]
+    _require(
+        data["x1_cell"] == cell and data["x1_config_sha256"] == config_sha
+        and data["identities"] == manifest["identities"],
+        "X1 offline probes used a different source cell or policy",
+    )
+    offline_results = _json(offline / "results.json")
+    distribution = cell["distribution"]
+    _require({row["distribution"] for row in offline_results} == {distribution}, "X1 probe distributions mixed")
+    _verify_probe_rows(manifest, offline_results, distribution)
+
+    source = _archived_attempt(data["attempt"], "expansion_square/branch_data")
+    source_status = _json(source / "status.json")
+    plan = source_cohort(registration, distribution)
+    _require(
+        source_status["status"] == "COMPLETED"
+        and source_status["completed_groups"] == source_status["planned_groups"] == len(plan),
+        "X1 branch source is incomplete",
+    )
+    for name, filename in (
+        ("status", "status.json"), ("index", "group_index.jsonl"), ("summary", "summary.json"),
+        ("run_manifest", "run_manifest.json"), ("feature_schema", "feature_schema.json"),
+    ):
+        key = f"{name}_sha256"
+        _require(_sha256(source / filename) == data[key], f"X1 branch evidence differs for {filename}")
+        if name in ("index", "summary", "run_manifest"):
+            _require(source_status[key] == data[key], f"X1 branch status checksum differs for {filename}")
+    with (source / "group_index.jsonl").open() as stream:
+        source_rows = [json.loads(line) for line in stream]
+    _require(
+        len(source_rows) == len(plan)
+        and all(all(row[key] == value for key, value in assigned.items())
+                for row, assigned in zip(source_rows, plan)),
+        "X1 source index differs from the fixed episode roles",
+    )
+    collection = _json(source / "run_manifest.json")
+    frozen = manifest["frozen_square_protocol"]
+    _require(
+        frozen == collection["protocol"] and frozen["status"] == "REGISTERED_X1_CELL"
+        and frozen["x1_cell"] == cell and frozen["x1_config_sha256"] == config_sha
+        and frozen["task"] == registration["task"] and frozen["simulation_horizon_steps"] == 300
+        and frozen["refresh_delay_steps"] == cell["delay"]
+        and frozen["residual_scale"] == manifest["residual_scale"] == cell["residual_scale"]
+        and frozen["residual_component_limit"] == manifest["normalized_residual_component_limit"]
+        == registration["residual_component_limit"]
+        and collection["identities"] == manifest["identities"] and collection["source_plan"] == plan
+        and manifest["source_index_sha256"] == data["index_sha256"]
+        and manifest["source_manifest_sha256"] == data["run_manifest_sha256"]
+        and manifest["test_reset_scope"] == "shared locked Square resets with no natural or enriched tick selection",
+        "X1 closed-loop rollout provenance differs from the registered branch source",
+    )
+    mvp = frozen["mvp"]
+    mvp_attempt = _archived_attempt(mvp["attempt"], "mvp_square/closed_loop")
+    mvp_status = _json(mvp_attempt / "status.json")
+    _require(
+        mvp_status["status"] == "COMPLETED"
+        and _sha256(mvp_attempt / "summary.json") == mvp_status["summary_sha256"] == mvp["summary_sha256"],
+        "X1 collection does not bind to completed Square MVP evidence",
+    )
+    gamma = _x1_resfit_source(manifest, registration, cell)
+    return frozen, gamma, {row["seed"] for row in plan}
+
+
+def _source_protocol(manifest):
+    protocol = manifest["protocol"]
+    locked_gate = _json(ROOT / "configs/cf_resrl/m0_square_branch_gate.json")
+    if "x1_cell" in manifest:
+        frozen, gamma, prior = _x1_source_protocol(manifest, protocol)
+    else:
+        frozen, gamma, prior = _mvp_source_protocol(manifest, protocol, locked_gate)
+    prior.update(locked_gate["source_seeds"])
     m0 = _json(ROOT / "configs/cf_resrl/m0_act_training.json")
     seed = m0["training"]["seed"]
     prior.add(seed)
@@ -237,19 +477,15 @@ def _source_protocol(manifest):
         {key: list(seeds) for key, seeds in cohorts.items()} == manifest["cohorts"],
         "Recorded cohorts differ from the registered disjoint split",
     )
-    source = ROOT / frozen["resfit_attempt"]
-    runtime_locks = manifest["source_resfit_dependency_locks"]
-    _require(
-        runtime_locks.keys() == {"conda-explicit.txt", "environment.lock.txt"}
-        and all(_sha256(source / "runtime" / name) == entry["sha256"]
-                for name, entry in runtime_locks.items()),
-        "Pinned runtime lock SHA differs from the original ResFiT evidence",
-    )
-    gamma = _json(source / "training/resolved_training_config.json")["config"]["algo"]["gamma"]
     return protocol, frozen, cohorts, gamma
 
 
-def _verify_cohorts(attempt, grouped, config, cohorts, settings, selection, summary):
+def _verify_cohorts(attempt, grouped, config, cohorts, settings, selection, summary, *, x1_evidence=None):
+    if x1_evidence is not None:
+        _require(
+            all(summary[field] == value for field, value in x1_evidence.items()),
+            "X1 test summary differs from the frozen cell evidence",
+        )
     validation_plan = list(dict.fromkeys(
         setting for methods in settings.values() for options in methods.values() for setting in options
     ))
@@ -360,6 +596,15 @@ def verify(attempt):
     manifest = _json(attempt / "run_manifest.json")
     config, frozen, cohorts, gamma = _source_protocol(manifest)
     horizon, delay = frozen["simulation_horizon_steps"], frozen["refresh_delay_steps"]
+    x1_evidence, residual_transform = None, None
+    if "x1_cell" in manifest:
+        x1_evidence = {field: manifest[field] for field in X1_RUN_EVIDENCE}
+        residual_transform = (frozen["residual_scale"], frozen["residual_component_limit"])
+        _require(
+            status["x1_cell_id"] == manifest["x1_cell"]["cell_id"]
+            and status["x1_config_sha256"] == manifest["x1_config_sha256"],
+            "Completed status differs from the registered X1 cell",
+        )
     settings = _settings(config, horizon, ACT_CHUNK_LENGTH)
     selection, summary = _json(attempt / "validation_selection.json"), _json(attempt / "summary.json")
     selection_sha = checksums["validation_selection.json"]
@@ -408,7 +653,7 @@ def verify(attempt):
                 f"Episode index differs from {episode_id}",
             )
             try:
-                _verify_steps(trace, horizon=horizon, delay=delay, gamma=gamma)
+                _verify_steps(trace, horizon=horizon, delay=delay, gamma=gamma, residual_transform=residual_transform)
             except ValueError as error:
                 raise ValueError(f"{episode_id}: {error}") from error
             grouped[key].append(row)
@@ -418,7 +663,7 @@ def verify(attempt):
         and traces == {path.relative_to(attempt).as_posix() for path in (attempt / "episodes").iterdir()},
         "Status count or stored trace file set differs from the physical episode index",
     )
-    evidence = _verify_cohorts(attempt, grouped, config, cohorts, settings, selection, summary)
+    evidence = _verify_cohorts(attempt, grouped, config, cohorts, settings, selection, summary, x1_evidence=x1_evidence)
     return {
         "status": "PASS",
         "attempt": attempt.name,
@@ -428,6 +673,7 @@ def verify(attempt):
         "cohort_seeds": {split: len(seeds) for split, seeds in cohorts.items()},
         "action_bounds": [-1.0, 1.0],
         "refresh_delay_steps": delay,
+        **(x1_evidence or {}),
         **evidence,
     }
 

@@ -61,13 +61,17 @@ def _source(config):
         if _sha256(act / name) != checksum:
             raise ValueError(f"ACT artifact checksum mismatch: {name}")
     pins = _json(Path(status["config_path"]))["upstream"]
-    for name, root in (("resfit", RESFIT_ROOT), ("lerobot", LEROBOT_ROOT), ("robosuite", ROBOSUITE_ROOT)):
-        if _git(root, "rev-parse", "HEAD") != pins[f"{name}_commit"] or _git(root, "status", "--porcelain"):
-            raise ValueError(f"{name} checkout does not match the clean registered revision")
+    _check_upstream(pins)
     return attempt, status, resolved, act, model, pins
 
 
-def load_square_runner(config):
+def _check_upstream(pins):
+    for name, root in (("resfit", RESFIT_ROOT), ("lerobot", LEROBOT_ROOT), ("robosuite", ROBOSUITE_ROOT)):
+        if _git(root, "rev-parse", "HEAD") != pins[f"{name}_commit"] or _git(root, "status", "--porcelain"):
+            raise ValueError(f"{name} checkout does not match the clean registered revision")
+
+
+def load_square_runner(config, *, x1_selection=None):
     os.environ.setdefault("MUJOCO_GL", "egl")
     os.environ.setdefault("MUJOCO_EGL_DEVICE_ID", "0")
     os.environ.setdefault("OMP_NUM_THREADS", "1")
@@ -83,7 +87,20 @@ def load_square_runner(config):
 
     if not torch.cuda.is_available() or mujoco.__version__ != "3.3.2":
         raise RuntimeError("Square branch gate requires the pinned CUDA and MuJoCo runtime")
-    attempt, status, resolved, act, model, pins = _source(config)
+    if x1_selection is None:
+        attempt, status, resolved, act, model, pins = _source(config)
+        act_artifacts = resolved["base_policy_artifacts"]
+        residual_sha256 = config["resfit_checkpoint_sha256"]
+    else:
+        attempt = x1_selection["resfit_attempt"]
+        status = x1_selection["resfit_status"]
+        resolved = x1_selection["resfit_resolved"]
+        act = x1_selection["act_dir"]
+        act_artifacts = x1_selection["act_artifacts"]
+        model = x1_selection["resfit_model"]
+        residual_sha256 = x1_selection["resfit_model_sha256"]
+        pins = x1_selection["upstream"]
+        _check_upstream(pins)
     device = torch.device("cuda:0")
     act_cfg = ACTConfig.from_pretrained(act, local_files_only=True)
     act_cfg.pretrained_backbone_weights = None
@@ -105,8 +122,8 @@ def load_square_runner(config):
         raise ValueError("ResFiT was trained against a different ACT base")
     del checkpoint
     identities = {
-        "policy_identity": resolved["base_policy_artifacts"]["model.safetensors"],
-        "residual_policy_identity": config["resfit_checkpoint_sha256"],
+        "policy_identity": act_artifacts["model.safetensors"],
+        "residual_policy_identity": residual_sha256,
         "provider_identity": PROVIDER_ID,
         "normalization_identity": hashlib.sha256(json.dumps(normalization, sort_keys=True).encode()).hexdigest(),
     }
@@ -115,10 +132,10 @@ def load_square_runner(config):
         "git_commit": _git(REPO_ROOT, "rev-parse", "HEAD"),
         "git_status_at_start": _git(REPO_ROOT, "status", "--porcelain", "--untracked-files=no").splitlines(),
         "upstream": pins,
-        "source_resfit_attempt": str(attempt.relative_to(REPO_ROOT)),
+        "source_resfit_attempt": str(attempt.relative_to(REPO_ROOT) if attempt.is_relative_to(REPO_ROOT) else attempt),
         "source_resfit_dependency_locks": status["runtime"]["locks"],
         "dataset": resolved["dataset"],
-        "act_artifacts": resolved["base_policy_artifacts"],
+        "act_artifacts": act_artifacts,
         "identities": identities,
         "runtime": {
             "python": sys.version,
@@ -136,9 +153,22 @@ def load_square_runner(config):
     if wrapper.horizon != config["simulation_horizon_steps"]:
         wrapper.close()
         raise RuntimeError("Environment horizon disagrees with the registered gate")
-    runner = SquareBranchRunner(
+    runner_class = SquareBranchRunner
+    options = {}
+    if x1_selection is not None:
+        from cf_resrl.x1_runtime import ScaledSquareBranchRunner
+        if float(agent_config.actor.action_scale) != config["residual_component_limit"]:
+            wrapper.close()
+            raise ValueError("The frozen ResFiT action bound differs from the registered X1 bound")
+        runner_class = ScaledSquareBranchRunner
+        options["residual_scale"] = config["residual_scale"]
+        provenance["resfit_training_base_artifacts"] = resolved["base_policy_artifacts"]
+        provenance["act_base_swap"] = act_artifacts != resolved["base_policy_artifacts"]
+        provenance["residual_scale"] = config["residual_scale"]
+        provenance["normalized_residual_component_limit"] = float(agent_config.actor.action_scale)
+    runner = runner_class(
         wrapper, policy, agent, normalization, identities, device,
-        delay=config["refresh_delay_steps"], gamma=resolved["config"]["algo"]["gamma"],
+        delay=config["refresh_delay_steps"], gamma=resolved["config"]["algo"]["gamma"], **options,
     )
     return runner, provenance
 

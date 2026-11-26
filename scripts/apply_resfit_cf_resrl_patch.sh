@@ -5,15 +5,17 @@ repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 resfit_root="$repo_root/third_party/resfit"
 lerobot_root="$resfit_root/deps/lerobot"
 mode="${1:-apply}"
-residual_patch="residual_td3_cf_resrl.patch"
-if [[ "${2:-}" == "fixed-evaluation" ]]; then
-    residual_patch="residual_td3_cf_resrl_eval.patch"
-fi
+case "${2:-}" in
+    "") residual_patch="residual_td3_cf_resrl.patch" ;;
+    fixed-evaluation) residual_patch="residual_td3_cf_resrl_eval.patch" ;;
+    resumable) residual_patch="residual_td3_cf_resrl_resume.patch" ;;
+    *) echo "Unknown ResFiT overlay mode: $2" >&2; exit 2 ;;
+esac
 
 case "$mode" in
     apply|reverse|check) ;;
     *)
-        echo "Usage: $0 [apply|reverse|check] [fixed-evaluation]" >&2
+        echo "Usage: $0 [apply|reverse|check] [fixed-evaluation|resumable]" >&2
         exit 2
         ;;
 esac

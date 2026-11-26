@@ -1,0 +1,55 @@
+{
+  "checkpoint_contract": "evaluation_loadable_not_training_resumable",
+  "checkpoint_interval_environment_steps": 32,
+  "checkpoints": [
+    {
+      "evaluation": {
+        "episodes": 1,
+        "path": "/media/midea/work/CF-ResRL/.resfit-resume-smoke.20261126T205420598039Z/interrupted/training/outputs/step_000000032_evaluation.json",
+        "sha256": "f273721a4f6da1dceca073e84f3a22f452f9af1315e0ef48e0b5eeee506df7bf"
+      },
+      "global_step": 32,
+      "path": "/media/midea/work/CF-ResRL/.resfit-resume-smoke.20261126T205420598039Z/interrupted/training/models/step_000000032.pt",
+      "selection": "fixed_environment_step",
+      "sha256": "2fb8f446e59e7e662842fd0db7941b799eed43ceca419b35e5b9e25572711eb4"
+    },
+    {
+      "evaluation": {
+        "episodes": 1,
+        "path": "/media/midea/work/CF-ResRL/.resfit-resume-smoke.20261126T205420598039Z/interrupted/training/outputs/step_000000064_evaluation.json",
+        "sha256": "e79b4dece0bb5a308fd27d68fc23327ce7ef36a80f4342ed9ba01082809a2306"
+      },
+      "global_step": 64,
+      "path": "/media/midea/work/CF-ResRL/.resfit-resume-smoke.20261126T205420598039Z/interrupted/training/models/step_000000064.pt",
+      "selection": "fixed_environment_step",
+      "sha256": "1a5f419d74fcb7790afa722c47d4d307a47b0718dce68e79adcda34a9267fa6a"
+    },
+    {
+      "evaluation": {
+        "episodes": 1,
+        "path": "/media/midea/work/CF-ResRL/.resfit-resume-smoke.20261126T205420598039Z/interrupted/training/outputs/step_000000096_evaluation.json",
+        "sha256": "d15f17684515ff89297eb17f94ace36c3537b93ea1e65311b6867ce963099bb1"
+      },
+      "global_step": 96,
+      "path": "/media/midea/work/CF-ResRL/.resfit-resume-smoke.20261126T205420598039Z/interrupted/training/models/step_000000096.pt",
+      "selection": "fixed_environment_step",
+      "sha256": "6b5431c446ed3c054f50b35b89625a26b182f3e9e92f3283e4f30f30dff2085c"
+    }
+  ],
+  "environment_step_budget": {
+    "main": 128,
+    "total": 160,
+    "warmup": 32
+  },
+  "resume_limitations": [
+    "replay buffers are not included",
+    "live environment state is not included"
+  ],
+  "selection": "fixed_environment_step",
+  "training_resume": {
+    "interval_environment_steps": 32,
+    "lineage_root": "/media/midea/work/CF-ResRL/.resfit-resume-smoke.20261126T205420598039Z/interrupted/training/resume",
+    "resumed_from": null,
+    "retention": 3
+  }
+}

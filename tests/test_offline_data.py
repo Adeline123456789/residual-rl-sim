@@ -2,8 +2,11 @@ import hashlib
 import importlib.util
 import json
 from pathlib import Path
+import shutil
 import tempfile
 import unittest
+
+from cf_resrl.x1_plan import DEFAULT_CONFIG, load_x1_config, plan_x1, source_cohort
 
 if importlib.util.find_spec("numpy") is not None:
     import numpy as np
@@ -14,6 +17,7 @@ if importlib.util.find_spec("numpy") is not None:
         FEATURE_SHAPES,
         PAIR_BRANCHES,
         load_e0,
+        load_x1,
         pack_features,
         select_budget,
     )
@@ -115,6 +119,38 @@ def _fixture(attempt):
     return rows
 
 
+def _x1_fixture(attempt):
+    templates = {row["bank"]: row for row in _fixture(attempt)}
+    config = load_x1_config(DEFAULT_CONFIG)
+    cell = next(cell for cell in plan_x1(config) if cell["distribution"] == "enriched" and cell["delay"] == 4)
+    plan = source_cohort(config, cell["distribution"])
+    rows = []
+    for source in plan:
+        template = templates[source["bank"]]
+        feature = Path("features") / f"{source['source_episode_id']}.npz"
+        shutil.copyfile(attempt / template["features"], attempt / feature)
+        rows.append({**template, **source, "features": feature.as_posix()})
+    _write_json(attempt / "run_manifest.json", {
+        "protocol": {
+            "status": "REGISTERED_X1_CELL",
+            "task": "Square",
+            "dataset": "synthetic_test_fixture",
+            "refresh_delay_steps": cell["delay"],
+            "residual_scale": cell["residual_scale"],
+            "residual_component_limit": config["residual_component_limit"],
+            "x1_cell": cell,
+            "x1_config_sha256": _sha(DEFAULT_CONFIG),
+        },
+        "source_plan": plan,
+        "identities": {
+            "policy_identity": config["act"]["models"][str(cell["act_label"])],
+            "residual_policy_identity": config["resfit"]["m0_models"][str(cell["resfit_step"])],
+        },
+    })
+    _write_index(attempt, rows)
+    return cell, rows
+
+
 @unittest.skipUnless(importlib.util.find_spec("numpy") is not None, "NumPy needed for offline probe data")
 class OfflineDataTests(unittest.TestCase):
     def test_frozen_feature_layout_does_not_depend_on_mapping_order(self):
@@ -181,3 +217,33 @@ class OfflineDataTests(unittest.TestCase):
             _write_index(attempt, rows)
             with self.assertRaisesRegex(ValueError, "duplicate E0 episode"):
                 load_e0(attempt)
+
+    def test_x1_loads_the_exact_one_cell_plan_with_the_common_budget(self):
+        with tempfile.TemporaryDirectory() as directory:
+            attempt = Path(directory)
+            cell, _ = _x1_fixture(attempt)
+            dataset = load_x1(attempt, DEFAULT_CONFIG)
+            selection = select_budget(dataset, cell["distribution"], 1.0, 17)
+            self.assertEqual(dataset.provenance["x1_cell"], cell)
+            self.assertEqual(dataset.provenance["run_manifest_sha256"], _sha(attempt / "run_manifest.json"))
+            self.assertEqual(len(selection.factorial.source_episode_ids), 60)
+            self.assertEqual(len(selection.b6_rollout.source_episode_ids), 120)
+            self.assertEqual(selection.factorial.budget["branches"]["rollouts"], 240)
+            self.assertEqual(selection.b6_rollout.budget["branches"]["rollouts"], 240)
+            self.assertEqual(len(selection.validation.source_episode_ids), 20)
+            self.assertEqual(len(selection.test.source_episode_ids), 20)
+            with self.assertRaisesRegex(ValueError, "two-tick"):
+                load_e0(attempt)
+
+    def test_x1_rejects_a_changed_plan_even_with_a_matching_index(self):
+        with tempfile.TemporaryDirectory() as directory:
+            attempt = Path(directory)
+            _, rows = _x1_fixture(attempt)
+            manifest_path = attempt / "run_manifest.json"
+            manifest = json.loads(manifest_path.read_text())
+            rows[0]["selector_seed"] += 1
+            manifest["source_plan"][0]["selector_seed"] = rows[0]["selector_seed"]
+            _write_json(manifest_path, manifest)
+            _write_index(attempt, rows)
+            with self.assertRaisesRegex(ValueError, "registered episode assignment"):
+                load_x1(attempt, DEFAULT_CONFIG)

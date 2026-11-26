@@ -1,16 +1,18 @@
 #!/usr/bin/env python3
-"""Launch the pinned 300k-environment-step Square ResFiT run."""
+"""Launch a pinned 300k-environment-step Square ResFiT run."""
 
 from __future__ import annotations
 
 import argparse
 from datetime import datetime, timezone
+import fcntl
 import hashlib
 import json
 import os
 from pathlib import Path
 import shlex
 import subprocess
+import tempfile
 from typing import Any, Sequence
 
 
@@ -20,6 +22,9 @@ ROBOSUITE_ROOT = REPO_ROOT / "third_party" / "robosuite"
 LEROBOT_ROOT = RESFIT_ROOT / "deps" / "lerobot"
 DEFAULT_CONFIG = REPO_ROOT / "configs" / "cf_resrl" / "m0_resfit_training.json"
 PATCH_ROOTS = {"resfit": RESFIT_ROOT, "lerobot": LEROBOT_ROOT}
+X1_SEEDS = (20261125, 20261126)
+X1_OUTPUT_ROOT = "results/cf_resrl/expansion_square/resfit_training"
+RESUMABLE_PATCH = "patches/resfit/residual_td3_cf_resrl_resume.patch"
 EXPECTED_PATCHES = [
     {
         "path": "patches/resfit/train_bc_dexmg_cf_resrl.patch",
@@ -65,6 +70,12 @@ def _git(path: Path, *args: str) -> str:
     ).stdout.strip()
 
 
+def _overlay_mode(config: dict[str, Any]) -> str:
+    if "resume_checkpoint_interval_environment_steps" in config["training"]:
+        return "resumable"
+    return "fixed-evaluation"
+
+
 def validate_spec(config: dict[str, Any]) -> dict[str, Any]:
     upstream = config["upstream"]
     dataset = config["dataset"]
@@ -80,7 +91,15 @@ def validate_spec(config: dict[str, Any]) -> dict[str, Any]:
     for key, value in expected_upstream.items():
         if upstream[key] != value:
             raise ValueError(f"upstream.{key} does not match the registered value")
-    if upstream["patches"] != EXPECTED_PATCHES:
+    expected_patches = EXPECTED_PATCHES
+    resumable = _overlay_mode(config) == "resumable"
+    if resumable:
+        expected_patches = [
+            EXPECTED_PATCHES[0],
+            {"path": RESUMABLE_PATCH, "sha256": _sha256(_resolve(RESUMABLE_PATCH)), "target_root": "resfit"},
+            EXPECTED_PATCHES[2],
+        ]
+    if upstream["patches"] != expected_patches:
         raise ValueError("ResFiT training patch registration changed")
     for registered in upstream["patches"]:
         patch = _resolve(registered["path"])
@@ -148,6 +167,15 @@ def validate_spec(config: dict[str, Any]) -> dict[str, Any]:
         "selection": "fixed_environment_step",
         "output_root": "results/cf_resrl/m0/resfit_training",
     }
+    if resumable:
+        if training["seed"] not in X1_SEEDS:
+            raise ValueError("X1 ResFiT seed must be one of the registered replication seeds")
+        expected_training.update(
+            seed=training["seed"],
+            output_root=X1_OUTPUT_ROOT,
+            resume_checkpoint_interval_environment_steps=100000,
+            resume_checkpoint_retention=3,
+        )
     if training != expected_training:
         raise ValueError("ResFiT settings do not match the registered fixed-step run")
     if training["warmup_environment_steps"] + training["main_environment_steps"] != training["total_environment_steps"]:
@@ -205,9 +233,13 @@ def patch_states(config: dict[str, Any], *, strict: bool = True) -> list[dict[st
     return states
 
 
-def restore_patch_checkouts() -> str:
+def _patch_command(action: str, overlay: str) -> list[str]:
+    return ["bash", str(REPO_ROOT / "scripts" / "apply_resfit_cf_resrl_patch.sh"), action, overlay]
+
+
+def restore_patch_checkouts(overlay: str = "fixed-evaluation") -> str:
     result = subprocess.run(
-        ["bash", str(REPO_ROOT / "scripts" / "apply_resfit_cf_resrl_patch.sh"), "reverse", "fixed-evaluation"],
+        _patch_command("reverse", overlay),
         cwd=REPO_ROOT,
         check=True,
         capture_output=True,
@@ -220,13 +252,194 @@ def restore_patch_checkouts() -> str:
     return result.stdout
 
 
-def build_command(config: dict[str, Any], attempt_dir: Path) -> list[str]:
+def _lock_overlay() -> tuple[int, Path]:
+    marker = Path(_git(REPO_ROOT, "rev-parse", "--path-format=absolute", "--git-path",
+                       "cf_resrl_resfit_overlay_owner.json"))
+    descriptor = os.open(marker.with_suffix(".lock"), os.O_RDWR | os.O_CREAT, 0o600)
+    try:
+        fcntl.flock(descriptor, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    except BlockingIOError as exc:
+        os.close(descriptor)
+        raise RuntimeError("another ResFiT launcher holds the checkout overlay lock") from exc
+    except OSError:
+        os.close(descriptor)
+        raise
+    return descriptor, marker
+
+
+def _record_overlay_owner(marker: Path, owner: dict[str, Any]) -> None:
+    temporary = marker.with_suffix(".tmp")
+    with temporary.open("w", encoding="utf-8") as stream:
+        json.dump(owner, stream, sort_keys=True)
+        stream.flush()
+        os.fsync(stream.fileno())
+    temporary.replace(marker)
+    directory = os.open(marker.parent, os.O_RDONLY | os.O_DIRECTORY)
+    try:
+        os.fsync(directory)
+    finally:
+        os.close(directory)
+
+
+def _ensure_training_is_inactive(attempt: Path) -> None:
+    trainer = b"resfit.rl_finetuning.scripts.train_residual_td3"
+    output = os.fsencode(f"output_dir={attempt / 'training'}")
+    for proc in Path("/proc").iterdir():
+        if not proc.name.isdecimal():
+            continue
+        try:
+            argv = (proc / "cmdline").read_bytes().split(b"\0")
+        except (FileNotFoundError, PermissionError, ProcessLookupError):
+            continue
+        if trainer in argv and output in argv:
+            raise RuntimeError(f"the prior ResFiT process is still live: PID {proc.name}")
+
+
+def _check_exact_overlay(target: Path, applied: list[Path]) -> None:
+    """Prove that reversing the registered patches alone yields HEAD."""
+    if _git(target, "ls-files", "--others", "--exclude-standard") or _git(target, "diff", "--cached", "--name-only"):
+        raise RuntimeError(f"checkout has unrelated staged or untracked changes: {target}")
+    with tempfile.TemporaryDirectory(prefix="cf_resrl_index_") as directory:
+        env = {**os.environ, "GIT_INDEX_FILE": str(Path(directory) / "index")}
+        git = ["git", "-C", str(target)]
+        commands = [["read-tree", "HEAD"], ["add", "-u"]]
+        commands.extend(["apply", "--cached", "--reverse", str(path)] for path in reversed(applied))
+        commands.append(["diff", "--cached", "--exit-code", "--quiet", "HEAD"])
+        for command in commands:
+            if subprocess.run([*git, *command], env=env, capture_output=True).returncode:
+                raise RuntimeError(f"checkout contains changes outside the registered overlay: {target}")
+
+
+def _recover_stale_overlay(
+    marker: Path, config: dict[str, Any], config_sha256: str, seed: int
+) -> dict[str, Any] | None:
+    if not marker.exists():
+        return None
+    owner = json.loads(marker.read_text(encoding="utf-8"))
+    prior = Path(owner["attempt_dir"])
+    if (
+        owner["mode"] != "resumable"
+        or owner["config_sha256"] != config_sha256
+        or owner["training_seed"] != seed
+        or not prior.is_absolute()
+        or prior.parent.name != "attempts"
+        or not prior.is_dir()
+    ):
+        raise RuntimeError("stale ResFiT overlay ownership does not match this X1 run")
+    _ensure_training_is_inactive(prior)
+    states = patch_states(config)
+    for name, target in PATCH_ROOTS.items():
+        _check_exact_overlay(target, [
+            Path(row["path"]) for row in states if row["target_root"] == name and row["state"] == "applied"
+        ])
+    cleanup = restore_patch_checkouts("resumable")
+    marker.unlink()
+    return {"attempt_dir": str(prior), "launcher_pid": owner["launcher_pid"], "cleanup_stdout": cleanup}
+
+
+def _check_parent_checkout(resumable: bool) -> None:
+    if resumable:
+        status = _git(
+            REPO_ROOT, "status", "--porcelain=v1", "-z", "--no-renames",
+            "--ignore-submodules=dirty", "--untracked-files=all",
+        )
+        if all(row.startswith(f"?? {X1_OUTPUT_ROOT}/") for row in status.split("\0") if row):
+            return
+    elif not _git(REPO_ROOT, "status", "--porcelain"):
+        return
+    raise RuntimeError("formal ResFiT training requires a clean parent repository")
+
+
+def _resume_provenance(
+    generation: Path, config: dict[str, Any], config_sha256: str, seed: int
+) -> dict[str, Any]:
+    """Bind a continuation to its completed generation and its recorded launch."""
+    generation = generation.expanduser().resolve()
+    manifest_path = generation / "resume.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    interval = config["training"]["resume_checkpoint_interval_environment_steps"]
+    total = config["training"]["total_environment_steps"]
+    step = manifest["step"]
+    if (
+        manifest["version"] != 1
+        or type(step) is not int
+        or not interval <= step < total
+        or step % interval
+        or generation.name != f"step_{step:09d}"
+        or generation.parent.name != "resume"
+        or generation.parent.parent.name != "training"
+        or not (generation / "state.pt").is_file()
+    ):
+        raise ValueError("resume path is not an eligible local fixed-step ResFiT generation")
+    origin = generation.parents[2]
+    ledger = Path(manifest["action_ledger"])
+    producer = ledger.resolve().parents[1]
+    if (
+        not ledger.is_absolute()
+        or ledger.resolve() != producer / "training" / "action_ledger.jsonl"
+        or not ledger.is_file()
+        or origin.parent.name != "attempts"
+        or producer.parent.name != "attempts"
+    ):
+        raise ValueError("resume action ledger is outside its recorded training attempt")
+    if any(
+        path.name > generation.name
+        and len(path.name) == len(generation.name)
+        and path.name[5:].isdecimal()
+        and (path / "resume.json").is_file()
+        for path in generation.parent.glob("step_*")
+    ):
+        raise ValueError("resume from the latest completed generation in the training lineage")
+    budget = {
+        label: config["training"][f"{label}_environment_steps"] for label in ("warmup", "main", "total")
+    }
+    runtime_locks = None
+    for attempt in dict.fromkeys((origin, producer)):
+        receipt = json.loads((attempt / "resolved_launcher.json").read_text(encoding="utf-8"))
+        if (
+            receipt["dry_run"]
+            or receipt["config_sha256"] != config_sha256
+            or receipt.get("training_seed") != seed
+            or receipt.get("overlay_mode") != "resumable"
+            or receipt["attempt_dir"] != str(attempt)
+            or receipt["environment_step_budget"] != budget
+            or receipt.get("resume_checkpoint_interval_environment_steps") != interval
+            or receipt.get("resume_checkpoint_retention") != config["training"]["resume_checkpoint_retention"]
+        ):
+            raise ValueError("resume generation config and seed do not match its recorded launch")
+        prior_resume = receipt.get("resume")
+        if (attempt == origin and prior_resume is not None) or (
+            attempt != origin and (not prior_resume or prior_resume["origin_attempt"] != str(origin))
+        ):
+            raise ValueError("resume producer does not belong to the original training lineage")
+        locks = {name: row["sha256"] for name, row in receipt["runtime"]["locks"].items()}
+        if locks.keys() != {"conda-explicit.txt", "environment.lock.txt"}:
+            raise ValueError("resume lineage is missing the recorded runtime locks")
+        if runtime_locks is not None and locks != runtime_locks:
+            raise ValueError("resume lineage dependency locks disagree")
+        runtime_locks = locks
+        _ensure_training_is_inactive(attempt)
+    return {
+        "generation": str(generation),
+        "manifest_sha256": _sha256(manifest_path),
+        "origin_attempt": str(origin),
+        "producer_attempt": str(producer),
+        "restored_environment_steps": step,
+        "runtime_lock_sha256": runtime_locks,
+    }
+
+
+def build_command(
+    config: dict[str, Any], attempt_dir: Path, resume_from: Path | None = None
+) -> list[str]:
     dataset = config["dataset"]
     base = config["base_policy"]
     training = config["training"]
     output_dir = (attempt_dir / "training").resolve()
     cache_dir = (attempt_dir / "cache").resolve()
-    python_path = os.pathsep.join((str(RESFIT_ROOT), str(LEROBOT_ROOT)))
+    resumable = _overlay_mode(config) == "resumable"
+    python_roots = (RESFIT_ROOT, LEROBOT_ROOT, REPO_ROOT) if resumable else (RESFIT_ROOT, LEROBOT_ROOT)
+    python_path = os.pathsep.join(map(str, python_roots))
     overrides = [
         f"seed={training['seed']}",
         f"base_policy.local_dir={_resolve(base['local_dir']).resolve()}",
@@ -248,6 +461,13 @@ def build_command(config: dict[str, Any], attempt_dir: Path) -> list[str]:
         f"hydra.run.dir={(attempt_dir / 'hydra').resolve()}",
         "hydra.job.chdir=false",
     ]
+    if resumable:
+        overrides.extend([
+            f"resume_checkpoint_interval={training['resume_checkpoint_interval_environment_steps']}",
+            f"resume_checkpoint_retention={training['resume_checkpoint_retention']}",
+        ])
+        if resume_from is not None:
+            overrides.append(f"resume_from={resume_from}")
     return [
         "conda",
         "run",
@@ -263,6 +483,7 @@ def build_command(config: dict[str, Any], attempt_dir: Path) -> list[str]:
         f"CACHE_DIR={cache_dir}",
         "WANDB_MODE=disabled",
         "HF_HUB_DISABLE_XET=1",
+        *(["HF_HUB_OFFLINE=1"] if resumable else []),
         "python",
         "-m",
         "resfit.rl_finetuning.scripts.train_residual_td3",
@@ -312,6 +533,8 @@ def main(argv: Sequence[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config", type=Path, default=DEFAULT_CONFIG)
     parser.add_argument("--out", type=Path)
+    parser.add_argument("--seed", type=int, choices=X1_SEEDS)
+    parser.add_argument("--resume-from", type=Path)
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args(argv)
 
@@ -324,19 +547,39 @@ def main(argv: Sequence[str] | None = None) -> int:
 
     attempt_dir, started = _attempt_dir(output_root, repo_head)
     status_path = attempt_dir / "status.json"
+    config_sha256 = _sha256(config_path)
+    overlay = _overlay_mode(config)
+    resumable = overlay == "resumable"
     patch_apply_attempted = False
     patch_cleanup_stdout: str | None = None
+    lock_descriptor = None
+    marker = None
+    owner_recorded = False
+    resolved = {}
 
     try:
-        if not args.dry_run and _git(REPO_ROOT, "status", "--porcelain"):
-            raise RuntimeError("formal ResFiT training requires a clean parent repository")
+        if not args.dry_run:
+            lock_descriptor, marker = _lock_overlay()
+            _check_parent_checkout(resumable)
+        if not resumable and (args.seed is not None or args.resume_from is not None):
+            raise ValueError("--seed and --resume-from require the registered X1 ResFiT config")
         validation = validate_spec(config)
+        training = config["training"]
+        if args.seed is not None:
+            training["seed"] = args.seed
+        seed = training["seed"]
+        resume = None
+        if args.resume_from is not None:
+            resume = _resume_provenance(args.resume_from, config, config_sha256, seed)
         if _git(RESFIT_ROOT, "rev-parse", "HEAD") != config["upstream"]["resfit_commit"]:
             raise RuntimeError("ResFiT base commit mismatch")
         if _git(ROBOSUITE_ROOT, "rev-parse", "HEAD") != config["upstream"]["robosuite_commit"]:
             raise RuntimeError("Robosuite base commit mismatch")
         if _git(LEROBOT_ROOT, "rev-parse", "HEAD") != config["upstream"]["lerobot_commit"]:
             raise RuntimeError("LeRobot runtime checkout mismatch")
+        stale_overlay = None
+        if not args.dry_run and resumable:
+            stale_overlay = _recover_stale_overlay(marker, config, config_sha256, seed)
         if _git(LEROBOT_ROOT, "status", "--porcelain"):
             raise RuntimeError("LeRobot runtime checkout has uncommitted changes")
 
@@ -347,9 +590,22 @@ def main(argv: Sequence[str] | None = None) -> int:
             if _git(RESFIT_ROOT, "status", "--porcelain"):
                 raise RuntimeError("formal ResFiT training must start from the clean pinned checkout")
             runtime = capture_runtime(config, attempt_dir)
+            if resume is not None and {
+                name: row["sha256"] for name, row in runtime["locks"].items()
+            } != resume["runtime_lock_sha256"]:
+                raise RuntimeError("local ResFiT dependency locks differ from the resume lineage")
+            if resumable:
+                _record_overlay_owner(marker, {
+                    "mode": overlay,
+                    "config_sha256": config_sha256,
+                    "training_seed": seed,
+                    "attempt_dir": str(attempt_dir.resolve()),
+                    "launcher_pid": os.getpid(),
+                })
+                owner_recorded = True
             patch_apply_attempted = True
             apply_result = subprocess.run(
-                ["bash", str(REPO_ROOT / "scripts" / "apply_resfit_cf_resrl_patch.sh"), "apply", "fixed-evaluation"],
+                _patch_command("apply", overlay),
                 cwd=REPO_ROOT,
                 check=True,
                 capture_output=True,
@@ -361,7 +617,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         else:
             states_after = states_before
 
-        command = build_command(config, attempt_dir)
+        command = build_command(config, attempt_dir, Path(resume["generation"]) if resume else None)
         resolved = {
             "status": "DRY_RUN_VALIDATED" if args.dry_run else "RUNNING",
             "experiment_kind": "resfit_training",
@@ -370,7 +626,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             "launcher_pid": os.getpid(),
             "git_commit": repo_head,
             "config_path": str(config_path.resolve()),
-            "config_sha256": _sha256(config_path),
+            "config_sha256": config_sha256,
             "attempt_dir": str(attempt_dir.resolve()),
             "cache_dir": str((attempt_dir / "cache").resolve()),
             "training_output_dir": str((attempt_dir / "training").resolve()),
@@ -390,6 +646,19 @@ def main(argv: Sequence[str] | None = None) -> int:
             "command": command,
             "command_shell": shlex.join(command),
         }
+        if resumable:
+            resolved.update({
+                "overlay_mode": overlay,
+                "training_seed": seed,
+                "resume_checkpoint_interval_environment_steps": training["resume_checkpoint_interval_environment_steps"],
+                "resume_checkpoint_retention": training["resume_checkpoint_retention"],
+                "resume": resume,
+                "remaining_environment_step_budget_at_launch": (
+                    training["total_environment_steps"] - resume["restored_environment_steps"]
+                    if resume else training["total_environment_steps"]
+                ),
+                "stale_overlay_recovery": stale_overlay,
+            })
         _write_json(attempt_dir / "resolved_launcher.json", resolved)
         print(json.dumps({"attempt_dir": resolved["attempt_dir"], "command": command}, sort_keys=True))
         if args.dry_run:
@@ -398,7 +667,9 @@ def main(argv: Sequence[str] | None = None) -> int:
 
         log_path = attempt_dir / "stdout_stderr.log"
         with log_path.open("wb") as log:
-            process = subprocess.Popen(command, cwd=REPO_ROOT, stdout=log, stderr=subprocess.STDOUT)
+            process = subprocess.Popen(
+                command, cwd=REPO_ROOT, stdout=log, stderr=subprocess.STDOUT, pass_fds=(lock_descriptor,)
+            )
             _write_json(status_path, {**resolved, "child_pid": process.pid})
             returncode = process.wait()
         if returncode != 0:
@@ -407,8 +678,11 @@ def main(argv: Sequence[str] | None = None) -> int:
         checkpoint_manifest = attempt_dir / "training" / "checkpoint_manifest.json"
         if not checkpoint_manifest.is_file():
             raise RuntimeError("completed ResFiT run has no checkpoint manifest")
-        patch_cleanup_stdout = restore_patch_checkouts()
+        patch_cleanup_stdout = restore_patch_checkouts(overlay)
         patch_apply_attempted = False
+        if owner_recorded:
+            marker.unlink()
+            owner_recorded = False
         completed = {
             **resolved,
             "status": "COMPLETED",
@@ -425,13 +699,19 @@ def main(argv: Sequence[str] | None = None) -> int:
         return 0
     except Exception as exc:
         cleanup_error: str | None = None
-        if patch_apply_attempted:
+        if patch_apply_attempted and "process" in locals() and process.poll() is None:
+            cleanup_error = "training process is still live; left its overlays in place"
+        elif patch_apply_attempted:
             try:
-                patch_cleanup_stdout = restore_patch_checkouts()
+                patch_cleanup_stdout = restore_patch_checkouts(overlay)
                 patch_apply_attempted = False
+                if owner_recorded:
+                    marker.unlink()
+                    owner_recorded = False
             except Exception as cleanup_exc:
                 cleanup_error = f"{type(cleanup_exc).__name__}: {cleanup_exc}"
         failed = {
+            **(resolved if resumable else {}),
             "status": "FAILED",
             "experiment_kind": "resfit_training",
             "failed_at_utc": datetime.now(timezone.utc).isoformat(),
@@ -456,6 +736,9 @@ def main(argv: Sequence[str] | None = None) -> int:
         _write_json(status_path, failed)
         _write_json(attempt_dir / "failure.json", failed)
         raise
+    finally:
+        if lock_descriptor is not None:
+            os.close(lock_descriptor)
 
 
 if __name__ == "__main__":

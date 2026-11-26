@@ -1,0 +1,10 @@
+Real resume smoke evidence: /media/midea/work/CF-ResRL/.resfit-resume-smoke.20261126T204255133511Z
+Traceback (most recent call last):
+  File "/media/midea/work/CF-ResRL/residual-rl-sim/scripts/smoke_resfit_resume.py", line 219, in <module>
+    main()
+  File "/media/midea/work/CF-ResRL/residual-rl-sim/scripts/smoke_resfit_resume.py", line 209, in main
+    before = _run(first, _command(spec, first, split), pythonpath, interrupt=checkpoint)
+  File "/media/midea/work/CF-ResRL/residual-rl-sim/scripts/smoke_resfit_resume.py", line 135, in _run
+    raise RuntimeError(f"First trainer did not publish step {INTERRUPT_STEP}. See {log}")
+RuntimeError: First trainer did not publish step 96. See /media/midea/work/CF-ResRL/.resfit-resume-smoke.20261126T204255133511Z/interrupted/stdout_stderr.log
+ERROR conda.cli.main_run:execute(148): `conda run python -u scripts/smoke_resfit_resume.py --out /media/midea/work/CF-ResRL/.resfit-resume-smoke.20261126T204255133511Z` failed. (See above for error)

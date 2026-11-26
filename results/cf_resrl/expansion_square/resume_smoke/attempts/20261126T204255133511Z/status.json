@@ -1,0 +1,5 @@
+{
+  "error": "First trainer did not publish step 96. See /media/midea/work/CF-ResRL/.resfit-resume-smoke.20261126T204255133511Z/interrupted/stdout_stderr.log",
+  "status": "FAILED",
+  "type": "RuntimeError"
+}

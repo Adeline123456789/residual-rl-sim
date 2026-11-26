@@ -2,8 +2,9 @@ import copy
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch
 
-from scripts.verify_square_closed_loop import _verify_steps, verify
+from scripts.verify_square_closed_loop import _archived_attempt, _verify_steps, verify
 
 
 def delayed_refresh_trace():
@@ -68,3 +69,32 @@ class SquareEvidenceTest(unittest.TestCase):
             (attempt / "status.json").write_text('{"status":"RUNNING"}')
             with self.assertRaisesRegex(ValueError, "Only a completed"):
                 verify(attempt)
+
+    def test_x1_actor_scale_and_clamp_are_verified(self):
+        trace = delayed_refresh_trace()
+        for row in trace["steps"]:
+            row.update({
+                "actor_original_residual": [0.08, -0.08] + [0.0] * 5,
+                "actor_scaled_residual": [0.12, -0.12] + [0.0] * 5,
+                "actor_scale_clip_mask": [True, True] + [False] * 5,
+                "proposed_residual": [0.1, -0.1] + [0.0] * 5,
+                "proposed_action": [0.1, -0.1] + [0.0] * 5,
+                "applied_action": [0.1, -0.1] + [0.0] * 5,
+            })
+        settings = {"horizon": 24, "delay": 2, "gamma": 0.99, "residual_transform": (1.5, 0.1)}
+        _verify_steps(trace, **settings)
+        trace["steps"][0]["actor_scale_clip_mask"][0] = False
+        with self.assertRaisesRegex(ValueError, "Wrong X1 residual scaling or clamp"):
+            _verify_steps(trace, **settings)
+
+    def test_x1_archive_resolves_the_recorded_repository_suffix(self):
+        relative = Path("results/cf_resrl/expansion_square/branch_data/cell/attempts/run")
+        with tempfile.TemporaryDirectory() as directory:
+            workspace = Path(directory)
+            restored = workspace / "restored" / relative
+            restored.mkdir(parents=True)
+            with patch("scripts.verify_square_closed_loop.ROOT", workspace / "restored"):
+                self.assertEqual(
+                    _archived_attempt(workspace / "original" / relative, "expansion_square/branch_data"),
+                    restored,
+                )

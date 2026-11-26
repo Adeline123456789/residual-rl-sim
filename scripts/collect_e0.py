@@ -97,22 +97,27 @@ def _collect(config, plan, out):
 
 
 def _collect_with_runner(config, plan, out, gate, runner, provenance):
+    identities = _json(gate / "run_manifest.json")["identities"]
+    if provenance["identities"] != identities:
+        raise ValueError("E0 policy and normalization identities differ from the passing gate")
+    collect_branch_bank(config, plan, out, runner, provenance)
+
+
+def collect_branch_bank(config, plan, out, runner, provenance):
     import numpy as np
     from cf_resrl.e0_collector import collect_episode
     from cf_resrl.e0_report import summarize_e0
 
-    identities = _json(gate / "run_manifest.json")["identities"]
-    if provenance["identities"] != identities:
-        raise ValueError("E0 policy and normalization identities differ from the passing gate")
     groups_dir = out / "groups"
     features_dir = out / "features"
     groups_dir.mkdir()
     features_dir.mkdir()
+    residual_feature = "scaled and clipped residual" if "x1_cell" in config else "original residual"
     _write(out / "run_manifest.json", {
         **provenance,
         "protocol": config,
         "source_plan": plan,
-        "feature_scope": "frozen visual features, current observed state and active chunk, original residual",
+        "feature_scope": f"frozen visual features, current observed state and active chunk, {residual_feature}",
         "raw_group_scope": "nominal source rollout and real intervention trajectories for evidence only",
         "pair_training_budget": "additional train-only V10/V11 contexts; account true control steps separately",
     })
@@ -175,8 +180,10 @@ def _collect_with_runner(config, plan, out, gate, runner, provenance):
         bootstrap_seed=config["bootstrap_seed"],
     )
     _write(out / "summary.json", summary)
+    manifest_checksum = {"run_manifest_sha256": _sha256(out / "run_manifest.json")} if "x1_cell" in config else {}
     _status(out, "COMPLETED", completed_groups=expected, planned_groups=expected,
-            summary_sha256=_sha256(out / "summary.json"), index_sha256=_sha256(out / "group_index.jsonl"))
+            summary_sha256=_sha256(out / "summary.json"), index_sha256=_sha256(out / "group_index.jsonl"),
+            **manifest_checksum)
 
 
 def main():

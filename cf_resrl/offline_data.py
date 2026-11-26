@@ -119,7 +119,47 @@ def _read_verified_feature(attempt: Path, row: dict) -> tuple[np.ndarray, np.nda
 
 def load_e0(attempt: str | Path) -> E0Dataset:
     """Verify a completed E0 run and load only the model-visible feature files."""
+    return _load_branch_bank(attempt, x1_config=None)
+
+
+def load_x1(attempt: str | Path, x1_config: str | Path) -> E0Dataset:
+    """Verify a completed X1 collection against its registered cell and source plan."""
+    return _load_branch_bank(attempt, x1_config=Path(x1_config).resolve())
+
+
+def _verify_x1_collection(manifest: dict, config_path: Path) -> dict:
+    from .x1_plan import load_x1_config, plan_x1, source_cohort
+
+    config = load_x1_config(config_path)
+    digest = sha256_file(config_path)
+    protocol = manifest["protocol"]
+    cell = protocol.get("x1_cell")
+    if (
+        protocol.get("status") != "REGISTERED_X1_CELL"
+        or protocol.get("x1_config_sha256") != digest
+        or cell not in plan_x1(config)
+        or protocol["task"] != config["task"]
+        or protocol["refresh_delay_steps"] != cell["delay"]
+        or protocol["residual_scale"] != cell["residual_scale"]
+        or protocol["residual_component_limit"] != config["residual_component_limit"]
+    ):
+        raise ValueError("Collection protocol does not identify an exact registered Square X1 cell")
+    if manifest["source_plan"] != source_cohort(config, cell["distribution"]):
+        raise ValueError("X1 source plan differs from the cell's registered episode assignment")
+    identities = manifest["identities"]
+    if identities["policy_identity"] != config["act"]["models"][str(cell["act_label"])]:
+        raise ValueError("X1 collection ACT identity differs from the registered cell")
+    if (
+        cell["resfit_seed"] == config["resfit"]["m0_seed"]
+        and identities["residual_policy_identity"] != config["resfit"]["m0_models"][str(cell["resfit_step"])]
+    ):
+        raise ValueError("X1 collection ResFiT identity differs from the pinned M0 checkpoint")
+    return {"x1_config_sha256": digest, "x1_cell": cell}
+
+
+def _load_branch_bank(attempt: str | Path, *, x1_config: Path | None) -> E0Dataset:
     attempt = Path(attempt).resolve()
+    stage = "E0" if x1_config is None else "X1"
     status = json.loads((attempt / "status.json").read_bytes())
     index_data = (attempt / "group_index.jsonl").read_bytes()
     index_sha = hashlib.sha256(index_data).hexdigest()
@@ -127,9 +167,12 @@ def load_e0(attempt: str | Path) -> E0Dataset:
     if status["status"] != "COMPLETED" or (
         status["index_sha256"], status["summary_sha256"]
     ) != (index_sha, summary_sha):
-        raise ValueError("E0 attempt is incomplete or index/summary checksums differ")
+        raise ValueError(f"{stage} attempt is incomplete or index/summary checksums differ")
 
     manifest_path = attempt / "run_manifest.json"
+    manifest_sha = sha256_file(manifest_path)
+    if "run_manifest_sha256" in status and status["run_manifest_sha256"] != manifest_sha:
+        raise ValueError(f"{stage} collection manifest checksum differs from completed status")
     manifest = json.loads(manifest_path.read_bytes())
     schema_path = attempt / "feature_schema.json"
     schema = json.loads(schema_path.read_bytes())
@@ -137,15 +180,19 @@ def load_e0(attempt: str | Path) -> E0Dataset:
         field: {"dtype": "float32", "shape": list(shape)} for field, shape in FEATURE_SHAPES.items()
     }
     if schema != expected_schema:
-        raise ValueError("E0 feature manifest differs from the frozen visible schema")
+        raise ValueError(f"{stage} feature manifest differs from the frozen visible schema")
 
     rows = [json.loads(line) for line in index_data.splitlines()]
     plan = manifest["source_plan"]
     if not len(rows) == len(plan) == status["planned_groups"] == status["completed_groups"]:
-        raise ValueError("E0 episode count differs from the source plan")
+        raise ValueError(f"{stage} episode count differs from the source plan")
     protocol = manifest["protocol"]
-    if protocol["task"] != "Square" or protocol["refresh_delay_steps"] != 2:
-        raise ValueError("Expected the registered Square protocol and two-tick refresh")
+    if x1_config is None:
+        if "x1_cell" in protocol or protocol["task"] != "Square" or protocol["refresh_delay_steps"] != 2:
+            raise ValueError("Expected the registered Square protocol and two-tick refresh")
+        x1_provenance = {}
+    else:
+        x1_provenance = _verify_x1_collection(manifest, x1_config)
     counts = Counter()
     seen_seeds = set()
     episodes = []
@@ -155,28 +202,34 @@ def load_e0(attempt: str | Path) -> E0Dataset:
         if (
             type(seed) is not int
             or seed in seen_seeds
-            or row["source_episode_id"] != f"square_e0_{seed}"
             or any(row[key] != planned[key] for key in (
                 "seed", "source_episode_id", "distribution", "bank", "split", "selector_seed",
             ))
-            or row["selector_seed"] != protocol["selector_seed"] + seed
             or distribution not in DISTRIBUTIONS
             or bank not in ("factorial", "pair")
             or split not in ("train", "validation", "test")
             or (bank == "pair" and split != "train")
+            or (
+                x1_config is None
+                and (
+                    row["source_episode_id"] != f"square_e0_{seed}"
+                    or row["selector_seed"] != protocol["selector_seed"] + seed
+                )
+            )
         ):
-            raise ValueError(f"Invalid or duplicate E0 episode assignment for seed {seed}")
+            raise ValueError(f"Invalid or duplicate {stage} episode assignment for seed {seed}")
         seen_seeds.add(seed)
-        cohort = protocol["factorial_cohorts" if bank == "factorial" else "pair_training_cohorts"][distribution]
-        if not cohort["first_seed"] <= seed < cohort["first_seed"] + cohort["size"]:
-            raise ValueError(f"E0 episode seed {seed} leaves its registered cohort")
+        if x1_config is None:
+            cohort = protocol["factorial_cohorts" if bank == "factorial" else "pair_training_cohorts"][distribution]
+            if not cohort["first_seed"] <= seed < cohort["first_seed"] + cohort["size"]:
+                raise ValueError(f"E0 episode seed {seed} leaves its registered cohort")
         counts[distribution, bank, split] += 1
         labels = FACTORIAL_BRANCHES if bank == "factorial" else PAIR_BRANCHES
         if set(row["branches"]) != set(labels):
-            raise ValueError(f"E0 episode {seed} has an unexpected branch set")
+            raise ValueError(f"{stage} episode {seed} has an unexpected branch set")
         _verify_resources(row, source=True)
         if type(row["source_tick"]) is not int or not 0 <= row["source_tick"] < row["source_episode_steps"]:
-            raise ValueError(f"E0 episode {seed} has an invalid source tick")
+            raise ValueError(f"{stage} episode {seed} has an invalid source tick")
         for label, branch in row["branches"].items():
             _verify_resources(branch)
             if (
@@ -185,16 +238,17 @@ def load_e0(attempt: str | Path) -> E0Dataset:
                 or type(branch["discounted_return"]) not in (float, int)
                 or not math.isfinite(branch["discounted_return"])
             ):
-                raise ValueError(f"Invalid branch {label} for E0 episode {seed}")
+                raise ValueError(f"Invalid branch {label} for {stage} episode {seed}")
         context, residual = _read_verified_feature(attempt, row)
         episodes.append(_Episode(row, context, residual))
 
-    for distribution in DISTRIBUTIONS:
-        for split, count in protocol["factorial_split_counts"].items():
-            if counts[distribution, "factorial", split] != count:
-                raise ValueError(f"Unexpected {distribution} / {split} factorial cohort size")
-        if counts[distribution, "pair", "train"] != protocol["pair_training_cohorts"][distribution]["size"]:
-            raise ValueError(f"Unexpected {distribution} pair-only cohort size")
+    if x1_config is None:
+        for distribution in DISTRIBUTIONS:
+            for split, count in protocol["factorial_split_counts"].items():
+                if counts[distribution, "factorial", split] != count:
+                    raise ValueError(f"Unexpected {distribution} / {split} factorial cohort size")
+            if counts[distribution, "pair", "train"] != protocol["pair_training_cohorts"][distribution]["size"]:
+                raise ValueError(f"Unexpected {distribution} pair-only cohort size")
     assert_disjoint_groups(*(
         [episode.source_episode_id for episode in episodes if episode.row["split"] == split]
         for split in ("train", "validation", "test")
@@ -206,10 +260,11 @@ def load_e0(attempt: str | Path) -> E0Dataset:
             "status_sha256": sha256_file(attempt / "status.json"),
             "index_sha256": index_sha,
             "summary_sha256": summary_sha,
-            "run_manifest_sha256": sha256_file(manifest_path),
+            "run_manifest_sha256": manifest_sha,
             "feature_schema_sha256": sha256_file(schema_path),
             "dataset": protocol["dataset"],
             "identities": manifest["identities"],
+            **x1_provenance,
         },
         feature_schema={
             "context_fields": list(CONTEXT_FIELDS),
