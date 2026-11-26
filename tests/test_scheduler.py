@@ -128,6 +128,32 @@ class AbsoluteTickSemanticsTests(unittest.TestCase):
         self.assertTrue(row.used_fallback)
         self.assertEqual(row.applied_action, (0.25, -0.25))
 
+    def test_nominal_expiry_refills_without_refresh_treatment(self):
+        provider = Provider()
+        scheduler = _scheduler(provider)
+        for _ in range(8):
+            _advance(scheduler)
+        self.assertTrue(scheduler.refill_if_exhausted("expiry"))
+        self.assertEqual(scheduler.current_base_action(), (10.0, -10.0))
+        self.assertEqual(provider.calls, [("expiry", 8, 1)])
+        self.assertEqual(scheduler.counters.act_calls, 1)
+        self.assertEqual(scheduler.counters.refresh_requests, 0)
+        self.assertEqual(_advance(scheduler).chunk_index, 0)
+
+    def test_pending_refresh_controls_refill_and_fallback(self):
+        provider = Provider()
+        scheduler = _scheduler(provider)
+        for _ in range(7):
+            _advance(scheduler)
+        _advance(scheduler, refresh=True, observation="expiry")
+        for _ in range(2):
+            self.assertFalse(scheduler.refill_if_exhausted("waiting"))
+            self.assertTrue(_advance(scheduler).used_fallback)
+        self.assertFalse(scheduler.refill_if_exhausted("ready"))
+        self.assertEqual(scheduler.current_base_action(), (12.0, -12.0))
+        self.assertEqual(_advance(scheduler).chunk_index, 2)
+        self.assertEqual(provider.calls, [("expiry", 8, 1)])
+
 
 class SchedulerSnapshotTests(unittest.TestCase):
     def test_pending_snapshot_can_be_restored_twice_without_new_act_call(self):

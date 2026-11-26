@@ -1,5 +1,6 @@
 from collections import deque
 from dataclasses import dataclass, replace
+import random
 import unittest
 from unittest.mock import patch
 
@@ -133,7 +134,7 @@ class CompositeSnapshotTests(unittest.TestCase):
         self.scheduler = FakeScheduler()
         self.policy = FakePolicy()
 
-    def capture(self):
+    def capture(self, **kwargs):
         with patch.object(
             composite, "capture_square_snapshot", return_value=self.environment
         ):
@@ -146,9 +147,10 @@ class CompositeSnapshotTests(unittest.TestCase):
                 observation_tick=5,
                 residual_history=([0.1, -0.1],),
                 torch_api=FakeTorch,
+                **kwargs,
             )
 
-    def restore(self, snapshot):
+    def restore(self, snapshot, **kwargs):
         def restore_environment(_wrapper, state, *, mujoco_api=None):
             self.assertIs(state, self.environment)
             EVENTS.append("environment")
@@ -164,7 +166,65 @@ class CompositeSnapshotTests(unittest.TestCase):
                 policy_identity=self.POLICY_IDENTITY,
                 provider_identity=self.PROVIDER_IDENTITY,
                 torch_api=FakeTorch,
+                **kwargs,
             )
+
+    def test_resfit_context_restores_histories_frozen_inputs_and_collector_rng(self):
+        collector = random.Random(834)
+        identities = {
+            "residual_policy_identity": "resfit-model-sha256",
+            "normalization_identity": "resfit-normalization-sha256",
+        }
+        actor_observation = {"observation.base_action": FakeTensor([0.2, -0.4])}
+        observations = [{"tick": 4, "state": [0.5]}, {"tick": 5, "state": [0.7]}]
+        action_ledger = [{"tick": 4, "applied_action": [0.3, -0.3]}]
+        snapshot = self.capture(
+            actor_observation=actor_observation,
+            observation_history=observations,
+            applied_action_ledger=action_ledger,
+            collector_rng=collector,
+            **identities,
+        )
+        expected_draw = collector.random()
+        actor_observation["observation.base_action"].values[0] = 999
+        observations[0]["state"][0] = 999
+        action_ledger[0]["applied_action"][0] = 999
+        collector.random()
+
+        first = self.restore(snapshot, collector_rng=collector, **identities)
+        self.assertEqual(collector.random(), expected_draw)
+        first.actor_observation["observation.base_action"].values[0] = 888
+        first.observation_history[0]["state"][0] = 888
+        first.applied_action_ledger[0]["applied_action"][0] = 888
+
+        second = self.restore(snapshot, collector_rng=collector, **identities)
+        self.assertEqual(collector.random(), expected_draw)
+        self.assertEqual(second.actor_observation["observation.base_action"].values, [0.2, -0.4])
+        self.assertEqual(second.observation_history[0], {"tick": 4, "state": [0.5]})
+        self.assertEqual(second.applied_action_ledger[0], {"tick": 4, "applied_action": [0.3, -0.3]})
+
+    def test_rejects_resfit_normalizer_and_collector_mismatch_before_restore(self):
+        collector = random.Random(835)
+        snapshot = self.capture(
+            actor_observation={"observation.base_action": FakeTensor([0.2])},
+            residual_policy_identity="resfit-model-sha256",
+            normalization_identity="normalization-sha256",
+            collector_rng=collector,
+        )
+        with self.assertRaisesRegex(ValueError, "normalization identity"):
+            self.restore(
+                snapshot,
+                residual_policy_identity="resfit-model-sha256",
+                normalization_identity="other-normalization-sha256",
+                collector_rng=collector,
+            )
+        with self.assertRaisesRegex(ValueError, "collector RNG kind"):
+            self.restore(
+                snapshot,
+                residual_policy_identity="resfit-model-sha256",
+                normalization_identity="normalization-sha256",
+            )
+        self.assertEqual(self.scheduler.restore_calls, 0)
 
     def test_restores_twice_without_reset_forward_or_snapshot_mutation(self):
         snapshot = self.capture()

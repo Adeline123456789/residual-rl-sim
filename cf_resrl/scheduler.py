@@ -165,18 +165,44 @@ class AbsoluteTickScheduler:
             self._active_chunk = pending.chunk
             self._pending_refresh = None
 
+    def refill_if_exhausted(self, observation: Any) -> bool:
+        """Run the nominal ACT inference at chunk expiry unless a refresh is pending."""
+        if self._awaiting_after_step:
+            raise RuntimeError("chunk refill requires a completed environment step")
+        self._activate_ready_chunk()
+        index = self._logical_tick - self._active_chunk.source_tick
+        if self._pending_refresh is not None or 0 <= index < len(self._active_chunk.actions):
+            return False
+        generation = self._next_generation
+        values = self._provider(observation, self._logical_tick, generation)
+        self._active_chunk = self._make_chunk(values, self._logical_tick, generation)
+        self._next_generation += 1
+        counters = self._counters
+        self._counters = SchedulerCounters(
+            control_steps=counters.control_steps,
+            refresh_attempts=counters.refresh_attempts,
+            refresh_requests=counters.refresh_requests,
+            ignored_refresh_requests=counters.ignored_refresh_requests,
+            act_calls=counters.act_calls + 1,
+        )
+        return True
+
+    def current_base_action(self) -> Action:
+        if self._awaiting_after_step:
+            raise RuntimeError("current base action requires a completed environment step")
+        self._activate_ready_chunk()
+        index = self._logical_tick - self._active_chunk.source_tick
+        if 0 <= index < len(self._active_chunk.actions):
+            return self._active_chunk.actions[index]
+        return self._fallback_action
+
     def action(self, proposed_residual: Sequence[float]) -> ActionLedgerEntry:
         """Return and record the action that the caller must submit now."""
         if self._awaiting_after_step:
             raise RuntimeError("after_step must follow each scheduled action")
-        self._activate_ready_chunk()
+        base_action = self.current_base_action()
         chunk_index = self._logical_tick - self._active_chunk.source_tick
         used_fallback = not 0 <= chunk_index < len(self._active_chunk.actions)
-        base_action = (
-            self._fallback_action
-            if used_fallback
-            else self._active_chunk.actions[chunk_index]
-        )
         residual = _action(
             proposed_residual,
             dimension=self._dimension,

@@ -53,6 +53,7 @@ class FakeMujoco:
     @staticmethod
     def mj_forward(model, data):
         data.forward_calls += 1
+        data.integration[-1] = -1.0
 
 
 class StateObject:
@@ -88,6 +89,7 @@ ARM_FIELDS = (
     "torques",
     "origin_pos",
     "origin_ori",
+    "initial_joint",
 )
 GRIPPER_FIELDS = (
     "goal_qvel",
@@ -189,6 +191,7 @@ class SnapshotTests(unittest.TestCase):
         wrapper.env.robots[0].recent_actions.current[0] = 77
         arm = wrapper.env.robots[0].composite_controller.part_controllers["right"]
         arm.goal_pos[0] = -10
+        arm.initial_joint[0] = -15
         arm.ref_pos[0] = -11
         arm.new_update = False
         gripper_controller = (
@@ -215,6 +218,7 @@ class SnapshotTests(unittest.TestCase):
         )
         self.assertEqual(wrapper.env.robots[0].recent_actions.current, [2])
         self.assertEqual(arm.goal_pos, [10, 0])
+        self.assertEqual(arm.initial_joint, [10, len(ARM_FIELDS) - 1])
         self.assertEqual(arm.ref_pos, [10, 8])
         self.assertTrue(arm.new_update)
         self.assertEqual(gripper_controller.goal_qvel, [20, 0])

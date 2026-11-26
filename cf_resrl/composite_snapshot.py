@@ -1,4 +1,4 @@
-"""Composite Square snapshots for environment, ACT, and scheduler state.
+"""Composite Square snapshots for environment and frozen policy control state.
 
 The environment snapshot remains owned by :mod:`cf_resrl.snapshot`; this module
 adds the control state that must travel with it at a branch boundary. Restoring
@@ -62,6 +62,13 @@ class CompositeSnapshot:
     observation_tick: int
     current_observation: Any
     residual_history: tuple[Any, ...]
+    observation_history: tuple[Any, ...] = ()
+    applied_action_ledger: tuple[Any, ...] = ()
+    actor_observation: Any = None
+    residual_policy_identity: str | None = None
+    normalization_identity: str | None = None
+    collector_rng_kind: str | None = None
+    collector_rng_state: Any = None
 
 
 @dataclass(frozen=True)
@@ -69,6 +76,9 @@ class RestoredControlContext:
     observation_tick: int
     current_observation: Any
     residual_history: tuple[Any, ...]
+    observation_history: tuple[Any, ...] = ()
+    applied_action_ledger: tuple[Any, ...] = ()
+    actor_observation: Any = None
 
 
 def _torch(torch_api: Any | None) -> Any:
@@ -94,6 +104,32 @@ def _identity(value: Any, *, name: str) -> str:
     if not isinstance(value, str) or not value:
         raise ValueError(f"{name} must be a non-empty registered identity")
     return value
+
+
+def _collector_state(rng: Any | None) -> tuple[str | None, Any]:
+    if rng is None:
+        return None, None
+    if hasattr(rng, "bit_generator"):
+        generator = rng.bit_generator
+        return type(generator).__qualname__, deepcopy(generator.state)
+    return "python_random", deepcopy(rng.getstate())
+
+
+def _validate_resfit_context(
+    residual_policy_identity: str | None,
+    normalization_identity: str | None,
+    actor_observation: Any,
+) -> None:
+    if (
+        residual_policy_identity is None
+        and normalization_identity is None
+        and actor_observation is None
+    ):
+        return
+    _identity(residual_policy_identity, name="residual_policy_identity")
+    _identity(normalization_identity, name="normalization_identity")
+    if actor_observation is None:
+        raise ValueError("ResFiT snapshot must include the normalized actor observation")
 
 
 def _item_snapshot(value: Any) -> ActQueueItemSnapshot:
@@ -218,6 +254,12 @@ def capture_composite_snapshot(
     provider_identity: str,
     observation_tick: int,
     residual_history: Sequence[Any] = (),
+    observation_history: Sequence[Any] = (),
+    applied_action_ledger: Sequence[Any] = (),
+    actor_observation: Any = None,
+    residual_policy_identity: str | None = None,
+    normalization_identity: str | None = None,
+    collector_rng: Any | None = None,
     mujoco_api: Any | None = None,
     torch_api: Any | None = None,
 ) -> CompositeSnapshot:
@@ -225,10 +267,16 @@ def capture_composite_snapshot(
 
     The authoritative current observation is always the environment wrapper's
     ``_last_obs`` value captured in the same snapshot operation. No caller-
-    supplied observation is accepted.
+    supplied raw observation is accepted. A frozen ResFiT caller also supplies
+    the normalized actor observation and the identities of the weights and
+    normalization parameters used to construct it.
     """
     policy_identity = _identity(policy_identity, name="policy_identity")
     provider_identity = _identity(provider_identity, name="provider_identity")
+    _validate_resfit_context(
+        residual_policy_identity, normalization_identity, actor_observation
+    )
+    collector_rng_kind, collector_rng_state = _collector_state(collector_rng)
     environment_snapshot = capture_square_snapshot(wrapper, mujoco_api=mujoco_api)
     if "_last_obs" not in environment_snapshot.wrapper_state:
         raise ValueError("environment snapshot is missing wrapper _last_obs")
@@ -238,7 +286,11 @@ def capture_composite_snapshot(
     torch_api = _torch(torch_api)
     return CompositeSnapshot(
         schema_version=1,
-        scope="square_environment__act_queue__absolute_tick_scheduler",
+        scope=(
+            "square_environment__act_queue__absolute_tick_scheduler__resfit_context"
+            if residual_policy_identity is not None
+            else "square_environment__act_queue__absolute_tick_scheduler"
+        ),
         policy_identity=policy_identity,
         provider_identity=provider_identity,
         environment=environment_snapshot,
@@ -248,6 +300,13 @@ def capture_composite_snapshot(
         observation_tick=int(observation_tick),
         current_observation=_clone(environment_snapshot.wrapper_state["_last_obs"]),
         residual_history=tuple(_clone(value) for value in residual_history),
+        observation_history=tuple(_clone(value) for value in observation_history),
+        applied_action_ledger=tuple(_clone(value) for value in applied_action_ledger),
+        actor_observation=_clone(actor_observation),
+        residual_policy_identity=residual_policy_identity,
+        normalization_identity=normalization_identity,
+        collector_rng_kind=collector_rng_kind,
+        collector_rng_state=collector_rng_state,
     )
 
 
@@ -259,6 +318,9 @@ def restore_composite_snapshot(
     *,
     policy_identity: str,
     provider_identity: str,
+    residual_policy_identity: str | None = None,
+    normalization_identity: str | None = None,
+    collector_rng: Any | None = None,
     mujoco_api: Any | None = None,
     torch_api: Any | None = None,
 ) -> RestoredControlContext:
@@ -273,14 +335,31 @@ def restore_composite_snapshot(
         raise ValueError("ACT policy identity does not match the snapshot")
     if provider_identity != snapshot.provider_identity:
         raise ValueError("scheduler provider identity does not match the snapshot")
+    if residual_policy_identity != snapshot.residual_policy_identity:
+        raise ValueError("residual policy identity does not match the snapshot")
+    if normalization_identity != snapshot.normalization_identity:
+        raise ValueError("normalization identity does not match the snapshot")
+    _validate_resfit_context(
+        residual_policy_identity, normalization_identity, snapshot.actor_observation
+    )
+    collector_rng_kind, _ = _collector_state(collector_rng)
+    if collector_rng_kind != snapshot.collector_rng_kind:
+        raise ValueError("collector RNG kind does not match the snapshot")
     torch_api = _torch(torch_api)
 
     restore_square_snapshot(wrapper, snapshot.environment, mujoco_api=mujoco_api)
     _restore_act_policy(act_policy, snapshot.act_policy)
     scheduler.restore(snapshot.scheduler)
     _restore_torch_rng(torch_api, snapshot.torch_rng)
+    if collector_rng_kind == "python_random":
+        collector_rng.setstate(deepcopy(snapshot.collector_rng_state))
+    elif collector_rng_kind is not None:
+        collector_rng.bit_generator.state = deepcopy(snapshot.collector_rng_state)
     return RestoredControlContext(
         observation_tick=snapshot.observation_tick,
         current_observation=_clone(snapshot.current_observation),
         residual_history=tuple(_clone(value) for value in snapshot.residual_history),
+        observation_history=tuple(_clone(value) for value in snapshot.observation_history),
+        applied_action_ledger=tuple(_clone(value) for value in snapshot.applied_action_ledger),
+        actor_observation=_clone(snapshot.actor_observation),
     )

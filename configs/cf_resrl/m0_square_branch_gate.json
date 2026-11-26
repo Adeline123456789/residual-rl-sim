@@ -1,0 +1,15 @@
+{
+  "status": "SPECIFICATION_NOT_A_RUN_RESULT",
+  "task": "Square",
+  "resfit_attempt": "results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5",
+  "resfit_environment_step": 300000,
+  "resfit_checkpoint_sha256": "d0c8e8020ec91f84fc65edc7ff586b128c341dbc362c3020b4c4b2a8c8e401f7",
+  "source_seeds": [20263124, 20263125, 20263126, 20263127, 20263128, 20263129, 20263130, 20263131],
+  "source_ticks": [7, 8, 9, 10, 11, 12, 13, 14],
+  "refresh_delay_steps": 2,
+  "simulation_horizon_steps": 300,
+  "branch_labels": ["V00", "V01", "V10", "V11"],
+  "duplicate_replay": "V11 from the first source group, tracked separately from the 32 branch rollouts",
+  "decision_value": "0.99-discounted remaining episode reward",
+  "output_root": "results/cf_resrl/m0/branch_gate"
+}

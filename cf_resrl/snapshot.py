@@ -15,6 +15,7 @@ from typing import Any
 
 
 ARM_CONTROLLER_FIELDS = (
+    "initial_joint",
     "goal_pos",
     "goal_ori",
     "relative_ori",
@@ -231,6 +232,13 @@ def restore_square_snapshot(
         state_spec,
     )
     mujoco_api.mj_forward(env.sim.model._model, env.sim.data._data)
+    # Forward recomputes derived fields but can overwrite the solver warm start.
+    mujoco_api.mj_setState(
+        env.sim.model._model,
+        env.sim.data._data,
+        integration_state,
+        state_spec,
+    )
 
     _restore_fields(env, snapshot.environment_state)
     _restore_fields(controllers["right"], snapshot.controller_states["right"])
