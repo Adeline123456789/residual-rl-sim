@@ -1,0 +1,21 @@
+{
+  "status": "SPECIFICATION_NOT_A_RUN_RESULT",
+  "data_attempt": "results/cf_resrl/mvp_square/e0_data/attempts/20261126T184751184660Z_90a4f137d61c",
+  "source_index_sha256": "5c6a55180126514fb99434e588fc659e786ff4959257453292d3d984111b13a1",
+  "output_root": "results/cf_resrl/mvp_square/offline_probe",
+  "distributions": ["natural", "enriched"],
+  "nested_fractions": [0.05, 0.10, 0.25, 0.50, 1.0],
+  "decision_costs": [0.0, 0.01, 0.025, 0.05, 0.10],
+  "critical_margin": 0.05,
+  "calibration_bins": 5,
+  "selection_seed": 20261128,
+  "training": {
+    "seed": 20261129,
+    "steps": 600,
+    "batch_size": 32,
+    "learning_rate": 0.001,
+    "width": 64
+  },
+  "bootstrap_samples": 1000,
+  "bootstrap_seed": 20261130
+}
