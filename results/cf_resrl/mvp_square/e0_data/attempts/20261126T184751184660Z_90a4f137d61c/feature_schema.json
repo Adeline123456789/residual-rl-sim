@@ -1,0 +1,51 @@
+{
+  "base": {
+    "dtype": "float32",
+    "shape": [
+      7
+    ]
+  },
+  "chunk_index": {
+    "dtype": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "chunk_mask": {
+    "dtype": "float32",
+    "shape": [
+      20
+    ]
+  },
+  "chunk_suffix": {
+    "dtype": "float32",
+    "shape": [
+      20,
+      7
+    ]
+  },
+  "residual": {
+    "dtype": "float32",
+    "shape": [
+      7
+    ]
+  },
+  "state": {
+    "dtype": "float32",
+    "shape": [
+      9
+    ]
+  },
+  "tick": {
+    "dtype": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "visual": {
+    "dtype": "float32",
+    "shape": [
+      128
+    ]
+  }
+}
