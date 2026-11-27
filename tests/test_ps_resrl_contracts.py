@@ -229,6 +229,78 @@ class PhaseSymbioticRLContractTests(unittest.TestCase):
         self.assertEqual(actor.action_scale_vec[0, 6].item(), 0.10000000149011612)
         self.assertEqual(actor.action_scale_vec[0, 7].item(), 1.0)
 
+    def test_evaluate_phase_vec_env_act_calls_and_quantiles(self) -> None:
+        resfit_root = Path(__file__).resolve().parents[1] / "third_party" / "resfit"
+        if str(resfit_root) not in sys.path:
+            sys.path.insert(0, str(resfit_root))
+        from ps_resrl.phase_vec_env import evaluate_phase_vec_env
+
+        class _FakeAgent:
+            def __init__(self) -> None:
+                self.training = True
+
+            def train(self, mode: bool = True):
+                self.training = mode
+                return self
+
+            def act(self, obs, *, eval_mode=False, stddev=0.0, cpu=False):
+                assert eval_mode and not self.training
+                return torch.zeros((2, 8), dtype=torch.float32)
+
+        class _FakePhaseEnv:
+            num_envs = 2
+
+            def __init__(self) -> None:
+                self._tick = 0
+
+            def reset(self, *, seed=None):
+                self._tick = 0
+                return {"observation.state": torch.zeros((2, 4))}, {}
+
+            def step(self, actions):
+                self._tick += 1
+                t = self._tick
+                # Env 0 finishes at t=2 (1 refill while alive -> 2 ACT calls) and again at t=4 (1 episode ACT call).
+                # Env 1 finishes at t=3 (0 refills while alive -> 1 ACT call).
+                done = torch.tensor([t in (2, 4), t == 3], dtype=torch.bool)
+                term = torch.tensor([t == 2, False], dtype=torch.bool)
+                trunc = torch.tensor([t == 4, t == 3], dtype=torch.bool)
+                reward = torch.tensor([1.0 if t == 2 else 0.0, 0.0], dtype=torch.float32)
+                refill = torch.tensor([t in (1, 2, 4), t == 3], dtype=torch.bool)
+                stall = torch.tensor([t == 1, False], dtype=torch.bool)
+                nu = torch.tensor([0.5 if t <= 2 else 1.25, 1.0], dtype=torch.float32)
+                res = torch.zeros((2, 7), dtype=torch.float32)
+                if t == 2:
+                    res[0, 0] = 0.10  # saturated step for env 0
+                info = {
+                    "phase_velocity": nu,
+                    "stall_cap_triggered": stall,
+                    "act_refill_mask": refill,
+                    "proposed_residual_action": res,
+                }
+                return {"observation.state": torch.zeros((2, 4))}, reward, term, trunc, info
+
+        agent = _FakeAgent()
+        metrics, episodes = evaluate_phase_vec_env(
+            _FakePhaseEnv(),
+            agent,
+            num_episodes=3,
+            device=torch.device("cpu"),
+            reset_seed=20262124,
+            saturation_threshold=0.095,
+        )
+        self.assertTrue(agent.training)
+        self.assertEqual(len(episodes), 3)
+        self.assertEqual([ep["act_calls"] for ep in episodes], [2, 1, 1])
+        self.assertAlmostEqual(metrics["eval/success_rate"], 1.0 / 3.0, places=6)
+        self.assertEqual(metrics["eval/act_calls_total"], 4)
+        self.assertAlmostEqual(metrics["eval/mean_act_calls"], 4.0 / 3.0, places=6)
+        self.assertEqual(metrics["eval/stall_cap_triggers"], 1)
+        self.assertAlmostEqual(metrics["eval/residual_saturation_rate"], 1.0 / 7.0, places=6)
+        self.assertAlmostEqual(metrics["eval/mean_phase_velocity"], 6.5 / 7.0, places=6)
+        self.assertAlmostEqual(metrics["eval/phase_velocity_p50"], 1.0, places=6)
+        self.assertEqual(metrics["eval/environment_steps"], 8)
+
 
 if __name__ == "__main__":
     unittest.main()
