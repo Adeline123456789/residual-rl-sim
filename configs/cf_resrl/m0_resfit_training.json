@@ -1,0 +1,63 @@
+{
+  "status": "SPECIFICATION_NOT_A_RUN_RESULT",
+  "upstream": {
+    "resfit_commit": "66262b06a0caf159fb001504949b7b48ccda5f64",
+    "robosuite_commit": "77a4751233c29456a5381209e30dd0dbf39a6557",
+    "lerobot_commit": "69901b9b6a2300914ca3de0ea14b6fa6e0203bd4",
+    "patches": [
+      {
+        "path": "patches/resfit/train_bc_dexmg_cf_resrl.patch",
+        "sha256": "63283baa4fd93a5802ae1e83170b4c0a18616df36ef9fcb36dff56b5def2d975",
+        "target_root": "resfit"
+      },
+      {
+        "path": "patches/resfit/residual_td3_cf_resrl_eval.patch",
+        "sha256": "7fba47e4ee1fb75d22d162020df202f598f0117b549dbc0fa26159843722df0f",
+        "target_root": "resfit"
+      },
+      {
+        "path": "patches/lerobot/noncontiguous_episode_subset.patch",
+        "sha256": "4d20bc4ec899087891018fd8360eac31ec06774279c05581fada3827db967429",
+        "target_root": "lerobot"
+      }
+    ]
+  },
+  "dataset": {
+    "name": "ankile/robomimic-mh-square-image",
+    "revision": "4e5cee7ea7d63b920ff76c2529b781c2474697da",
+    "root": "data/cf_resrl/square",
+    "split_manifest": "results/cf_resrl/m0/dataset_audit/attempts/20261124T131023495428Z_a9dcb4b558af/split_manifest.json",
+    "split_manifest_sha256": "629d01857156c691f297218e0cda3e3b3a802a91122f006a1ca70fd31163afcd",
+    "split": "train",
+    "episodes": 240,
+    "video_backend": "pyav"
+  },
+  "base_policy": {
+    "local_dir": "results/cf_resrl/m0/act_training/attempts/20261125T005956570423Z_3dfd8208847a/training/policy_step_49999/policy",
+    "source_status": "results/cf_resrl/m0/act_training/attempts/20261125T005956570423Z_3dfd8208847a/status.json",
+    "config_sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb",
+    "model_sha256": "e5f5b3c7fa7512a2ae202d5912922289a52348f8a3bb5a9da33f606d671cb859",
+    "provenance": "locally reproduced ACT, fixed final checkpoint after 50000 optimization steps"
+  },
+  "runtime": {
+    "conda_environment": "cf-resrl-resfit",
+    "extension_requirements": "configs/cf_resrl/m0_resfit_runtime_requirements.txt"
+  },
+  "training": {
+    "config_name": "residual_td3_square_config",
+    "seed": 20261124,
+    "warmup_environment_steps": 10000,
+    "main_environment_steps": 290000,
+    "total_environment_steps": 300000,
+    "checkpoint_interval_environment_steps": 10000,
+    "checkpoint_contract": "evaluation_loadable_not_training_resumable",
+    "wandb_mode": "disabled",
+    "selection": "fixed_environment_step",
+    "output_root": "results/cf_resrl/m0/resfit_training"
+  },
+  "limitations": [
+    "The base policy is the fixed final checkpoint of the local ACT reproduction; the original W&B run was unavailable.",
+    "No ResFiT training result exists until the long run completes and its checkpoint manifest is committed.",
+    "Fixed checkpoints preserve model, target-network, optimizer, scheduler, normalization, and RNG state, but omit replay buffers and live environment state; they are evaluation-loadable, not complete training resumes."
+  ]
+}

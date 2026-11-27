@@ -1,0 +1,70 @@
+{
+  "archive": {
+    "bytes": 298803200,
+    "files": 1440,
+    "name": "cf-square-factorial-v1-e0-20261127.tar",
+    "sha256": "0a5da328332c38a4c782bbd70c91edf50859e0ba0db16162c33fe54ad2736cd1"
+  },
+  "budget": {
+    "branches": {
+      "act_calls": 9565,
+      "by_label": {
+        "V00": {
+          "act_calls": 1561,
+          "environment_steps": 31978,
+          "rollouts": 400,
+          "wall_seconds": 234.39239383502718
+        },
+        "V01": {
+          "act_calls": 1786,
+          "environment_steps": 31872,
+          "rollouts": 400,
+          "wall_seconds": 235.14601323009265
+        },
+        "V10": {
+          "act_calls": 2914,
+          "environment_steps": 59574,
+          "rollouts": 720,
+          "wall_seconds": 437.14400222584663
+        },
+        "V11": {
+          "act_calls": 3304,
+          "environment_steps": 59384,
+          "rollouts": 720,
+          "wall_seconds": 437.86059145000036
+        }
+      },
+      "environment_steps": 182808,
+      "rollouts": 2240,
+      "wall_seconds": 1344.5430007409668
+    },
+    "source_scout": {
+      "act_calls": 6624,
+      "environment_steps": 126066,
+      "episodes": 720,
+      "wall_seconds": 1209.9725034020375
+    }
+  },
+  "collection_log_sha256": "a03da1d9390034663364fd66150326a2a1ca695e79a0016c4e99a65498ea375a",
+  "exact_v10_nominal_suffix_replays": 720,
+  "feature_schema_sha256": "c9a93db77e65d2b5e93699f4dc33896528df43623447d00330e19e83f740cb32",
+  "files_verified": 1440,
+  "index_sha256": "5c6a55180126514fb99434e588fc659e786ff4959257453292d3d984111b13a1",
+  "original_gate_summary_sha256": "a14850a3fa98e8bb37713ae3c2b38368eb520c4c663e8bc5b9cb4c67ec4abd10",
+  "recomputed_bootstrap_summary_exact": true,
+  "registered_config_sha256": "0391c20dd8c0447a5c51f638f7a9841826b3c7d9e36dbda82f4e5bd8c31289a3",
+  "run_manifest_sha256": "5351ce40375e0fad6e715b06b4d3d8a3249a7530dcefa76847bcc2536efc2e75",
+  "source_group_splits": {
+    "factorial/enriched/test": 20,
+    "factorial/enriched/train": 160,
+    "factorial/enriched/validation": 20,
+    "factorial/natural/test": 20,
+    "factorial/natural/train": 160,
+    "factorial/natural/validation": 20,
+    "pair/enriched/train": 160,
+    "pair/natural/train": 160
+  },
+  "source_groups": 720,
+  "status": "VERIFIED",
+  "summary_sha256": "735c9239f38b14cdd20ab55b6141b1a9115ea4914ef3534224614104cafca773"
+}

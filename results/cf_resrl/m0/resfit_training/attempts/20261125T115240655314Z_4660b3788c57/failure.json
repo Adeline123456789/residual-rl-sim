@@ -1,0 +1,18 @@
+{
+  "attempt_dir": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261125T115240655314Z_4660b3788c57",
+  "child_pid": 2256051,
+  "child_returncode": 134,
+  "cleanup_error": null,
+  "config_path": "/media/midea/work/CF-ResRL/residual-rl-sim/configs/cf_resrl/m0_resfit_training.json",
+  "error": "ResFiT training exited with status 134",
+  "error_type": "RuntimeError",
+  "experiment_kind": "resfit_training",
+  "failed_at_utc": "2026-11-25T12:18:50.665025+00:00",
+  "git_commit": "4660b3788c574eed7be9b55b90245b8ecbe22013",
+  "launcher_pid": 2255953,
+  "lerobot_status": "",
+  "patch_cleanup_stdout": "Reversed noncontiguous_episode_subset.patch\nReversed residual_td3_cf_resrl_eval.patch\nReversed train_bc_dexmg_cf_resrl.patch\n",
+  "resfit_status": "",
+  "status": "FAILED",
+  "stdout_stderr_sha256": "345266e1e421f553c562665cd9bda23a0fefafdc0b7a3e9bd56c288c7c7614fe"
+}

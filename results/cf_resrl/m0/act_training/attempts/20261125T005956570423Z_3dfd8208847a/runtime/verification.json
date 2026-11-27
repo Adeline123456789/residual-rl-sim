@@ -1,0 +1,77 @@
+{
+  "commands": {
+    "conda_explicit": [
+      "conda",
+      "list",
+      "-n",
+      "cf-resrl-m0",
+      "--explicit"
+    ],
+    "metadata": [
+      "conda",
+      "run",
+      "--no-capture-output",
+      "-n",
+      "cf-resrl-m0",
+      "env",
+      "PYTHONNOUSERSITE=1",
+      "python",
+      "-c",
+      "import json\nimport platform\nfrom pathlib import Path\nimport sys\nimport torch\nimport torchvision.models as models\nfrom urllib.parse import urlparse\n\nenum_text = sys.argv[1]\nenum_class_name, enum_member_name = enum_text.split(\".\", maxsplit=1)\nweights = getattr(getattr(models, enum_class_name), enum_member_name)\nweights.get_state_dict(progress=False, check_hash=True)\nweights_filename = Path(urlparse(weights.url).path).name\nweights_path = Path(torch.hub.get_dir()) / \"checkpoints\" / weights_filename\n\ngpus = []\nfor index in range(torch.cuda.device_count()):\n    properties = torch.cuda.get_device_properties(index)\n    gpus.append({\n        \"index\": index,\n        \"name\": properties.name,\n        \"total_memory_bytes\": properties.total_memory,\n        \"compute_capability\": list(torch.cuda.get_device_capability(index)),\n    })\nprint(json.dumps({\n    \"host\": platform.node(),\n    \"python\": platform.python_version(),\n    \"torch\": torch.__version__,\n    \"cuda\": torch.version.cuda,\n    \"cuda_available\": torch.cuda.is_available(),\n    \"gpus\": gpus,\n    \"backbone_weights\": {\n        \"enum\": f\"{enum_class_name}.{weights.name}\",\n        \"filename\": weights_filename,\n        \"path\": str(weights_path.resolve()),\n        \"torchvision_check_hash\": True,\n    },\n}, sort_keys=True))",
+      "ResNet18_Weights.IMAGENET1K_V1"
+    ],
+    "pip_freeze": [
+      "conda",
+      "run",
+      "--no-capture-output",
+      "-n",
+      "cf-resrl-m0",
+      "env",
+      "PYTHONNOUSERSITE=1",
+      "python",
+      "-m",
+      "pip",
+      "freeze",
+      "--all"
+    ]
+  },
+  "environment": "cf-resrl-m0",
+  "locks": {
+    "conda_explicit_lock": {
+      "expected_sha256": "2b5538025ba240838ad5e1798a4a1556748b191c0790bce16a2e169afc4e7f7d",
+      "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/act_training/attempts/20261125T005956570423Z_3dfd8208847a/runtime/conda-explicit.txt",
+      "sha256": "2b5538025ba240838ad5e1798a4a1556748b191c0790bce16a2e169afc4e7f7d"
+    },
+    "pip_freeze_lock": {
+      "expected_sha256": "ce0fd3f7d80633ba96054f17a046fc3a4cc806ca945fd8e70928c9ec2a424eda",
+      "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/act_training/attempts/20261125T005956570423Z_3dfd8208847a/runtime/environment.lock.txt",
+      "sha256": "ce0fd3f7d80633ba96054f17a046fc3a4cc806ca945fd8e70928c9ec2a424eda"
+    }
+  },
+  "metadata": {
+    "backbone_weights": {
+      "bytes": 46830571,
+      "enum": "ResNet18_Weights.IMAGENET1K_V1",
+      "filename": "resnet18-f37072fd.pth",
+      "path": "/home/midea/.cache/torch/hub/checkpoints/resnet18-f37072fd.pth",
+      "sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec",
+      "torchvision_check_hash": true
+    },
+    "cuda": "12.8",
+    "cuda_available": true,
+    "gpus": [
+      {
+        "compute_capability": [
+          8,
+          6
+        ],
+        "index": 0,
+        "name": "NVIDIA GeForce RTX 3090",
+        "total_memory_bytes": 25287720960
+      }
+    ],
+    "host": "vision",
+    "python": "3.10.22",
+    "torch": "2.7.1+cu128"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "status": "PREREGISTERED_DATA_AUDIT_NOT_A_RUN_RESULT",
+  "dataset": {
+    "repo_id": "ankile/robomimic-mh-square-image",
+    "repo_type": "dataset",
+    "revision": "4e5cee7ea7d63b920ff76c2529b781c2474697da",
+    "license": "apache-2.0",
+    "local_dir": "data/cf_resrl/square",
+    "expected": {
+      "files": 906,
+      "bytes": 99856522,
+      "lfs_files": 900,
+      "episodes": 300,
+      "frames": 80731,
+      "videos": 600,
+      "fps": 20,
+      "action_dim": 7,
+      "state_dim": 9,
+      "video_height": 84,
+      "video_width": 84,
+      "video_codec": "av1"
+    },
+    "video_keys": [
+      "observation.images.agentview",
+      "observation.images.robot0_eye_in_hand"
+    ]
+  },
+  "split": {
+    "status": "PREREGISTERED_BEFORE_DATA_DOWNLOAD",
+    "group": "episode_index",
+    "seed": 20261124,
+    "train": 240,
+    "validation": 30,
+    "test": 30
+  },
+  "output_dir": "results/cf_resrl/m0/dataset_audit"
+}

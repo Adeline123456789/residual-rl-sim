@@ -1,0 +1,67 @@
+[robosuite WARNING] No private macro file found! (macros.py:57)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:58)
+[robosuite WARNING] To setup, run: python /media/midea/work/CF-ResRL/residual-rl-sim/third_party/robosuite/robosuite/scripts/setup_macros.py (macros.py:59)
+[robosuite WARNING] Could not import robosuite_models. Some robots may not be available. If you want to use these robots, please install robosuite_models from source (https://github.com/ARISE-Initiative/robosuite_models) or through pip install. (__init__.py:30)
+failed evidence: /media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/act_checkpoint_audit/attempts/20261124T145322851875Z_42fd38e66dd9/audit_report.json
+Traceback (most recent call last):
+  File "/home/midea/miniconda3/envs/cf-resrl-m0/lib/python3.10/site-packages/urllib3/connection.py", line 239, in _new_conn
+    sock = connection.create_connection(
+  File "/home/midea/miniconda3/envs/cf-resrl-m0/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/midea/miniconda3/envs/cf-resrl-m0/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/midea/miniconda3/envs/cf-resrl-m0/lib/python3.10/site-packages/urllib3/connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+  File "/home/midea/miniconda3/envs/cf-resrl-m0/lib/python3.10/site-packages/urllib3/connectionpool.py", line 494, in _make_request
+    raise new_e
+  File "/home/midea/miniconda3/envs/cf-resrl-m0/lib/python3.10/site-packages/urllib3/connectionpool.py", line 470, in _make_request
+    self._validate_conn(conn)
+  File "/home/midea/miniconda3/envs/cf-resrl-m0/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1125, in _validate_conn
+    conn.connect()
+  File "/home/midea/miniconda3/envs/cf-resrl-m0/lib/python3.10/site-packages/urllib3/connection.py", line 827, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/midea/miniconda3/envs/cf-resrl-m0/lib/python3.10/site-packages/urllib3/connection.py", line 248, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<HTTPSConnection(host='huggingface.co', port=443) at 0x722b3ad1ae60>, 'Connection to huggingface.co timed out. (connect timeout=None)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/midea/miniconda3/envs/cf-resrl-m0/lib/python3.10/site-packages/requests/adapters.py", line 696, in send
+    resp = conn.urlopen(
+  File "/home/midea/miniconda3/envs/cf-resrl-m0/lib/python3.10/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+  File "/home/midea/miniconda3/envs/cf-resrl-m0/lib/python3.10/site-packages/urllib3/util/retry.py", line 555, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /api/models/ankile/resfit-act-square/revision/b75e08053d84de7b88c1600310c4f0482af8bebc?blobs=True (Caused by ConnectTimeoutError(<HTTPSConnection(host='huggingface.co', port=443) at 0x722b3ad1ae60>, 'Connection to huggingface.co timed out. (connect timeout=None)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/media/midea/work/CF-ResRL/residual-rl-sim/scripts/audit_act_checkpoint.py", line 236, in <module>
+    raise SystemExit(main())
+  File "/media/midea/work/CF-ResRL/residual-rl-sim/scripts/audit_act_checkpoint.py", line 211, in main
+    report = run_audit(config, config_path, output_dir, run)
+  File "/media/midea/work/CF-ResRL/residual-rl-sim/scripts/audit_act_checkpoint.py", line 101, in run_audit
+    info = HfApi().model_info(
+  File "/home/midea/miniconda3/envs/cf-resrl-m0/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/home/midea/miniconda3/envs/cf-resrl-m0/lib/python3.10/site-packages/huggingface_hub/hf_api.py", line 2660, in model_info
+    r = get_session().get(path, headers=headers, timeout=timeout, params=params)
+  File "/home/midea/miniconda3/envs/cf-resrl-m0/lib/python3.10/site-packages/requests/sessions.py", line 671, in get
+    return self.request("GET", url, params=params, **kwargs)
+  File "/home/midea/miniconda3/envs/cf-resrl-m0/lib/python3.10/site-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/midea/miniconda3/envs/cf-resrl-m0/lib/python3.10/site-packages/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/midea/miniconda3/envs/cf-resrl-m0/lib/python3.10/site-packages/huggingface_hub/utils/_http.py", line 95, in send
+    return super().send(request, *args, **kwargs)
+  File "/home/midea/miniconda3/envs/cf-resrl-m0/lib/python3.10/site-packages/requests/adapters.py", line 717, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: (MaxRetryError("HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /api/models/ankile/resfit-act-square/revision/b75e08053d84de7b88c1600310c4f0482af8bebc?blobs=True (Caused by ConnectTimeoutError(<HTTPSConnection(host='huggingface.co', port=443) at 0x722b3ad1ae60>, 'Connection to huggingface.co timed out. (connect timeout=None)'))"), '(Request ID: bc962eef-0a01-4bd5-9987-b40ace5b194d)')
+ERROR conda.cli.main_run:execute(148): `conda run env PYTHONNOUSERSITE=1 HF_HUB_DISABLE_XET=1 python scripts/audit_act_checkpoint.py` failed. (See above for error)

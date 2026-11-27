@@ -1,0 +1,6126 @@
+{
+  "act_artifacts": {
+    "config.json": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb",
+    "model.safetensors": "e5f5b3c7fa7512a2ae202d5912922289a52348f8a3bb5a9da33f606d671cb859"
+  },
+  "after_intervention": "original frozen residual actor per step and nominal ACT inference at chunk exhaustion",
+  "command": [
+    "/home/midea/miniconda3/envs/cf-resrl-resfit/bin/python",
+    "scripts/collect_e0.py",
+    "--out",
+    "results/cf_resrl/mvp_square/e0_data/attempts/20261126T184751184660Z_90a4f137d61c"
+  ],
+  "dataset": {
+    "episode_indices": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      14,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      30,
+      32,
+      33,
+      34,
+      35,
+      36,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      47,
+      48,
+      50,
+      52,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      73,
+      74,
+      75,
+      76,
+      78,
+      79,
+      80,
+      82,
+      84,
+      85,
+      86,
+      87,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99,
+      100,
+      101,
+      102,
+      104,
+      105,
+      106,
+      107,
+      108,
+      110,
+      111,
+      112,
+      113,
+      114,
+      115,
+      117,
+      118,
+      119,
+      120,
+      121,
+      122,
+      123,
+      124,
+      125,
+      127,
+      129,
+      133,
+      134,
+      136,
+      138,
+      139,
+      140,
+      141,
+      142,
+      143,
+      144,
+      146,
+      147,
+      148,
+      150,
+      151,
+      152,
+      153,
+      156,
+      157,
+      158,
+      159,
+      160,
+      161,
+      162,
+      163,
+      164,
+      166,
+      168,
+      169,
+      170,
+      172,
+      173,
+      174,
+      175,
+      176,
+      177,
+      178,
+      179,
+      181,
+      182,
+      183,
+      184,
+      185,
+      187,
+      189,
+      190,
+      191,
+      192,
+      193,
+      194,
+      195,
+      196,
+      197,
+      198,
+      199,
+      200,
+      201,
+      202,
+      204,
+      206,
+      207,
+      208,
+      209,
+      210,
+      211,
+      212,
+      213,
+      214,
+      215,
+      216,
+      218,
+      219,
+      220,
+      222,
+      223,
+      225,
+      226,
+      227,
+      228,
+      229,
+      232,
+      233,
+      234,
+      235,
+      236,
+      237,
+      240,
+      241,
+      242,
+      243,
+      244,
+      246,
+      247,
+      248,
+      249,
+      251,
+      252,
+      253,
+      254,
+      255,
+      256,
+      257,
+      259,
+      260,
+      261,
+      262,
+      263,
+      264,
+      265,
+      266,
+      267,
+      268,
+      269,
+      271,
+      272,
+      273,
+      274,
+      275,
+      276,
+      278,
+      279,
+      280,
+      281,
+      283,
+      284,
+      285,
+      286,
+      288,
+      290,
+      292,
+      294,
+      295,
+      296,
+      298,
+      299
+    ],
+    "name": "ankile/robomimic-mh-square-image",
+    "revision": "4e5cee7ea7d63b920ff76c2529b781c2474697da",
+    "root": "/media/midea/work/CF-ResRL/residual-rl-sim/data/cf_resrl/square",
+    "split": "train",
+    "split_manifest_sha256": "629d01857156c691f297218e0cda3e3b3a802a91122f006a1ca70fd31163afcd"
+  },
+  "fallback_when_pending_and_old_chunk_exhausted": "zero residual-normalized base action",
+  "feature_scope": "frozen visual features, current observed state and active chunk, original residual",
+  "git_commit": "90a4f137d61c8f7143f46f3395e372cabb46021a",
+  "git_status_at_start": [],
+  "identities": {
+    "normalization_identity": "1587787c83942143d48b8bcd35445cb512924b57f0f91d808c9c20b0870283cb",
+    "policy_identity": "e5f5b3c7fa7512a2ae202d5912922289a52348f8a3bb5a9da33f606d671cb859",
+    "provider_identity": "resfit_native_act_queue__absolute_tick",
+    "residual_policy_identity": "d0c8e8020ec91f84fc65edc7ff586b128c341dbc362c3020b4c4b2a8c8e401f7"
+  },
+  "pair_training_budget": "additional train-only V10/V11 contexts; account true control steps separately",
+  "protocol": {
+    "bootstrap_episodes": 1000,
+    "bootstrap_seed": 20261327,
+    "dataset": "cf_square_factorial_v1",
+    "decision_costs": [
+      0.0,
+      0.01,
+      0.025,
+      0.05,
+      0.1
+    ],
+    "factorial_cohorts": {
+      "enriched": {
+        "first_seed": 20265124,
+        "size": 200
+      },
+      "natural": {
+        "first_seed": 20264124,
+        "size": 200
+      }
+    },
+    "factorial_split_counts": {
+      "test": 20,
+      "train": 160,
+      "validation": 20
+    },
+    "gate_attempt": "results/cf_resrl/m0/branch_gate/attempts/20261126T184315156219Z_ba645f8ba348",
+    "gate_summary_sha256": "a14850a3fa98e8bb37713ae3c2b38368eb520c4c663e8bc5b9cb4c67ec4abd10",
+    "output_root": "results/cf_resrl/mvp_square/e0_data",
+    "pair_training_cohorts": {
+      "enriched": {
+        "first_seed": 20267124,
+        "size": 160
+      },
+      "natural": {
+        "first_seed": 20266124,
+        "size": 160
+      }
+    },
+    "refresh_delay_steps": 2,
+    "selection_rules": {
+      "enriched": "maximum L2 norm of the frozen actor residual over visited pre-action ticks; earliest tick breaks ties",
+      "natural": "one uniformly sampled visited pre-action tick per nominal source episode"
+    },
+    "selector_seed": 20261227,
+    "split_seed": 20261127,
+    "status": "SPECIFICATION_NOT_A_RUN_RESULT",
+    "task": "Square"
+  },
+  "raw_group_scope": "nominal source rollout and real intervention trajectories for evidence only",
+  "runtime": {
+    "cuda": "12.8",
+    "gpu": "NVIDIA GeForce RTX 3090",
+    "mujoco": "3.3.2",
+    "python": "3.10.22 | packaged by conda-forge | (main, Oct  6 2026, 23:02:24) [GCC 14.4.0]",
+    "torch": "2.7.1+cu128"
+  },
+  "source_plan": [
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264124,
+      "selector_seed": 40525351,
+      "source_episode_id": "square_e0_20264124",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264125,
+      "selector_seed": 40525352,
+      "source_episode_id": "square_e0_20264125",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264126,
+      "selector_seed": 40525353,
+      "source_episode_id": "square_e0_20264126",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264127,
+      "selector_seed": 40525354,
+      "source_episode_id": "square_e0_20264127",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264128,
+      "selector_seed": 40525355,
+      "source_episode_id": "square_e0_20264128",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264129,
+      "selector_seed": 40525356,
+      "source_episode_id": "square_e0_20264129",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264130,
+      "selector_seed": 40525357,
+      "source_episode_id": "square_e0_20264130",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264131,
+      "selector_seed": 40525358,
+      "source_episode_id": "square_e0_20264131",
+      "split": "validation"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264132,
+      "selector_seed": 40525359,
+      "source_episode_id": "square_e0_20264132",
+      "split": "test"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264133,
+      "selector_seed": 40525360,
+      "source_episode_id": "square_e0_20264133",
+      "split": "test"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264134,
+      "selector_seed": 40525361,
+      "source_episode_id": "square_e0_20264134",
+      "split": "test"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264135,
+      "selector_seed": 40525362,
+      "source_episode_id": "square_e0_20264135",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264136,
+      "selector_seed": 40525363,
+      "source_episode_id": "square_e0_20264136",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264137,
+      "selector_seed": 40525364,
+      "source_episode_id": "square_e0_20264137",
+      "split": "validation"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264138,
+      "selector_seed": 40525365,
+      "source_episode_id": "square_e0_20264138",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264139,
+      "selector_seed": 40525366,
+      "source_episode_id": "square_e0_20264139",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264140,
+      "selector_seed": 40525367,
+      "source_episode_id": "square_e0_20264140",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264141,
+      "selector_seed": 40525368,
+      "source_episode_id": "square_e0_20264141",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264142,
+      "selector_seed": 40525369,
+      "source_episode_id": "square_e0_20264142",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264143,
+      "selector_seed": 40525370,
+      "source_episode_id": "square_e0_20264143",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264144,
+      "selector_seed": 40525371,
+      "source_episode_id": "square_e0_20264144",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264145,
+      "selector_seed": 40525372,
+      "source_episode_id": "square_e0_20264145",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264146,
+      "selector_seed": 40525373,
+      "source_episode_id": "square_e0_20264146",
+      "split": "test"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264147,
+      "selector_seed": 40525374,
+      "source_episode_id": "square_e0_20264147",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264148,
+      "selector_seed": 40525375,
+      "source_episode_id": "square_e0_20264148",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264149,
+      "selector_seed": 40525376,
+      "source_episode_id": "square_e0_20264149",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264150,
+      "selector_seed": 40525377,
+      "source_episode_id": "square_e0_20264150",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264151,
+      "selector_seed": 40525378,
+      "source_episode_id": "square_e0_20264151",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264152,
+      "selector_seed": 40525379,
+      "source_episode_id": "square_e0_20264152",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264153,
+      "selector_seed": 40525380,
+      "source_episode_id": "square_e0_20264153",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264154,
+      "selector_seed": 40525381,
+      "source_episode_id": "square_e0_20264154",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264155,
+      "selector_seed": 40525382,
+      "source_episode_id": "square_e0_20264155",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264156,
+      "selector_seed": 40525383,
+      "source_episode_id": "square_e0_20264156",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264157,
+      "selector_seed": 40525384,
+      "source_episode_id": "square_e0_20264157",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264158,
+      "selector_seed": 40525385,
+      "source_episode_id": "square_e0_20264158",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264159,
+      "selector_seed": 40525386,
+      "source_episode_id": "square_e0_20264159",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264160,
+      "selector_seed": 40525387,
+      "source_episode_id": "square_e0_20264160",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264161,
+      "selector_seed": 40525388,
+      "source_episode_id": "square_e0_20264161",
+      "split": "test"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264162,
+      "selector_seed": 40525389,
+      "source_episode_id": "square_e0_20264162",
+      "split": "validation"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264163,
+      "selector_seed": 40525390,
+      "source_episode_id": "square_e0_20264163",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264164,
+      "selector_seed": 40525391,
+      "source_episode_id": "square_e0_20264164",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264165,
+      "selector_seed": 40525392,
+      "source_episode_id": "square_e0_20264165",
+      "split": "test"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264166,
+      "selector_seed": 40525393,
+      "source_episode_id": "square_e0_20264166",
+      "split": "test"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264167,
+      "selector_seed": 40525394,
+      "source_episode_id": "square_e0_20264167",
+      "split": "validation"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264168,
+      "selector_seed": 40525395,
+      "source_episode_id": "square_e0_20264168",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264169,
+      "selector_seed": 40525396,
+      "source_episode_id": "square_e0_20264169",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264170,
+      "selector_seed": 40525397,
+      "source_episode_id": "square_e0_20264170",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264171,
+      "selector_seed": 40525398,
+      "source_episode_id": "square_e0_20264171",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264172,
+      "selector_seed": 40525399,
+      "source_episode_id": "square_e0_20264172",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264173,
+      "selector_seed": 40525400,
+      "source_episode_id": "square_e0_20264173",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264174,
+      "selector_seed": 40525401,
+      "source_episode_id": "square_e0_20264174",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264175,
+      "selector_seed": 40525402,
+      "source_episode_id": "square_e0_20264175",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264176,
+      "selector_seed": 40525403,
+      "source_episode_id": "square_e0_20264176",
+      "split": "test"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264177,
+      "selector_seed": 40525404,
+      "source_episode_id": "square_e0_20264177",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264178,
+      "selector_seed": 40525405,
+      "source_episode_id": "square_e0_20264178",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264179,
+      "selector_seed": 40525406,
+      "source_episode_id": "square_e0_20264179",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264180,
+      "selector_seed": 40525407,
+      "source_episode_id": "square_e0_20264180",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264181,
+      "selector_seed": 40525408,
+      "source_episode_id": "square_e0_20264181",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264182,
+      "selector_seed": 40525409,
+      "source_episode_id": "square_e0_20264182",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264183,
+      "selector_seed": 40525410,
+      "source_episode_id": "square_e0_20264183",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264184,
+      "selector_seed": 40525411,
+      "source_episode_id": "square_e0_20264184",
+      "split": "test"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264185,
+      "selector_seed": 40525412,
+      "source_episode_id": "square_e0_20264185",
+      "split": "validation"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264186,
+      "selector_seed": 40525413,
+      "source_episode_id": "square_e0_20264186",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264187,
+      "selector_seed": 40525414,
+      "source_episode_id": "square_e0_20264187",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264188,
+      "selector_seed": 40525415,
+      "source_episode_id": "square_e0_20264188",
+      "split": "validation"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264189,
+      "selector_seed": 40525416,
+      "source_episode_id": "square_e0_20264189",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264190,
+      "selector_seed": 40525417,
+      "source_episode_id": "square_e0_20264190",
+      "split": "test"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264191,
+      "selector_seed": 40525418,
+      "source_episode_id": "square_e0_20264191",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264192,
+      "selector_seed": 40525419,
+      "source_episode_id": "square_e0_20264192",
+      "split": "test"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264193,
+      "selector_seed": 40525420,
+      "source_episode_id": "square_e0_20264193",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264194,
+      "selector_seed": 40525421,
+      "source_episode_id": "square_e0_20264194",
+      "split": "validation"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264195,
+      "selector_seed": 40525422,
+      "source_episode_id": "square_e0_20264195",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264196,
+      "selector_seed": 40525423,
+      "source_episode_id": "square_e0_20264196",
+      "split": "test"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264197,
+      "selector_seed": 40525424,
+      "source_episode_id": "square_e0_20264197",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264198,
+      "selector_seed": 40525425,
+      "source_episode_id": "square_e0_20264198",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264199,
+      "selector_seed": 40525426,
+      "source_episode_id": "square_e0_20264199",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264200,
+      "selector_seed": 40525427,
+      "source_episode_id": "square_e0_20264200",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264201,
+      "selector_seed": 40525428,
+      "source_episode_id": "square_e0_20264201",
+      "split": "test"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264202,
+      "selector_seed": 40525429,
+      "source_episode_id": "square_e0_20264202",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264203,
+      "selector_seed": 40525430,
+      "source_episode_id": "square_e0_20264203",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264204,
+      "selector_seed": 40525431,
+      "source_episode_id": "square_e0_20264204",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264205,
+      "selector_seed": 40525432,
+      "source_episode_id": "square_e0_20264205",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264206,
+      "selector_seed": 40525433,
+      "source_episode_id": "square_e0_20264206",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264207,
+      "selector_seed": 40525434,
+      "source_episode_id": "square_e0_20264207",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264208,
+      "selector_seed": 40525435,
+      "source_episode_id": "square_e0_20264208",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264209,
+      "selector_seed": 40525436,
+      "source_episode_id": "square_e0_20264209",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264210,
+      "selector_seed": 40525437,
+      "source_episode_id": "square_e0_20264210",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264211,
+      "selector_seed": 40525438,
+      "source_episode_id": "square_e0_20264211",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264212,
+      "selector_seed": 40525439,
+      "source_episode_id": "square_e0_20264212",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264213,
+      "selector_seed": 40525440,
+      "source_episode_id": "square_e0_20264213",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264214,
+      "selector_seed": 40525441,
+      "source_episode_id": "square_e0_20264214",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264215,
+      "selector_seed": 40525442,
+      "source_episode_id": "square_e0_20264215",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264216,
+      "selector_seed": 40525443,
+      "source_episode_id": "square_e0_20264216",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264217,
+      "selector_seed": 40525444,
+      "source_episode_id": "square_e0_20264217",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264218,
+      "selector_seed": 40525445,
+      "source_episode_id": "square_e0_20264218",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264219,
+      "selector_seed": 40525446,
+      "source_episode_id": "square_e0_20264219",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264220,
+      "selector_seed": 40525447,
+      "source_episode_id": "square_e0_20264220",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264221,
+      "selector_seed": 40525448,
+      "source_episode_id": "square_e0_20264221",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264222,
+      "selector_seed": 40525449,
+      "source_episode_id": "square_e0_20264222",
+      "split": "validation"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264223,
+      "selector_seed": 40525450,
+      "source_episode_id": "square_e0_20264223",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264224,
+      "selector_seed": 40525451,
+      "source_episode_id": "square_e0_20264224",
+      "split": "test"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264225,
+      "selector_seed": 40525452,
+      "source_episode_id": "square_e0_20264225",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264226,
+      "selector_seed": 40525453,
+      "source_episode_id": "square_e0_20264226",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264227,
+      "selector_seed": 40525454,
+      "source_episode_id": "square_e0_20264227",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264228,
+      "selector_seed": 40525455,
+      "source_episode_id": "square_e0_20264228",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264229,
+      "selector_seed": 40525456,
+      "source_episode_id": "square_e0_20264229",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264230,
+      "selector_seed": 40525457,
+      "source_episode_id": "square_e0_20264230",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264231,
+      "selector_seed": 40525458,
+      "source_episode_id": "square_e0_20264231",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264232,
+      "selector_seed": 40525459,
+      "source_episode_id": "square_e0_20264232",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264233,
+      "selector_seed": 40525460,
+      "source_episode_id": "square_e0_20264233",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264234,
+      "selector_seed": 40525461,
+      "source_episode_id": "square_e0_20264234",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264235,
+      "selector_seed": 40525462,
+      "source_episode_id": "square_e0_20264235",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264236,
+      "selector_seed": 40525463,
+      "source_episode_id": "square_e0_20264236",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264237,
+      "selector_seed": 40525464,
+      "source_episode_id": "square_e0_20264237",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264238,
+      "selector_seed": 40525465,
+      "source_episode_id": "square_e0_20264238",
+      "split": "validation"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264239,
+      "selector_seed": 40525466,
+      "source_episode_id": "square_e0_20264239",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264240,
+      "selector_seed": 40525467,
+      "source_episode_id": "square_e0_20264240",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264241,
+      "selector_seed": 40525468,
+      "source_episode_id": "square_e0_20264241",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264242,
+      "selector_seed": 40525469,
+      "source_episode_id": "square_e0_20264242",
+      "split": "test"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264243,
+      "selector_seed": 40525470,
+      "source_episode_id": "square_e0_20264243",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264244,
+      "selector_seed": 40525471,
+      "source_episode_id": "square_e0_20264244",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264245,
+      "selector_seed": 40525472,
+      "source_episode_id": "square_e0_20264245",
+      "split": "validation"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264246,
+      "selector_seed": 40525473,
+      "source_episode_id": "square_e0_20264246",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264247,
+      "selector_seed": 40525474,
+      "source_episode_id": "square_e0_20264247",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264248,
+      "selector_seed": 40525475,
+      "source_episode_id": "square_e0_20264248",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264249,
+      "selector_seed": 40525476,
+      "source_episode_id": "square_e0_20264249",
+      "split": "validation"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264250,
+      "selector_seed": 40525477,
+      "source_episode_id": "square_e0_20264250",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264251,
+      "selector_seed": 40525478,
+      "source_episode_id": "square_e0_20264251",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264252,
+      "selector_seed": 40525479,
+      "source_episode_id": "square_e0_20264252",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264253,
+      "selector_seed": 40525480,
+      "source_episode_id": "square_e0_20264253",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264254,
+      "selector_seed": 40525481,
+      "source_episode_id": "square_e0_20264254",
+      "split": "validation"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264255,
+      "selector_seed": 40525482,
+      "source_episode_id": "square_e0_20264255",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264256,
+      "selector_seed": 40525483,
+      "source_episode_id": "square_e0_20264256",
+      "split": "validation"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264257,
+      "selector_seed": 40525484,
+      "source_episode_id": "square_e0_20264257",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264258,
+      "selector_seed": 40525485,
+      "source_episode_id": "square_e0_20264258",
+      "split": "validation"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264259,
+      "selector_seed": 40525486,
+      "source_episode_id": "square_e0_20264259",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264260,
+      "selector_seed": 40525487,
+      "source_episode_id": "square_e0_20264260",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264261,
+      "selector_seed": 40525488,
+      "source_episode_id": "square_e0_20264261",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264262,
+      "selector_seed": 40525489,
+      "source_episode_id": "square_e0_20264262",
+      "split": "test"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264263,
+      "selector_seed": 40525490,
+      "source_episode_id": "square_e0_20264263",
+      "split": "validation"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264264,
+      "selector_seed": 40525491,
+      "source_episode_id": "square_e0_20264264",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264265,
+      "selector_seed": 40525492,
+      "source_episode_id": "square_e0_20264265",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264266,
+      "selector_seed": 40525493,
+      "source_episode_id": "square_e0_20264266",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264267,
+      "selector_seed": 40525494,
+      "source_episode_id": "square_e0_20264267",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264268,
+      "selector_seed": 40525495,
+      "source_episode_id": "square_e0_20264268",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264269,
+      "selector_seed": 40525496,
+      "source_episode_id": "square_e0_20264269",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264270,
+      "selector_seed": 40525497,
+      "source_episode_id": "square_e0_20264270",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264271,
+      "selector_seed": 40525498,
+      "source_episode_id": "square_e0_20264271",
+      "split": "validation"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264272,
+      "selector_seed": 40525499,
+      "source_episode_id": "square_e0_20264272",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264273,
+      "selector_seed": 40525500,
+      "source_episode_id": "square_e0_20264273",
+      "split": "test"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264274,
+      "selector_seed": 40525501,
+      "source_episode_id": "square_e0_20264274",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264275,
+      "selector_seed": 40525502,
+      "source_episode_id": "square_e0_20264275",
+      "split": "test"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264276,
+      "selector_seed": 40525503,
+      "source_episode_id": "square_e0_20264276",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264277,
+      "selector_seed": 40525504,
+      "source_episode_id": "square_e0_20264277",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264278,
+      "selector_seed": 40525505,
+      "source_episode_id": "square_e0_20264278",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264279,
+      "selector_seed": 40525506,
+      "source_episode_id": "square_e0_20264279",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264280,
+      "selector_seed": 40525507,
+      "source_episode_id": "square_e0_20264280",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264281,
+      "selector_seed": 40525508,
+      "source_episode_id": "square_e0_20264281",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264282,
+      "selector_seed": 40525509,
+      "source_episode_id": "square_e0_20264282",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264283,
+      "selector_seed": 40525510,
+      "source_episode_id": "square_e0_20264283",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264284,
+      "selector_seed": 40525511,
+      "source_episode_id": "square_e0_20264284",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264285,
+      "selector_seed": 40525512,
+      "source_episode_id": "square_e0_20264285",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264286,
+      "selector_seed": 40525513,
+      "source_episode_id": "square_e0_20264286",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264287,
+      "selector_seed": 40525514,
+      "source_episode_id": "square_e0_20264287",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264288,
+      "selector_seed": 40525515,
+      "source_episode_id": "square_e0_20264288",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264289,
+      "selector_seed": 40525516,
+      "source_episode_id": "square_e0_20264289",
+      "split": "validation"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264290,
+      "selector_seed": 40525517,
+      "source_episode_id": "square_e0_20264290",
+      "split": "test"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264291,
+      "selector_seed": 40525518,
+      "source_episode_id": "square_e0_20264291",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264292,
+      "selector_seed": 40525519,
+      "source_episode_id": "square_e0_20264292",
+      "split": "validation"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264293,
+      "selector_seed": 40525520,
+      "source_episode_id": "square_e0_20264293",
+      "split": "validation"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264294,
+      "selector_seed": 40525521,
+      "source_episode_id": "square_e0_20264294",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264295,
+      "selector_seed": 40525522,
+      "source_episode_id": "square_e0_20264295",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264296,
+      "selector_seed": 40525523,
+      "source_episode_id": "square_e0_20264296",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264297,
+      "selector_seed": 40525524,
+      "source_episode_id": "square_e0_20264297",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264298,
+      "selector_seed": 40525525,
+      "source_episode_id": "square_e0_20264298",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264299,
+      "selector_seed": 40525526,
+      "source_episode_id": "square_e0_20264299",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264300,
+      "selector_seed": 40525527,
+      "source_episode_id": "square_e0_20264300",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264301,
+      "selector_seed": 40525528,
+      "source_episode_id": "square_e0_20264301",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264302,
+      "selector_seed": 40525529,
+      "source_episode_id": "square_e0_20264302",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264303,
+      "selector_seed": 40525530,
+      "source_episode_id": "square_e0_20264303",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264304,
+      "selector_seed": 40525531,
+      "source_episode_id": "square_e0_20264304",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264305,
+      "selector_seed": 40525532,
+      "source_episode_id": "square_e0_20264305",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264306,
+      "selector_seed": 40525533,
+      "source_episode_id": "square_e0_20264306",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264307,
+      "selector_seed": 40525534,
+      "source_episode_id": "square_e0_20264307",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264308,
+      "selector_seed": 40525535,
+      "source_episode_id": "square_e0_20264308",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264309,
+      "selector_seed": 40525536,
+      "source_episode_id": "square_e0_20264309",
+      "split": "validation"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264310,
+      "selector_seed": 40525537,
+      "source_episode_id": "square_e0_20264310",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264311,
+      "selector_seed": 40525538,
+      "source_episode_id": "square_e0_20264311",
+      "split": "test"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264312,
+      "selector_seed": 40525539,
+      "source_episode_id": "square_e0_20264312",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264313,
+      "selector_seed": 40525540,
+      "source_episode_id": "square_e0_20264313",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264314,
+      "selector_seed": 40525541,
+      "source_episode_id": "square_e0_20264314",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264315,
+      "selector_seed": 40525542,
+      "source_episode_id": "square_e0_20264315",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264316,
+      "selector_seed": 40525543,
+      "source_episode_id": "square_e0_20264316",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264317,
+      "selector_seed": 40525544,
+      "source_episode_id": "square_e0_20264317",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264318,
+      "selector_seed": 40525545,
+      "source_episode_id": "square_e0_20264318",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264319,
+      "selector_seed": 40525546,
+      "source_episode_id": "square_e0_20264319",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264320,
+      "selector_seed": 40525547,
+      "source_episode_id": "square_e0_20264320",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264321,
+      "selector_seed": 40525548,
+      "source_episode_id": "square_e0_20264321",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264322,
+      "selector_seed": 40525549,
+      "source_episode_id": "square_e0_20264322",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "natural",
+      "seed": 20264323,
+      "selector_seed": 40525550,
+      "source_episode_id": "square_e0_20264323",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265124,
+      "selector_seed": 40526351,
+      "source_episode_id": "square_e0_20265124",
+      "split": "validation"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265125,
+      "selector_seed": 40526352,
+      "source_episode_id": "square_e0_20265125",
+      "split": "test"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265126,
+      "selector_seed": 40526353,
+      "source_episode_id": "square_e0_20265126",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265127,
+      "selector_seed": 40526354,
+      "source_episode_id": "square_e0_20265127",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265128,
+      "selector_seed": 40526355,
+      "source_episode_id": "square_e0_20265128",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265129,
+      "selector_seed": 40526356,
+      "source_episode_id": "square_e0_20265129",
+      "split": "validation"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265130,
+      "selector_seed": 40526357,
+      "source_episode_id": "square_e0_20265130",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265131,
+      "selector_seed": 40526358,
+      "source_episode_id": "square_e0_20265131",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265132,
+      "selector_seed": 40526359,
+      "source_episode_id": "square_e0_20265132",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265133,
+      "selector_seed": 40526360,
+      "source_episode_id": "square_e0_20265133",
+      "split": "test"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265134,
+      "selector_seed": 40526361,
+      "source_episode_id": "square_e0_20265134",
+      "split": "validation"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265135,
+      "selector_seed": 40526362,
+      "source_episode_id": "square_e0_20265135",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265136,
+      "selector_seed": 40526363,
+      "source_episode_id": "square_e0_20265136",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265137,
+      "selector_seed": 40526364,
+      "source_episode_id": "square_e0_20265137",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265138,
+      "selector_seed": 40526365,
+      "source_episode_id": "square_e0_20265138",
+      "split": "test"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265139,
+      "selector_seed": 40526366,
+      "source_episode_id": "square_e0_20265139",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265140,
+      "selector_seed": 40526367,
+      "source_episode_id": "square_e0_20265140",
+      "split": "validation"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265141,
+      "selector_seed": 40526368,
+      "source_episode_id": "square_e0_20265141",
+      "split": "test"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265142,
+      "selector_seed": 40526369,
+      "source_episode_id": "square_e0_20265142",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265143,
+      "selector_seed": 40526370,
+      "source_episode_id": "square_e0_20265143",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265144,
+      "selector_seed": 40526371,
+      "source_episode_id": "square_e0_20265144",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265145,
+      "selector_seed": 40526372,
+      "source_episode_id": "square_e0_20265145",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265146,
+      "selector_seed": 40526373,
+      "source_episode_id": "square_e0_20265146",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265147,
+      "selector_seed": 40526374,
+      "source_episode_id": "square_e0_20265147",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265148,
+      "selector_seed": 40526375,
+      "source_episode_id": "square_e0_20265148",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265149,
+      "selector_seed": 40526376,
+      "source_episode_id": "square_e0_20265149",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265150,
+      "selector_seed": 40526377,
+      "source_episode_id": "square_e0_20265150",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265151,
+      "selector_seed": 40526378,
+      "source_episode_id": "square_e0_20265151",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265152,
+      "selector_seed": 40526379,
+      "source_episode_id": "square_e0_20265152",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265153,
+      "selector_seed": 40526380,
+      "source_episode_id": "square_e0_20265153",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265154,
+      "selector_seed": 40526381,
+      "source_episode_id": "square_e0_20265154",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265155,
+      "selector_seed": 40526382,
+      "source_episode_id": "square_e0_20265155",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265156,
+      "selector_seed": 40526383,
+      "source_episode_id": "square_e0_20265156",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265157,
+      "selector_seed": 40526384,
+      "source_episode_id": "square_e0_20265157",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265158,
+      "selector_seed": 40526385,
+      "source_episode_id": "square_e0_20265158",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265159,
+      "selector_seed": 40526386,
+      "source_episode_id": "square_e0_20265159",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265160,
+      "selector_seed": 40526387,
+      "source_episode_id": "square_e0_20265160",
+      "split": "test"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265161,
+      "selector_seed": 40526388,
+      "source_episode_id": "square_e0_20265161",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265162,
+      "selector_seed": 40526389,
+      "source_episode_id": "square_e0_20265162",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265163,
+      "selector_seed": 40526390,
+      "source_episode_id": "square_e0_20265163",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265164,
+      "selector_seed": 40526391,
+      "source_episode_id": "square_e0_20265164",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265165,
+      "selector_seed": 40526392,
+      "source_episode_id": "square_e0_20265165",
+      "split": "test"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265166,
+      "selector_seed": 40526393,
+      "source_episode_id": "square_e0_20265166",
+      "split": "test"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265167,
+      "selector_seed": 40526394,
+      "source_episode_id": "square_e0_20265167",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265168,
+      "selector_seed": 40526395,
+      "source_episode_id": "square_e0_20265168",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265169,
+      "selector_seed": 40526396,
+      "source_episode_id": "square_e0_20265169",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265170,
+      "selector_seed": 40526397,
+      "source_episode_id": "square_e0_20265170",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265171,
+      "selector_seed": 40526398,
+      "source_episode_id": "square_e0_20265171",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265172,
+      "selector_seed": 40526399,
+      "source_episode_id": "square_e0_20265172",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265173,
+      "selector_seed": 40526400,
+      "source_episode_id": "square_e0_20265173",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265174,
+      "selector_seed": 40526401,
+      "source_episode_id": "square_e0_20265174",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265175,
+      "selector_seed": 40526402,
+      "source_episode_id": "square_e0_20265175",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265176,
+      "selector_seed": 40526403,
+      "source_episode_id": "square_e0_20265176",
+      "split": "validation"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265177,
+      "selector_seed": 40526404,
+      "source_episode_id": "square_e0_20265177",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265178,
+      "selector_seed": 40526405,
+      "source_episode_id": "square_e0_20265178",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265179,
+      "selector_seed": 40526406,
+      "source_episode_id": "square_e0_20265179",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265180,
+      "selector_seed": 40526407,
+      "source_episode_id": "square_e0_20265180",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265181,
+      "selector_seed": 40526408,
+      "source_episode_id": "square_e0_20265181",
+      "split": "validation"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265182,
+      "selector_seed": 40526409,
+      "source_episode_id": "square_e0_20265182",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265183,
+      "selector_seed": 40526410,
+      "source_episode_id": "square_e0_20265183",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265184,
+      "selector_seed": 40526411,
+      "source_episode_id": "square_e0_20265184",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265185,
+      "selector_seed": 40526412,
+      "source_episode_id": "square_e0_20265185",
+      "split": "validation"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265186,
+      "selector_seed": 40526413,
+      "source_episode_id": "square_e0_20265186",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265187,
+      "selector_seed": 40526414,
+      "source_episode_id": "square_e0_20265187",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265188,
+      "selector_seed": 40526415,
+      "source_episode_id": "square_e0_20265188",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265189,
+      "selector_seed": 40526416,
+      "source_episode_id": "square_e0_20265189",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265190,
+      "selector_seed": 40526417,
+      "source_episode_id": "square_e0_20265190",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265191,
+      "selector_seed": 40526418,
+      "source_episode_id": "square_e0_20265191",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265192,
+      "selector_seed": 40526419,
+      "source_episode_id": "square_e0_20265192",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265193,
+      "selector_seed": 40526420,
+      "source_episode_id": "square_e0_20265193",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265194,
+      "selector_seed": 40526421,
+      "source_episode_id": "square_e0_20265194",
+      "split": "validation"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265195,
+      "selector_seed": 40526422,
+      "source_episode_id": "square_e0_20265195",
+      "split": "validation"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265196,
+      "selector_seed": 40526423,
+      "source_episode_id": "square_e0_20265196",
+      "split": "test"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265197,
+      "selector_seed": 40526424,
+      "source_episode_id": "square_e0_20265197",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265198,
+      "selector_seed": 40526425,
+      "source_episode_id": "square_e0_20265198",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265199,
+      "selector_seed": 40526426,
+      "source_episode_id": "square_e0_20265199",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265200,
+      "selector_seed": 40526427,
+      "source_episode_id": "square_e0_20265200",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265201,
+      "selector_seed": 40526428,
+      "source_episode_id": "square_e0_20265201",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265202,
+      "selector_seed": 40526429,
+      "source_episode_id": "square_e0_20265202",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265203,
+      "selector_seed": 40526430,
+      "source_episode_id": "square_e0_20265203",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265204,
+      "selector_seed": 40526431,
+      "source_episode_id": "square_e0_20265204",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265205,
+      "selector_seed": 40526432,
+      "source_episode_id": "square_e0_20265205",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265206,
+      "selector_seed": 40526433,
+      "source_episode_id": "square_e0_20265206",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265207,
+      "selector_seed": 40526434,
+      "source_episode_id": "square_e0_20265207",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265208,
+      "selector_seed": 40526435,
+      "source_episode_id": "square_e0_20265208",
+      "split": "test"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265209,
+      "selector_seed": 40526436,
+      "source_episode_id": "square_e0_20265209",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265210,
+      "selector_seed": 40526437,
+      "source_episode_id": "square_e0_20265210",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265211,
+      "selector_seed": 40526438,
+      "source_episode_id": "square_e0_20265211",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265212,
+      "selector_seed": 40526439,
+      "source_episode_id": "square_e0_20265212",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265213,
+      "selector_seed": 40526440,
+      "source_episode_id": "square_e0_20265213",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265214,
+      "selector_seed": 40526441,
+      "source_episode_id": "square_e0_20265214",
+      "split": "test"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265215,
+      "selector_seed": 40526442,
+      "source_episode_id": "square_e0_20265215",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265216,
+      "selector_seed": 40526443,
+      "source_episode_id": "square_e0_20265216",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265217,
+      "selector_seed": 40526444,
+      "source_episode_id": "square_e0_20265217",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265218,
+      "selector_seed": 40526445,
+      "source_episode_id": "square_e0_20265218",
+      "split": "validation"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265219,
+      "selector_seed": 40526446,
+      "source_episode_id": "square_e0_20265219",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265220,
+      "selector_seed": 40526447,
+      "source_episode_id": "square_e0_20265220",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265221,
+      "selector_seed": 40526448,
+      "source_episode_id": "square_e0_20265221",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265222,
+      "selector_seed": 40526449,
+      "source_episode_id": "square_e0_20265222",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265223,
+      "selector_seed": 40526450,
+      "source_episode_id": "square_e0_20265223",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265224,
+      "selector_seed": 40526451,
+      "source_episode_id": "square_e0_20265224",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265225,
+      "selector_seed": 40526452,
+      "source_episode_id": "square_e0_20265225",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265226,
+      "selector_seed": 40526453,
+      "source_episode_id": "square_e0_20265226",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265227,
+      "selector_seed": 40526454,
+      "source_episode_id": "square_e0_20265227",
+      "split": "validation"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265228,
+      "selector_seed": 40526455,
+      "source_episode_id": "square_e0_20265228",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265229,
+      "selector_seed": 40526456,
+      "source_episode_id": "square_e0_20265229",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265230,
+      "selector_seed": 40526457,
+      "source_episode_id": "square_e0_20265230",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265231,
+      "selector_seed": 40526458,
+      "source_episode_id": "square_e0_20265231",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265232,
+      "selector_seed": 40526459,
+      "source_episode_id": "square_e0_20265232",
+      "split": "validation"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265233,
+      "selector_seed": 40526460,
+      "source_episode_id": "square_e0_20265233",
+      "split": "validation"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265234,
+      "selector_seed": 40526461,
+      "source_episode_id": "square_e0_20265234",
+      "split": "validation"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265235,
+      "selector_seed": 40526462,
+      "source_episode_id": "square_e0_20265235",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265236,
+      "selector_seed": 40526463,
+      "source_episode_id": "square_e0_20265236",
+      "split": "test"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265237,
+      "selector_seed": 40526464,
+      "source_episode_id": "square_e0_20265237",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265238,
+      "selector_seed": 40526465,
+      "source_episode_id": "square_e0_20265238",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265239,
+      "selector_seed": 40526466,
+      "source_episode_id": "square_e0_20265239",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265240,
+      "selector_seed": 40526467,
+      "source_episode_id": "square_e0_20265240",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265241,
+      "selector_seed": 40526468,
+      "source_episode_id": "square_e0_20265241",
+      "split": "test"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265242,
+      "selector_seed": 40526469,
+      "source_episode_id": "square_e0_20265242",
+      "split": "test"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265243,
+      "selector_seed": 40526470,
+      "source_episode_id": "square_e0_20265243",
+      "split": "validation"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265244,
+      "selector_seed": 40526471,
+      "source_episode_id": "square_e0_20265244",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265245,
+      "selector_seed": 40526472,
+      "source_episode_id": "square_e0_20265245",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265246,
+      "selector_seed": 40526473,
+      "source_episode_id": "square_e0_20265246",
+      "split": "validation"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265247,
+      "selector_seed": 40526474,
+      "source_episode_id": "square_e0_20265247",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265248,
+      "selector_seed": 40526475,
+      "source_episode_id": "square_e0_20265248",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265249,
+      "selector_seed": 40526476,
+      "source_episode_id": "square_e0_20265249",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265250,
+      "selector_seed": 40526477,
+      "source_episode_id": "square_e0_20265250",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265251,
+      "selector_seed": 40526478,
+      "source_episode_id": "square_e0_20265251",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265252,
+      "selector_seed": 40526479,
+      "source_episode_id": "square_e0_20265252",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265253,
+      "selector_seed": 40526480,
+      "source_episode_id": "square_e0_20265253",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265254,
+      "selector_seed": 40526481,
+      "source_episode_id": "square_e0_20265254",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265255,
+      "selector_seed": 40526482,
+      "source_episode_id": "square_e0_20265255",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265256,
+      "selector_seed": 40526483,
+      "source_episode_id": "square_e0_20265256",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265257,
+      "selector_seed": 40526484,
+      "source_episode_id": "square_e0_20265257",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265258,
+      "selector_seed": 40526485,
+      "source_episode_id": "square_e0_20265258",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265259,
+      "selector_seed": 40526486,
+      "source_episode_id": "square_e0_20265259",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265260,
+      "selector_seed": 40526487,
+      "source_episode_id": "square_e0_20265260",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265261,
+      "selector_seed": 40526488,
+      "source_episode_id": "square_e0_20265261",
+      "split": "validation"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265262,
+      "selector_seed": 40526489,
+      "source_episode_id": "square_e0_20265262",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265263,
+      "selector_seed": 40526490,
+      "source_episode_id": "square_e0_20265263",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265264,
+      "selector_seed": 40526491,
+      "source_episode_id": "square_e0_20265264",
+      "split": "test"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265265,
+      "selector_seed": 40526492,
+      "source_episode_id": "square_e0_20265265",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265266,
+      "selector_seed": 40526493,
+      "source_episode_id": "square_e0_20265266",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265267,
+      "selector_seed": 40526494,
+      "source_episode_id": "square_e0_20265267",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265268,
+      "selector_seed": 40526495,
+      "source_episode_id": "square_e0_20265268",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265269,
+      "selector_seed": 40526496,
+      "source_episode_id": "square_e0_20265269",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265270,
+      "selector_seed": 40526497,
+      "source_episode_id": "square_e0_20265270",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265271,
+      "selector_seed": 40526498,
+      "source_episode_id": "square_e0_20265271",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265272,
+      "selector_seed": 40526499,
+      "source_episode_id": "square_e0_20265272",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265273,
+      "selector_seed": 40526500,
+      "source_episode_id": "square_e0_20265273",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265274,
+      "selector_seed": 40526501,
+      "source_episode_id": "square_e0_20265274",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265275,
+      "selector_seed": 40526502,
+      "source_episode_id": "square_e0_20265275",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265276,
+      "selector_seed": 40526503,
+      "source_episode_id": "square_e0_20265276",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265277,
+      "selector_seed": 40526504,
+      "source_episode_id": "square_e0_20265277",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265278,
+      "selector_seed": 40526505,
+      "source_episode_id": "square_e0_20265278",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265279,
+      "selector_seed": 40526506,
+      "source_episode_id": "square_e0_20265279",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265280,
+      "selector_seed": 40526507,
+      "source_episode_id": "square_e0_20265280",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265281,
+      "selector_seed": 40526508,
+      "source_episode_id": "square_e0_20265281",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265282,
+      "selector_seed": 40526509,
+      "source_episode_id": "square_e0_20265282",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265283,
+      "selector_seed": 40526510,
+      "source_episode_id": "square_e0_20265283",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265284,
+      "selector_seed": 40526511,
+      "source_episode_id": "square_e0_20265284",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265285,
+      "selector_seed": 40526512,
+      "source_episode_id": "square_e0_20265285",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265286,
+      "selector_seed": 40526513,
+      "source_episode_id": "square_e0_20265286",
+      "split": "validation"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265287,
+      "selector_seed": 40526514,
+      "source_episode_id": "square_e0_20265287",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265288,
+      "selector_seed": 40526515,
+      "source_episode_id": "square_e0_20265288",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265289,
+      "selector_seed": 40526516,
+      "source_episode_id": "square_e0_20265289",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265290,
+      "selector_seed": 40526517,
+      "source_episode_id": "square_e0_20265290",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265291,
+      "selector_seed": 40526518,
+      "source_episode_id": "square_e0_20265291",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265292,
+      "selector_seed": 40526519,
+      "source_episode_id": "square_e0_20265292",
+      "split": "validation"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265293,
+      "selector_seed": 40526520,
+      "source_episode_id": "square_e0_20265293",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265294,
+      "selector_seed": 40526521,
+      "source_episode_id": "square_e0_20265294",
+      "split": "test"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265295,
+      "selector_seed": 40526522,
+      "source_episode_id": "square_e0_20265295",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265296,
+      "selector_seed": 40526523,
+      "source_episode_id": "square_e0_20265296",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265297,
+      "selector_seed": 40526524,
+      "source_episode_id": "square_e0_20265297",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265298,
+      "selector_seed": 40526525,
+      "source_episode_id": "square_e0_20265298",
+      "split": "validation"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265299,
+      "selector_seed": 40526526,
+      "source_episode_id": "square_e0_20265299",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265300,
+      "selector_seed": 40526527,
+      "source_episode_id": "square_e0_20265300",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265301,
+      "selector_seed": 40526528,
+      "source_episode_id": "square_e0_20265301",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265302,
+      "selector_seed": 40526529,
+      "source_episode_id": "square_e0_20265302",
+      "split": "test"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265303,
+      "selector_seed": 40526530,
+      "source_episode_id": "square_e0_20265303",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265304,
+      "selector_seed": 40526531,
+      "source_episode_id": "square_e0_20265304",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265305,
+      "selector_seed": 40526532,
+      "source_episode_id": "square_e0_20265305",
+      "split": "test"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265306,
+      "selector_seed": 40526533,
+      "source_episode_id": "square_e0_20265306",
+      "split": "test"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265307,
+      "selector_seed": 40526534,
+      "source_episode_id": "square_e0_20265307",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265308,
+      "selector_seed": 40526535,
+      "source_episode_id": "square_e0_20265308",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265309,
+      "selector_seed": 40526536,
+      "source_episode_id": "square_e0_20265309",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265310,
+      "selector_seed": 40526537,
+      "source_episode_id": "square_e0_20265310",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265311,
+      "selector_seed": 40526538,
+      "source_episode_id": "square_e0_20265311",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265312,
+      "selector_seed": 40526539,
+      "source_episode_id": "square_e0_20265312",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265313,
+      "selector_seed": 40526540,
+      "source_episode_id": "square_e0_20265313",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265314,
+      "selector_seed": 40526541,
+      "source_episode_id": "square_e0_20265314",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265315,
+      "selector_seed": 40526542,
+      "source_episode_id": "square_e0_20265315",
+      "split": "test"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265316,
+      "selector_seed": 40526543,
+      "source_episode_id": "square_e0_20265316",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265317,
+      "selector_seed": 40526544,
+      "source_episode_id": "square_e0_20265317",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265318,
+      "selector_seed": 40526545,
+      "source_episode_id": "square_e0_20265318",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265319,
+      "selector_seed": 40526546,
+      "source_episode_id": "square_e0_20265319",
+      "split": "test"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265320,
+      "selector_seed": 40526547,
+      "source_episode_id": "square_e0_20265320",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265321,
+      "selector_seed": 40526548,
+      "source_episode_id": "square_e0_20265321",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265322,
+      "selector_seed": 40526549,
+      "source_episode_id": "square_e0_20265322",
+      "split": "train"
+    },
+    {
+      "bank": "factorial",
+      "distribution": "enriched",
+      "seed": 20265323,
+      "selector_seed": 40526550,
+      "source_episode_id": "square_e0_20265323",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266124,
+      "selector_seed": 40527351,
+      "source_episode_id": "square_e0_20266124",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266125,
+      "selector_seed": 40527352,
+      "source_episode_id": "square_e0_20266125",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266126,
+      "selector_seed": 40527353,
+      "source_episode_id": "square_e0_20266126",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266127,
+      "selector_seed": 40527354,
+      "source_episode_id": "square_e0_20266127",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266128,
+      "selector_seed": 40527355,
+      "source_episode_id": "square_e0_20266128",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266129,
+      "selector_seed": 40527356,
+      "source_episode_id": "square_e0_20266129",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266130,
+      "selector_seed": 40527357,
+      "source_episode_id": "square_e0_20266130",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266131,
+      "selector_seed": 40527358,
+      "source_episode_id": "square_e0_20266131",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266132,
+      "selector_seed": 40527359,
+      "source_episode_id": "square_e0_20266132",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266133,
+      "selector_seed": 40527360,
+      "source_episode_id": "square_e0_20266133",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266134,
+      "selector_seed": 40527361,
+      "source_episode_id": "square_e0_20266134",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266135,
+      "selector_seed": 40527362,
+      "source_episode_id": "square_e0_20266135",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266136,
+      "selector_seed": 40527363,
+      "source_episode_id": "square_e0_20266136",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266137,
+      "selector_seed": 40527364,
+      "source_episode_id": "square_e0_20266137",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266138,
+      "selector_seed": 40527365,
+      "source_episode_id": "square_e0_20266138",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266139,
+      "selector_seed": 40527366,
+      "source_episode_id": "square_e0_20266139",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266140,
+      "selector_seed": 40527367,
+      "source_episode_id": "square_e0_20266140",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266141,
+      "selector_seed": 40527368,
+      "source_episode_id": "square_e0_20266141",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266142,
+      "selector_seed": 40527369,
+      "source_episode_id": "square_e0_20266142",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266143,
+      "selector_seed": 40527370,
+      "source_episode_id": "square_e0_20266143",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266144,
+      "selector_seed": 40527371,
+      "source_episode_id": "square_e0_20266144",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266145,
+      "selector_seed": 40527372,
+      "source_episode_id": "square_e0_20266145",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266146,
+      "selector_seed": 40527373,
+      "source_episode_id": "square_e0_20266146",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266147,
+      "selector_seed": 40527374,
+      "source_episode_id": "square_e0_20266147",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266148,
+      "selector_seed": 40527375,
+      "source_episode_id": "square_e0_20266148",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266149,
+      "selector_seed": 40527376,
+      "source_episode_id": "square_e0_20266149",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266150,
+      "selector_seed": 40527377,
+      "source_episode_id": "square_e0_20266150",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266151,
+      "selector_seed": 40527378,
+      "source_episode_id": "square_e0_20266151",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266152,
+      "selector_seed": 40527379,
+      "source_episode_id": "square_e0_20266152",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266153,
+      "selector_seed": 40527380,
+      "source_episode_id": "square_e0_20266153",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266154,
+      "selector_seed": 40527381,
+      "source_episode_id": "square_e0_20266154",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266155,
+      "selector_seed": 40527382,
+      "source_episode_id": "square_e0_20266155",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266156,
+      "selector_seed": 40527383,
+      "source_episode_id": "square_e0_20266156",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266157,
+      "selector_seed": 40527384,
+      "source_episode_id": "square_e0_20266157",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266158,
+      "selector_seed": 40527385,
+      "source_episode_id": "square_e0_20266158",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266159,
+      "selector_seed": 40527386,
+      "source_episode_id": "square_e0_20266159",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266160,
+      "selector_seed": 40527387,
+      "source_episode_id": "square_e0_20266160",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266161,
+      "selector_seed": 40527388,
+      "source_episode_id": "square_e0_20266161",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266162,
+      "selector_seed": 40527389,
+      "source_episode_id": "square_e0_20266162",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266163,
+      "selector_seed": 40527390,
+      "source_episode_id": "square_e0_20266163",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266164,
+      "selector_seed": 40527391,
+      "source_episode_id": "square_e0_20266164",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266165,
+      "selector_seed": 40527392,
+      "source_episode_id": "square_e0_20266165",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266166,
+      "selector_seed": 40527393,
+      "source_episode_id": "square_e0_20266166",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266167,
+      "selector_seed": 40527394,
+      "source_episode_id": "square_e0_20266167",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266168,
+      "selector_seed": 40527395,
+      "source_episode_id": "square_e0_20266168",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266169,
+      "selector_seed": 40527396,
+      "source_episode_id": "square_e0_20266169",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266170,
+      "selector_seed": 40527397,
+      "source_episode_id": "square_e0_20266170",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266171,
+      "selector_seed": 40527398,
+      "source_episode_id": "square_e0_20266171",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266172,
+      "selector_seed": 40527399,
+      "source_episode_id": "square_e0_20266172",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266173,
+      "selector_seed": 40527400,
+      "source_episode_id": "square_e0_20266173",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266174,
+      "selector_seed": 40527401,
+      "source_episode_id": "square_e0_20266174",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266175,
+      "selector_seed": 40527402,
+      "source_episode_id": "square_e0_20266175",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266176,
+      "selector_seed": 40527403,
+      "source_episode_id": "square_e0_20266176",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266177,
+      "selector_seed": 40527404,
+      "source_episode_id": "square_e0_20266177",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266178,
+      "selector_seed": 40527405,
+      "source_episode_id": "square_e0_20266178",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266179,
+      "selector_seed": 40527406,
+      "source_episode_id": "square_e0_20266179",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266180,
+      "selector_seed": 40527407,
+      "source_episode_id": "square_e0_20266180",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266181,
+      "selector_seed": 40527408,
+      "source_episode_id": "square_e0_20266181",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266182,
+      "selector_seed": 40527409,
+      "source_episode_id": "square_e0_20266182",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266183,
+      "selector_seed": 40527410,
+      "source_episode_id": "square_e0_20266183",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266184,
+      "selector_seed": 40527411,
+      "source_episode_id": "square_e0_20266184",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266185,
+      "selector_seed": 40527412,
+      "source_episode_id": "square_e0_20266185",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266186,
+      "selector_seed": 40527413,
+      "source_episode_id": "square_e0_20266186",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266187,
+      "selector_seed": 40527414,
+      "source_episode_id": "square_e0_20266187",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266188,
+      "selector_seed": 40527415,
+      "source_episode_id": "square_e0_20266188",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266189,
+      "selector_seed": 40527416,
+      "source_episode_id": "square_e0_20266189",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266190,
+      "selector_seed": 40527417,
+      "source_episode_id": "square_e0_20266190",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266191,
+      "selector_seed": 40527418,
+      "source_episode_id": "square_e0_20266191",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266192,
+      "selector_seed": 40527419,
+      "source_episode_id": "square_e0_20266192",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266193,
+      "selector_seed": 40527420,
+      "source_episode_id": "square_e0_20266193",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266194,
+      "selector_seed": 40527421,
+      "source_episode_id": "square_e0_20266194",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266195,
+      "selector_seed": 40527422,
+      "source_episode_id": "square_e0_20266195",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266196,
+      "selector_seed": 40527423,
+      "source_episode_id": "square_e0_20266196",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266197,
+      "selector_seed": 40527424,
+      "source_episode_id": "square_e0_20266197",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266198,
+      "selector_seed": 40527425,
+      "source_episode_id": "square_e0_20266198",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266199,
+      "selector_seed": 40527426,
+      "source_episode_id": "square_e0_20266199",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266200,
+      "selector_seed": 40527427,
+      "source_episode_id": "square_e0_20266200",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266201,
+      "selector_seed": 40527428,
+      "source_episode_id": "square_e0_20266201",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266202,
+      "selector_seed": 40527429,
+      "source_episode_id": "square_e0_20266202",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266203,
+      "selector_seed": 40527430,
+      "source_episode_id": "square_e0_20266203",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266204,
+      "selector_seed": 40527431,
+      "source_episode_id": "square_e0_20266204",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266205,
+      "selector_seed": 40527432,
+      "source_episode_id": "square_e0_20266205",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266206,
+      "selector_seed": 40527433,
+      "source_episode_id": "square_e0_20266206",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266207,
+      "selector_seed": 40527434,
+      "source_episode_id": "square_e0_20266207",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266208,
+      "selector_seed": 40527435,
+      "source_episode_id": "square_e0_20266208",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266209,
+      "selector_seed": 40527436,
+      "source_episode_id": "square_e0_20266209",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266210,
+      "selector_seed": 40527437,
+      "source_episode_id": "square_e0_20266210",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266211,
+      "selector_seed": 40527438,
+      "source_episode_id": "square_e0_20266211",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266212,
+      "selector_seed": 40527439,
+      "source_episode_id": "square_e0_20266212",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266213,
+      "selector_seed": 40527440,
+      "source_episode_id": "square_e0_20266213",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266214,
+      "selector_seed": 40527441,
+      "source_episode_id": "square_e0_20266214",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266215,
+      "selector_seed": 40527442,
+      "source_episode_id": "square_e0_20266215",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266216,
+      "selector_seed": 40527443,
+      "source_episode_id": "square_e0_20266216",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266217,
+      "selector_seed": 40527444,
+      "source_episode_id": "square_e0_20266217",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266218,
+      "selector_seed": 40527445,
+      "source_episode_id": "square_e0_20266218",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266219,
+      "selector_seed": 40527446,
+      "source_episode_id": "square_e0_20266219",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266220,
+      "selector_seed": 40527447,
+      "source_episode_id": "square_e0_20266220",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266221,
+      "selector_seed": 40527448,
+      "source_episode_id": "square_e0_20266221",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266222,
+      "selector_seed": 40527449,
+      "source_episode_id": "square_e0_20266222",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266223,
+      "selector_seed": 40527450,
+      "source_episode_id": "square_e0_20266223",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266224,
+      "selector_seed": 40527451,
+      "source_episode_id": "square_e0_20266224",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266225,
+      "selector_seed": 40527452,
+      "source_episode_id": "square_e0_20266225",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266226,
+      "selector_seed": 40527453,
+      "source_episode_id": "square_e0_20266226",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266227,
+      "selector_seed": 40527454,
+      "source_episode_id": "square_e0_20266227",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266228,
+      "selector_seed": 40527455,
+      "source_episode_id": "square_e0_20266228",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266229,
+      "selector_seed": 40527456,
+      "source_episode_id": "square_e0_20266229",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266230,
+      "selector_seed": 40527457,
+      "source_episode_id": "square_e0_20266230",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266231,
+      "selector_seed": 40527458,
+      "source_episode_id": "square_e0_20266231",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266232,
+      "selector_seed": 40527459,
+      "source_episode_id": "square_e0_20266232",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266233,
+      "selector_seed": 40527460,
+      "source_episode_id": "square_e0_20266233",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266234,
+      "selector_seed": 40527461,
+      "source_episode_id": "square_e0_20266234",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266235,
+      "selector_seed": 40527462,
+      "source_episode_id": "square_e0_20266235",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266236,
+      "selector_seed": 40527463,
+      "source_episode_id": "square_e0_20266236",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266237,
+      "selector_seed": 40527464,
+      "source_episode_id": "square_e0_20266237",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266238,
+      "selector_seed": 40527465,
+      "source_episode_id": "square_e0_20266238",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266239,
+      "selector_seed": 40527466,
+      "source_episode_id": "square_e0_20266239",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266240,
+      "selector_seed": 40527467,
+      "source_episode_id": "square_e0_20266240",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266241,
+      "selector_seed": 40527468,
+      "source_episode_id": "square_e0_20266241",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266242,
+      "selector_seed": 40527469,
+      "source_episode_id": "square_e0_20266242",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266243,
+      "selector_seed": 40527470,
+      "source_episode_id": "square_e0_20266243",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266244,
+      "selector_seed": 40527471,
+      "source_episode_id": "square_e0_20266244",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266245,
+      "selector_seed": 40527472,
+      "source_episode_id": "square_e0_20266245",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266246,
+      "selector_seed": 40527473,
+      "source_episode_id": "square_e0_20266246",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266247,
+      "selector_seed": 40527474,
+      "source_episode_id": "square_e0_20266247",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266248,
+      "selector_seed": 40527475,
+      "source_episode_id": "square_e0_20266248",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266249,
+      "selector_seed": 40527476,
+      "source_episode_id": "square_e0_20266249",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266250,
+      "selector_seed": 40527477,
+      "source_episode_id": "square_e0_20266250",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266251,
+      "selector_seed": 40527478,
+      "source_episode_id": "square_e0_20266251",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266252,
+      "selector_seed": 40527479,
+      "source_episode_id": "square_e0_20266252",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266253,
+      "selector_seed": 40527480,
+      "source_episode_id": "square_e0_20266253",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266254,
+      "selector_seed": 40527481,
+      "source_episode_id": "square_e0_20266254",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266255,
+      "selector_seed": 40527482,
+      "source_episode_id": "square_e0_20266255",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266256,
+      "selector_seed": 40527483,
+      "source_episode_id": "square_e0_20266256",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266257,
+      "selector_seed": 40527484,
+      "source_episode_id": "square_e0_20266257",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266258,
+      "selector_seed": 40527485,
+      "source_episode_id": "square_e0_20266258",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266259,
+      "selector_seed": 40527486,
+      "source_episode_id": "square_e0_20266259",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266260,
+      "selector_seed": 40527487,
+      "source_episode_id": "square_e0_20266260",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266261,
+      "selector_seed": 40527488,
+      "source_episode_id": "square_e0_20266261",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266262,
+      "selector_seed": 40527489,
+      "source_episode_id": "square_e0_20266262",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266263,
+      "selector_seed": 40527490,
+      "source_episode_id": "square_e0_20266263",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266264,
+      "selector_seed": 40527491,
+      "source_episode_id": "square_e0_20266264",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266265,
+      "selector_seed": 40527492,
+      "source_episode_id": "square_e0_20266265",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266266,
+      "selector_seed": 40527493,
+      "source_episode_id": "square_e0_20266266",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266267,
+      "selector_seed": 40527494,
+      "source_episode_id": "square_e0_20266267",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266268,
+      "selector_seed": 40527495,
+      "source_episode_id": "square_e0_20266268",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266269,
+      "selector_seed": 40527496,
+      "source_episode_id": "square_e0_20266269",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266270,
+      "selector_seed": 40527497,
+      "source_episode_id": "square_e0_20266270",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266271,
+      "selector_seed": 40527498,
+      "source_episode_id": "square_e0_20266271",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266272,
+      "selector_seed": 40527499,
+      "source_episode_id": "square_e0_20266272",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266273,
+      "selector_seed": 40527500,
+      "source_episode_id": "square_e0_20266273",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266274,
+      "selector_seed": 40527501,
+      "source_episode_id": "square_e0_20266274",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266275,
+      "selector_seed": 40527502,
+      "source_episode_id": "square_e0_20266275",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266276,
+      "selector_seed": 40527503,
+      "source_episode_id": "square_e0_20266276",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266277,
+      "selector_seed": 40527504,
+      "source_episode_id": "square_e0_20266277",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266278,
+      "selector_seed": 40527505,
+      "source_episode_id": "square_e0_20266278",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266279,
+      "selector_seed": 40527506,
+      "source_episode_id": "square_e0_20266279",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266280,
+      "selector_seed": 40527507,
+      "source_episode_id": "square_e0_20266280",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266281,
+      "selector_seed": 40527508,
+      "source_episode_id": "square_e0_20266281",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266282,
+      "selector_seed": 40527509,
+      "source_episode_id": "square_e0_20266282",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "natural",
+      "seed": 20266283,
+      "selector_seed": 40527510,
+      "source_episode_id": "square_e0_20266283",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267124,
+      "selector_seed": 40528351,
+      "source_episode_id": "square_e0_20267124",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267125,
+      "selector_seed": 40528352,
+      "source_episode_id": "square_e0_20267125",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267126,
+      "selector_seed": 40528353,
+      "source_episode_id": "square_e0_20267126",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267127,
+      "selector_seed": 40528354,
+      "source_episode_id": "square_e0_20267127",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267128,
+      "selector_seed": 40528355,
+      "source_episode_id": "square_e0_20267128",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267129,
+      "selector_seed": 40528356,
+      "source_episode_id": "square_e0_20267129",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267130,
+      "selector_seed": 40528357,
+      "source_episode_id": "square_e0_20267130",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267131,
+      "selector_seed": 40528358,
+      "source_episode_id": "square_e0_20267131",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267132,
+      "selector_seed": 40528359,
+      "source_episode_id": "square_e0_20267132",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267133,
+      "selector_seed": 40528360,
+      "source_episode_id": "square_e0_20267133",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267134,
+      "selector_seed": 40528361,
+      "source_episode_id": "square_e0_20267134",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267135,
+      "selector_seed": 40528362,
+      "source_episode_id": "square_e0_20267135",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267136,
+      "selector_seed": 40528363,
+      "source_episode_id": "square_e0_20267136",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267137,
+      "selector_seed": 40528364,
+      "source_episode_id": "square_e0_20267137",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267138,
+      "selector_seed": 40528365,
+      "source_episode_id": "square_e0_20267138",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267139,
+      "selector_seed": 40528366,
+      "source_episode_id": "square_e0_20267139",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267140,
+      "selector_seed": 40528367,
+      "source_episode_id": "square_e0_20267140",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267141,
+      "selector_seed": 40528368,
+      "source_episode_id": "square_e0_20267141",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267142,
+      "selector_seed": 40528369,
+      "source_episode_id": "square_e0_20267142",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267143,
+      "selector_seed": 40528370,
+      "source_episode_id": "square_e0_20267143",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267144,
+      "selector_seed": 40528371,
+      "source_episode_id": "square_e0_20267144",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267145,
+      "selector_seed": 40528372,
+      "source_episode_id": "square_e0_20267145",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267146,
+      "selector_seed": 40528373,
+      "source_episode_id": "square_e0_20267146",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267147,
+      "selector_seed": 40528374,
+      "source_episode_id": "square_e0_20267147",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267148,
+      "selector_seed": 40528375,
+      "source_episode_id": "square_e0_20267148",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267149,
+      "selector_seed": 40528376,
+      "source_episode_id": "square_e0_20267149",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267150,
+      "selector_seed": 40528377,
+      "source_episode_id": "square_e0_20267150",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267151,
+      "selector_seed": 40528378,
+      "source_episode_id": "square_e0_20267151",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267152,
+      "selector_seed": 40528379,
+      "source_episode_id": "square_e0_20267152",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267153,
+      "selector_seed": 40528380,
+      "source_episode_id": "square_e0_20267153",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267154,
+      "selector_seed": 40528381,
+      "source_episode_id": "square_e0_20267154",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267155,
+      "selector_seed": 40528382,
+      "source_episode_id": "square_e0_20267155",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267156,
+      "selector_seed": 40528383,
+      "source_episode_id": "square_e0_20267156",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267157,
+      "selector_seed": 40528384,
+      "source_episode_id": "square_e0_20267157",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267158,
+      "selector_seed": 40528385,
+      "source_episode_id": "square_e0_20267158",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267159,
+      "selector_seed": 40528386,
+      "source_episode_id": "square_e0_20267159",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267160,
+      "selector_seed": 40528387,
+      "source_episode_id": "square_e0_20267160",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267161,
+      "selector_seed": 40528388,
+      "source_episode_id": "square_e0_20267161",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267162,
+      "selector_seed": 40528389,
+      "source_episode_id": "square_e0_20267162",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267163,
+      "selector_seed": 40528390,
+      "source_episode_id": "square_e0_20267163",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267164,
+      "selector_seed": 40528391,
+      "source_episode_id": "square_e0_20267164",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267165,
+      "selector_seed": 40528392,
+      "source_episode_id": "square_e0_20267165",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267166,
+      "selector_seed": 40528393,
+      "source_episode_id": "square_e0_20267166",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267167,
+      "selector_seed": 40528394,
+      "source_episode_id": "square_e0_20267167",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267168,
+      "selector_seed": 40528395,
+      "source_episode_id": "square_e0_20267168",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267169,
+      "selector_seed": 40528396,
+      "source_episode_id": "square_e0_20267169",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267170,
+      "selector_seed": 40528397,
+      "source_episode_id": "square_e0_20267170",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267171,
+      "selector_seed": 40528398,
+      "source_episode_id": "square_e0_20267171",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267172,
+      "selector_seed": 40528399,
+      "source_episode_id": "square_e0_20267172",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267173,
+      "selector_seed": 40528400,
+      "source_episode_id": "square_e0_20267173",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267174,
+      "selector_seed": 40528401,
+      "source_episode_id": "square_e0_20267174",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267175,
+      "selector_seed": 40528402,
+      "source_episode_id": "square_e0_20267175",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267176,
+      "selector_seed": 40528403,
+      "source_episode_id": "square_e0_20267176",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267177,
+      "selector_seed": 40528404,
+      "source_episode_id": "square_e0_20267177",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267178,
+      "selector_seed": 40528405,
+      "source_episode_id": "square_e0_20267178",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267179,
+      "selector_seed": 40528406,
+      "source_episode_id": "square_e0_20267179",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267180,
+      "selector_seed": 40528407,
+      "source_episode_id": "square_e0_20267180",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267181,
+      "selector_seed": 40528408,
+      "source_episode_id": "square_e0_20267181",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267182,
+      "selector_seed": 40528409,
+      "source_episode_id": "square_e0_20267182",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267183,
+      "selector_seed": 40528410,
+      "source_episode_id": "square_e0_20267183",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267184,
+      "selector_seed": 40528411,
+      "source_episode_id": "square_e0_20267184",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267185,
+      "selector_seed": 40528412,
+      "source_episode_id": "square_e0_20267185",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267186,
+      "selector_seed": 40528413,
+      "source_episode_id": "square_e0_20267186",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267187,
+      "selector_seed": 40528414,
+      "source_episode_id": "square_e0_20267187",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267188,
+      "selector_seed": 40528415,
+      "source_episode_id": "square_e0_20267188",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267189,
+      "selector_seed": 40528416,
+      "source_episode_id": "square_e0_20267189",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267190,
+      "selector_seed": 40528417,
+      "source_episode_id": "square_e0_20267190",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267191,
+      "selector_seed": 40528418,
+      "source_episode_id": "square_e0_20267191",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267192,
+      "selector_seed": 40528419,
+      "source_episode_id": "square_e0_20267192",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267193,
+      "selector_seed": 40528420,
+      "source_episode_id": "square_e0_20267193",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267194,
+      "selector_seed": 40528421,
+      "source_episode_id": "square_e0_20267194",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267195,
+      "selector_seed": 40528422,
+      "source_episode_id": "square_e0_20267195",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267196,
+      "selector_seed": 40528423,
+      "source_episode_id": "square_e0_20267196",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267197,
+      "selector_seed": 40528424,
+      "source_episode_id": "square_e0_20267197",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267198,
+      "selector_seed": 40528425,
+      "source_episode_id": "square_e0_20267198",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267199,
+      "selector_seed": 40528426,
+      "source_episode_id": "square_e0_20267199",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267200,
+      "selector_seed": 40528427,
+      "source_episode_id": "square_e0_20267200",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267201,
+      "selector_seed": 40528428,
+      "source_episode_id": "square_e0_20267201",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267202,
+      "selector_seed": 40528429,
+      "source_episode_id": "square_e0_20267202",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267203,
+      "selector_seed": 40528430,
+      "source_episode_id": "square_e0_20267203",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267204,
+      "selector_seed": 40528431,
+      "source_episode_id": "square_e0_20267204",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267205,
+      "selector_seed": 40528432,
+      "source_episode_id": "square_e0_20267205",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267206,
+      "selector_seed": 40528433,
+      "source_episode_id": "square_e0_20267206",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267207,
+      "selector_seed": 40528434,
+      "source_episode_id": "square_e0_20267207",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267208,
+      "selector_seed": 40528435,
+      "source_episode_id": "square_e0_20267208",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267209,
+      "selector_seed": 40528436,
+      "source_episode_id": "square_e0_20267209",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267210,
+      "selector_seed": 40528437,
+      "source_episode_id": "square_e0_20267210",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267211,
+      "selector_seed": 40528438,
+      "source_episode_id": "square_e0_20267211",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267212,
+      "selector_seed": 40528439,
+      "source_episode_id": "square_e0_20267212",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267213,
+      "selector_seed": 40528440,
+      "source_episode_id": "square_e0_20267213",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267214,
+      "selector_seed": 40528441,
+      "source_episode_id": "square_e0_20267214",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267215,
+      "selector_seed": 40528442,
+      "source_episode_id": "square_e0_20267215",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267216,
+      "selector_seed": 40528443,
+      "source_episode_id": "square_e0_20267216",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267217,
+      "selector_seed": 40528444,
+      "source_episode_id": "square_e0_20267217",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267218,
+      "selector_seed": 40528445,
+      "source_episode_id": "square_e0_20267218",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267219,
+      "selector_seed": 40528446,
+      "source_episode_id": "square_e0_20267219",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267220,
+      "selector_seed": 40528447,
+      "source_episode_id": "square_e0_20267220",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267221,
+      "selector_seed": 40528448,
+      "source_episode_id": "square_e0_20267221",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267222,
+      "selector_seed": 40528449,
+      "source_episode_id": "square_e0_20267222",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267223,
+      "selector_seed": 40528450,
+      "source_episode_id": "square_e0_20267223",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267224,
+      "selector_seed": 40528451,
+      "source_episode_id": "square_e0_20267224",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267225,
+      "selector_seed": 40528452,
+      "source_episode_id": "square_e0_20267225",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267226,
+      "selector_seed": 40528453,
+      "source_episode_id": "square_e0_20267226",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267227,
+      "selector_seed": 40528454,
+      "source_episode_id": "square_e0_20267227",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267228,
+      "selector_seed": 40528455,
+      "source_episode_id": "square_e0_20267228",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267229,
+      "selector_seed": 40528456,
+      "source_episode_id": "square_e0_20267229",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267230,
+      "selector_seed": 40528457,
+      "source_episode_id": "square_e0_20267230",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267231,
+      "selector_seed": 40528458,
+      "source_episode_id": "square_e0_20267231",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267232,
+      "selector_seed": 40528459,
+      "source_episode_id": "square_e0_20267232",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267233,
+      "selector_seed": 40528460,
+      "source_episode_id": "square_e0_20267233",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267234,
+      "selector_seed": 40528461,
+      "source_episode_id": "square_e0_20267234",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267235,
+      "selector_seed": 40528462,
+      "source_episode_id": "square_e0_20267235",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267236,
+      "selector_seed": 40528463,
+      "source_episode_id": "square_e0_20267236",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267237,
+      "selector_seed": 40528464,
+      "source_episode_id": "square_e0_20267237",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267238,
+      "selector_seed": 40528465,
+      "source_episode_id": "square_e0_20267238",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267239,
+      "selector_seed": 40528466,
+      "source_episode_id": "square_e0_20267239",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267240,
+      "selector_seed": 40528467,
+      "source_episode_id": "square_e0_20267240",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267241,
+      "selector_seed": 40528468,
+      "source_episode_id": "square_e0_20267241",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267242,
+      "selector_seed": 40528469,
+      "source_episode_id": "square_e0_20267242",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267243,
+      "selector_seed": 40528470,
+      "source_episode_id": "square_e0_20267243",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267244,
+      "selector_seed": 40528471,
+      "source_episode_id": "square_e0_20267244",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267245,
+      "selector_seed": 40528472,
+      "source_episode_id": "square_e0_20267245",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267246,
+      "selector_seed": 40528473,
+      "source_episode_id": "square_e0_20267246",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267247,
+      "selector_seed": 40528474,
+      "source_episode_id": "square_e0_20267247",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267248,
+      "selector_seed": 40528475,
+      "source_episode_id": "square_e0_20267248",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267249,
+      "selector_seed": 40528476,
+      "source_episode_id": "square_e0_20267249",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267250,
+      "selector_seed": 40528477,
+      "source_episode_id": "square_e0_20267250",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267251,
+      "selector_seed": 40528478,
+      "source_episode_id": "square_e0_20267251",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267252,
+      "selector_seed": 40528479,
+      "source_episode_id": "square_e0_20267252",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267253,
+      "selector_seed": 40528480,
+      "source_episode_id": "square_e0_20267253",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267254,
+      "selector_seed": 40528481,
+      "source_episode_id": "square_e0_20267254",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267255,
+      "selector_seed": 40528482,
+      "source_episode_id": "square_e0_20267255",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267256,
+      "selector_seed": 40528483,
+      "source_episode_id": "square_e0_20267256",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267257,
+      "selector_seed": 40528484,
+      "source_episode_id": "square_e0_20267257",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267258,
+      "selector_seed": 40528485,
+      "source_episode_id": "square_e0_20267258",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267259,
+      "selector_seed": 40528486,
+      "source_episode_id": "square_e0_20267259",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267260,
+      "selector_seed": 40528487,
+      "source_episode_id": "square_e0_20267260",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267261,
+      "selector_seed": 40528488,
+      "source_episode_id": "square_e0_20267261",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267262,
+      "selector_seed": 40528489,
+      "source_episode_id": "square_e0_20267262",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267263,
+      "selector_seed": 40528490,
+      "source_episode_id": "square_e0_20267263",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267264,
+      "selector_seed": 40528491,
+      "source_episode_id": "square_e0_20267264",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267265,
+      "selector_seed": 40528492,
+      "source_episode_id": "square_e0_20267265",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267266,
+      "selector_seed": 40528493,
+      "source_episode_id": "square_e0_20267266",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267267,
+      "selector_seed": 40528494,
+      "source_episode_id": "square_e0_20267267",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267268,
+      "selector_seed": 40528495,
+      "source_episode_id": "square_e0_20267268",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267269,
+      "selector_seed": 40528496,
+      "source_episode_id": "square_e0_20267269",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267270,
+      "selector_seed": 40528497,
+      "source_episode_id": "square_e0_20267270",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267271,
+      "selector_seed": 40528498,
+      "source_episode_id": "square_e0_20267271",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267272,
+      "selector_seed": 40528499,
+      "source_episode_id": "square_e0_20267272",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267273,
+      "selector_seed": 40528500,
+      "source_episode_id": "square_e0_20267273",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267274,
+      "selector_seed": 40528501,
+      "source_episode_id": "square_e0_20267274",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267275,
+      "selector_seed": 40528502,
+      "source_episode_id": "square_e0_20267275",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267276,
+      "selector_seed": 40528503,
+      "source_episode_id": "square_e0_20267276",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267277,
+      "selector_seed": 40528504,
+      "source_episode_id": "square_e0_20267277",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267278,
+      "selector_seed": 40528505,
+      "source_episode_id": "square_e0_20267278",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267279,
+      "selector_seed": 40528506,
+      "source_episode_id": "square_e0_20267279",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267280,
+      "selector_seed": 40528507,
+      "source_episode_id": "square_e0_20267280",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267281,
+      "selector_seed": 40528508,
+      "source_episode_id": "square_e0_20267281",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267282,
+      "selector_seed": 40528509,
+      "source_episode_id": "square_e0_20267282",
+      "split": "train"
+    },
+    {
+      "bank": "pair",
+      "distribution": "enriched",
+      "seed": 20267283,
+      "selector_seed": 40528510,
+      "source_episode_id": "square_e0_20267283",
+      "split": "train"
+    }
+  ],
+  "source_resfit_attempt": "results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5",
+  "source_resfit_dependency_locks": {
+    "conda-explicit.txt": {
+      "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/runtime/conda-explicit.txt",
+      "sha256": "2b5538025ba240838ad5e1798a4a1556748b191c0790bce16a2e169afc4e7f7d"
+    },
+    "environment.lock.txt": {
+      "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261126T011005048739Z_bf9bfb31c3e5/runtime/environment.lock.txt",
+      "sha256": "17fe8d5bc4154a6b9e087c2409be0efb0d742084894b839e54dd42d151340dbe"
+    }
+  },
+  "time": "logical control ticks measure refresh latency, wall time includes inference",
+  "upstream": {
+    "lerobot_commit": "69901b9b6a2300914ca3de0ea14b6fa6e0203bd4",
+    "patches": [
+      {
+        "path": "patches/resfit/train_bc_dexmg_cf_resrl.patch",
+        "sha256": "63283baa4fd93a5802ae1e83170b4c0a18616df36ef9fcb36dff56b5def2d975",
+        "target_root": "resfit"
+      },
+      {
+        "path": "patches/resfit/residual_td3_cf_resrl_eval.patch",
+        "sha256": "7fba47e4ee1fb75d22d162020df202f598f0117b549dbc0fa26159843722df0f",
+        "target_root": "resfit"
+      },
+      {
+        "path": "patches/lerobot/noncontiguous_episode_subset.patch",
+        "sha256": "4d20bc4ec899087891018fd8360eac31ec06774279c05581fada3827db967429",
+        "target_root": "lerobot"
+      }
+    ],
+    "resfit_commit": "66262b06a0caf159fb001504949b7b48ccda5f64",
+    "robosuite_commit": "77a4751233c29456a5381209e30dd0dbf39a6557"
+  }
+}

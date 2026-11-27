@@ -1,0 +1,85 @@
+{
+  "status": "SPECIFICATION_NOT_A_RUN_RESULT",
+  "upstream": {
+    "resfit_commit": "66262b06a0caf159fb001504949b7b48ccda5f64",
+    "robosuite_commit": "77a4751233c29456a5381209e30dd0dbf39a6557",
+    "lerobot_repository": "https://github.com/huggingface/lerobot.git",
+    "lerobot_commit": "69901b9b6a2300914ca3de0ea14b6fa6e0203bd4",
+    "patches": [
+      {
+        "path": "patches/resfit/train_bc_dexmg_cf_resrl.patch",
+        "sha256": "63283baa4fd93a5802ae1e83170b4c0a18616df36ef9fcb36dff56b5def2d975",
+        "target_root": "resfit"
+      },
+      {
+        "path": "patches/resfit/residual_td3_cf_resrl.patch",
+        "sha256": "441a6070a30d2c2de8ff286c008e948a16d573febe07d72041255b42a5d9b35f",
+        "target_root": "resfit"
+      },
+      {
+        "path": "patches/lerobot/noncontiguous_episode_subset.patch",
+        "sha256": "4d20bc4ec899087891018fd8360eac31ec06774279c05581fada3827db967429",
+        "target_root": "lerobot"
+      }
+    ]
+  },
+  "runtime": {
+    "conda_environment": "cf-resrl-m0",
+    "pip_freeze_lock": {
+      "path": "results/cf_resrl/m0/act_runtime/environment.lock.txt",
+      "sha256": "ce0fd3f7d80633ba96054f17a046fc3a4cc806ca945fd8e70928c9ec2a424eda"
+    },
+    "conda_explicit_lock": {
+      "path": "results/cf_resrl/m0/act_runtime/conda-explicit.txt",
+      "sha256": "2b5538025ba240838ad5e1798a4a1556748b191c0790bce16a2e169afc4e7f7d"
+    }
+  },
+  "act_backbone_weights": {
+    "enum": "ResNet18_Weights.IMAGENET1K_V1",
+    "filename": "resnet18-f37072fd.pth",
+    "sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec"
+  },
+  "dataset": {
+    "repo_id": "ankile/robomimic-mh-square-image",
+    "revision": "4e5cee7ea7d63b920ff76c2529b781c2474697da",
+    "root": "data/cf_resrl/square",
+    "split_manifest": "results/cf_resrl/m0/dataset_audit/attempts/20261124T131023495428Z_a9dcb4b558af/split_manifest.json",
+    "split_manifest_sha256": "629d01857156c691f297218e0cda3e3b3a802a91122f006a1ca70fd31163afcd",
+    "split": "train",
+    "episode_count": 240,
+    "video_backend": "pyav"
+  },
+  "training": {
+    "policy": "act",
+    "seed": 20261124,
+    "device": "cuda",
+    "steps": 50000,
+    "batch_size": 256,
+    "num_workers": 4,
+    "grad_clip_norm": 10.0,
+    "log_frequency": 100,
+    "save_frequency": 1000,
+    "wandb_enabled": false,
+    "output_root": "results/cf_resrl/m0/act_training"
+  },
+  "evaluation": {
+    "environment": "Square",
+    "rollout_frequency": 1000,
+    "num_environments": 16,
+    "num_episodes": 100,
+    "camera_size": 84,
+    "video_key": "observation.images.agentview"
+  },
+  "checkpoint_selection": {
+    "selection": "final_fixed_optimization_step",
+    "optimization_steps_completed": 50000,
+    "checkpoint_step_label": 49999,
+    "relative_policy_path": "policy_step_49999/policy",
+    "best_checkpoint_is_not_selected": true
+  },
+  "limitations": [
+    "The unavailable W&B dzbkdpwp checkpoint is not used by this reproduction training path.",
+    "The separately audited author-owned ACT candidate remains W&B-equivalence UNVERIFIED and is not treated as this run's output.",
+    "No ACT training result exists until this registered long run completes and its fixed final checkpoint evidence is committed."
+  ]
+}

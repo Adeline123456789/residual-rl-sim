@@ -1,0 +1,20 @@
+{
+  "status": "SPECIFICATION_NOT_A_RUN_RESULT",
+  "task": "Square",
+  "offline_attempt": "results/cf_resrl/mvp_square/offline_probe/attempts/20261126T194609984038Z_bfdd16f86003",
+  "offline_results_sha256": "df7aa57b88751ae5a40b0dd43f6261b8e1f0e0861fb95784863f85aef811dd6e",
+  "output_root": "results/cf_resrl/mvp_square/closed_loop",
+  "validation_seeds": {"first": 20268124, "count": 20},
+  "test_seeds": {"first": 20269124, "count": 50},
+  "act_budgets": [15, 20, 25],
+  "fixed_period": 10,
+  "norm_thresholds": [0.15, 0.19, 0.23, 0.27],
+  "learned_costs": [0.0, 0.01, 0.025, 0.05, 0.10],
+  "bootstrap_samples": 1000,
+  "bootstrap_seed": 20261201,
+  "learned_probe_selection": {
+    "distribution": "natural",
+    "fraction": 1.0,
+    "registry_names": {"B5": "B5", "B6": "B6-joint-cap", "P1": "P1"}
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "cleanup_error": null,
+  "discarded_partial_artifacts": {},
+  "error": "index 243 is out of bounds for dimension 0 with size 240",
+  "error_type": "IndexError",
+  "experiment_kind": "act_training_smoke",
+  "failed_at_utc": "2026-11-24T14:59:59.740800+00:00",
+  "resfit_status": "",
+  "run": {
+    "attempt_id": "20261124T145954029783Z_4b8d4f8c998b",
+    "command": "/home/midea/miniconda3/envs/cf-resrl-m0/bin/python -m resfit.lerobot.scripts.train_bc_dexmg --dataset ankile/robomimic-mh-square-image --dataset_revision 4e5cee7ea7d63b920ff76c2529b781c2474697da --dataset_root /media/midea/work/CF-ResRL/residual-rl-sim/data/cf_resrl/square --episode_split_manifest /media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/dataset_audit/attempts/20261124T131023495428Z_a9dcb4b558af/split_manifest.json --episode_split train --video_backend pyav --policy act --policy_kwargs '{\"pretrained_backbone_weights\":null}' --seed 20261124 --device cuda --steps 1 --batch_size 256 --num_workers 0 --grad_clip_norm 10.0 --log_freq 1 --save_freq 1 --output_dir /media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/act_training_smoke/attempts/20261124T145954029783Z_4b8d4f8c998b/training",
+    "dry_run": false,
+    "evidence_dir": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/act_training_smoke/attempts/20261124T145954029783Z_4b8d4f8c998b",
+    "git_commit": "4b8d4f8c998b45251ed31f14ff347f3a6518079d",
+    "git_dirty_before_attempt": false,
+    "started_at_utc": "2026-11-24T14:59:54.029783+00:00"
+  },
+  "runtime": {
+    "conda_environment": "cf-resrl-m0",
+    "cuda": "12.8",
+    "gpu": {
+      "compute_capability": [
+        8,
+        6
+      ],
+      "index": 0,
+      "name": "NVIDIA GeForce RTX 3090",
+      "total_memory_bytes": 25287720960
+    },
+    "host": "vision",
+    "locks": {
+      "conda_explicit_lock": {
+        "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/act_training_smoke/attempts/20261124T145954029783Z_4b8d4f8c998b/runtime/conda-explicit.txt",
+        "sha256": "2b5538025ba240838ad5e1798a4a1556748b191c0790bce16a2e169afc4e7f7d"
+      },
+      "pip_freeze_lock": {
+        "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/act_training_smoke/attempts/20261124T145954029783Z_4b8d4f8c998b/runtime/environment.lock.txt",
+        "sha256": "ce0fd3f7d80633ba96054f17a046fc3a4cc806ca945fd8e70928c9ec2a424eda"
+      }
+    },
+    "python": "3.10.22",
+    "python_executable": "/home/midea/miniconda3/envs/cf-resrl-m0/bin/python",
+    "torch": "2.7.1+cu128"
+  },
+  "status": "FAILED",
+  "training": {
+    "duration_seconds": 3.893157120095566,
+    "error": "index 243 is out of bounds for dimension 0 with size 240",
+    "error_type": "IndexError",
+    "peak_memory_allocated_bytes": 136827904,
+    "peak_memory_reserved_bytes": 159383552,
+    "status": "FAILED",
+    "stdout_stderr_log": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/act_training_smoke/attempts/20261124T145954029783Z_4b8d4f8c998b/stdout_stderr.log",
+    "stdout_stderr_sha256": "4343278d3850a974737d1515551d9fd02e30e20467edfd0d2b8100ac51408d30"
+  }
+}

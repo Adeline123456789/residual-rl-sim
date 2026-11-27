@@ -1,0 +1,116 @@
+[robosuite WARNING] No private macro file found! (macros.py:57)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:58)
+[robosuite WARNING] To setup, run: python /media/midea/work/CF-ResRL/residual-rl-sim/third_party/robosuite/robosuite/scripts/setup_macros.py (macros.py:59)
+[robosuite WARNING] Could not import robosuite_models. Some robots may not be available. If you want to use these robots, please install robosuite_models from source (https://github.com/ARISE-Initiative/robosuite_models) or through pip install. (__init__.py:30)
+[robosuite INFO] Loading controller configuration from: /media/midea/work/CF-ResRL/residual-rl-sim/third_party/robosuite/robosuite/controllers/config/robots/default_panda.json (composite_controller_factory.py:121)
+Loading weights from local directory
+{
+  "artifacts": {
+    "resolved_config.json": "c081f0bf0acf00db2d2df613c62670a01bc45d4b427d6183a30f00bba41c958f",
+    "tick_records.jsonl": "16a2b6689d54b4064c7507a418db17b0cbd6df8466823744d0589afaf27787e5"
+  },
+  "checkpoint": {
+    "config_sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb",
+    "license": "NOT_PUBLISHED",
+    "local_dir": "data/cf_resrl/checkpoints/resfit-act-square-b75e0805",
+    "model_bytes": 136837212,
+    "model_sha256": "add7b1e432ddeee2635ab09688b72fd5e1bb1eaff62a6b4b4494bc62b6e0364e",
+    "provenance": "author-owned candidate",
+    "torch_parameter_count": 34185089,
+    "wandb_equivalence": "UNVERIFIED",
+    "wandb_reference": "robomimic-square-bc/dzbkdpwp"
+  },
+  "comparisons": {
+    "restore_1": {
+      "act_queue_hashes_exact": true,
+      "image_hashes_exact": true,
+      "max_abs_error": {
+        "applied_action": 0.0,
+        "ctrl": 0.0,
+        "cur_time": 0.0,
+        "integration_state": 0.0,
+        "observation_state": 0.0,
+        "qpos": 0.0,
+        "qvel": 0.0,
+        "reward": 0.0,
+        "sim_time": 0.0
+      },
+      "scheduler_ledger_exact": true,
+      "torch_rng_hashes_exact": true
+    },
+    "restore_2": {
+      "act_queue_hashes_exact": true,
+      "image_hashes_exact": true,
+      "max_abs_error": {
+        "applied_action": 0.0,
+        "ctrl": 0.0,
+        "cur_time": 0.0,
+        "integration_state": 0.0,
+        "observation_state": 0.0,
+        "qpos": 0.0,
+        "qvel": 0.0,
+        "reward": 0.0,
+        "sim_time": 0.0
+      },
+      "scheduler_ledger_exact": true,
+      "torch_rng_hashes_exact": true
+    }
+  },
+  "completed_at_utc": "2026-11-24T14:58:55.424229+00:00",
+  "experiment_kind": "composite_snapshot_deterministic_replay_smoke",
+  "limitations": [
+    "This deterministic gate validates the real Square environment, ACT action queue, absolute-tick scheduler, and Torch RNG as one reusable snapshot.",
+    "It is not the registered eight-group four-branch smoke and does not use a trained ResFiT residual policy.",
+    "The replay requests no refresh; pending-refresh semantics remain covered by scheduler unit tests and the later four-branch smoke.",
+    "The checkpoint is an author-owned candidate; equivalence to the unavailable W&B checkpoint remains UNVERIFIED and its license remains NOT_PUBLISHED."
+  ],
+  "prefix_ticks": 1,
+  "restored_replays": 2,
+  "run": {
+    "attempt_id": "20261124T145850065561Z_6bd32e84cf59",
+    "command": "/home/midea/miniconda3/envs/cf-resrl-m0/bin/python /media/midea/work/CF-ResRL/residual-rl-sim/scripts/smoke_composite_snapshot.py",
+    "environment": {
+      "av": "14.2.0",
+      "cuda": "12.8",
+      "gpu": "NVIDIA GeForce RTX 3090",
+      "gymnasium": "1.1.1",
+      "mujoco": "3.3.2",
+      "numpy": "1.26.4",
+      "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+      "python": "3.10.22 | packaged by conda-forge | (main, Oct  6 2026, 23:02:24) [GCC 14.4.0]",
+      "robosuite": "1.5.1",
+      "torch": "2.7.1+cu128"
+    },
+    "evidence_dir": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/composite_snapshot_smoke/attempts/20261124T145850065561Z_6bd32e84cf59",
+    "git_commit": "6bd32e84cf5980664455a212a3e73c79bccb729c",
+    "git_dirty": false,
+    "host": "vision",
+    "started_at_utc": "2026-11-24T14:58:50.065561+00:00",
+    "submodules": {
+      "resfit": "66262b06a0caf159fb001504949b7b48ccda5f64",
+      "robosuite": "77a4751233c29456a5381209e30dd0dbf39a6557"
+    }
+  },
+  "snapshot": {
+    "act_queue_lengths": [
+      19
+    ],
+    "observation_tick": 1,
+    "policy_identity": "add7b1e432ddeee2635ab09688b72fd5e1bb1eaff62a6b4b4494bc62b6e0364e",
+    "provider_identity": "registered-act-queue-no-refresh-v1",
+    "scheduler_ledger_entries": 1,
+    "schema_version": 1,
+    "scope": "square_environment__act_queue__absolute_tick_scheduler",
+    "torch_cuda_device_count": 1,
+    "torch_rng_sha256": {
+      "cpu": "f9223b19682f955d73a6c6d7181ff9d253c97e779c7251fb7dc6ad29fb595d82",
+      "cuda": "afb7340b25892c9b64e5f4e464e11941127809bdd6c2ccab3c6d391c60c674d0"
+    }
+  },
+  "status": "COMPLETED",
+  "suffix_ticks": 3,
+  "tolerance": {
+    "atol": 1e-12,
+    "rtol": 0.0
+  }
+}

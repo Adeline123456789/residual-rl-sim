@@ -1,0 +1,13 @@
+{
+  "status": "COMPLETED",
+  "completed_at_utc": "2026-11-24T12:01:34Z",
+  "exit_code": 0,
+  "git_commit": "a719e93d887b368e330934c9a918e39006faad2a",
+  "dataset_repo": "ankile/robomimic-mh-square-image",
+  "dataset_revision": "4e5cee7ea7d63b920ff76c2529b781c2474697da",
+  "transport": "huggingface_hub with HF_HUB_DISABLE_XET=1",
+  "repository_files_present": 906,
+  "expected_repository_files": 906,
+  "content_verification": "PENDING_FULL_DATASET_AUDIT",
+  "command": "conda run --no-capture-output -n loop_act env HF_HUB_DISABLE_XET=1 python -u -c 'from huggingface_hub import snapshot_download; print(snapshot_download(repo_id=\"ankile/robomimic-mh-square-image\", repo_type=\"dataset\", revision=\"4e5cee7ea7d63b920ff76c2529b781c2474697da\", local_dir=\"data/cf_resrl/square\"))'"
+}

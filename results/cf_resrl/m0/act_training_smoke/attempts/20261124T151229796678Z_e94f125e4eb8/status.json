@@ -1,0 +1,131 @@
+{
+  "checkpoint": {
+    "artifacts": {
+      "training/latest/policy/config.json": {
+        "bytes": 1495,
+        "retained": true,
+        "sha256": "b8b3852beba156d05fe6fb8060b9a209a458cbbd4563b6e03a0a3a8f53f8e370"
+      },
+      "training/latest/policy/model.safetensors": {
+        "bytes": 136837212,
+        "discard_reason": "short-lived smoke payload exceeds ordinary Git artifact limits",
+        "retained": false,
+        "sha256": "e058508ffaba68336a7073fb0ab9ce9a90b7c9992de92f878774d184a611e64e"
+      },
+      "training/latest/trainer_state.pt": {
+        "bytes": 273564539,
+        "discard_reason": "short-lived smoke payload exceeds ordinary Git artifact limits",
+        "retained": false,
+        "sha256": "4875a818a0d4f9d4f95e96b1bba95d47f27af8b9c35268e2f2e1d0eedf753359"
+      },
+      "training/policy_step_0/policy/config.json": {
+        "bytes": 1495,
+        "retained": true,
+        "sha256": "b8b3852beba156d05fe6fb8060b9a209a458cbbd4563b6e03a0a3a8f53f8e370"
+      },
+      "training/policy_step_0/policy/model.safetensors": {
+        "bytes": 136837212,
+        "discard_reason": "short-lived smoke payload exceeds ordinary Git artifact limits",
+        "retained": false,
+        "sha256": "e058508ffaba68336a7073fb0ab9ce9a90b7c9992de92f878774d184a611e64e"
+      },
+      "training/resolved_training_config.json": {
+        "bytes": 3483,
+        "retained": true,
+        "sha256": "76c9790b9964aa2c211c4d4f0daf2e962a2dd2148dc14d94f953af5b39cefab3"
+      }
+    },
+    "loss": 0.7324,
+    "optimization_steps_completed": 1,
+    "optimizer_state_entries": 98,
+    "parameter_count": 34185089,
+    "state_dict_tensor_elements": 34204289,
+    "step_label": 0,
+    "strict_local_reload": true,
+    "strict_local_reload_latest": true
+  },
+  "completed_at_utc": "2026-11-24T15:12:40.864321+00:00",
+  "dataset": {
+    "episode_count": 240,
+    "repo_id": "ankile/robomimic-mh-square-image",
+    "revision": "4e5cee7ea7d63b920ff76c2529b781c2474697da",
+    "split": "train",
+    "split_manifest_sha256": "629d01857156c691f297218e0cda3e3b3a802a91122f006a1ca70fd31163afcd"
+  },
+  "experiment_kind": "act_training_smoke",
+  "lerobot_clean_after_cleanup": true,
+  "limitations": [
+    "This smoke validates one real CUDA forward, backward, optimizer update, checkpoint save, and strict local reload; it is not an ACT training result.",
+    "The smoke disables pretrained backbone download so that it cannot depend on mutable network state.",
+    "Rollout evaluation is intentionally disabled; the separately registered policy smoke covers the Square environment interface."
+  ],
+  "patches": [
+    {
+      "path": "/media/midea/work/CF-ResRL/residual-rl-sim/patches/resfit/train_bc_dexmg_cf_resrl.patch",
+      "sha256": "63283baa4fd93a5802ae1e83170b4c0a18616df36ef9fcb36dff56b5def2d975",
+      "state": "not_applied",
+      "target_path": "/media/midea/work/CF-ResRL/residual-rl-sim/third_party/resfit",
+      "target_root": "resfit"
+    },
+    {
+      "path": "/media/midea/work/CF-ResRL/residual-rl-sim/patches/resfit/residual_td3_cf_resrl.patch",
+      "sha256": "441a6070a30d2c2de8ff286c008e948a16d573febe07d72041255b42a5d9b35f",
+      "state": "not_applied",
+      "target_path": "/media/midea/work/CF-ResRL/residual-rl-sim/third_party/resfit",
+      "target_root": "resfit"
+    },
+    {
+      "path": "/media/midea/work/CF-ResRL/residual-rl-sim/patches/lerobot/noncontiguous_episode_subset.patch",
+      "sha256": "4d20bc4ec899087891018fd8360eac31ec06774279c05581fada3827db967429",
+      "state": "not_applied",
+      "target_path": "/media/midea/work/CF-ResRL/residual-rl-sim/third_party/resfit/deps/lerobot",
+      "target_root": "lerobot"
+    }
+  ],
+  "resfit_clean_after_cleanup": true,
+  "run": {
+    "attempt_id": "20261124T151229796678Z_e94f125e4eb8",
+    "command": "/home/midea/miniconda3/envs/cf-resrl-m0/bin/python -m resfit.lerobot.scripts.train_bc_dexmg --dataset ankile/robomimic-mh-square-image --dataset_revision 4e5cee7ea7d63b920ff76c2529b781c2474697da --dataset_root /media/midea/work/CF-ResRL/residual-rl-sim/data/cf_resrl/square --episode_split_manifest /media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/dataset_audit/attempts/20261124T131023495428Z_a9dcb4b558af/split_manifest.json --episode_split train --video_backend pyav --policy act --policy_kwargs '{\"pretrained_backbone_weights\":null}' --seed 20261124 --device cuda --steps 1 --batch_size 256 --num_workers 0 --grad_clip_norm 10.0 --log_freq 1 --save_freq 1 --output_dir /media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/act_training_smoke/attempts/20261124T151229796678Z_e94f125e4eb8/training",
+    "dry_run": false,
+    "evidence_dir": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/act_training_smoke/attempts/20261124T151229796678Z_e94f125e4eb8",
+    "git_commit": "e94f125e4eb852272c95d0ee93addd3e3dd1573b",
+    "git_dirty_before_attempt": false,
+    "started_at_utc": "2026-11-24T15:12:29.796678+00:00"
+  },
+  "runtime": {
+    "conda_environment": "cf-resrl-m0",
+    "cuda": "12.8",
+    "gpu": {
+      "compute_capability": [
+        8,
+        6
+      ],
+      "index": 0,
+      "name": "NVIDIA GeForce RTX 3090",
+      "total_memory_bytes": 25287720960
+    },
+    "host": "vision",
+    "locks": {
+      "conda_explicit_lock": {
+        "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/act_training_smoke/attempts/20261124T151229796678Z_e94f125e4eb8/runtime/conda-explicit.txt",
+        "sha256": "2b5538025ba240838ad5e1798a4a1556748b191c0790bce16a2e169afc4e7f7d"
+      },
+      "pip_freeze_lock": {
+        "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/act_training_smoke/attempts/20261124T151229796678Z_e94f125e4eb8/runtime/environment.lock.txt",
+        "sha256": "ce0fd3f7d80633ba96054f17a046fc3a4cc806ca945fd8e70928c9ec2a424eda"
+      }
+    },
+    "python": "3.10.22",
+    "python_executable": "/home/midea/miniconda3/envs/cf-resrl-m0/bin/python",
+    "torch": "2.7.1+cu128"
+  },
+  "status": "COMPLETED",
+  "training": {
+    "duration_seconds": 7.716330816037953,
+    "peak_memory_allocated_bytes": 2593082880,
+    "peak_memory_reserved_bytes": 3089104896,
+    "status": "COMPLETED",
+    "stdout_stderr_log": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/act_training_smoke/attempts/20261124T151229796678Z_e94f125e4eb8/stdout_stderr.log",
+    "stdout_stderr_sha256": "cff32241dea07633a55e20bff6a6afbe81f449b705630f95ccf57d926691354f"
+  }
+}

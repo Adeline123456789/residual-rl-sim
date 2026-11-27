@@ -1,0 +1,15 @@
+{
+  "status": "INTERRUPTED_FOR_TRANSPORT_FALLBACK",
+  "started_at_utc": "2026-11-24T11:32:17Z",
+  "interrupted_at_utc": "2026-11-24T12:00:54Z",
+  "exit_code": 130,
+  "git_commit": "0b335e3ba70a13d8f52782295b519f092e449c45",
+  "dataset_repo": "ankile/robomimic-mh-square-image",
+  "dataset_revision": "4e5cee7ea7d63b920ff76c2529b781c2474697da",
+  "transport": "hf-xet",
+  "completed_repository_files": 903,
+  "expected_repository_files": 906,
+  "remaining_incomplete_files": 3,
+  "reason": "Repeated Hugging Face Xet token/CDN connection timeouts; preserve completed files and resume with HF_HUB_DISABLE_XET=1.",
+  "command": "conda run -n loop_act python -c 'from huggingface_hub import snapshot_download; print(snapshot_download(repo_id=\"ankile/robomimic-mh-square-image\", repo_type=\"dataset\", revision=\"4e5cee7ea7d63b920ff76c2529b781c2474697da\", local_dir=\"data/cf_resrl/square\"))'"
+}

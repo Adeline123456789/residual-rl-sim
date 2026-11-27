@@ -1,0 +1,68 @@
+{
+  "checkpoint": {
+    "config_sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb",
+    "license": "NOT_PUBLISHED",
+    "local_dir": "data/cf_resrl/checkpoints/resfit-act-square-b75e0805",
+    "model_bytes": 136837212,
+    "model_sha256": "add7b1e432ddeee2635ab09688b72fd5e1bb1eaff62a6b4b4494bc62b6e0364e",
+    "provenance": "author-owned candidate",
+    "safetensors_tensor_element_count": 34204289,
+    "torch_parameter_count": 34185089,
+    "wandb_equivalence": "UNVERIFIED",
+    "wandb_reference": "robomimic-square-bc/dzbkdpwp"
+  },
+  "environment": {
+    "av": "14.2.0",
+    "gymnasium": "1.1.1",
+    "intentional_pip_check_deviations": [
+      "cmake not installed",
+      "diffusers not installed; registered ResFiT patch removes the unused eager import",
+      "flask not installed",
+      "gdown not installed",
+      "h5py not installed",
+      "omegaconf not installed",
+      "opencv-python-headless not installed",
+      "pymunk not installed",
+      "pyzmq not installed",
+      "rerun-sdk not installed",
+      "torchcodec not installed; video_backend is pyav",
+      "zarr not installed",
+      "gymnasium metadata requires 0.29.1; Square M0 intentionally keeps 1.1.1"
+    ],
+    "lerobot": "0.1.0",
+    "name": "cf-resrl-m0",
+    "runtime_scope": "minimal_act_square_path",
+    "torch": "2.7.1+cu128",
+    "video_backend": "pyav"
+  },
+  "output_dir": "results/cf_resrl/m0/act_policy_smoke",
+  "resolved": {
+    "checkpoint_dir": "/media/midea/work/CF-ResRL/residual-rl-sim/data/cf_resrl/checkpoints/resfit-act-square-b75e0805",
+    "config_path": "/media/midea/work/CF-ResRL/residual-rl-sim/configs/cf_resrl/m0_act_policy_smoke.json",
+    "output_dir": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/act_policy_smoke/attempts/20261124T145734770527Z_49187ef25005"
+  },
+  "run": {
+    "attempt_id": "20261124T145734770527Z_49187ef25005",
+    "command": "/home/midea/miniconda3/envs/cf-resrl-m0/bin/python scripts/smoke_act_policy.py",
+    "evidence_dir": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/act_policy_smoke/attempts/20261124T145734770527Z_49187ef25005",
+    "git_commit": "49187ef25005f7b292ed4147042b4bc60935a124",
+    "git_dirty": false,
+    "started_at_utc": "2026-11-24T14:57:34.770527+00:00"
+  },
+  "status": "SPECIFICATION_NOT_A_RUN_RESULT",
+  "task": {
+    "action_abs_limit": 1.0,
+    "action_handling": "clip_to_environment_action_space_and_record",
+    "camera_size": 84,
+    "name": "Square",
+    "render_gpu_device_id": 0,
+    "rollout_steps": 4,
+    "seed": 20261124
+  },
+  "upstream": {
+    "lerobot_commit": "69901b9b6a2300914ca3de0ea14b6fa6e0203bd4",
+    "lerobot_repository": "https://github.com/huggingface/lerobot.git",
+    "resfit_commit": "66262b06a0caf159fb001504949b7b48ccda5f64",
+    "robosuite_commit": "77a4751233c29456a5381209e30dd0dbf39a6557"
+  }
+}

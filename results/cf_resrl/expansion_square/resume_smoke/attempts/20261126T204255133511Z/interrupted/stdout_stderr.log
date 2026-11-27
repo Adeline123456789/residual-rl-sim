@@ -1,0 +1,16 @@
+[robosuite WARNING] No private macro file found! (macros.py:57)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:58)
+[robosuite WARNING] To setup, run: python /media/midea/work/CF-ResRL/residual-rl-sim/third_party/robosuite/robosuite/scripts/setup_macros.py (macros.py:59)
+[robosuite WARNING] Could not import robosuite_models. Some robots may not be available. If you want to use these robots, please install robosuite_models from source (https://github.com/ARISE-Initiative/robosuite_models) or through pip install. (__init__.py:30)
+Traceback (most recent call last):
+  File "/home/midea/miniconda3/envs/cf-resrl-resfit/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/midea/miniconda3/envs/cf-resrl-resfit/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/media/midea/work/CF-ResRL/.resfit-resume-smoke.20261126T204255133511Z/resfit/resfit/rl_finetuning/scripts/train_residual_td3.py", line 49, in <module>
+    from resfit.lerobot.utils.load_policy import download_policy_from_wandb, load_policy
+  File "/media/midea/work/CF-ResRL/.resfit-resume-smoke.20261126T204255133511Z/resfit/resfit/lerobot/utils/load_policy.py", line 14, in <module>
+    from resfit.lerobot.policies.diffusion.modeling_diffusion import DiffusionPolicy
+  File "/media/midea/work/CF-ResRL/.resfit-resume-smoke.20261126T204255133511Z/resfit/resfit/lerobot/policies/diffusion/modeling_diffusion.py", line 34, in <module>
+    from diffusers.schedulers.scheduling_ddim import DDIMScheduler
+ModuleNotFoundError: No module named 'diffusers'

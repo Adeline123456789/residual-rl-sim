@@ -1,0 +1,12 @@
+[robosuite WARNING] No private macro file found! (macros.py:57)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:58)
+[robosuite WARNING] To setup, run: python /media/midea/work/CF-ResRL/residual-rl-sim/third_party/robosuite/robosuite/scripts/setup_macros.py (macros.py:59)
+[robosuite WARNING] Could not import robosuite_models. Some robots may not be available. If you want to use these robots, please install robosuite_models from source (https://github.com/ARISE-Initiative/robosuite_models) or through pip install. (__init__.py:30)
+Traceback (most recent call last):
+  File "/media/midea/work/CF-ResRL/residual-rl-sim/scripts/run_act_fixed_eval.py", line 405, in <module>
+    sys.exit(main())
+  File "/media/midea/work/CF-ResRL/residual-rl-sim/scripts/run_act_fixed_eval.py", line 303, in main
+    return _worker(args.worker_plan)
+  File "/media/midea/work/CF-ResRL/residual-rl-sim/scripts/run_act_fixed_eval.py", line 219, in _worker
+    raise RuntimeError(f"Local ACT environment differs from {lock}")
+RuntimeError: Local ACT environment differs from pip_freeze_lock

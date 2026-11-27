@@ -1,0 +1,74 @@
+{
+  "status": "SPECIFICATION_NOT_A_RUN_RESULT",
+  "research_question": "Can factorial counterfactual supervision improve the data efficiency of residual-aware replanning decisions for action-chunked robot policies?",
+  "upstream": {
+    "repository": "amazon-far/residual-offpolicy-rl",
+    "commit": "66262b06a0caf159fb001504949b7b48ccda5f64",
+    "robosuite_commit": "77a4751233c29456a5381209e30dd0dbf39a6557",
+    "mujoco_version": "3.3.2"
+  },
+  "base_data": {
+    "primary": "ankile/robomimic-mh-square-image",
+    "primary_episodes": 300,
+    "secondary_expansion": "ankile/robomimic-mh-can-image",
+    "secondary_episodes": 300,
+    "control_hz": 20
+  },
+  "derived_data": {
+    "name": "cf_square_factorial_v1",
+    "natural_snapshot_groups": 200,
+    "enriched_snapshot_groups": 200,
+    "branch_modes": ["V00", "V01", "V10", "V11"],
+    "primary_refresh_delay_steps": 2,
+    "split_group": "source_rollout_episode_id",
+    "large_data_policy": "external_or_git_lfs_with_manifest_and_sha256"
+  },
+  "offline_probe": {
+    "nested_data_fractions": [0.05, 0.1, 0.25, 0.5, 1.0],
+    "models": [
+      "residual_norm",
+      "linear_full_residual",
+      "B5_direct_four_branch",
+      "B6_direct_two_branch_equal_interaction_budget",
+      "P1_factorial_four_branch"
+    ],
+    "primary_metric": "episode_grouped_decision_regret",
+    "secondary_metrics": [
+      "refresh_gain_mae",
+      "interaction_mae",
+      "critical_decision_error",
+      "closed_loop_success_rate",
+      "act_calls_per_episode",
+      "environment_control_steps",
+      "wall_clock_inference_time"
+    ]
+  },
+  "progression_policy": {
+    "continue_after_valid_mvp_regardless_of_effect_direction": true,
+    "performance_threshold_is_not_a_stage_gate": true,
+    "hard_validity_stops": [
+      "baseline_cannot_execute_the_nominal_task_at_all",
+      "snapshot_restore_or_branch_semantics_are_invalid",
+      "privileged_information_enters_a_student_model",
+      "action_or_physical_safety_limits_are_broken",
+      "train_validation_test_leakage",
+      "missing_or_corrupted_run_artifacts"
+    ]
+  },
+  "planned_expansion": {
+    "square_delay_steps": [0, 2, 4],
+    "tasks": ["Square", "Can"],
+    "closed_loop_schedulers": [
+      "original_resfit",
+      "fixed_period_refresh",
+      "residual_norm_threshold",
+      "B5_direct",
+      "B6_direct_equal_budget",
+      "P1_factorial"
+    ],
+    "online_variants": ["direct_joint_value", "factorized_joint_value"],
+    "world_model_required": false,
+    "base_distillation_required": false,
+    "agent_module_required": false
+  }
+}

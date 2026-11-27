@@ -1,0 +1,76 @@
+{
+  "checks": {
+    "action_shape": [
+      7
+    ],
+    "render_dtype": "uint8",
+    "render_shape": [
+      84,
+      84,
+      3
+    ],
+    "reset_observation_shapes": {
+      "observation.images.agentview": [
+        3,
+        84,
+        84
+      ],
+      "observation.images.robot0_eye_in_hand": [
+        3,
+        84,
+        84
+      ],
+      "observation.state": [
+        9
+      ]
+    },
+    "step_observation_shapes": {
+      "observation.images.agentview": [
+        3,
+        84,
+        84
+      ],
+      "observation.images.robot0_eye_in_hand": [
+        3,
+        84,
+        84
+      ],
+      "observation.state": [
+        9
+      ]
+    },
+    "zero_action_reward": 0.0,
+    "zero_action_terminated": false,
+    "zero_action_truncated": false
+  },
+  "command": "/home/midea/miniconda3/envs/cf-resrl-m0/bin/python scripts/preflight.py --task square --config configs/cf_resrl/mvp_square.json --out results/cf_resrl/m0/preflight/manifest.json",
+  "completed_at_utc": "2026-11-24T13:09:14.799766+00:00",
+  "config": "configs/cf_resrl/mvp_square.json",
+  "environment": {
+    "cuda_available": true,
+    "cuda_version": "12.8",
+    "device": "NVIDIA GeForce RTX 3090",
+    "gymnasium": "1.1.1",
+    "mujoco": "3.3.2",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+    "python": "3.10.22 | packaged by conda-forge | (main, Oct  6 2026, 23:02:24) [GCC 14.4.0]",
+    "robosuite": "1.5.1",
+    "torch": "2.7.1+cu128"
+  },
+  "evidence": {
+    "attempt_id": "20261124T130906540852Z_a0da07ff87fa",
+    "manifest": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/preflight/attempts/20261124T130906540852Z_a0da07ff87fa/manifest.json"
+  },
+  "experiment_kind": "smoke",
+  "git": {
+    "commit": "a0da07ff87fa05148d9d2c926d16c1645d694989",
+    "dirty": false
+  },
+  "status": "COMPLETED",
+  "submodules": {
+    "resfit": "66262b06a0caf159fb001504949b7b48ccda5f64",
+    "robosuite": "77a4751233c29456a5381209e30dd0dbf39a6557"
+  },
+  "task": "Square"
+}

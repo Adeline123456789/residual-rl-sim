@@ -1,0 +1,905 @@
+diff --git a/resfit/dexmg/environments/dexmg.py b/resfit/dexmg/environments/dexmg.py
+index 508ffd9..a79f1f7 100644
+--- a/resfit/dexmg/environments/dexmg.py
++++ b/resfit/dexmg/environments/dexmg.py
+@@ -288,8 +288,10 @@ class RobosuiteGymWrapper:
+ 
+     def reset(self, *, seed=None, options=None):
+         """Reset the environment and return initial observation."""
+-        # Gymnasium interface: reset can accept seed and options
+-        # For robosuite environments, we'll ignore these for now
++        if seed is not None:
++            # Pinned Robosuite placement and robot noise also use NumPy's global RNG.
++            np.random.seed(seed % 2**32)
++            self.env.rng.bit_generator.state = np.random.default_rng(seed).bit_generator.state
+         obs = self.env.reset()
+         processed_obs = self._process_obs(obs)
+         self._last_obs = processed_obs  # Store for video recording
+diff --git a/resfit/lerobot/utils/load_policy.py b/resfit/lerobot/utils/load_policy.py
+index 8149894..b605776 100644
+--- a/resfit/lerobot/utils/load_policy.py
++++ b/resfit/lerobot/utils/load_policy.py
+@@ -10,8 +10,8 @@ from pathlib import Path
+ import torch
+ import wandb
+ 
++from resfit.lerobot.policies.act.configuration_act import ACTConfig
+ from resfit.lerobot.policies.act.modeling_act import ACTPolicy
+-from resfit.lerobot.policies.diffusion.modeling_diffusion import DiffusionPolicy
+ 
+ 
+ def download_policy_from_wandb(
+@@ -62,9 +62,15 @@ def load_policy(policy_dir: Path) -> ACTPolicy:
+     # TODO: improve policy-type inference logic when additional policies are added
+     if "diffusion" in policy_name_field:
+         raise NotImplementedError("Diffusion policy not implemented")
+-        return DiffusionPolicy.from_pretrained(policy_dir)
+     if "use_vae" in cfg_dict:
+-        return ACTPolicy.from_pretrained(policy_dir)
++        config = ACTConfig.from_pretrained(policy_dir, local_files_only=True)
++        config.pretrained_backbone_weights = None
++        return ACTPolicy.from_pretrained(
++            policy_dir,
++            config=config,
++            local_files_only=True,
++            strict=True,
++        )
+ 
+     raise ValueError(f"Unknown policy type: {policy_name_field}")
+ 
+diff --git a/resfit/rl_finetuning/config/residual_td3.py b/resfit/rl_finetuning/config/residual_td3.py
+index c5fa221..11cb7c2 100644
+--- a/resfit/rl_finetuning/config/residual_td3.py
++++ b/resfit/rl_finetuning/config/residual_td3.py
+@@ -15,6 +15,12 @@ from resfit.rl_finetuning.config.rlpd import ActorConfig, QAgentConfig, RLPDAlgo
+ class OfflineDataConfig:
+     name: str = "ankile/robomimic-mh-can-image"
+     num_episodes: int | None = 300
++    revision: str | None = None
++    root: str | None = None
++    split_manifest: str | None = None
++    expected_split_manifest_sha256: str | None = None
++    split: str = "train"
++    video_backend: str = "pyav"
+     # Offline data action labeling options
+     use_base_policy_for_base_actions: bool = True
+     # Normalization safeguards
+@@ -38,6 +44,9 @@ class BasePolicyConfig:
+     wandb_id: str = "TODO"
+     wt_type: str = "best"
+     wt_version: str = "latest"
++    local_dir: str | None = None
++    expected_config_sha256: str | None = None
++    expected_model_sha256: str | None = None
+ 
+ 
+ @dataclass
+@@ -79,6 +88,8 @@ class ResidualTD3AlgoConfig(RLPDAlgoConfig):
+ @dataclass
+ class ResidualTD3DexmgConfig(RLPDDexmgConfig):
+     actor_name: str | None = None  # Inferred from base policy config
++    output_dir: str = "outputs/residual_td3"
++    checkpoint_interval: int = 10_000
+ 
+     # ------------------------------------------------------------------
+     # Algorithm & optimisation
+diff --git a/resfit/rl_finetuning/scripts/train_residual_td3.py b/resfit/rl_finetuning/scripts/train_residual_td3.py
+index 0972a8d..7a5133e 100644
+--- a/resfit/rl_finetuning/scripts/train_residual_td3.py
++++ b/resfit/rl_finetuning/scripts/train_residual_td3.py
+@@ -21,7 +21,6 @@ import json
+ import logging
+ import pprint
+ import random
+-import shutil
+ import time
+ from collections import defaultdict
+ from contextlib import contextmanager
+@@ -34,6 +33,7 @@ import tensordict
+ import torch
+ import torchrl
+ from lerobot.common.datasets.lerobot_dataset import LeRobotDataset
++from hydra.utils import to_absolute_path
+ from omegaconf import OmegaConf
+ from tensordict import TensorDict
+ from torch.utils.data import DataLoader
+@@ -49,6 +49,7 @@ from resfit.rl_finetuning.config.residual_td3 import ResidualTD3DexmgConfig
+ from resfit.rl_finetuning.off_policy.common_utils import utils
+ from resfit.rl_finetuning.off_policy.rl.q_agent import QAgent
+ from resfit.rl_finetuning.utils.dtype import to_uint8
++from resfit.rl_finetuning.utils.checkpoint import save_checkpoint
+ from resfit.rl_finetuning.utils.evaluate_dexmg import run_dexmg_evaluation
+ from resfit.rl_finetuning.utils.hugging_face import (
+     _hf_download_buffer,
+@@ -217,11 +218,38 @@ def main(cfg: ResidualTD3DexmgConfig):
+     # for residual learning.
+     # ---------------------------------------------------------------------
+     assert "base_policy" in cfg, "Base policy configuration is required"
+-    policy_dir, _ = download_policy_from_wandb(
+-        cfg.base_policy.wandb_id,
+-        step=cfg.base_policy.wt_type,
+-        artifact_version=cfg.base_policy.wt_version,
+-    )
++    if cfg.base_policy.local_dir is not None:
++        policy_dir = Path(to_absolute_path(cfg.base_policy.local_dir))
++    else:
++        policy_dir, _ = download_policy_from_wandb(
++            cfg.base_policy.wandb_id,
++            step=cfg.base_policy.wt_type,
++            artifact_version=cfg.base_policy.wt_version,
++        )
++
++    def _sha256_file(path: Path) -> str:
++        digest = hashlib.sha256()
++        with path.open("rb") as stream:
++            for block in iter(lambda: stream.read(1024 * 1024), b""):
++                digest.update(block)
++        return digest.hexdigest()
++
++    base_policy_artifacts = {
++        "config.json": _sha256_file(policy_dir / "config.json"),
++        "model.safetensors": _sha256_file(policy_dir / "model.safetensors"),
++    }
++    if cfg.base_policy.local_dir is not None:
++        expected_base_artifacts = {
++            "config.json": cfg.base_policy.expected_config_sha256,
++            "model.safetensors": cfg.base_policy.expected_model_sha256,
++        }
++        if None in expected_base_artifacts.values():
++            raise ValueError("Pinned local base policy requires both expected SHA-256 values")
++        if base_policy_artifacts != expected_base_artifacts:
++            raise ValueError(
++                f"Base policy SHA-256 mismatch: expected {expected_base_artifacts}, "
++                f"got {base_policy_artifacts}"
++            )
+ 
+     base_policy: ACTPolicy = load_policy(policy_dir)
+     base_policy.to(device)
+@@ -240,11 +268,48 @@ def main(cfg: ResidualTD3DexmgConfig):
+ 
+     # Load dataset and get normalization functions early
+     print("Loading dataset and setting up normalization...")
+-    dataset = LeRobotDataset(cfg.offline_data.name)
++    episode_indices = None
++    split_manifest_sha256 = None
++    if cfg.offline_data.split_manifest is not None:
++        split_manifest_path = Path(to_absolute_path(cfg.offline_data.split_manifest))
++        split_manifest = json.loads(split_manifest_path.read_text())
++        if split_manifest["dataset_revision"] != cfg.offline_data.revision:
++            raise ValueError("Offline dataset revision does not match the split manifest")
++        episode_indices = split_manifest["splits"][cfg.offline_data.split]
++        split_manifest_sha256 = _sha256_file(split_manifest_path)
++        if cfg.offline_data.expected_split_manifest_sha256 is None:
++            raise ValueError("Pinned split manifest requires expected_split_manifest_sha256")
++        if split_manifest_sha256 != cfg.offline_data.expected_split_manifest_sha256:
++            raise ValueError("Offline split manifest SHA-256 mismatch")
++        if cfg.offline_data.num_episodes is not None and len(episode_indices) != cfg.offline_data.num_episodes:
++            raise ValueError("Offline dataset episode count does not match the split manifest")
++
++    run_output_dir = Path(to_absolute_path(cfg.output_dir))
++    run_output_dir.mkdir(parents=True, exist_ok=False)
++    model_save_dir = run_output_dir / "models"
++    outputs_dir = run_output_dir / "outputs"
++    model_save_dir.mkdir()
++    outputs_dir.mkdir()
++    action_ledger_path = run_output_dir / "action_ledger.jsonl"
++
++    dataset_root = (
++        Path(to_absolute_path(cfg.offline_data.root)) if cfg.offline_data.root is not None else None
++    )
++    dataset = LeRobotDataset(
++        cfg.offline_data.name,
++        root=dataset_root,
++        episodes=episode_indices,
++        revision=cfg.offline_data.revision,
++        video_backend=cfg.offline_data.video_backend,
++    )
++    selected_episode_indices = (
++        list(dataset.episodes) if dataset.episodes is not None else list(range(dataset.meta.total_episodes))
++    )
++    training_stats = dataset.stats if dataset.episodes is not None else dataset.meta.stats
+ 
+     # Create action scaler from dataset statistics
+     action_scaler = ActionScaler.from_dataset_stats(
+-        action_stats=dataset.meta.stats["action"],
++        action_stats=training_stats["action"],
+         action_scale=cfg.agent.actor.action_scale,
+         min_range_per_dim=cfg.offline_data.min_action_range,
+         device=device,
+@@ -252,7 +317,7 @@ def main(cfg: ResidualTD3DexmgConfig):
+ 
+     # Create state standardizer from dataset statistics
+     state_standardizer = StateStandardizer.from_dataset_stats(
+-        state_stats=dataset.meta.stats["observation.state"],
++        state_stats=training_stats["observation.state"],
+         min_std=cfg.offline_data.min_state_std,
+         device=device,
+     )
+@@ -336,11 +401,7 @@ def main(cfg: ResidualTD3DexmgConfig):
+         state_standardizer=state_standardizer,
+     )
+ 
+-    # Seed environments explicitly for reproducibility
+-    if hasattr(env, "seed"):
+-        env.seed(cfg.seed)
+-    if hasattr(eval_env, "seed"):
+-        eval_env.seed(cfg.seed + 1)  # Use different seed for eval env to avoid correlation
++    evaluation_seed = cfg.seed + 1000
+ 
+     # ---------------------------------------------------------------------
+     # Observation / action dimensions -------------------------------------
+@@ -414,6 +475,8 @@ def main(cfg: ResidualTD3DexmgConfig):
+     # ------------------------------------------------------------------
+     online_cache_meta = {
+         "task": cfg.task,
++        "seed": cfg.seed,
++        "base_policy_artifacts": base_policy_artifacts,
+         "image_keys": image_keys,
+         "n_step": cfg.algo.n_step,
+         "gamma": cfg.algo.gamma,
+@@ -459,22 +522,13 @@ def main(cfg: ResidualTD3DexmgConfig):
+         print(f"Loaded online buffer from cache at {online_cache_dir} (size={len(online_rb)})")
+ 
+     # Offline data is required for normalization, but can be unused for training if offline_fraction=0
+-    assert cfg.offline_data is not None and cfg.offline_data.num_episodes is not None
++    assert cfg.offline_data is not None
+ 
+     # Dataset and normalization already loaded above - use existing dataset
+ 
+     # Use actual dataset metadata for precise buffer sizing
+-    if cfg.offline_data.num_episodes is not None:
+-        # Only use subset of episodes if specified
+-        total_frames = sum(
+-            dataset.meta.episodes[ep_idx]["length"]
+-            for ep_idx in range(min(cfg.offline_data.num_episodes, dataset.meta.total_episodes))
+-        )
+-        num_episodes = cfg.offline_data.num_episodes
+-    else:
+-        # Use entire dataset
+-        total_frames = dataset.meta.total_frames
+-        num_episodes = dataset.meta.total_episodes
++    total_frames = sum(dataset.meta.episodes[ep_idx]["length"] for ep_idx in selected_episode_indices)
++    num_episodes = len(selected_episode_indices)
+ 
+     # Calculate transitions: each episode contributes (episode_length - 1) transitions
+     estimated_transitions = max(0, total_frames - num_episodes)
+@@ -514,7 +568,6 @@ def main(cfg: ResidualTD3DexmgConfig):
+         dataset: LeRobotDataset,
+         rb: ReplayBuffer,
+         image_keys: list[str],
+-        num_episodes: int | None = None,
+         use_base_policy_for_base_actions: bool = False,
+         base_policy: ACTPolicy | None = None,
+     ) -> int:
+@@ -543,11 +596,13 @@ def main(cfg: ResidualTD3DexmgConfig):
+         episode_cache: dict[int, dict] = {}
+         transitions = 0
+         step_id = 0
++        previous_episode = None
+ 
+         for sample in tqdm(loader, desc="Processing offline dataset"):
+             ep_idx = int(sample["episode_index"].item())
+-            if num_episodes is not None and ep_idx == num_episodes:
+-                break
++            if use_base_policy_for_base_actions and ep_idx != previous_episode:
++                base_policy.reset()
++            previous_episode = ep_idx
+ 
+             # ------------------------------------------------------------------
+             # Build observation and action directly for replay buffer ----------
+@@ -637,14 +692,18 @@ def main(cfg: ResidualTD3DexmgConfig):
+     offline_cache_meta = {
+         "task": cfg.task,
+         "dataset_name": cfg.offline_data.name,
+-        "num_episodes": cfg.offline_data.num_episodes,
++        "dataset_revision": cfg.offline_data.revision,
++        "split": cfg.offline_data.split,
++        "split_manifest_sha256": split_manifest_sha256,
++        "episode_indices": selected_episode_indices,
++        "num_episodes": num_episodes,
+         "use_base_policy_for_base_actions": cfg.offline_data.use_base_policy_for_base_actions,
+         "min_action_range": cfg.offline_data.min_action_range,
+         "min_state_std": cfg.offline_data.min_state_std,
+         "image_keys": image_keys,
+         "n_step": cfg.algo.n_step,
+         "gamma": cfg.algo.gamma,
+-        "base_policy_wandb_id": cfg.base_policy.wandb_id,
++        "base_policy_artifacts": base_policy_artifacts,
+         "sampling_strategy": cfg.algo.sampling_strategy,
+         "normalized_actions": True,
+         "batch_size": offline_batch_size,
+@@ -690,7 +749,6 @@ def main(cfg: ResidualTD3DexmgConfig):
+                 dataset=dataset,
+                 rb=offline_rb,
+                 image_keys=image_keys,
+-                num_episodes=cfg.offline_data.num_episodes,
+                 use_base_policy_for_base_actions=cfg.offline_data.use_base_policy_for_base_actions,
+                 base_policy=base_policy if cfg.offline_data.use_base_policy_for_base_actions else None,
+             )
+@@ -711,85 +769,101 @@ def main(cfg: ResidualTD3DexmgConfig):
+     else:
+         print("Skipping offline buffer population for online-only training")
+ 
++    action_ledger = action_ledger_path.open("x", encoding="utf-8", buffering=1024 * 1024)
++    action_ledger_records = 0
++
++    def _record_applied_action(step: int, phase: str, info: dict) -> None:
++        nonlocal action_ledger_records
++        record = {
++            "global_step": step,
++            "phase": phase,
++            "proposed_residual_action": info["proposed_residual_action"].detach().cpu().tolist(),
++            "applied_residual_action": info["applied_residual_action"].detach().cpu().tolist(),
++            "proposed_normalized_action": info["proposed_scaled_action"].detach().cpu().tolist(),
++            "applied_normalized_action": info["scaled_action"].detach().cpu().tolist(),
++            "applied_env_action": info["applied_env_action"].detach().cpu().tolist(),
++            "clip_mask": info["action_clip_mask"].detach().cpu().tolist(),
++            "clip_count": int(info["action_clip_count"].sum().item()),
++        }
++        action_ledger.write(json.dumps(record, sort_keys=True) + "\n")
++        action_ledger_records += cfg.num_envs
++        if step % 100 == 0:
++            action_ledger.flush()
++
+     # ------------------------------------------------------------------
+     # Warm-up phase (random policy) --------------------------------------
+     # ------------------------------------------------------------------
++    if loaded_online_from_cache:
++        raise RuntimeError("Fixed-budget training requires a fresh online warm-up cache")
+ 
+-    if len(online_rb) < cfg.algo.learning_starts and not loaded_online_from_cache:
+-        print(f"Warm-up: filling online buffer with {cfg.algo.learning_starts - len(online_rb)} random steps…")
+-        obs, _ = env.reset()
+-        # --------------------------------------------------------------
+-        # Logging helper: print progress every 1 000 collected transitions
+-        # --------------------------------------------------------------
+-        next_log_threshold = 1000  # first threshold for progress message
+-
+-        reward_sum = 0
+-        episode_count = 0
+-
+-        while len(online_rb) < cfg.algo.learning_starts:
+-            if cfg.algo.use_base_policy_for_warmup:
+-                # Use base policy action + noise (residual exploration)
+-                # Since the environment wrapper always adds base_action to residual_action,
+-                # we just need to provide the noise as the residual action
+-                rand_actions = (
+-                    torch.rand((cfg.num_envs, action_dim), device=device) * 2 - 1
+-                ) * cfg.algo.random_action_noise_scale
+-            else:
+-                # Pure uniform random actions - need to cancel out the base policy action
+-                # Since env does: combined = base_action + residual_action
+-                # To get pure random: residual_action = random - base_action
+-                base_action = obs["observation.base_action"]  # Already normalized to [-1, 1]
+-                pure_random = (
+-                    torch.rand((cfg.num_envs, action_dim), device=device) * 2 - 1
+-                ) * cfg.algo.random_action_noise_scale
+-                rand_actions = pure_random - base_action
+-
+-            next_obs, reward, terminated, truncated, info = env.step(rand_actions)
+-            done = terminated | truncated
++    print(f"Warm-up: collecting exactly {cfg.algo.learning_starts} fresh environment steps…")
++    obs, _ = env.reset(seed=cfg.seed)
++    next_log_threshold = 1000
++    reward_sum = 0
++    episode_count = 0
++    warmup_env_steps = 0
++
++    while warmup_env_steps < cfg.algo.learning_starts:
++        if cfg.algo.use_base_policy_for_warmup:
++            # Use base policy action + noise (residual exploration)
++            # Since the environment wrapper always adds base_action to residual_action,
++            # we just need to provide the noise as the residual action
++            rand_actions = (
++                torch.rand((cfg.num_envs, action_dim), device=device) * 2 - 1
++            ) * cfg.algo.random_action_noise_scale
++        else:
++            # Pure uniform random actions - need to cancel out the base policy action
++            # Since env does: combined = base_action + residual_action
++            # To get pure random: residual_action = random - base_action
++            base_action = obs["observation.base_action"]  # Already normalized to [-1, 1]
++            pure_random = (
++                torch.rand((cfg.num_envs, action_dim), device=device) * 2 - 1
++            ) * cfg.algo.random_action_noise_scale
++            rand_actions = pure_random - base_action
++
++        next_obs, reward, terminated, truncated, info = env.step(rand_actions)
++        done = terminated | truncated
++        warmup_env_steps += cfg.num_envs
++        _record_applied_action(warmup_env_steps, "warmup", info)
++
++        reward_sum += reward.sum().item()
++        episode_count += done.float().sum().item()
+ 
+-            reward_sum += reward.sum().item()
+-            episode_count += done.float().sum().item()
++        # Use the executed combined action returned by the environment
++        combined_action = info["scaled_action"]
++        _add_transitions_to_buffer(
++            obs=obs,
++            next_obs=next_obs,
++            actions=combined_action,
++            reward=reward,
++            done=done,
++            info=info,
++            device=device,
++            image_keys=image_keys,
++            lowdim_keys=lowdim_keys,
++            num_envs=cfg.num_envs,
++            online_rb=online_rb,
++        )
+ 
+-            # Use the executed combined action returned by the environment
+-            combined_action = info["scaled_action"]
+-            _add_transitions_to_buffer(
+-                obs=obs,
+-                next_obs=next_obs,
+-                actions=combined_action,
+-                reward=reward,
+-                done=done,
+-                info=info,
+-                device=device,
+-                image_keys=image_keys,
+-                lowdim_keys=lowdim_keys,
+-                num_envs=cfg.num_envs,
+-                online_rb=online_rb,
++        if warmup_env_steps >= next_log_threshold:
++            success_rate = reward_sum / episode_count if episode_count > 0 else 0.0
++            print(
++                f"[Warm-up] {warmup_env_steps} / {cfg.algo.learning_starts} "
++                f"environment steps, reward_sum={reward_sum:.2f}, "
++                f"success_rate={success_rate:.3f} ({reward_sum}/{episode_count})"
+             )
++            next_log_threshold += 1000
+ 
+-            # ----------------------------------------------------------
+-            # Progress logging (every ~1 000 transitions) --------------
+-            # ----------------------------------------------------------
+-            if len(online_rb) >= next_log_threshold:
+-                success_rate = reward_sum / episode_count if episode_count > 0 else 0.0
+-                print(
+-                    f"[Warm-up] {len(online_rb)} / {cfg.algo.learning_starts} "
+-                    f"transitions collected, reward_sum={reward_sum:.2f}, "
+-                    f"success_rate={success_rate:.3f} ({reward_sum}/{episode_count})"
+-                )
+-                next_log_threshold += 1000
+-
+-            obs = next_obs  # roll state
++        obs = next_obs  # roll state
+ 
+-        # Persist freshly-collected buffer (local + HF) --------------------
+-        online_cache_dir.mkdir(parents=True, exist_ok=True)
+-        optimized_replay_buffer_dumps(online_rb, online_cache_dir)
+-        with open(online_cache_dir / "user_metadata.json", "w") as f:
+-            json.dump(online_cache_meta, f, indent=2)
+-        if ONLINE_HF_REPO is not None:
+-            _hf_upload_buffer(ONLINE_HF_REPO, online_cache_dir, online_cache_hash)
+-        print(f"Warm-up done. Online buffer size = {len(online_rb)} transitions")
+-
+-        loaded_online_from_cache = True  # treat as cached going forward
++    # Persist freshly-collected buffer (local + HF) --------------------
++    online_cache_dir.mkdir(parents=True, exist_ok=True)
++    optimized_replay_buffer_dumps(online_rb, online_cache_dir)
++    with open(online_cache_dir / "user_metadata.json", "w") as f:
++        json.dump(online_cache_meta, f, indent=2)
++    if ONLINE_HF_REPO is not None:
++        _hf_upload_buffer(ONLINE_HF_REPO, online_cache_dir, online_cache_hash)
++    print(f"Warm-up done after {warmup_env_steps} environment steps; buffer size={len(online_rb)}")
+ 
+     _hp_parts: list[str] = [
+         cfg.task,  # e.g. "TwoArmBoxCleanup"
+@@ -842,20 +916,167 @@ def main(cfg: ResidualTD3DexmgConfig):
+     # Log horizon to wandb summary
+     wandb.summary["environment/horizon"] = env.vec_env.metadata["horizon"]
+ 
+-    # Create a timestamped folder in CACHE_DIR for all outputs
+-    timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+-    run_cache_dir = _CACHE_ROOT / f"run_{timestamp}_{run_name}"
++    normalization_state = {
++        "action_min": action_scaler.limits.min.detach().cpu(),
++        "action_max": action_scaler.limits.max.detach().cpu(),
++        "action_scale": action_scaler.action_scale,
++        "action_min_range_per_dim": action_scaler.min_range_per_dim,
++        "state_mean": state_standardizer._mean.detach().cpu(),
++        "state_std": state_standardizer._std.detach().cpu(),
++        "state_min_std": state_standardizer.min_std,
++    }
++    resolved_training_config = {
++        "config": _wandb_config,
++        "base_policy_dir": str(policy_dir.resolve()),
++        "base_policy_artifacts": base_policy_artifacts,
++        "dataset": {
++            "name": cfg.offline_data.name,
++            "revision": cfg.offline_data.revision,
++            "root": str(dataset.root.resolve()),
++            "split": cfg.offline_data.split,
++            "split_manifest_sha256": split_manifest_sha256,
++            "episode_indices": selected_episode_indices,
++        },
++        "environment_step_budget": {
++            "warmup": cfg.algo.learning_starts,
++            "main": cfg.algo.total_timesteps - cfg.algo.learning_starts,
++            "total": cfg.algo.total_timesteps,
++        },
++        "environment_seeds": {
++            "training_initial_reset": cfg.seed,
++            "evaluation_initial_reset": evaluation_seed,
++            "evaluation_lane_seed_rule": "initial_reset_seed + env_index",
++        },
++        "checkpoint_contract": {
++            "kind": "evaluation_loadable_not_training_resumable",
++            "replay_buffer_included": False,
++            "environment_state_included": False,
++        },
++        "normalization": {
++            key: value.tolist() if isinstance(value, torch.Tensor) else value
++            for key, value in normalization_state.items()
++        },
++    }
++    (run_output_dir / "resolved_training_config.json").write_text(
++        json.dumps(resolved_training_config, indent=2, sort_keys=True) + "\n"
++    )
++
++    checkpoint_records = []
++
++    def _write_checkpoint_manifest(action_ledger_record: dict | None = None) -> None:
++        manifest = {
++            "selection": "fixed_environment_step",
++            "checkpoint_interval_environment_steps": cfg.checkpoint_interval,
++            "environment_step_budget": {
++                "warmup": cfg.algo.learning_starts,
++                "main": cfg.algo.total_timesteps - cfg.algo.learning_starts,
++                "total": cfg.algo.total_timesteps,
++            },
++            "checkpoint_contract": "evaluation_loadable_not_training_resumable",
++            "resume_limitations": [
++                "replay buffers are not included",
++                "live environment state is not included",
++            ],
++            "checkpoints": checkpoint_records,
++        }
++        if action_ledger_record is not None:
++            manifest["action_ledger"] = action_ledger_record
++        (run_output_dir / "checkpoint_manifest.json").write_text(
++            json.dumps(manifest, indent=2, sort_keys=True) + "\n"
++        )
+ 
+-    # Create subdirectories for models and outputs
+-    model_save_dir = run_cache_dir / "models"
+-    outputs_dir = run_cache_dir / "outputs"
+-    model_save_dir.mkdir(parents=True, exist_ok=True)
+-    outputs_dir.mkdir(parents=True, exist_ok=True)
++    def _save_fixed_checkpoint(step: int) -> None:
++        action_ledger.flush()
++        checkpoint_path = model_save_dir / f"step_{step:09d}.pt"
++        save_checkpoint(
++            agent=agent,
++            checkpoint_path=checkpoint_path,
++            global_step=step,
++            config=cfg,
++            actor_updates=actor_updates,
++            normalization=normalization_state,
++            base_policy_artifacts=base_policy_artifacts,
++            selected_episode_indices=selected_episode_indices,
++            checkpoint_contract="evaluation_loadable_not_training_resumable",
++            replay_buffer_included=False,
++            environment_state_included=False,
++            rng_state={
++                "python": random.getstate(),
++                "numpy": np.random.get_state(),
++                "torch_cpu": torch.get_rng_state(),
++                "torch_cuda": torch.cuda.get_rng_state_all() if torch.cuda.is_available() else [],
++            },
++        )
++        record = {
++            "global_step": step,
++            "path": str(checkpoint_path.resolve()),
++            "sha256": _sha256_file(checkpoint_path),
++            "selection": "fixed_environment_step",
++        }
++        checkpoint_records.append(record)
++        _write_checkpoint_manifest()
++
++        # Evaluate the weights just saved on separate env workers and a separate ACT queue.
++        episodes = []
++        python_rng = random.getstate()
++        numpy_rng = np.random.get_state()
++        eval_started = time.perf_counter()
++        try:
++            cuda_devices = [device] if device.type == "cuda" else []
++            with training_timer.time("evaluation"), torch.random.fork_rng(devices=cuda_devices), utils.eval_mode(agent):
++                eval_metrics = run_dexmg_evaluation(
++                    env=eval_env,
++                    agent=agent,
++                    num_episodes=cfg.eval_num_episodes,
++                    device=device,
++                    global_step=step,
++                    save_video=cfg.save_video,
++                    save_q_plots=cfg.save_video,
++                    run_name=run_name,
++                    output_dir=outputs_dir,
++                    reset_seed=evaluation_seed,
++                    episode_records=episodes,
++                )
++        finally:
++            random.setstate(python_rng)
++            np.random.set_state(numpy_rng)
++        if len(episodes) != cfg.eval_num_episodes:
++            raise RuntimeError(f"Evaluation recorded {len(episodes)} of {cfg.eval_num_episodes} episodes")
++
++        evaluation_path = outputs_dir / f"step_{step:09d}_evaluation.json"
++        evaluation = {
++            "checkpoint_global_step": step,
++            "checkpoint_sha256": record["sha256"],
++            "base_policy_artifacts": base_policy_artifacts,
++            "task": cfg.task,
++            "initial_reset_seed": evaluation_seed,
++            "num_envs": cfg.eval_num_envs,
++            "environment_steps": eval_metrics["eval/environment_steps"],
++            "counts_toward_training_budget": False,
++            "wall_seconds": time.perf_counter() - eval_started,
++            "metrics": eval_metrics,
++            "episodes": episodes,
++        }
++        evaluation_path.write_text(json.dumps(evaluation, indent=2, sort_keys=True) + "\n")
++        record["evaluation"] = {
++            "path": str(evaluation_path.resolve()),
++            "sha256": _sha256_file(evaluation_path),
++            "episodes": len(episodes),
++        }
++        _write_checkpoint_manifest()
++        successes = sum(episode["success"] for episode in episodes)
++        print(f"[Evaluation step {step}] {successes}/{len(episodes)} successes; evidence={evaluation_path}")
+ 
+     obs, _ = env.reset()
+ 
+-    global_step = 0
+-    best_eval_success_rate = 0.0
++    if cfg.algo.total_timesteps < cfg.algo.learning_starts:
++        raise ValueError("total_timesteps must include the learning_starts warm-up budget")
++    if cfg.checkpoint_interval <= 0:
++        raise ValueError("checkpoint_interval must be positive")
++    if warmup_env_steps != cfg.algo.learning_starts:
++        raise RuntimeError("Warm-up environment-step budget was not met exactly")
++
++    global_step = cfg.algo.learning_starts
+     training_cum_time = 0.0
+     episode_count = 0
+ 
+@@ -936,7 +1157,9 @@ def main(cfg: ResidualTD3DexmgConfig):
+         )
+         print("Critic warmup completed.")
+ 
+-    while global_step <= cfg.algo.total_timesteps:
++    _save_fixed_checkpoint(global_step)
++
++    while global_step < cfg.algo.total_timesteps:
+         iter_start = time.time()
+         # ------------------------------------------------------------------
+         # (1) Collect action + Environment step ---------------------------
+@@ -991,31 +1214,8 @@ def main(cfg: ResidualTD3DexmgConfig):
+         )
+ 
+         obs = next_obs  # roll
+-
+-        # ------------------------------------------------------------------
+-        # (3) Periodic evaluation ------------------------------------------
+-        # ------------------------------------------------------------------
+-        if global_step % cfg.eval_interval_every_steps == 0 and (cfg.eval_first or global_step > 0):
+-            with training_timer.time("evaluation"):
+-                eval_metrics = run_dexmg_evaluation(
+-                    env=eval_env,
+-                    agent=agent,
+-                    num_episodes=cfg.eval_num_episodes,
+-                    device=device,
+-                    global_step=global_step,
+-                    save_video=cfg.save_video,
+-                    save_q_plots=cfg.save_video,  # Enable Q-plots when video saving is enabled
+-                    run_name=run_name,
+-                    output_dir=outputs_dir,
+-                )
+-
+-                # Handle model saving when success rate improves
+-                current_success_rate = eval_metrics["eval/success_rate"]
+-                if current_success_rate > best_eval_success_rate:
+-                    print(f"🎉 New best success rate: {current_success_rate:.4f} (prev: {best_eval_success_rate:.4f})")
+-                    best_eval_success_rate = current_success_rate
+-
+         global_step += cfg.num_envs
++        _record_applied_action(global_step, "main", info)
+ 
+         # ------------------------------------------------------------------
+         # (4) Updates -------------------------------------------------------
+@@ -1177,13 +1377,26 @@ def main(cfg: ResidualTD3DexmgConfig):
+ 
+             print(print_msg)
+ 
+-    print(f"Training finished in {time.time() - train_start_time:.2f} seconds.")
++        if global_step % cfg.checkpoint_interval == 0:
++            _save_fixed_checkpoint(global_step)
+ 
+-    # Clean up entire run directory after successful completion (videos/logs are saved to wandb)
+-    if run_cache_dir.exists():
+-        print(f"Cleaning up run directory: {run_cache_dir}")
+-        shutil.rmtree(run_cache_dir)
+-        print("Run directory cleaned up successfully.")
++    print(f"Training finished in {time.time() - train_start_time:.2f} seconds.")
++    if not checkpoint_records or checkpoint_records[-1]["global_step"] != global_step:
++        _save_fixed_checkpoint(global_step)
++    action_ledger.flush()
++    action_ledger.close()
++    if action_ledger_records != cfg.algo.total_timesteps:
++        raise RuntimeError(
++            f"Action ledger contains {action_ledger_records} environment steps, "
++            f"expected {cfg.algo.total_timesteps}"
++        )
++    _write_checkpoint_manifest(
++        {
++            "path": str(action_ledger_path.resolve()),
++            "sha256": _sha256_file(action_ledger_path),
++            "records": action_ledger_records,
++        }
++    )
+ 
+ 
+ # -----------------------------------------------------------------------------
+diff --git a/resfit/rl_finetuning/utils/checkpoint.py b/resfit/rl_finetuning/utils/checkpoint.py
+index 4864670..13112be 100644
+--- a/resfit/rl_finetuning/utils/checkpoint.py
++++ b/resfit/rl_finetuning/utils/checkpoint.py
+@@ -129,3 +129,25 @@ def save_checkpoint(
+ 
+     torch.save(checkpoint_data, checkpoint_path)
+     print(f"💾 Saved checkpoint to: {checkpoint_path}")
++
++
++def load_checkpoint(agent: QAgent, checkpoint_path: str | Path, map_location: str | torch.device = "cpu") -> dict:
++    """Load evaluation weights and saved optimizer metadata into an initialized QAgent.
++
++    The returned extras do not include replay buffers or live environment state, so
++    this is not a complete training-resume operation.
++    """
++    checkpoint = torch.load(checkpoint_path, map_location=map_location, weights_only=False)
++    agent.load_state_dict(checkpoint["agent_state_dict"])
++
++    optimizer_state = checkpoint["optimizer_state_dict"]
++    agent.actor_opt.load_state_dict(optimizer_state["actor_opt"])
++    agent.critic_opt.load_state_dict(optimizer_state["critic_opt"])
++    agent.encoder_opt.load_state_dict(optimizer_state["encoder_opt"])
++
++    scheduler_state = checkpoint.get("scheduler_state_dict", {})
++    for name in ("actor_scheduler", "critic_scheduler", "encoder_scheduler"):
++        scheduler = getattr(agent, name, None)
++        if scheduler is not None and name in scheduler_state:
++            scheduler.load_state_dict(scheduler_state[name])
++    return checkpoint
+diff --git a/resfit/rl_finetuning/utils/evaluate_dexmg.py b/resfit/rl_finetuning/utils/evaluate_dexmg.py
+index a5b0857..4abe5fe 100644
+--- a/resfit/rl_finetuning/utils/evaluate_dexmg.py
++++ b/resfit/rl_finetuning/utils/evaluate_dexmg.py
+@@ -28,7 +28,9 @@ def run_dexmg_evaluation(
+     save_q_plots: bool = False,
+     run_name: str | None = None,
+     output_dir: str | Path | None = "outputs",
+-) -> tuple[dict[str, float], float]:
++    reset_seed: int | None = None,
++    episode_records: list[dict] | None = None,
++) -> dict[str, float]:
+     """Extended evaluation to match the richer functionality available in
+     the *residual_td3_dexmg* evaluator.  In particular, this version:
+ 
+@@ -162,7 +164,9 @@ def run_dexmg_evaluation(
+     all_frames: list[np.ndarray] | None = [] if save_video else None
+ 
+     done_episodes = 0
+-    obs, _ = env.reset()
++    environment_steps = 0
++    lane_episode_indices = [0] * num_envs
++    obs, _ = env.reset() if reset_seed is None else env.reset(seed=reset_seed)
+ 
+     # Initialize progress display with dots
+     progress_dots = ["."] * num_episodes
+@@ -191,6 +195,7 @@ def run_dexmg_evaluation(
+         # 2. Environment step ------------------------------------------
+         # --------------------------------------------------------------
+         next_obs, reward, terminated, truncated, _ = env.step(actions)
++        environment_steps += num_envs
+         done_flags = terminated | truncated
+ 
+         # Capture frames ------------------------------------------------
+@@ -224,6 +229,19 @@ def run_dexmg_evaluation(
+ 
+                 # Always track episode length for successful episodes logging
+                 all_episode_lengths.append(len(ep_q_preds[env_idx]))
++                if episode_records is not None:
++                    episode_records.append({
++                        "episode_index": done_episodes,
++                        "env_index": env_idx,
++                        "lane_episode_index": lane_episode_indices[env_idx],
++                        "lane_initial_seed": None if reset_seed is None else reset_seed + env_idx,
++                        "success": is_success,
++                        "return": ep_return,
++                        "environment_steps": all_episode_lengths[-1],
++                        "terminated": bool(terminated[env_idx].item()),
++                        "truncated": bool(truncated[env_idx].item()),
++                    })
++                    lane_episode_indices[env_idx] += 1
+ 
+                 # Annotate and flush frames ---------------------------
+                 if save_video and frame_buffer is not None and all_frames is not None:
+@@ -283,6 +301,7 @@ def run_dexmg_evaluation(
+         "eval/success_rate": success_rate,
+         "eval/mean_return": mean_return,
+         "eval/mean_successful_episode_length": mean_successful_episode_length,
++        "eval/environment_steps": environment_steps,
+     }
+ 
+     if wandb.run is not None:
+diff --git a/resfit/rl_finetuning/wrappers/residual_env_wrapper.py b/resfit/rl_finetuning/wrappers/residual_env_wrapper.py
+index 4ac0e5f..a44acbb 100644
+--- a/resfit/rl_finetuning/wrappers/residual_env_wrapper.py
++++ b/resfit/rl_finetuning/wrappers/residual_env_wrapper.py
+@@ -133,34 +133,52 @@ class BasePolicyVecEnvWrapper:
+         # we use the normalized actions as the action space
+         # The normalized base action is stored as [-1, 1] in the replay buffer
+         # and the residual action is predicted as action_scale * [-1, 1]
+-        combined_naction = self._last_base_naction + residual_naction
++        proposed_combined_naction = self._last_base_naction + residual_naction
++        applied_combined_naction = torch.clamp(proposed_combined_naction, -1.0, 1.0)
+ 
+         # Unscale back to original action space for environment execution
+-        env_action = self.action_scaler.unscale(combined_naction)
++        env_action = self.action_scaler.unscale(applied_combined_naction)
++        action_low = torch.as_tensor(self.vec_env.action_space.low, device=env_action.device, dtype=env_action.dtype)
++        action_high = torch.as_tensor(self.vec_env.action_space.high, device=env_action.device, dtype=env_action.dtype)
++        env_action = torch.clamp(env_action, action_low, action_high)
++        applied_combined_naction = self.action_scaler.scale(env_action)
++        action_clip_mask = ~torch.isclose(
++            proposed_combined_naction,
++            applied_combined_naction,
++            rtol=0.0,
++            atol=1e-7,
++        )
+ 
+         # Step the underlying vectorized environment
+         raw_obs, reward, terminated, truncated, info = self.vec_env.step(env_action)
+ 
+-        # Store the scaled action for replay buffer (already computed above)
+-        info["scaled_action"] = combined_naction
++        # Store both proposals and the action that was actually executed.
++        info["proposed_residual_action"] = residual_naction
++        info["applied_residual_action"] = applied_combined_naction - self._last_base_naction
++        info["proposed_scaled_action"] = proposed_combined_naction
++        info["scaled_action"] = applied_combined_naction
++        info["applied_env_action"] = env_action
++        info["action_clip_mask"] = action_clip_mask
++        info["action_clip_count"] = action_clip_mask.sum(dim=-1)
++
++        # Vectorized environments autoreset and return the new episode's observation.
++        done = terminated | truncated
++        if done.any():
++            reset_ids = torch.where(done)[0]
++            self.base_policy.reset(env_ids=reset_ids)
+ 
+-        # Get next base action from the base policy
++        # Select from the post-reset observation only after clearing the ACT queue.
+         with torch.no_grad():
+             base_action = self.base_policy.select_action(raw_obs)
+ 
+         base_naction = self.action_scaler.scale(base_action)
+ 
+-        # Handle policy reset for terminated environments
+-        if terminated.any():
+-            reset_ids = torch.where(terminated)[0]
+-            self.base_policy.reset(env_ids=reset_ids)
+-
+         # Augment observations with base action and apply state standardization
+         augmented_obs = self._augment_obs(raw_obs, base_naction)
+ 
+         # Handle final_obs in info dict to ensure consistent shapes
+         if "final_obs" in info:
+-            info = self._process_final_obs_in_info(info, combined_naction.device)
++            info = self._process_final_obs_in_info(info, applied_combined_naction.device)
+ 
+         # Store for next step
+         self._last_base_naction = base_naction

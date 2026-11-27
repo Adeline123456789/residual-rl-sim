@@ -1,0 +1,887 @@
+Square E0 evidence: results/cf_resrl/mvp_square/e0_data/attempts/20261126T184751184660Z_90a4f137d61c
+[robosuite WARNING] No private macro file found! (macros.py:57)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:58)
+[robosuite WARNING] To setup, run: python /media/midea/work/CF-ResRL/residual-rl-sim/third_party/robosuite/robosuite/scripts/setup_macros.py (macros.py:59)
+[robosuite WARNING] Could not import robosuite_models. Some robots may not be available. If you want to use these robots, please install robosuite_models from source (https://github.com/ARISE-Initiative/robosuite_models) or through pip install. (__init__.py:30)
+Loading weights from local directory
+encoder output dim:  20736
+patch output dim:  128
+============encoder weights=============
+ModuleList(
+  (0-1): 2 x VitEncoder(
+    (vit): MinVit(
+      (patch_embed): PatchEmbed2(
+        (embed): Sequential(
+          (0): Conv2d(3, 128, kernel_size=(8, 8), stride=(4, 4))
+          (1): Identity()
+          (2): ReLU()
+          (3): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2))
+        )
+      )
+      (net): Sequential(
+        (0): TransformerLayer(
+          (layer_norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+          (mha): MultiHeadAttention(
+            (qkv_proj): Linear(in_features=128, out_features=384, bias=True)
+            (out_proj): Linear(in_features=128, out_features=128, bias=True)
+          )
+          (layer_norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+          (linear1): Linear(in_features=128, out_features=512, bias=True)
+          (linear2): Linear(in_features=512, out_features=128, bias=True)
+          (dropout): Dropout(p=0, inplace=False)
+        )
+      )
+      (norm): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+    )
+  )
+)
+| Module                           |   #Params |      % |
+|----------------------------------+-----------+--------|
+| 0.vit.pos_embed                  |    10,368 |   1.36 |
+| 0.vit.patch_embed.embed.0.weight |    24,576 |   3.22 |
+| 0.vit.patch_embed.embed.0.bias   |       128 |   0.02 |
+| 0.vit.patch_embed.embed.3.weight |   147,456 |  19.34 |
+| 0.vit.patch_embed.embed.3.bias   |       128 |   0.02 |
+| 0.vit.net.0.layer_norm1.weight   |       128 |   0.02 |
+| 0.vit.net.0.layer_norm1.bias     |       128 |   0.02 |
+| 0.vit.net.0.mha.qkv_proj.weight  |    49,152 |   6.45 |
+| 0.vit.net.0.mha.qkv_proj.bias    |       384 |   0.05 |
+| 0.vit.net.0.mha.out_proj.weight  |    16,384 |   2.15 |
+| 0.vit.net.0.mha.out_proj.bias    |       128 |   0.02 |
+| 0.vit.net.0.layer_norm2.weight   |       128 |   0.02 |
+| 0.vit.net.0.layer_norm2.bias     |       128 |   0.02 |
+| 0.vit.net.0.linear1.weight       |    65,536 |   8.60 |
+| 0.vit.net.0.linear1.bias         |       512 |   0.07 |
+| 0.vit.net.0.linear2.weight       |    65,536 |   8.60 |
+| 0.vit.net.0.linear2.bias         |       128 |   0.02 |
+| 0.vit.norm.weight                |       128 |   0.02 |
+| 0.vit.norm.bias                  |       128 |   0.02 |
+| 1.vit.pos_embed                  |    10,368 |   1.36 |
+| 1.vit.patch_embed.embed.0.weight |    24,576 |   3.22 |
+| 1.vit.patch_embed.embed.0.bias   |       128 |   0.02 |
+| 1.vit.patch_embed.embed.3.weight |   147,456 |  19.34 |
+| 1.vit.patch_embed.embed.3.bias   |       128 |   0.02 |
+| 1.vit.net.0.layer_norm1.weight   |       128 |   0.02 |
+| 1.vit.net.0.layer_norm1.bias     |       128 |   0.02 |
+| 1.vit.net.0.mha.qkv_proj.weight  |    49,152 |   6.45 |
+| 1.vit.net.0.mha.qkv_proj.bias    |       384 |   0.05 |
+| 1.vit.net.0.mha.out_proj.weight  |    16,384 |   2.15 |
+| 1.vit.net.0.mha.out_proj.bias    |       128 |   0.02 |
+| 1.vit.net.0.layer_norm2.weight   |       128 |   0.02 |
+| 1.vit.net.0.layer_norm2.bias     |       128 |   0.02 |
+| 1.vit.net.0.linear1.weight       |    65,536 |   8.60 |
+| 1.vit.net.0.linear1.bias         |       512 |   0.07 |
+| 1.vit.net.0.linear2.weight       |    65,536 |   8.60 |
+| 1.vit.net.0.linear2.bias         |       128 |   0.02 |
+| 1.vit.norm.weight                |       128 |   0.02 |
+| 1.vit.norm.bias                  |       128 |   0.02 |
+| Total                            |   762,368 | 100.00 |
+=============critic weights=============
+Critic(
+  (q_ensemble): SpatialEmbQEnsemble(
+    heads: 10, weight: nn.Parameter (torch.Size([1, 128, 1024]))
+    (input_proj): Sequential(
+      (0): Linear(in_features=178, out_features=1024, bias=True)
+      (1): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      (2): ReLU(inplace=True)
+    )
+    (_head_template): HeadMLP(
+      (net): Sequential(
+        (0): Linear(in_features=1040, out_features=1024, bias=True)
+        (1): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (2): ReLU()
+        (3): Linear(in_features=1024, out_features=1024, bias=True)
+        (4): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (5): ReLU()
+        (6): Linear(in_features=1024, out_features=1, bias=True)
+      )
+    )
+  )
+)
+| Module                                 |    #Params |      % |
+|----------------------------------------+------------+--------|
+| q_ensemble.weight                      |    131,072 |   0.55 |
+| q_ensemble._vmap_param_net_0_weight    | 10,649,600 |  45.04 |
+| q_ensemble._vmap_param_net_0_bias      |     10,240 |   0.04 |
+| q_ensemble._vmap_param_net_1_weight    |     10,240 |   0.04 |
+| q_ensemble._vmap_param_net_1_bias      |     10,240 |   0.04 |
+| q_ensemble._vmap_param_net_3_weight    | 10,485,760 |  44.35 |
+| q_ensemble._vmap_param_net_3_bias      |     10,240 |   0.04 |
+| q_ensemble._vmap_param_net_4_weight    |     10,240 |   0.04 |
+| q_ensemble._vmap_param_net_4_bias      |     10,240 |   0.04 |
+| q_ensemble._vmap_param_net_6_weight    |     10,240 |   0.04 |
+| q_ensemble._vmap_param_net_6_bias      |         10 |   0.00 |
+| q_ensemble.input_proj.0.weight         |    182,272 |   0.77 |
+| q_ensemble.input_proj.0.bias           |      1,024 |   0.00 |
+| q_ensemble.input_proj.1.weight         |      1,024 |   0.00 |
+| q_ensemble.input_proj.1.bias           |      1,024 |   0.00 |
+| q_ensemble._head_template.net.0.weight |  1,064,960 |   4.50 |
+| q_ensemble._head_template.net.0.bias   |      1,024 |   0.00 |
+| q_ensemble._head_template.net.1.weight |      1,024 |   0.00 |
+| q_ensemble._head_template.net.1.bias   |      1,024 |   0.00 |
+| q_ensemble._head_template.net.3.weight |  1,048,576 |   4.43 |
+| q_ensemble._head_template.net.3.bias   |      1,024 |   0.00 |
+| q_ensemble._head_template.net.4.weight |      1,024 |   0.00 |
+| q_ensemble._head_template.net.4.bias   |      1,024 |   0.00 |
+| q_ensemble._head_template.net.6.weight |      1,024 |   0.00 |
+| q_ensemble._head_template.net.6.bias   |          1 |   0.00 |
+| Total                                  | 23,644,171 | 100.00 |
+=============actor weights==============
+Actor(
+  (compress): Sequential(
+    (0): Linear(in_features=20736, out_features=128, bias=True)
+    (1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+    (2): Dropout(p=0.0, inplace=False)
+    (3): ReLU()
+  )
+  (policy): Sequential(
+    (0): Linear(in_features=144, out_features=1024, bias=True)
+    (1): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+    (2): Dropout(p=0.0, inplace=False)
+    (3): ReLU()
+    (4): Linear(in_features=1024, out_features=1024, bias=True)
+    (5): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+    (6): Dropout(p=0.0, inplace=False)
+    (7): ReLU()
+    (8): Linear(in_features=1024, out_features=7, bias=True)
+    (9): Tanh()
+  )
+)
+| Module            |   #Params |      % |
+|-------------------+-----------+--------|
+| compress.0.weight | 2,654,208 |  68.69 |
+| compress.0.bias   |       128 |   0.00 |
+| compress.1.weight |       128 |   0.00 |
+| compress.1.bias   |       128 |   0.00 |
+| policy.0.weight   |   147,456 |   3.82 |
+| policy.0.bias     |     1,024 |   0.03 |
+| policy.1.weight   |     1,024 |   0.03 |
+| policy.1.bias     |     1,024 |   0.03 |
+| policy.4.weight   | 1,048,576 |  27.14 |
+| policy.4.bias     |     1,024 |   0.03 |
+| policy.5.weight   |     1,024 |   0.03 |
+| policy.5.bias     |     1,024 |   0.03 |
+| policy.8.weight   |     7,168 |   0.19 |
+| policy.8.bias     |         7 |   0.00 |
+| Total             | 3,863,943 | 100.00 |
+[robosuite INFO] Loading controller configuration from: /media/midea/work/CF-ResRL/residual-rl-sim/third_party/robosuite/robosuite/controllers/config/robots/default_panda.json (composite_controller_factory.py:121)
+E0 episode 1/720: square_e0_20264124, natural factorial, tick 129
+E0 episode 2/720: square_e0_20264125, natural factorial, tick 75
+E0 episode 3/720: square_e0_20264126, natural factorial, tick 0
+E0 episode 4/720: square_e0_20264127, natural factorial, tick 90
+E0 episode 5/720: square_e0_20264128, natural factorial, tick 5
+E0 episode 6/720: square_e0_20264129, natural factorial, tick 168
+E0 episode 7/720: square_e0_20264130, natural factorial, tick 108
+E0 episode 8/720: square_e0_20264131, natural factorial, tick 94
+E0 episode 9/720: square_e0_20264132, natural factorial, tick 6
+E0 episode 10/720: square_e0_20264133, natural factorial, tick 121
+E0 episode 11/720: square_e0_20264134, natural factorial, tick 42
+E0 episode 12/720: square_e0_20264135, natural factorial, tick 11
+E0 episode 13/720: square_e0_20264136, natural factorial, tick 123
+E0 episode 14/720: square_e0_20264137, natural factorial, tick 93
+E0 episode 15/720: square_e0_20264138, natural factorial, tick 95
+E0 episode 16/720: square_e0_20264139, natural factorial, tick 14
+E0 episode 17/720: square_e0_20264140, natural factorial, tick 38
+E0 episode 18/720: square_e0_20264141, natural factorial, tick 26
+E0 episode 19/720: square_e0_20264142, natural factorial, tick 16
+E0 episode 20/720: square_e0_20264143, natural factorial, tick 47
+E0 episode 21/720: square_e0_20264144, natural factorial, tick 167
+E0 episode 22/720: square_e0_20264145, natural factorial, tick 26
+E0 episode 23/720: square_e0_20264146, natural factorial, tick 38
+E0 episode 24/720: square_e0_20264147, natural factorial, tick 89
+E0 episode 25/720: square_e0_20264148, natural factorial, tick 291
+E0 episode 26/720: square_e0_20264149, natural factorial, tick 65
+E0 episode 27/720: square_e0_20264150, natural factorial, tick 73
+E0 episode 28/720: square_e0_20264151, natural factorial, tick 51
+E0 episode 29/720: square_e0_20264152, natural factorial, tick 68
+E0 episode 30/720: square_e0_20264153, natural factorial, tick 8
+E0 episode 31/720: square_e0_20264154, natural factorial, tick 37
+E0 episode 32/720: square_e0_20264155, natural factorial, tick 114
+E0 episode 33/720: square_e0_20264156, natural factorial, tick 44
+E0 episode 34/720: square_e0_20264157, natural factorial, tick 43
+E0 episode 35/720: square_e0_20264158, natural factorial, tick 5
+E0 episode 36/720: square_e0_20264159, natural factorial, tick 158
+E0 episode 37/720: square_e0_20264160, natural factorial, tick 48
+E0 episode 38/720: square_e0_20264161, natural factorial, tick 6
+E0 episode 39/720: square_e0_20264162, natural factorial, tick 23
+E0 episode 40/720: square_e0_20264163, natural factorial, tick 161
+E0 episode 41/720: square_e0_20264164, natural factorial, tick 59
+E0 episode 42/720: square_e0_20264165, natural factorial, tick 60
+E0 episode 43/720: square_e0_20264166, natural factorial, tick 111
+E0 episode 44/720: square_e0_20264167, natural factorial, tick 111
+E0 episode 45/720: square_e0_20264168, natural factorial, tick 2
+E0 episode 46/720: square_e0_20264169, natural factorial, tick 68
+E0 episode 47/720: square_e0_20264170, natural factorial, tick 55
+E0 episode 48/720: square_e0_20264171, natural factorial, tick 58
+E0 episode 49/720: square_e0_20264172, natural factorial, tick 78
+E0 episode 50/720: square_e0_20264173, natural factorial, tick 106
+E0 episode 51/720: square_e0_20264174, natural factorial, tick 256
+E0 episode 52/720: square_e0_20264175, natural factorial, tick 126
+E0 episode 53/720: square_e0_20264176, natural factorial, tick 39
+E0 episode 54/720: square_e0_20264177, natural factorial, tick 24
+E0 episode 55/720: square_e0_20264178, natural factorial, tick 109
+E0 episode 56/720: square_e0_20264179, natural factorial, tick 246
+E0 episode 57/720: square_e0_20264180, natural factorial, tick 18
+E0 episode 58/720: square_e0_20264181, natural factorial, tick 118
+E0 episode 59/720: square_e0_20264182, natural factorial, tick 91
+E0 episode 60/720: square_e0_20264183, natural factorial, tick 53
+E0 episode 61/720: square_e0_20264184, natural factorial, tick 105
+E0 episode 62/720: square_e0_20264185, natural factorial, tick 26
+E0 episode 63/720: square_e0_20264186, natural factorial, tick 110
+E0 episode 64/720: square_e0_20264187, natural factorial, tick 68
+E0 episode 65/720: square_e0_20264188, natural factorial, tick 114
+E0 episode 66/720: square_e0_20264189, natural factorial, tick 95
+E0 episode 67/720: square_e0_20264190, natural factorial, tick 99
+E0 episode 68/720: square_e0_20264191, natural factorial, tick 68
+E0 episode 69/720: square_e0_20264192, natural factorial, tick 68
+E0 episode 70/720: square_e0_20264193, natural factorial, tick 17
+E0 episode 71/720: square_e0_20264194, natural factorial, tick 76
+E0 episode 72/720: square_e0_20264195, natural factorial, tick 111
+E0 episode 73/720: square_e0_20264196, natural factorial, tick 17
+E0 episode 74/720: square_e0_20264197, natural factorial, tick 47
+E0 episode 75/720: square_e0_20264198, natural factorial, tick 109
+E0 episode 76/720: square_e0_20264199, natural factorial, tick 49
+E0 episode 77/720: square_e0_20264200, natural factorial, tick 296
+E0 episode 78/720: square_e0_20264201, natural factorial, tick 31
+E0 episode 79/720: square_e0_20264202, natural factorial, tick 57
+E0 episode 80/720: square_e0_20264203, natural factorial, tick 229
+E0 episode 81/720: square_e0_20264204, natural factorial, tick 18
+E0 episode 82/720: square_e0_20264205, natural factorial, tick 99
+E0 episode 83/720: square_e0_20264206, natural factorial, tick 123
+E0 episode 84/720: square_e0_20264207, natural factorial, tick 67
+E0 episode 85/720: square_e0_20264208, natural factorial, tick 155
+E0 episode 86/720: square_e0_20264209, natural factorial, tick 72
+E0 episode 87/720: square_e0_20264210, natural factorial, tick 100
+E0 episode 88/720: square_e0_20264211, natural factorial, tick 72
+E0 episode 89/720: square_e0_20264212, natural factorial, tick 281
+E0 episode 90/720: square_e0_20264213, natural factorial, tick 64
+E0 episode 91/720: square_e0_20264214, natural factorial, tick 0
+E0 episode 92/720: square_e0_20264215, natural factorial, tick 57
+E0 episode 93/720: square_e0_20264216, natural factorial, tick 45
+E0 episode 94/720: square_e0_20264217, natural factorial, tick 84
+E0 episode 95/720: square_e0_20264218, natural factorial, tick 31
+E0 episode 96/720: square_e0_20264219, natural factorial, tick 1
+E0 episode 97/720: square_e0_20264220, natural factorial, tick 91
+E0 episode 98/720: square_e0_20264221, natural factorial, tick 248
+E0 episode 99/720: square_e0_20264222, natural factorial, tick 105
+E0 episode 100/720: square_e0_20264223, natural factorial, tick 5
+E0 episode 101/720: square_e0_20264224, natural factorial, tick 147
+E0 episode 102/720: square_e0_20264225, natural factorial, tick 64
+E0 episode 103/720: square_e0_20264226, natural factorial, tick 107
+E0 episode 104/720: square_e0_20264227, natural factorial, tick 34
+E0 episode 105/720: square_e0_20264228, natural factorial, tick 2
+E0 episode 106/720: square_e0_20264229, natural factorial, tick 141
+E0 episode 107/720: square_e0_20264230, natural factorial, tick 135
+E0 episode 108/720: square_e0_20264231, natural factorial, tick 217
+E0 episode 109/720: square_e0_20264232, natural factorial, tick 131
+E0 episode 110/720: square_e0_20264233, natural factorial, tick 250
+E0 episode 111/720: square_e0_20264234, natural factorial, tick 140
+E0 episode 112/720: square_e0_20264235, natural factorial, tick 81
+E0 episode 113/720: square_e0_20264236, natural factorial, tick 249
+E0 episode 114/720: square_e0_20264237, natural factorial, tick 86
+E0 episode 115/720: square_e0_20264238, natural factorial, tick 169
+E0 episode 116/720: square_e0_20264239, natural factorial, tick 94
+E0 episode 117/720: square_e0_20264240, natural factorial, tick 7
+E0 episode 118/720: square_e0_20264241, natural factorial, tick 74
+E0 episode 119/720: square_e0_20264242, natural factorial, tick 70
+E0 episode 120/720: square_e0_20264243, natural factorial, tick 84
+E0 episode 121/720: square_e0_20264244, natural factorial, tick 79
+E0 episode 122/720: square_e0_20264245, natural factorial, tick 108
+E0 episode 123/720: square_e0_20264246, natural factorial, tick 14
+E0 episode 124/720: square_e0_20264247, natural factorial, tick 79
+E0 episode 125/720: square_e0_20264248, natural factorial, tick 60
+E0 episode 126/720: square_e0_20264249, natural factorial, tick 82
+E0 episode 127/720: square_e0_20264250, natural factorial, tick 124
+E0 episode 128/720: square_e0_20264251, natural factorial, tick 66
+E0 episode 129/720: square_e0_20264252, natural factorial, tick 46
+E0 episode 130/720: square_e0_20264253, natural factorial, tick 294
+E0 episode 131/720: square_e0_20264254, natural factorial, tick 23
+E0 episode 132/720: square_e0_20264255, natural factorial, tick 16
+E0 episode 133/720: square_e0_20264256, natural factorial, tick 115
+E0 episode 134/720: square_e0_20264257, natural factorial, tick 32
+E0 episode 135/720: square_e0_20264258, natural factorial, tick 128
+E0 episode 136/720: square_e0_20264259, natural factorial, tick 30
+E0 episode 137/720: square_e0_20264260, natural factorial, tick 121
+E0 episode 138/720: square_e0_20264261, natural factorial, tick 43
+E0 episode 139/720: square_e0_20264262, natural factorial, tick 181
+E0 episode 140/720: square_e0_20264263, natural factorial, tick 105
+E0 episode 141/720: square_e0_20264264, natural factorial, tick 41
+E0 episode 142/720: square_e0_20264265, natural factorial, tick 2
+E0 episode 143/720: square_e0_20264266, natural factorial, tick 101
+E0 episode 144/720: square_e0_20264267, natural factorial, tick 132
+E0 episode 145/720: square_e0_20264268, natural factorial, tick 75
+E0 episode 146/720: square_e0_20264269, natural factorial, tick 88
+E0 episode 147/720: square_e0_20264270, natural factorial, tick 98
+E0 episode 148/720: square_e0_20264271, natural factorial, tick 65
+E0 episode 149/720: square_e0_20264272, natural factorial, tick 38
+E0 episode 150/720: square_e0_20264273, natural factorial, tick 50
+E0 episode 151/720: square_e0_20264274, natural factorial, tick 78
+E0 episode 152/720: square_e0_20264275, natural factorial, tick 84
+E0 episode 153/720: square_e0_20264276, natural factorial, tick 64
+E0 episode 154/720: square_e0_20264277, natural factorial, tick 47
+E0 episode 155/720: square_e0_20264278, natural factorial, tick 102
+E0 episode 156/720: square_e0_20264279, natural factorial, tick 119
+E0 episode 157/720: square_e0_20264280, natural factorial, tick 101
+E0 episode 158/720: square_e0_20264281, natural factorial, tick 21
+E0 episode 159/720: square_e0_20264282, natural factorial, tick 246
+E0 episode 160/720: square_e0_20264283, natural factorial, tick 16
+E0 episode 161/720: square_e0_20264284, natural factorial, tick 33
+E0 episode 162/720: square_e0_20264285, natural factorial, tick 120
+E0 episode 163/720: square_e0_20264286, natural factorial, tick 284
+E0 episode 164/720: square_e0_20264287, natural factorial, tick 111
+E0 episode 165/720: square_e0_20264288, natural factorial, tick 41
+E0 episode 166/720: square_e0_20264289, natural factorial, tick 64
+E0 episode 167/720: square_e0_20264290, natural factorial, tick 243
+E0 episode 168/720: square_e0_20264291, natural factorial, tick 145
+E0 episode 169/720: square_e0_20264292, natural factorial, tick 19
+E0 episode 170/720: square_e0_20264293, natural factorial, tick 86
+E0 episode 171/720: square_e0_20264294, natural factorial, tick 36
+E0 episode 172/720: square_e0_20264295, natural factorial, tick 50
+E0 episode 173/720: square_e0_20264296, natural factorial, tick 20
+E0 episode 174/720: square_e0_20264297, natural factorial, tick 103
+E0 episode 175/720: square_e0_20264298, natural factorial, tick 24
+E0 episode 176/720: square_e0_20264299, natural factorial, tick 215
+E0 episode 177/720: square_e0_20264300, natural factorial, tick 44
+E0 episode 178/720: square_e0_20264301, natural factorial, tick 209
+E0 episode 179/720: square_e0_20264302, natural factorial, tick 95
+E0 episode 180/720: square_e0_20264303, natural factorial, tick 30
+E0 episode 181/720: square_e0_20264304, natural factorial, tick 181
+E0 episode 182/720: square_e0_20264305, natural factorial, tick 128
+E0 episode 183/720: square_e0_20264306, natural factorial, tick 80
+E0 episode 184/720: square_e0_20264307, natural factorial, tick 102
+E0 episode 185/720: square_e0_20264308, natural factorial, tick 70
+E0 episode 186/720: square_e0_20264309, natural factorial, tick 57
+E0 episode 187/720: square_e0_20264310, natural factorial, tick 18
+E0 episode 188/720: square_e0_20264311, natural factorial, tick 79
+E0 episode 189/720: square_e0_20264312, natural factorial, tick 104
+E0 episode 190/720: square_e0_20264313, natural factorial, tick 91
+E0 episode 191/720: square_e0_20264314, natural factorial, tick 100
+E0 episode 192/720: square_e0_20264315, natural factorial, tick 108
+E0 episode 193/720: square_e0_20264316, natural factorial, tick 147
+E0 episode 194/720: square_e0_20264317, natural factorial, tick 74
+E0 episode 195/720: square_e0_20264318, natural factorial, tick 128
+E0 episode 196/720: square_e0_20264319, natural factorial, tick 243
+E0 episode 197/720: square_e0_20264320, natural factorial, tick 95
+E0 episode 198/720: square_e0_20264321, natural factorial, tick 194
+E0 episode 199/720: square_e0_20264322, natural factorial, tick 86
+E0 episode 200/720: square_e0_20264323, natural factorial, tick 159
+E0 episode 201/720: square_e0_20265124, enriched factorial, tick 25
+E0 episode 202/720: square_e0_20265125, enriched factorial, tick 37
+E0 episode 203/720: square_e0_20265126, enriched factorial, tick 108
+E0 episode 204/720: square_e0_20265127, enriched factorial, tick 96
+E0 episode 205/720: square_e0_20265128, enriched factorial, tick 70
+E0 episode 206/720: square_e0_20265129, enriched factorial, tick 294
+E0 episode 207/720: square_e0_20265130, enriched factorial, tick 198
+E0 episode 208/720: square_e0_20265131, enriched factorial, tick 119
+E0 episode 209/720: square_e0_20265132, enriched factorial, tick 26
+E0 episode 210/720: square_e0_20265133, enriched factorial, tick 260
+E0 episode 211/720: square_e0_20265134, enriched factorial, tick 95
+E0 episode 212/720: square_e0_20265135, enriched factorial, tick 25
+E0 episode 213/720: square_e0_20265136, enriched factorial, tick 128
+E0 episode 214/720: square_e0_20265137, enriched factorial, tick 0
+E0 episode 215/720: square_e0_20265138, enriched factorial, tick 152
+E0 episode 216/720: square_e0_20265139, enriched factorial, tick 120
+E0 episode 217/720: square_e0_20265140, enriched factorial, tick 114
+E0 episode 218/720: square_e0_20265141, enriched factorial, tick 94
+E0 episode 219/720: square_e0_20265142, enriched factorial, tick 46
+E0 episode 220/720: square_e0_20265143, enriched factorial, tick 104
+E0 episode 221/720: square_e0_20265144, enriched factorial, tick 123
+E0 episode 222/720: square_e0_20265145, enriched factorial, tick 219
+E0 episode 223/720: square_e0_20265146, enriched factorial, tick 9
+E0 episode 224/720: square_e0_20265147, enriched factorial, tick 17
+E0 episode 225/720: square_e0_20265148, enriched factorial, tick 267
+E0 episode 226/720: square_e0_20265149, enriched factorial, tick 114
+E0 episode 227/720: square_e0_20265150, enriched factorial, tick 36
+E0 episode 228/720: square_e0_20265151, enriched factorial, tick 50
+E0 episode 229/720: square_e0_20265152, enriched factorial, tick 2
+E0 episode 230/720: square_e0_20265153, enriched factorial, tick 222
+E0 episode 231/720: square_e0_20265154, enriched factorial, tick 89
+E0 episode 232/720: square_e0_20265155, enriched factorial, tick 43
+E0 episode 233/720: square_e0_20265156, enriched factorial, tick 119
+E0 episode 234/720: square_e0_20265157, enriched factorial, tick 62
+E0 episode 235/720: square_e0_20265158, enriched factorial, tick 129
+E0 episode 236/720: square_e0_20265159, enriched factorial, tick 67
+E0 episode 237/720: square_e0_20265160, enriched factorial, tick 173
+E0 episode 238/720: square_e0_20265161, enriched factorial, tick 116
+E0 episode 239/720: square_e0_20265162, enriched factorial, tick 129
+E0 episode 240/720: square_e0_20265163, enriched factorial, tick 115
+E0 episode 241/720: square_e0_20265164, enriched factorial, tick 61
+E0 episode 242/720: square_e0_20265165, enriched factorial, tick 104
+E0 episode 243/720: square_e0_20265166, enriched factorial, tick 76
+E0 episode 244/720: square_e0_20265167, enriched factorial, tick 26
+E0 episode 245/720: square_e0_20265168, enriched factorial, tick 97
+E0 episode 246/720: square_e0_20265169, enriched factorial, tick 105
+E0 episode 247/720: square_e0_20265170, enriched factorial, tick 178
+E0 episode 248/720: square_e0_20265171, enriched factorial, tick 99
+E0 episode 249/720: square_e0_20265172, enriched factorial, tick 101
+E0 episode 250/720: square_e0_20265173, enriched factorial, tick 91
+E0 episode 251/720: square_e0_20265174, enriched factorial, tick 147
+E0 episode 252/720: square_e0_20265175, enriched factorial, tick 115
+E0 episode 253/720: square_e0_20265176, enriched factorial, tick 39
+E0 episode 254/720: square_e0_20265177, enriched factorial, tick 43
+E0 episode 255/720: square_e0_20265178, enriched factorial, tick 154
+E0 episode 256/720: square_e0_20265179, enriched factorial, tick 108
+E0 episode 257/720: square_e0_20265180, enriched factorial, tick 74
+E0 episode 258/720: square_e0_20265181, enriched factorial, tick 87
+E0 episode 259/720: square_e0_20265182, enriched factorial, tick 34
+E0 episode 260/720: square_e0_20265183, enriched factorial, tick 83
+E0 episode 261/720: square_e0_20265184, enriched factorial, tick 69
+E0 episode 262/720: square_e0_20265185, enriched factorial, tick 158
+E0 episode 263/720: square_e0_20265186, enriched factorial, tick 76
+E0 episode 264/720: square_e0_20265187, enriched factorial, tick 52
+E0 episode 265/720: square_e0_20265188, enriched factorial, tick 196
+E0 episode 266/720: square_e0_20265189, enriched factorial, tick 4
+E0 episode 267/720: square_e0_20265190, enriched factorial, tick 157
+E0 episode 268/720: square_e0_20265191, enriched factorial, tick 43
+E0 episode 269/720: square_e0_20265192, enriched factorial, tick 72
+E0 episode 270/720: square_e0_20265193, enriched factorial, tick 63
+E0 episode 271/720: square_e0_20265194, enriched factorial, tick 147
+E0 episode 272/720: square_e0_20265195, enriched factorial, tick 99
+E0 episode 273/720: square_e0_20265196, enriched factorial, tick 118
+E0 episode 274/720: square_e0_20265197, enriched factorial, tick 169
+E0 episode 275/720: square_e0_20265198, enriched factorial, tick 0
+E0 episode 276/720: square_e0_20265199, enriched factorial, tick 144
+E0 episode 277/720: square_e0_20265200, enriched factorial, tick 40
+E0 episode 278/720: square_e0_20265201, enriched factorial, tick 163
+E0 episode 279/720: square_e0_20265202, enriched factorial, tick 41
+E0 episode 280/720: square_e0_20265203, enriched factorial, tick 102
+E0 episode 281/720: square_e0_20265204, enriched factorial, tick 0
+E0 episode 282/720: square_e0_20265205, enriched factorial, tick 195
+E0 episode 283/720: square_e0_20265206, enriched factorial, tick 149
+E0 episode 284/720: square_e0_20265207, enriched factorial, tick 75
+E0 episode 285/720: square_e0_20265208, enriched factorial, tick 55
+E0 episode 286/720: square_e0_20265209, enriched factorial, tick 192
+E0 episode 287/720: square_e0_20265210, enriched factorial, tick 36
+E0 episode 288/720: square_e0_20265211, enriched factorial, tick 124
+E0 episode 289/720: square_e0_20265212, enriched factorial, tick 139
+E0 episode 290/720: square_e0_20265213, enriched factorial, tick 8
+E0 episode 291/720: square_e0_20265214, enriched factorial, tick 43
+E0 episode 292/720: square_e0_20265215, enriched factorial, tick 91
+E0 episode 293/720: square_e0_20265216, enriched factorial, tick 92
+E0 episode 294/720: square_e0_20265217, enriched factorial, tick 167
+E0 episode 295/720: square_e0_20265218, enriched factorial, tick 3
+E0 episode 296/720: square_e0_20265219, enriched factorial, tick 141
+E0 episode 297/720: square_e0_20265220, enriched factorial, tick 122
+E0 episode 298/720: square_e0_20265221, enriched factorial, tick 120
+E0 episode 299/720: square_e0_20265222, enriched factorial, tick 125
+E0 episode 300/720: square_e0_20265223, enriched factorial, tick 52
+E0 episode 301/720: square_e0_20265224, enriched factorial, tick 51
+E0 episode 302/720: square_e0_20265225, enriched factorial, tick 148
+E0 episode 303/720: square_e0_20265226, enriched factorial, tick 131
+E0 episode 304/720: square_e0_20265227, enriched factorial, tick 132
+E0 episode 305/720: square_e0_20265228, enriched factorial, tick 113
+E0 episode 306/720: square_e0_20265229, enriched factorial, tick 105
+E0 episode 307/720: square_e0_20265230, enriched factorial, tick 126
+E0 episode 308/720: square_e0_20265231, enriched factorial, tick 50
+E0 episode 309/720: square_e0_20265232, enriched factorial, tick 105
+E0 episode 310/720: square_e0_20265233, enriched factorial, tick 50
+E0 episode 311/720: square_e0_20265234, enriched factorial, tick 70
+E0 episode 312/720: square_e0_20265235, enriched factorial, tick 43
+E0 episode 313/720: square_e0_20265236, enriched factorial, tick 133
+E0 episode 314/720: square_e0_20265237, enriched factorial, tick 102
+E0 episode 315/720: square_e0_20265238, enriched factorial, tick 48
+E0 episode 316/720: square_e0_20265239, enriched factorial, tick 0
+E0 episode 317/720: square_e0_20265240, enriched factorial, tick 140
+E0 episode 318/720: square_e0_20265241, enriched factorial, tick 80
+E0 episode 319/720: square_e0_20265242, enriched factorial, tick 42
+E0 episode 320/720: square_e0_20265243, enriched factorial, tick 49
+E0 episode 321/720: square_e0_20265244, enriched factorial, tick 67
+E0 episode 322/720: square_e0_20265245, enriched factorial, tick 119
+E0 episode 323/720: square_e0_20265246, enriched factorial, tick 110
+E0 episode 324/720: square_e0_20265247, enriched factorial, tick 59
+E0 episode 325/720: square_e0_20265248, enriched factorial, tick 92
+E0 episode 326/720: square_e0_20265249, enriched factorial, tick 88
+E0 episode 327/720: square_e0_20265250, enriched factorial, tick 95
+E0 episode 328/720: square_e0_20265251, enriched factorial, tick 114
+E0 episode 329/720: square_e0_20265252, enriched factorial, tick 2
+E0 episode 330/720: square_e0_20265253, enriched factorial, tick 136
+E0 episode 331/720: square_e0_20265254, enriched factorial, tick 97
+E0 episode 332/720: square_e0_20265255, enriched factorial, tick 97
+E0 episode 333/720: square_e0_20265256, enriched factorial, tick 97
+E0 episode 334/720: square_e0_20265257, enriched factorial, tick 222
+E0 episode 335/720: square_e0_20265258, enriched factorial, tick 37
+E0 episode 336/720: square_e0_20265259, enriched factorial, tick 89
+E0 episode 337/720: square_e0_20265260, enriched factorial, tick 112
+E0 episode 338/720: square_e0_20265261, enriched factorial, tick 91
+E0 episode 339/720: square_e0_20265262, enriched factorial, tick 40
+E0 episode 340/720: square_e0_20265263, enriched factorial, tick 118
+E0 episode 341/720: square_e0_20265264, enriched factorial, tick 166
+E0 episode 342/720: square_e0_20265265, enriched factorial, tick 56
+E0 episode 343/720: square_e0_20265266, enriched factorial, tick 75
+E0 episode 344/720: square_e0_20265267, enriched factorial, tick 50
+E0 episode 345/720: square_e0_20265268, enriched factorial, tick 53
+E0 episode 346/720: square_e0_20265269, enriched factorial, tick 0
+E0 episode 347/720: square_e0_20265270, enriched factorial, tick 2
+E0 episode 348/720: square_e0_20265271, enriched factorial, tick 108
+E0 episode 349/720: square_e0_20265272, enriched factorial, tick 52
+E0 episode 350/720: square_e0_20265273, enriched factorial, tick 217
+E0 episode 351/720: square_e0_20265274, enriched factorial, tick 53
+E0 episode 352/720: square_e0_20265275, enriched factorial, tick 100
+E0 episode 353/720: square_e0_20265276, enriched factorial, tick 63
+E0 episode 354/720: square_e0_20265277, enriched factorial, tick 97
+E0 episode 355/720: square_e0_20265278, enriched factorial, tick 123
+E0 episode 356/720: square_e0_20265279, enriched factorial, tick 36
+E0 episode 357/720: square_e0_20265280, enriched factorial, tick 134
+E0 episode 358/720: square_e0_20265281, enriched factorial, tick 43
+E0 episode 359/720: square_e0_20265282, enriched factorial, tick 267
+E0 episode 360/720: square_e0_20265283, enriched factorial, tick 127
+E0 episode 361/720: square_e0_20265284, enriched factorial, tick 67
+E0 episode 362/720: square_e0_20265285, enriched factorial, tick 110
+E0 episode 363/720: square_e0_20265286, enriched factorial, tick 119
+E0 episode 364/720: square_e0_20265287, enriched factorial, tick 41
+E0 episode 365/720: square_e0_20265288, enriched factorial, tick 53
+E0 episode 366/720: square_e0_20265289, enriched factorial, tick 160
+E0 episode 367/720: square_e0_20265290, enriched factorial, tick 108
+E0 episode 368/720: square_e0_20265291, enriched factorial, tick 125
+E0 episode 369/720: square_e0_20265292, enriched factorial, tick 133
+E0 episode 370/720: square_e0_20265293, enriched factorial, tick 100
+E0 episode 371/720: square_e0_20265294, enriched factorial, tick 30
+E0 episode 372/720: square_e0_20265295, enriched factorial, tick 108
+E0 episode 373/720: square_e0_20265296, enriched factorial, tick 40
+E0 episode 374/720: square_e0_20265297, enriched factorial, tick 137
+E0 episode 375/720: square_e0_20265298, enriched factorial, tick 47
+E0 episode 376/720: square_e0_20265299, enriched factorial, tick 126
+E0 episode 377/720: square_e0_20265300, enriched factorial, tick 71
+E0 episode 378/720: square_e0_20265301, enriched factorial, tick 115
+E0 episode 379/720: square_e0_20265302, enriched factorial, tick 108
+E0 episode 380/720: square_e0_20265303, enriched factorial, tick 93
+E0 episode 381/720: square_e0_20265304, enriched factorial, tick 117
+E0 episode 382/720: square_e0_20265305, enriched factorial, tick 119
+E0 episode 383/720: square_e0_20265306, enriched factorial, tick 140
+E0 episode 384/720: square_e0_20265307, enriched factorial, tick 36
+E0 episode 385/720: square_e0_20265308, enriched factorial, tick 24
+E0 episode 386/720: square_e0_20265309, enriched factorial, tick 36
+E0 episode 387/720: square_e0_20265310, enriched factorial, tick 71
+E0 episode 388/720: square_e0_20265311, enriched factorial, tick 141
+E0 episode 389/720: square_e0_20265312, enriched factorial, tick 84
+E0 episode 390/720: square_e0_20265313, enriched factorial, tick 296
+E0 episode 391/720: square_e0_20265314, enriched factorial, tick 0
+E0 episode 392/720: square_e0_20265315, enriched factorial, tick 148
+E0 episode 393/720: square_e0_20265316, enriched factorial, tick 64
+E0 episode 394/720: square_e0_20265317, enriched factorial, tick 85
+E0 episode 395/720: square_e0_20265318, enriched factorial, tick 76
+E0 episode 396/720: square_e0_20265319, enriched factorial, tick 45
+E0 episode 397/720: square_e0_20265320, enriched factorial, tick 91
+E0 episode 398/720: square_e0_20265321, enriched factorial, tick 29
+E0 episode 399/720: square_e0_20265322, enriched factorial, tick 10
+E0 episode 400/720: square_e0_20265323, enriched factorial, tick 32
+E0 episode 401/720: square_e0_20266124, natural pair, tick 278
+E0 episode 402/720: square_e0_20266125, natural pair, tick 184
+E0 episode 403/720: square_e0_20266126, natural pair, tick 45
+E0 episode 404/720: square_e0_20266127, natural pair, tick 81
+E0 episode 405/720: square_e0_20266128, natural pair, tick 179
+E0 episode 406/720: square_e0_20266129, natural pair, tick 116
+E0 episode 407/720: square_e0_20266130, natural pair, tick 23
+E0 episode 408/720: square_e0_20266131, natural pair, tick 106
+E0 episode 409/720: square_e0_20266132, natural pair, tick 122
+E0 episode 410/720: square_e0_20266133, natural pair, tick 121
+E0 episode 411/720: square_e0_20266134, natural pair, tick 35
+E0 episode 412/720: square_e0_20266135, natural pair, tick 100
+E0 episode 413/720: square_e0_20266136, natural pair, tick 86
+E0 episode 414/720: square_e0_20266137, natural pair, tick 59
+E0 episode 415/720: square_e0_20266138, natural pair, tick 114
+E0 episode 416/720: square_e0_20266139, natural pair, tick 31
+E0 episode 417/720: square_e0_20266140, natural pair, tick 10
+E0 episode 418/720: square_e0_20266141, natural pair, tick 69
+E0 episode 419/720: square_e0_20266142, natural pair, tick 90
+E0 episode 420/720: square_e0_20266143, natural pair, tick 114
+E0 episode 421/720: square_e0_20266144, natural pair, tick 101
+E0 episode 422/720: square_e0_20266145, natural pair, tick 275
+E0 episode 423/720: square_e0_20266146, natural pair, tick 138
+E0 episode 424/720: square_e0_20266147, natural pair, tick 27
+E0 episode 425/720: square_e0_20266148, natural pair, tick 31
+E0 episode 426/720: square_e0_20266149, natural pair, tick 161
+E0 episode 427/720: square_e0_20266150, natural pair, tick 131
+E0 episode 428/720: square_e0_20266151, natural pair, tick 38
+E0 episode 429/720: square_e0_20266152, natural pair, tick 96
+E0 episode 430/720: square_e0_20266153, natural pair, tick 137
+E0 episode 431/720: square_e0_20266154, natural pair, tick 105
+E0 episode 432/720: square_e0_20266155, natural pair, tick 278
+E0 episode 433/720: square_e0_20266156, natural pair, tick 37
+E0 episode 434/720: square_e0_20266157, natural pair, tick 19
+E0 episode 435/720: square_e0_20266158, natural pair, tick 61
+E0 episode 436/720: square_e0_20266159, natural pair, tick 84
+E0 episode 437/720: square_e0_20266160, natural pair, tick 81
+E0 episode 438/720: square_e0_20266161, natural pair, tick 120
+E0 episode 439/720: square_e0_20266162, natural pair, tick 125
+E0 episode 440/720: square_e0_20266163, natural pair, tick 59
+E0 episode 441/720: square_e0_20266164, natural pair, tick 16
+E0 episode 442/720: square_e0_20266165, natural pair, tick 116
+E0 episode 443/720: square_e0_20266166, natural pair, tick 49
+E0 episode 444/720: square_e0_20266167, natural pair, tick 276
+E0 episode 445/720: square_e0_20266168, natural pair, tick 58
+E0 episode 446/720: square_e0_20266169, natural pair, tick 67
+E0 episode 447/720: square_e0_20266170, natural pair, tick 155
+E0 episode 448/720: square_e0_20266171, natural pair, tick 57
+E0 episode 449/720: square_e0_20266172, natural pair, tick 56
+E0 episode 450/720: square_e0_20266173, natural pair, tick 25
+E0 episode 451/720: square_e0_20266174, natural pair, tick 171
+E0 episode 452/720: square_e0_20266175, natural pair, tick 233
+E0 episode 453/720: square_e0_20266176, natural pair, tick 52
+E0 episode 454/720: square_e0_20266177, natural pair, tick 79
+E0 episode 455/720: square_e0_20266178, natural pair, tick 176
+E0 episode 456/720: square_e0_20266179, natural pair, tick 49
+E0 episode 457/720: square_e0_20266180, natural pair, tick 70
+E0 episode 458/720: square_e0_20266181, natural pair, tick 69
+E0 episode 459/720: square_e0_20266182, natural pair, tick 84
+E0 episode 460/720: square_e0_20266183, natural pair, tick 11
+E0 episode 461/720: square_e0_20266184, natural pair, tick 76
+E0 episode 462/720: square_e0_20266185, natural pair, tick 52
+E0 episode 463/720: square_e0_20266186, natural pair, tick 45
+E0 episode 464/720: square_e0_20266187, natural pair, tick 79
+E0 episode 465/720: square_e0_20266188, natural pair, tick 86
+E0 episode 466/720: square_e0_20266189, natural pair, tick 102
+E0 episode 467/720: square_e0_20266190, natural pair, tick 227
+E0 episode 468/720: square_e0_20266191, natural pair, tick 82
+E0 episode 469/720: square_e0_20266192, natural pair, tick 37
+E0 episode 470/720: square_e0_20266193, natural pair, tick 10
+E0 episode 471/720: square_e0_20266194, natural pair, tick 24
+E0 episode 472/720: square_e0_20266195, natural pair, tick 169
+E0 episode 473/720: square_e0_20266196, natural pair, tick 94
+E0 episode 474/720: square_e0_20266197, natural pair, tick 63
+E0 episode 475/720: square_e0_20266198, natural pair, tick 2
+E0 episode 476/720: square_e0_20266199, natural pair, tick 77
+E0 episode 477/720: square_e0_20266200, natural pair, tick 114
+E0 episode 478/720: square_e0_20266201, natural pair, tick 53
+E0 episode 479/720: square_e0_20266202, natural pair, tick 42
+E0 episode 480/720: square_e0_20266203, natural pair, tick 67
+E0 episode 481/720: square_e0_20266204, natural pair, tick 11
+E0 episode 482/720: square_e0_20266205, natural pair, tick 105
+E0 episode 483/720: square_e0_20266206, natural pair, tick 63
+E0 episode 484/720: square_e0_20266207, natural pair, tick 12
+E0 episode 485/720: square_e0_20266208, natural pair, tick 11
+E0 episode 486/720: square_e0_20266209, natural pair, tick 99
+E0 episode 487/720: square_e0_20266210, natural pair, tick 89
+E0 episode 488/720: square_e0_20266211, natural pair, tick 61
+E0 episode 489/720: square_e0_20266212, natural pair, tick 22
+E0 episode 490/720: square_e0_20266213, natural pair, tick 133
+E0 episode 491/720: square_e0_20266214, natural pair, tick 166
+E0 episode 492/720: square_e0_20266215, natural pair, tick 47
+E0 episode 493/720: square_e0_20266216, natural pair, tick 79
+E0 episode 494/720: square_e0_20266217, natural pair, tick 70
+E0 episode 495/720: square_e0_20266218, natural pair, tick 53
+E0 episode 496/720: square_e0_20266219, natural pair, tick 288
+E0 episode 497/720: square_e0_20266220, natural pair, tick 31
+E0 episode 498/720: square_e0_20266221, natural pair, tick 38
+E0 episode 499/720: square_e0_20266222, natural pair, tick 4
+E0 episode 500/720: square_e0_20266223, natural pair, tick 44
+E0 episode 501/720: square_e0_20266224, natural pair, tick 40
+E0 episode 502/720: square_e0_20266225, natural pair, tick 29
+E0 episode 503/720: square_e0_20266226, natural pair, tick 23
+E0 episode 504/720: square_e0_20266227, natural pair, tick 111
+E0 episode 505/720: square_e0_20266228, natural pair, tick 116
+E0 episode 506/720: square_e0_20266229, natural pair, tick 155
+E0 episode 507/720: square_e0_20266230, natural pair, tick 59
+E0 episode 508/720: square_e0_20266231, natural pair, tick 35
+E0 episode 509/720: square_e0_20266232, natural pair, tick 66
+E0 episode 510/720: square_e0_20266233, natural pair, tick 39
+E0 episode 511/720: square_e0_20266234, natural pair, tick 128
+E0 episode 512/720: square_e0_20266235, natural pair, tick 285
+E0 episode 513/720: square_e0_20266236, natural pair, tick 34
+E0 episode 514/720: square_e0_20266237, natural pair, tick 41
+E0 episode 515/720: square_e0_20266238, natural pair, tick 96
+E0 episode 516/720: square_e0_20266239, natural pair, tick 3
+E0 episode 517/720: square_e0_20266240, natural pair, tick 80
+E0 episode 518/720: square_e0_20266241, natural pair, tick 135
+E0 episode 519/720: square_e0_20266242, natural pair, tick 161
+E0 episode 520/720: square_e0_20266243, natural pair, tick 23
+E0 episode 521/720: square_e0_20266244, natural pair, tick 4
+E0 episode 522/720: square_e0_20266245, natural pair, tick 71
+E0 episode 523/720: square_e0_20266246, natural pair, tick 156
+E0 episode 524/720: square_e0_20266247, natural pair, tick 15
+E0 episode 525/720: square_e0_20266248, natural pair, tick 34
+E0 episode 526/720: square_e0_20266249, natural pair, tick 21
+E0 episode 527/720: square_e0_20266250, natural pair, tick 29
+E0 episode 528/720: square_e0_20266251, natural pair, tick 167
+E0 episode 529/720: square_e0_20266252, natural pair, tick 73
+E0 episode 530/720: square_e0_20266253, natural pair, tick 143
+E0 episode 531/720: square_e0_20266254, natural pair, tick 176
+E0 episode 532/720: square_e0_20266255, natural pair, tick 23
+E0 episode 533/720: square_e0_20266256, natural pair, tick 285
+E0 episode 534/720: square_e0_20266257, natural pair, tick 76
+E0 episode 535/720: square_e0_20266258, natural pair, tick 72
+E0 episode 536/720: square_e0_20266259, natural pair, tick 58
+E0 episode 537/720: square_e0_20266260, natural pair, tick 67
+E0 episode 538/720: square_e0_20266261, natural pair, tick 119
+E0 episode 539/720: square_e0_20266262, natural pair, tick 25
+E0 episode 540/720: square_e0_20266263, natural pair, tick 96
+E0 episode 541/720: square_e0_20266264, natural pair, tick 19
+E0 episode 542/720: square_e0_20266265, natural pair, tick 246
+E0 episode 543/720: square_e0_20266266, natural pair, tick 29
+E0 episode 544/720: square_e0_20266267, natural pair, tick 169
+E0 episode 545/720: square_e0_20266268, natural pair, tick 214
+E0 episode 546/720: square_e0_20266269, natural pair, tick 125
+E0 episode 547/720: square_e0_20266270, natural pair, tick 12
+E0 episode 548/720: square_e0_20266271, natural pair, tick 21
+E0 episode 549/720: square_e0_20266272, natural pair, tick 98
+E0 episode 550/720: square_e0_20266273, natural pair, tick 92
+E0 episode 551/720: square_e0_20266274, natural pair, tick 225
+E0 episode 552/720: square_e0_20266275, natural pair, tick 54
+E0 episode 553/720: square_e0_20266276, natural pair, tick 80
+E0 episode 554/720: square_e0_20266277, natural pair, tick 128
+E0 episode 555/720: square_e0_20266278, natural pair, tick 110
+E0 episode 556/720: square_e0_20266279, natural pair, tick 74
+E0 episode 557/720: square_e0_20266280, natural pair, tick 105
+E0 episode 558/720: square_e0_20266281, natural pair, tick 101
+E0 episode 559/720: square_e0_20266282, natural pair, tick 217
+E0 episode 560/720: square_e0_20266283, natural pair, tick 28
+E0 episode 561/720: square_e0_20267124, enriched pair, tick 51
+E0 episode 562/720: square_e0_20267125, enriched pair, tick 61
+E0 episode 563/720: square_e0_20267126, enriched pair, tick 146
+E0 episode 564/720: square_e0_20267127, enriched pair, tick 26
+E0 episode 565/720: square_e0_20267128, enriched pair, tick 113
+E0 episode 566/720: square_e0_20267129, enriched pair, tick 85
+E0 episode 567/720: square_e0_20267130, enriched pair, tick 141
+E0 episode 568/720: square_e0_20267131, enriched pair, tick 36
+E0 episode 569/720: square_e0_20267132, enriched pair, tick 59
+E0 episode 570/720: square_e0_20267133, enriched pair, tick 87
+E0 episode 571/720: square_e0_20267134, enriched pair, tick 50
+E0 episode 572/720: square_e0_20267135, enriched pair, tick 38
+E0 episode 573/720: square_e0_20267136, enriched pair, tick 51
+E0 episode 574/720: square_e0_20267137, enriched pair, tick 104
+E0 episode 575/720: square_e0_20267138, enriched pair, tick 136
+E0 episode 576/720: square_e0_20267139, enriched pair, tick 129
+E0 episode 577/720: square_e0_20267140, enriched pair, tick 124
+E0 episode 578/720: square_e0_20267141, enriched pair, tick 161
+E0 episode 579/720: square_e0_20267142, enriched pair, tick 117
+E0 episode 580/720: square_e0_20267143, enriched pair, tick 52
+E0 episode 581/720: square_e0_20267144, enriched pair, tick 118
+E0 episode 582/720: square_e0_20267145, enriched pair, tick 250
+E0 episode 583/720: square_e0_20267146, enriched pair, tick 100
+E0 episode 584/720: square_e0_20267147, enriched pair, tick 85
+E0 episode 585/720: square_e0_20267148, enriched pair, tick 43
+E0 episode 586/720: square_e0_20267149, enriched pair, tick 88
+E0 episode 587/720: square_e0_20267150, enriched pair, tick 106
+E0 episode 588/720: square_e0_20267151, enriched pair, tick 69
+E0 episode 589/720: square_e0_20267152, enriched pair, tick 106
+E0 episode 590/720: square_e0_20267153, enriched pair, tick 1
+E0 episode 591/720: square_e0_20267154, enriched pair, tick 69
+E0 episode 592/720: square_e0_20267155, enriched pair, tick 172
+E0 episode 593/720: square_e0_20267156, enriched pair, tick 49
+E0 episode 594/720: square_e0_20267157, enriched pair, tick 12
+E0 episode 595/720: square_e0_20267158, enriched pair, tick 274
+E0 episode 596/720: square_e0_20267159, enriched pair, tick 110
+E0 episode 597/720: square_e0_20267160, enriched pair, tick 112
+E0 episode 598/720: square_e0_20267161, enriched pair, tick 127
+E0 episode 599/720: square_e0_20267162, enriched pair, tick 119
+E0 episode 600/720: square_e0_20267163, enriched pair, tick 128
+E0 episode 601/720: square_e0_20267164, enriched pair, tick 46
+E0 episode 602/720: square_e0_20267165, enriched pair, tick 99
+E0 episode 603/720: square_e0_20267166, enriched pair, tick 1
+E0 episode 604/720: square_e0_20267167, enriched pair, tick 133
+E0 episode 605/720: square_e0_20267168, enriched pair, tick 103
+E0 episode 606/720: square_e0_20267169, enriched pair, tick 108
+E0 episode 607/720: square_e0_20267170, enriched pair, tick 36
+E0 episode 608/720: square_e0_20267171, enriched pair, tick 78
+E0 episode 609/720: square_e0_20267172, enriched pair, tick 299
+E0 episode 610/720: square_e0_20267173, enriched pair, tick 222
+E0 episode 611/720: square_e0_20267174, enriched pair, tick 152
+E0 episode 612/720: square_e0_20267175, enriched pair, tick 97
+E0 episode 613/720: square_e0_20267176, enriched pair, tick 128
+E0 episode 614/720: square_e0_20267177, enriched pair, tick 3
+E0 episode 615/720: square_e0_20267178, enriched pair, tick 129
+E0 episode 616/720: square_e0_20267179, enriched pair, tick 46
+E0 episode 617/720: square_e0_20267180, enriched pair, tick 147
+E0 episode 618/720: square_e0_20267181, enriched pair, tick 61
+E0 episode 619/720: square_e0_20267182, enriched pair, tick 115
+E0 episode 620/720: square_e0_20267183, enriched pair, tick 141
+E0 episode 621/720: square_e0_20267184, enriched pair, tick 145
+E0 episode 622/720: square_e0_20267185, enriched pair, tick 116
+E0 episode 623/720: square_e0_20267186, enriched pair, tick 131
+E0 episode 624/720: square_e0_20267187, enriched pair, tick 22
+E0 episode 625/720: square_e0_20267188, enriched pair, tick 123
+E0 episode 626/720: square_e0_20267189, enriched pair, tick 97
+E0 episode 627/720: square_e0_20267190, enriched pair, tick 80
+E0 episode 628/720: square_e0_20267191, enriched pair, tick 38
+E0 episode 629/720: square_e0_20267192, enriched pair, tick 124
+E0 episode 630/720: square_e0_20267193, enriched pair, tick 21
+E0 episode 631/720: square_e0_20267194, enriched pair, tick 126
+E0 episode 632/720: square_e0_20267195, enriched pair, tick 83
+E0 episode 633/720: square_e0_20267196, enriched pair, tick 151
+E0 episode 634/720: square_e0_20267197, enriched pair, tick 114
+E0 episode 635/720: square_e0_20267198, enriched pair, tick 115
+E0 episode 636/720: square_e0_20267199, enriched pair, tick 51
+E0 episode 637/720: square_e0_20267200, enriched pair, tick 128
+E0 episode 638/720: square_e0_20267201, enriched pair, tick 117
+E0 episode 639/720: square_e0_20267202, enriched pair, tick 81
+E0 episode 640/720: square_e0_20267203, enriched pair, tick 127
+E0 episode 641/720: square_e0_20267204, enriched pair, tick 129
+E0 episode 642/720: square_e0_20267205, enriched pair, tick 107
+E0 episode 643/720: square_e0_20267206, enriched pair, tick 167
+E0 episode 644/720: square_e0_20267207, enriched pair, tick 184
+E0 episode 645/720: square_e0_20267208, enriched pair, tick 112
+E0 episode 646/720: square_e0_20267209, enriched pair, tick 164
+E0 episode 647/720: square_e0_20267210, enriched pair, tick 96
+E0 episode 648/720: square_e0_20267211, enriched pair, tick 93
+E0 episode 649/720: square_e0_20267212, enriched pair, tick 186
+E0 episode 650/720: square_e0_20267213, enriched pair, tick 73
+E0 episode 651/720: square_e0_20267214, enriched pair, tick 15
+E0 episode 652/720: square_e0_20267215, enriched pair, tick 35
+E0 episode 653/720: square_e0_20267216, enriched pair, tick 127
+E0 episode 654/720: square_e0_20267217, enriched pair, tick 0
+E0 episode 655/720: square_e0_20267218, enriched pair, tick 45
+E0 episode 656/720: square_e0_20267219, enriched pair, tick 91
+E0 episode 657/720: square_e0_20267220, enriched pair, tick 155
+E0 episode 658/720: square_e0_20267221, enriched pair, tick 118
+E0 episode 659/720: square_e0_20267222, enriched pair, tick 4
+E0 episode 660/720: square_e0_20267223, enriched pair, tick 30
+E0 episode 661/720: square_e0_20267224, enriched pair, tick 32
+E0 episode 662/720: square_e0_20267225, enriched pair, tick 116
+E0 episode 663/720: square_e0_20267226, enriched pair, tick 90
+E0 episode 664/720: square_e0_20267227, enriched pair, tick 102
+E0 episode 665/720: square_e0_20267228, enriched pair, tick 7
+E0 episode 666/720: square_e0_20267229, enriched pair, tick 152
+E0 episode 667/720: square_e0_20267230, enriched pair, tick 50
+E0 episode 668/720: square_e0_20267231, enriched pair, tick 1
+E0 episode 669/720: square_e0_20267232, enriched pair, tick 53
+E0 episode 670/720: square_e0_20267233, enriched pair, tick 24
+E0 episode 671/720: square_e0_20267234, enriched pair, tick 3
+E0 episode 672/720: square_e0_20267235, enriched pair, tick 111
+E0 episode 673/720: square_e0_20267236, enriched pair, tick 139
+E0 episode 674/720: square_e0_20267237, enriched pair, tick 253
+E0 episode 675/720: square_e0_20267238, enriched pair, tick 114
+E0 episode 676/720: square_e0_20267239, enriched pair, tick 95
+E0 episode 677/720: square_e0_20267240, enriched pair, tick 2
+E0 episode 678/720: square_e0_20267241, enriched pair, tick 60
+E0 episode 679/720: square_e0_20267242, enriched pair, tick 224
+E0 episode 680/720: square_e0_20267243, enriched pair, tick 114
+E0 episode 681/720: square_e0_20267244, enriched pair, tick 123
+E0 episode 682/720: square_e0_20267245, enriched pair, tick 50
+E0 episode 683/720: square_e0_20267246, enriched pair, tick 38
+E0 episode 684/720: square_e0_20267247, enriched pair, tick 117
+E0 episode 685/720: square_e0_20267248, enriched pair, tick 46
+E0 episode 686/720: square_e0_20267249, enriched pair, tick 3
+E0 episode 687/720: square_e0_20267250, enriched pair, tick 118
+E0 episode 688/720: square_e0_20267251, enriched pair, tick 72
+E0 episode 689/720: square_e0_20267252, enriched pair, tick 180
+E0 episode 690/720: square_e0_20267253, enriched pair, tick 87
+E0 episode 691/720: square_e0_20267254, enriched pair, tick 84
+E0 episode 692/720: square_e0_20267255, enriched pair, tick 6
+E0 episode 693/720: square_e0_20267256, enriched pair, tick 110
+E0 episode 694/720: square_e0_20267257, enriched pair, tick 41
+E0 episode 695/720: square_e0_20267258, enriched pair, tick 60
+E0 episode 696/720: square_e0_20267259, enriched pair, tick 100
+E0 episode 697/720: square_e0_20267260, enriched pair, tick 52
+E0 episode 698/720: square_e0_20267261, enriched pair, tick 119
+E0 episode 699/720: square_e0_20267262, enriched pair, tick 146
+E0 episode 700/720: square_e0_20267263, enriched pair, tick 117
+E0 episode 701/720: square_e0_20267264, enriched pair, tick 40
+E0 episode 702/720: square_e0_20267265, enriched pair, tick 257
+E0 episode 703/720: square_e0_20267266, enriched pair, tick 3
+E0 episode 704/720: square_e0_20267267, enriched pair, tick 29
+E0 episode 705/720: square_e0_20267268, enriched pair, tick 59
+E0 episode 706/720: square_e0_20267269, enriched pair, tick 140
+E0 episode 707/720: square_e0_20267270, enriched pair, tick 67
+E0 episode 708/720: square_e0_20267271, enriched pair, tick 103
+E0 episode 709/720: square_e0_20267272, enriched pair, tick 30
+E0 episode 710/720: square_e0_20267273, enriched pair, tick 73
+E0 episode 711/720: square_e0_20267274, enriched pair, tick 107
+E0 episode 712/720: square_e0_20267275, enriched pair, tick 114
+E0 episode 713/720: square_e0_20267276, enriched pair, tick 118
+E0 episode 714/720: square_e0_20267277, enriched pair, tick 31
+E0 episode 715/720: square_e0_20267278, enriched pair, tick 98
+E0 episode 716/720: square_e0_20267279, enriched pair, tick 49
+E0 episode 717/720: square_e0_20267280, enriched pair, tick 97
+E0 episode 718/720: square_e0_20267281, enriched pair, tick 243
+E0 episode 719/720: square_e0_20267282, enriched pair, tick 260
+E0 episode 720/720: square_e0_20267283, enriched pair, tick 55

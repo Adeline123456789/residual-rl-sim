@@ -1,0 +1,30 @@
+{
+  "status": "UNIT_TESTS_ONLY_NOT_ROBOT_RESULTS",
+  "python": "3.11.15 | packaged by conda-forge | (main, Mar  5 2026, 16:45:40) [GCC 14.3.0]",
+  "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+  "git_commit": "a12547e045f66928dffb47481123490738989a33",
+  "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. python -m unittest discover -s tests -v",
+  "total_tests": 30,
+  "historical_contract_tests": 21,
+  "new_cf_resrl_tests": 9,
+  "failures": 0,
+  "errors": 0,
+  "files": {
+    "cf_resrl/factorial.py": {
+      "sha256": "ac5c60a0d94203f7f92dcd432b567e64a60c27d2025a5908f3dbb08dbc33cbbf",
+      "bytes": 5103
+    },
+    "tests/test_factorial.py": {
+      "sha256": "a3bd3f629b32bf67a5dda84304b342e3eb08fe1e4c758968671146d32c249659",
+      "bytes": 2479
+    },
+    "configs/cf_resrl/mvp_square.json": {
+      "sha256": "33038fe4e7455da34d51a63ba5f3e4f5de9ae317b7c1dd33b7b2f31cd279a1ea",
+      "bytes": 2571
+    },
+    "CF_RESRL_CODEX_TASK.md": {
+      "sha256": "ae0f729752a963d528c8f8e02b4e5a2345beaf2a9be0bf1b7c691ec6bc3e990a",
+      "bytes": 17259
+    }
+  }
+}

@@ -1,40 +1,42 @@
 # residual-rl-sim
 
-Execution-consistent predictive residual RL and behavior-preserving base-policy updates, based on ResFiT.
+This branch studies a narrowly defined question on top of ResFiT:
+
+> Can 2x2 factorial counterfactual supervision improve the interaction efficiency of residual-aware replanning for action-chunked robot policies?
 
 ## Start here
 
-Read [CODEX_TASK.md](CODEX_TASK.md) for the complete Chinese implementation plan, literature boundary, minimal experiment, full extensions, acceptance criteria, and publication requirements. Coding agents must also follow [AGENTS.md](AGENTS.md).
+- [CF_RESRL_CODEX_TASK.md](CF_RESRL_CODEX_TASK.md): frozen research question, dataset choice, minimal validation, full expansion, validity rules, and upload protocol.
+- [AGENTS.md](AGENTS.md): mandatory execution discipline for Codex and other coding agents.
+- [docs/CF_RESRL_DECISION_LOG.md](docs/CF_RESRL_DECISION_LOG.md): decisions that must not be silently moved during the project.
 
-## What exists
+The older PA-ResWM `CODEX_TASK.md`, contracts, tests, and branch are retained as research history.
 
-- A staged research specification, **not** a completed RL implementation.
-- Dependency-free execution-contract reference code in `pa_reswm/contracts.py`.
-- 21 locally passing unit tests and their raw report in `results/bootstrap`.
-- A machine-readable MVP specification in `configs/mvp_spec.json`; this is **not** a runnable training configuration.
+## Chosen data
 
-**No ACT, residual RL, or world model has been trained here. No MuJoCo integration test or manipulation success-rate evaluation has been run.** Do not treat unit tests as research performance evidence.
+- Primary demonstrations: `ankile/robomimic-mh-square-image`.
+- First cross-task expansion: `ankile/robomimic-mh-can-image`.
+- Research labels: a derived simulator branch dataset containing matched V00/V01/V10/V11 outcomes. Demonstrations alone do not contain the required counterfactual labels.
 
-## Run the available tests
+## Experiment results
+
+- [Square branch data](results/cf_resrl/mvp_square/e0_data/attempts/20261126T184751184660Z_90a4f137d61c/COMPLETED_RUN.md) records 2,240 real simulator branches from 720 source episodes.
+- [Square offline probes](results/cf_resrl/mvp_square/offline_probe/attempts/20261126T194609984038Z_bfdd16f86003/COMPLETED_RUN.md) give the same-data B5/P1 comparison and the interaction-budget-matched B6 comparison.
+- [Square closed-loop MVP](results/cf_resrl/mvp_square/closed_loop/attempts/20261126T195036106877Z_d549bf669ea3/COMPLETED_RUN.md) verifies 2,020 physical rollouts. All six paired P1 versus B5/B6 success intervals include zero.
+- [X1 closeout](results/cf_resrl/expansion_square/resfit_training/attempts/20261126T205747128632Z_c5f43e8aa271/INTERRUPTED_RUN.md) records the user-requested stop at 64,700 training steps for the first additional Square seed. The X1 matrix, Can transfer (X2), and online comparison (X3) were not run.
+
+Experiment code and small evidence files are tracked on this branch. The run reports link to the verified archives for larger artifacts. Checkpoint weights remain local.
+
+## Run available tests
 
 ```bash
 python -m unittest discover -s tests -v
 ```
 
-## Planned progression
+## Progression policy
 
-M0 data/environment validation and baseline -> M1 timestamped prediction alignment -> M2 short-horizon residual candidate evaluation -> M3 behavior-preserving recentering. Synthetic imagination is optional and disabled by default.
+Valid negative results are first-class results. Performance thresholds do not gate later registered experiments. Only experiment-invalidating failures—such as snapshot errors, privileged input, action-limit violations, or data leakage—pause the run for repair.
 
 ## Upstream
 
-Official ResFiT: https://github.com/amazon-far/residual-offpolicy-rl
-
-Inspected upstream commit: `66262b06a0caf159fb001504949b7b48ccda5f64`.
-
-Paper: https://arxiv.org/abs/2509.19301
-
-Preserve upstream copyright, licenses, and THIRD-PARTY notices when incorporating code. Data and checkpoint redistribution require their own license checks. This initialization does not vendor the upstream implementation.
-
-## Results policy
-
-Push actual source code, resolved configs, per-episode data, logs, manifests, reports, and negative results. Do not fabricate runs when resources are unavailable; record `BLOCKED` or `NOT_RUN`. Keep credentials, datasets, and large model files out of ordinary Git.
+Official ResFiT: `amazon-far/residual-offpolicy-rl`, pinned commit `66262b06a0caf159fb001504949b7b48ccda5f64`. Preserve upstream licenses and THIRD-PARTY notices.

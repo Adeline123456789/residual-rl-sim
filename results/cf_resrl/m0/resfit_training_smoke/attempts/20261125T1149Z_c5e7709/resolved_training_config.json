@@ -1,0 +1,218 @@
+{
+  "base_policy_artifacts": {
+    "config.json": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb",
+    "model.safetensors": "e5f5b3c7fa7512a2ae202d5912922289a52348f8a3bb5a9da33f606d671cb859"
+  },
+  "base_policy_dir": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/act_training/attempts/20261125T005956570423Z_3dfd8208847a/training/policy_step_49999/policy",
+  "checkpoint_contract": {
+    "environment_state_included": false,
+    "kind": "evaluation_loadable_not_training_resumable",
+    "replay_buffer_included": false
+  },
+  "config": {
+    "actor_name": "residual_act",
+    "agent": {
+      "actor": {
+        "action_l2_reg_weight": 0.0,
+        "action_scale": 0.1,
+        "actor_intermediate_layer_init_distribution": "default",
+        "actor_last_layer_init_distribution": "normal",
+        "actor_last_layer_init_scale": 0.0,
+        "dropout": 0.0,
+        "feature_dim": 128,
+        "hidden_dim": 1024,
+        "max_action_norm": -1.0,
+        "num_layers": 2,
+        "orth": 1,
+        "spatial_emb": 0,
+        "use_layer_norm": true
+      },
+      "actor_grad_clip_norm": 1.0,
+      "actor_lr": 1e-06,
+      "bc_backprop_encoder": false,
+      "bc_loss_coef": 0.0,
+      "bc_loss_dynamic": 0,
+      "clip_q_target_to_reward_range": false,
+      "critic": {
+        "drop": 0.0,
+        "feature_dim": 128,
+        "fuse_patch": 1,
+        "hidden_dim": 1024,
+        "loss": {
+          "n_bins": 51,
+          "sigma": -1.0,
+          "type": "mse",
+          "v_max": 1.0,
+          "v_min": 0.0
+        },
+        "min_q_heads": 2,
+        "norm_weight": 0,
+        "num_layers": 2,
+        "num_q": 10,
+        "orth": 1,
+        "policy_gradient_type": "ensemble_mean",
+        "spatial_emb": 1024,
+        "use_layer_norm": true
+      },
+      "critic_grad_clip_norm": 1.0,
+      "critic_lr": 0.0001,
+      "critic_target_tau": 0.005,
+      "device": "cuda",
+      "enc_type": "vit",
+      "freeze_encoder": false,
+      "lr_warmup_start": 1e-08,
+      "lr_warmup_steps": 0,
+      "stddev_clip": 0.3,
+      "target_action_noise": true,
+      "use_prop": 1,
+      "vit": {
+        "depth": 1,
+        "embed_dim": 128,
+        "embed_norm": 0,
+        "embed_style": "embed2",
+        "num_heads": 4,
+        "patch_size": 8,
+        "stride": -1
+      }
+    },
+    "algo": {
+      "actor_lr_warmup_steps": 0,
+      "actor_updates_per_iteration": 1,
+      "batch_size": 8,
+      "buffer_size": 64,
+      "critic_warmup_steps": 2,
+      "gamma": 0.99,
+      "learning_starts": 16,
+      "n_step": 3,
+      "num_updates_per_iteration": 4,
+      "offline_fraction": 0.5,
+      "prefetch_batches": 4,
+      "priority_alpha": 0.6,
+      "priority_beta": 0.4,
+      "progressive_clipping_steps": 0,
+      "random_action_noise_scale": 0.2,
+      "sampling_strategy": "uniform",
+      "stddev_max": 0.05,
+      "stddev_min": 0.05,
+      "stddev_schedule": "linear(0.05,0.05,300000)",
+      "stddev_step": 300000,
+      "total_timesteps": 32,
+      "update_every_n_steps": 1,
+      "use_base_policy_for_warmup": true
+    },
+    "base_policy": {
+      "expected_config_sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb",
+      "expected_model_sha256": "e5f5b3c7fa7512a2ae202d5912922289a52348f8a3bb5a9da33f606d671cb859",
+      "local_dir": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/act_training/attempts/20261125T005956570423Z_3dfd8208847a/training/policy_step_49999/policy",
+      "wandb_id": "robomimic-square-bc/dzbkdpwp",
+      "wt_type": "best",
+      "wt_version": "latest"
+    },
+    "checkpoint_interval": 16,
+    "debug": false,
+    "eval_first": true,
+    "eval_interval_every_steps": 10000,
+    "eval_num_envs": 2,
+    "eval_num_episodes": 2,
+    "headless": true,
+    "log_freq": 100,
+    "num_envs": 1,
+    "offline_data": {
+      "expected_split_manifest_sha256": "6625ae894c67c6510c6c2decd4598e781c68828dbc697fe6b4478cc60e1e2e10",
+      "min_action_range": 0.1,
+      "min_state_std": 0.1,
+      "name": "ankile/robomimic-mh-square-image",
+      "num_episodes": 2,
+      "revision": "4e5cee7ea7d63b920ff76c2529b781c2474697da",
+      "root": "/media/midea/work/CF-ResRL/residual-rl-sim/data/cf_resrl/square",
+      "split": "train",
+      "split_manifest": "/media/midea/work/CF-ResRL/.resfit-smoke.I0fdp6/smoke_train_subset.json",
+      "use_base_policy_for_base_actions": true,
+      "video_backend": "pyav"
+    },
+    "output_dir": "/media/midea/work/CF-ResRL/.resfit-smoke.I0fdp6/training",
+    "rl_camera": [
+      "observation.images.agentview",
+      "observation.images.robot0_eye_in_hand"
+    ],
+    "save_video": false,
+    "seed": 20261124,
+    "task": "Square",
+    "torch_deterministic": false,
+    "video_key": "observation.images.agentview",
+    "wandb": {
+      "continue_run_id": null,
+      "entity": null,
+      "group": null,
+      "mode": "disabled",
+      "name": null,
+      "project": "robomimic-square-residual-td3"
+    }
+  },
+  "dataset": {
+    "episode_indices": [
+      2,
+      3
+    ],
+    "name": "ankile/robomimic-mh-square-image",
+    "revision": "4e5cee7ea7d63b920ff76c2529b781c2474697da",
+    "root": "/media/midea/work/CF-ResRL/residual-rl-sim/data/cf_resrl/square",
+    "split": "train",
+    "split_manifest_sha256": "6625ae894c67c6510c6c2decd4598e781c68828dbc697fe6b4478cc60e1e2e10"
+  },
+  "environment_seeds": {
+    "evaluation_initial_reset": 20262124,
+    "evaluation_lane_seed_rule": "initial_reset_seed + env_index",
+    "training_initial_reset": 20261124
+  },
+  "environment_step_budget": {
+    "main": 16,
+    "total": 32,
+    "warmup": 16
+  },
+  "normalization": {
+    "action_max": [
+      1.0913000106811523,
+      1.0750999450683594,
+      1.0953999757766724,
+      0.11066808551549911,
+      0.1954033374786377,
+      0.5285778045654297,
+      1.100000023841858
+    ],
+    "action_min": [
+      -0.9172999858856201,
+      -0.5770999789237976,
+      -1.0033999681472778,
+      -0.12620437145233154,
+      -0.09848322719335556,
+      -0.5856496095657349,
+      -1.100000023841858
+    ],
+    "action_min_range_per_dim": 0.1,
+    "action_scale": 0.1,
+    "state_mean": [
+      0.033254969865083694,
+      0.10051136463880539,
+      0.9197931885719299,
+      0.8524202704429626,
+      -0.13068732619285583,
+      0.03380994126200676,
+      -0.00943545252084732,
+      0.02725972980260849,
+      -0.026668548583984375
+    ],
+    "state_min_std": 0.1,
+    "state_std": [
+      0.13548509776592255,
+      0.10000000149011612,
+      0.10000000149011612,
+      0.1107921227812767,
+      0.4913533329963684,
+      0.10000000149011612,
+      0.10000000149011612,
+      0.10000000149011612,
+      0.10000000149011612
+    ]
+  }
+}

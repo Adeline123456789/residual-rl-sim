@@ -1,0 +1,138 @@
+{
+  "run_status": "STOPPED_BY_USER",
+  "launcher_status": "FAILED",
+  "child_returncode": 143,
+  "seed": 20261125,
+  "git_commit": "c5f43e8aa271224f7c804e219fd01d3b7c020d1d",
+  "started_at_utc": "2026-11-26T20:57:47.128632+00:00",
+  "stopped_at_utc": "2026-11-27T00:55:04.054670+00:00",
+  "recorded_training_steps": 64700,
+  "registered_training_steps": 300000,
+  "phase_steps": {
+    "warmup": 10000,
+    "main": 54700
+  },
+  "evaluations": [
+    {
+      "step": 10000,
+      "successes": 34,
+      "episodes": 50,
+      "evaluation_control_steps": 12536,
+      "wall_seconds": 80.93290648999391
+    },
+    {
+      "step": 20000,
+      "successes": 9,
+      "episodes": 50,
+      "evaluation_control_steps": 14400,
+      "wall_seconds": 84.99649512198812
+    },
+    {
+      "step": 30000,
+      "successes": 20,
+      "episodes": 50,
+      "evaluation_control_steps": 13192,
+      "wall_seconds": 81.20721965000848
+    },
+    {
+      "step": 40000,
+      "successes": 22,
+      "episodes": 50,
+      "evaluation_control_steps": 12968,
+      "wall_seconds": 80.7219500150095
+    },
+    {
+      "step": 50000,
+      "successes": 24,
+      "episodes": 50,
+      "evaluation_control_steps": 12840,
+      "wall_seconds": 80.09670529600407
+    },
+    {
+      "step": 60000,
+      "successes": 30,
+      "episodes": 50,
+      "evaluation_control_steps": 11896,
+      "wall_seconds": 77.19413906500267
+    }
+  ],
+  "fully_resumable_steps": [],
+  "latest_evaluation_model_step": 60000,
+  "launcher_log_prefix_bytes": 609953,
+  "launcher_log_prefix_sha256": "b1b96e555fa3b42f463d2fd42a7d53942600eab242a7a8b345b5778c883ad78d",
+  "final_log_bytes": 610214,
+  "final_log_sha256": "d089c8a0f8b4fc1d5177382920e36b382a31ce87538f83aeca90775e23cf7aaf",
+  "release_tag": "cf-resrl-square-x1-stop-20261127",
+  "release_archive": {
+    "name": "square-x1-stopped-training-evidence.tar.gz",
+    "sha256": "6612d3a90951e7f62b7ab0a6924c9c166b346002ea2ef8f39a2457b006f15981",
+    "bytes": 69838693,
+    "files": [
+      {
+        "path": "training/action_ledger.jsonl",
+        "sha256": "6b0ac644e8e7f12af05d06289b335d0f9419fb7e862c876d3b40c909520f27d2",
+        "bytes": 66133403
+      },
+      {
+        "path": "training/outputs/2026-11-27_05-09-27/eval_2026-11-27_05-09-27__Square_n3_utd4_buf200000_off240ep_lr1e-06__seed20261125_step_10000.mp4",
+        "sha256": "7207c33d8f8e9dce52a6ae6e7a6cab2df906c9d2ba8a69adb8a3cd868b0c561e",
+        "bytes": 7141321
+      },
+      {
+        "path": "training/outputs/2026-11-27_05-09-27/eval_q_trajectories_2026-11-27_05-09-27__Square_n3_utd4_buf200000_off240ep_lr1e-06__seed20261125_step_10000.png",
+        "sha256": "aff5dbd2e81537a715261776817d6c5affc6b97e0c30860ac2de71b2a28d408b",
+        "bytes": 779262
+      },
+      {
+        "path": "training/outputs/2026-11-27_05-09-27/eval_2026-11-27_05-09-27__Square_n3_utd4_buf200000_off240ep_lr1e-06__seed20261125_step_20000.mp4",
+        "sha256": "bf1826de637dfc1d985b90f3c4badba85713ed824c7bf0f1eb8e9e16e248dd67",
+        "bytes": 8810061
+      },
+      {
+        "path": "training/outputs/2026-11-27_05-09-27/eval_q_trajectories_2026-11-27_05-09-27__Square_n3_utd4_buf200000_off240ep_lr1e-06__seed20261125_step_20000.png",
+        "sha256": "2fc2371891771edb6ff3d9667a376a9e947d8dcf6d4b5e42eb3b1caf138663e5",
+        "bytes": 816235
+      },
+      {
+        "path": "training/outputs/2026-11-27_05-09-27/eval_2026-11-27_05-09-27__Square_n3_utd4_buf200000_off240ep_lr1e-06__seed20261125_step_30000.mp4",
+        "sha256": "e85224224521f632f9ea36a2e53168aa2728af4fd592721375c79c059fd84a2f",
+        "bytes": 7546167
+      },
+      {
+        "path": "training/outputs/2026-11-27_05-09-27/eval_q_trajectories_2026-11-27_05-09-27__Square_n3_utd4_buf200000_off240ep_lr1e-06__seed20261125_step_30000.png",
+        "sha256": "24aafda2162c419c398110ec6b6abaf3e3d8a72000be478f4d3d59b47dfb1292",
+        "bytes": 727007
+      },
+      {
+        "path": "training/outputs/2026-11-27_05-09-27/eval_2026-11-27_05-09-27__Square_n3_utd4_buf200000_off240ep_lr1e-06__seed20261125_step_40000.mp4",
+        "sha256": "f05d046b32664d5c61390f41a32eec621cb5b499409fdb5f5bf92a584a9db49d",
+        "bytes": 7636306
+      },
+      {
+        "path": "training/outputs/2026-11-27_05-09-27/eval_q_trajectories_2026-11-27_05-09-27__Square_n3_utd4_buf200000_off240ep_lr1e-06__seed20261125_step_40000.png",
+        "sha256": "e59ffd6853af637d9d527c9d78c14972b4d0538ea275678b41d505f024317555",
+        "bytes": 767547
+      },
+      {
+        "path": "training/outputs/2026-11-27_05-09-27/eval_2026-11-27_05-09-27__Square_n3_utd4_buf200000_off240ep_lr1e-06__seed20261125_step_50000.mp4",
+        "sha256": "b9a7903a812303ca4bff0ae5ce6864aad4a690dcfeaab04ba7eedf6911c39caf",
+        "bytes": 7402340
+      },
+      {
+        "path": "training/outputs/2026-11-27_05-09-27/eval_q_trajectories_2026-11-27_05-09-27__Square_n3_utd4_buf200000_off240ep_lr1e-06__seed20261125_step_50000.png",
+        "sha256": "38a88b438824262379da13de2d65908dc6fbf40315b5b6ae0d32586b49acc431",
+        "bytes": 728721
+      },
+      {
+        "path": "training/outputs/2026-11-27_05-09-27/eval_2026-11-27_05-09-27__Square_n3_utd4_buf200000_off240ep_lr1e-06__seed20261125_step_60000.mp4",
+        "sha256": "12030e1e38c65cdac0333f224c3025a2f3dbb2dfeb3e143a0dfa0dc948c8fe83",
+        "bytes": 7039019
+      },
+      {
+        "path": "training/outputs/2026-11-27_05-09-27/eval_q_trajectories_2026-11-27_05-09-27__Square_n3_utd4_buf200000_off240ep_lr1e-06__seed20261125_step_60000.png",
+        "sha256": "a746841e3129e66287fcc3cc0afe131eaff6955441bdbab3413fde7c0514976a",
+        "bytes": 816910
+      }
+    ]
+  }
+}

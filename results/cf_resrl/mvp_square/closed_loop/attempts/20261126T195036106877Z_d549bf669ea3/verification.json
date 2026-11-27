@@ -1,0 +1,49 @@
+{
+  "action_bounds": [
+    -1.0,
+    1.0
+  ],
+  "attempt": "20261126T195036106877Z_d549bf669ea3",
+  "checksums": {
+    "episode_index.jsonl": "0425f0bb8df24f5e0802864f1f4615386ff8af20af16671f8aa99dc45c9a437f",
+    "run_manifest.json": "26828e6fd2b1d01f3aa9b29c900e00335aa142046981571bcec7b2f8ac52fa2f",
+    "status.json": "1384beeaa82dce23ed3ef0988d65e5246b68fb9f178a5b5d02c118dde8dfb2ce",
+    "stdout_stderr.log": "13c92eceff9389122c59c8a73e1e97fe4cdb43350da3755e3fa44ae0413372f4",
+    "summary.json": "9f4252deea23c99bbd740bc8d5da744f61351df0c58cda33eb72d80dcdceac3d",
+    "test_budget_curve.csv": "2ae6fd649f70dbbd563b63a7b397cbe9629dfef135500832ff3653aac2ee47d5",
+    "test_budget_curve.png": "756d2c0cbbda4e9c91767cfa22d677024a7be9bdf8bc6544d1c577671b3f9d37",
+    "validation_selection.json": "d95472caad2f5605f12f83da3f250ebe628e3efa36116859e73c8a8ae92921a0"
+  },
+  "cohort_seeds": {
+    "test": 50,
+    "validation": 20
+  },
+  "fixed_budget_test_physical_rollouts": 800,
+  "fixed_performance_extra_test_physical_rollouts": 0,
+  "git_commit": "d549bf669ea3a6767ce2e303be8730a665464144",
+  "physical_rollout_budget": {
+    "test": {
+      "act_calls": 9841,
+      "environment_steps": 135917,
+      "episodes": 800,
+      "policy_wall_seconds": 194.31541640184878,
+      "refresh_activations": 5767,
+      "refresh_requests": 5784,
+      "wall_seconds": 1356.7329691647901
+    },
+    "validation": {
+      "act_calls": 16697,
+      "environment_steps": 212680,
+      "episodes": 1220,
+      "policy_wall_seconds": 307.4148334509664,
+      "refresh_activations": 11698,
+      "refresh_requests": 11734,
+      "wall_seconds": 2080.828066351227
+    }
+  },
+  "refresh_delay_steps": 2,
+  "reused_logical_test_rollouts": 350,
+  "status": "PASS",
+  "target_success_rate": 0.95,
+  "trace_checksums_verified": 2020
+}

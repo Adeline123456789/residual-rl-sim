@@ -1,0 +1,6 @@
+[submodule "third_party/resfit"]
+	path = third_party/resfit
+	url = https://github.com/amazon-far/residual-offpolicy-rl.git
+[submodule "third_party/robosuite"]
+	path = third_party/robosuite
+	url = https://github.com/ARISE-Initiative/robosuite.git

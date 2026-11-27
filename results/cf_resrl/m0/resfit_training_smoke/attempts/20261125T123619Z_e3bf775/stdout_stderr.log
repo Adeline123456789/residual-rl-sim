@@ -1,0 +1,393 @@
+[robosuite WARNING] No private macro file found! (macros.py:57)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:58)
+[robosuite WARNING] To setup, run: python /media/midea/work/CF-ResRL/residual-rl-sim/third_party/robosuite/robosuite/scripts/setup_macros.py (macros.py:59)
+[robosuite WARNING] Could not import robosuite_models. Some robots may not be available. If you want to use these robots, please install robosuite_models from source (https://github.com/ARISE-Initiative/robosuite_models) or through pip install. (__init__.py:30)
+Loading weights from local directory
+Loading weights from local directory
+Loading dataset and setting up normalization...
+ActionScaler initialized:
+  Original range: [-1.0000, 1.0000]
+  Expanded range: [-1.1000, 1.1000]
+  Action scale factor: 0.1
+StateStandardizer initialized:
+  Mean range: [-0.1307, 0.9198]
+  Std range: [0.100000, 0.491353]
+Set random seed to 20261124
+[robosuite INFO] Loading controller configuration from: /media/midea/work/CF-ResRL/residual-rl-sim/third_party/robosuite/robosuite/controllers/config/robots/default_panda.json (composite_controller_factory.py:121)
+[2026-11-25 20:36:01,260][robosuite_logs][INFO] - Loading controller configuration from: /media/midea/work/CF-ResRL/residual-rl-sim/third_party/robosuite/robosuite/controllers/config/robots/default_panda.json
+[2026-11-25 20:36:03,321][OpenGL.acceleratesupport][INFO] - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+[robosuite WARNING] No private macro file found! (macros.py:57)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:58)
+[robosuite WARNING] To setup, run: python /media/midea/work/CF-ResRL/residual-rl-sim/third_party/robosuite/robosuite/scripts/setup_macros.py (macros.py:59)
+[robosuite WARNING] Could not import robosuite_models. Some robots may not be available. If you want to use these robots, please install robosuite_models from source (https://github.com/ARISE-Initiative/robosuite_models) or through pip install. (__init__.py:30)
+[robosuite INFO] Loading controller configuration from: /media/midea/work/CF-ResRL/residual-rl-sim/third_party/robosuite/robosuite/controllers/config/robots/default_panda.json (composite_controller_factory.py:121)
+INFO:robosuite_logs:Loading controller configuration from: /media/midea/work/CF-ResRL/residual-rl-sim/third_party/robosuite/robosuite/controllers/config/robots/default_panda.json
+[robosuite INFO] Loading controller configuration from: /media/midea/work/CF-ResRL/residual-rl-sim/third_party/robosuite/robosuite/controllers/config/robots/default_panda.json (composite_controller_factory.py:121)
+[2026-11-25 20:36:08,464][robosuite_logs][INFO] - Loading controller configuration from: /media/midea/work/CF-ResRL/residual-rl-sim/third_party/robosuite/robosuite/controllers/config/robots/default_panda.json
+[robosuite WARNING] No private macro file found! (macros.py:57)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:58)
+[robosuite WARNING] To setup, run: python /media/midea/work/CF-ResRL/residual-rl-sim/third_party/robosuite/robosuite/scripts/setup_macros.py (macros.py:59)
+[robosuite WARNING] No private macro file found! (macros.py:57)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:58)
+[robosuite WARNING] To setup, run: python /media/midea/work/CF-ResRL/residual-rl-sim/third_party/robosuite/robosuite/scripts/setup_macros.py (macros.py:59)
+[robosuite WARNING] Could not import robosuite_models. Some robots may not be available. If you want to use these robots, please install robosuite_models from source (https://github.com/ARISE-Initiative/robosuite_models) or through pip install. (__init__.py:30)
+[robosuite WARNING] Could not import robosuite_models. Some robots may not be available. If you want to use these robots, please install robosuite_models from source (https://github.com/ARISE-Initiative/robosuite_models) or through pip install. (__init__.py:30)
+[robosuite INFO] Loading controller configuration from: /media/midea/work/CF-ResRL/residual-rl-sim/third_party/robosuite/robosuite/controllers/config/robots/default_panda.json (composite_controller_factory.py:121)
+[robosuite INFO] Loading controller configuration from: /media/midea/work/CF-ResRL/residual-rl-sim/third_party/robosuite/robosuite/controllers/config/robots/default_panda.json (composite_controller_factory.py:121)
+INFO:robosuite_logs:Loading controller configuration from: /media/midea/work/CF-ResRL/residual-rl-sim/third_party/robosuite/robosuite/controllers/config/robots/default_panda.json
+INFO:robosuite_logs:Loading controller configuration from: /media/midea/work/CF-ResRL/residual-rl-sim/third_party/robosuite/robosuite/controllers/config/robots/default_panda.json
+encoder output dim:  20736
+patch output dim:  128
+============encoder weights=============
+ModuleList(
+  (0-1): 2 x VitEncoder(
+    (vit): MinVit(
+      (patch_embed): PatchEmbed2(
+        (embed): Sequential(
+          (0): Conv2d(3, 128, kernel_size=(8, 8), stride=(4, 4))
+          (1): Identity()
+          (2): ReLU()
+          (3): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2))
+        )
+      )
+      (net): Sequential(
+        (0): TransformerLayer(
+          (layer_norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+          (mha): MultiHeadAttention(
+            (qkv_proj): Linear(in_features=128, out_features=384, bias=True)
+            (out_proj): Linear(in_features=128, out_features=128, bias=True)
+          )
+          (layer_norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+          (linear1): Linear(in_features=128, out_features=512, bias=True)
+          (linear2): Linear(in_features=512, out_features=128, bias=True)
+          (dropout): Dropout(p=0, inplace=False)
+        )
+      )
+      (norm): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+    )
+  )
+)
+| Module                           |   #Params |      % |
+|----------------------------------+-----------+--------|
+| 0.vit.pos_embed                  |    10,368 |   1.36 |
+| 0.vit.patch_embed.embed.0.weight |    24,576 |   3.22 |
+| 0.vit.patch_embed.embed.0.bias   |       128 |   0.02 |
+| 0.vit.patch_embed.embed.3.weight |   147,456 |  19.34 |
+| 0.vit.patch_embed.embed.3.bias   |       128 |   0.02 |
+| 0.vit.net.0.layer_norm1.weight   |       128 |   0.02 |
+| 0.vit.net.0.layer_norm1.bias     |       128 |   0.02 |
+| 0.vit.net.0.mha.qkv_proj.weight  |    49,152 |   6.45 |
+| 0.vit.net.0.mha.qkv_proj.bias    |       384 |   0.05 |
+| 0.vit.net.0.mha.out_proj.weight  |    16,384 |   2.15 |
+| 0.vit.net.0.mha.out_proj.bias    |       128 |   0.02 |
+| 0.vit.net.0.layer_norm2.weight   |       128 |   0.02 |
+| 0.vit.net.0.layer_norm2.bias     |       128 |   0.02 |
+| 0.vit.net.0.linear1.weight       |    65,536 |   8.60 |
+| 0.vit.net.0.linear1.bias         |       512 |   0.07 |
+| 0.vit.net.0.linear2.weight       |    65,536 |   8.60 |
+| 0.vit.net.0.linear2.bias         |       128 |   0.02 |
+| 0.vit.norm.weight                |       128 |   0.02 |
+| 0.vit.norm.bias                  |       128 |   0.02 |
+| 1.vit.pos_embed                  |    10,368 |   1.36 |
+| 1.vit.patch_embed.embed.0.weight |    24,576 |   3.22 |
+| 1.vit.patch_embed.embed.0.bias   |       128 |   0.02 |
+| 1.vit.patch_embed.embed.3.weight |   147,456 |  19.34 |
+| 1.vit.patch_embed.embed.3.bias   |       128 |   0.02 |
+| 1.vit.net.0.layer_norm1.weight   |       128 |   0.02 |
+| 1.vit.net.0.layer_norm1.bias     |       128 |   0.02 |
+| 1.vit.net.0.mha.qkv_proj.weight  |    49,152 |   6.45 |
+| 1.vit.net.0.mha.qkv_proj.bias    |       384 |   0.05 |
+| 1.vit.net.0.mha.out_proj.weight  |    16,384 |   2.15 |
+| 1.vit.net.0.mha.out_proj.bias    |       128 |   0.02 |
+| 1.vit.net.0.layer_norm2.weight   |       128 |   0.02 |
+| 1.vit.net.0.layer_norm2.bias     |       128 |   0.02 |
+| 1.vit.net.0.linear1.weight       |    65,536 |   8.60 |
+| 1.vit.net.0.linear1.bias         |       512 |   0.07 |
+| 1.vit.net.0.linear2.weight       |    65,536 |   8.60 |
+| 1.vit.net.0.linear2.bias         |       128 |   0.02 |
+| 1.vit.norm.weight                |       128 |   0.02 |
+| 1.vit.norm.bias                  |       128 |   0.02 |
+| Total                            |   762,368 | 100.00 |
+=============critic weights=============
+Critic(
+  (q_ensemble): SpatialEmbQEnsemble(
+    heads: 10, weight: nn.Parameter (torch.Size([1, 128, 1024]))
+    (input_proj): Sequential(
+      (0): Linear(in_features=178, out_features=1024, bias=True)
+      (1): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      (2): ReLU(inplace=True)
+    )
+    (_head_template): HeadMLP(
+      (net): Sequential(
+        (0): Linear(in_features=1040, out_features=1024, bias=True)
+        (1): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (2): ReLU()
+        (3): Linear(in_features=1024, out_features=1024, bias=True)
+        (4): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (5): ReLU()
+        (6): Linear(in_features=1024, out_features=1, bias=True)
+      )
+    )
+  )
+)
+| Module                                 |    #Params |      % |
+|----------------------------------------+------------+--------|
+| q_ensemble.weight                      |    131,072 |   0.55 |
+| q_ensemble._vmap_param_net_0_weight    | 10,649,600 |  45.04 |
+| q_ensemble._vmap_param_net_0_bias      |     10,240 |   0.04 |
+| q_ensemble._vmap_param_net_1_weight    |     10,240 |   0.04 |
+| q_ensemble._vmap_param_net_1_bias      |     10,240 |   0.04 |
+| q_ensemble._vmap_param_net_3_weight    | 10,485,760 |  44.35 |
+| q_ensemble._vmap_param_net_3_bias      |     10,240 |   0.04 |
+| q_ensemble._vmap_param_net_4_weight    |     10,240 |   0.04 |
+| q_ensemble._vmap_param_net_4_bias      |     10,240 |   0.04 |
+| q_ensemble._vmap_param_net_6_weight    |     10,240 |   0.04 |
+| q_ensemble._vmap_param_net_6_bias      |         10 |   0.00 |
+| q_ensemble.input_proj.0.weight         |    182,272 |   0.77 |
+| q_ensemble.input_proj.0.bias           |      1,024 |   0.00 |
+| q_ensemble.input_proj.1.weight         |      1,024 |   0.00 |
+| q_ensemble.input_proj.1.bias           |      1,024 |   0.00 |
+| q_ensemble._head_template.net.0.weight |  1,064,960 |   4.50 |
+| q_ensemble._head_template.net.0.bias   |      1,024 |   0.00 |
+| q_ensemble._head_template.net.1.weight |      1,024 |   0.00 |
+| q_ensemble._head_template.net.1.bias   |      1,024 |   0.00 |
+| q_ensemble._head_template.net.3.weight |  1,048,576 |   4.43 |
+| q_ensemble._head_template.net.3.bias   |      1,024 |   0.00 |
+| q_ensemble._head_template.net.4.weight |      1,024 |   0.00 |
+| q_ensemble._head_template.net.4.bias   |      1,024 |   0.00 |
+| q_ensemble._head_template.net.6.weight |      1,024 |   0.00 |
+| q_ensemble._head_template.net.6.bias   |          1 |   0.00 |
+| Total                                  | 23,644,171 | 100.00 |
+=============actor weights==============
+Actor(
+  (compress): Sequential(
+    (0): Linear(in_features=20736, out_features=128, bias=True)
+    (1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+    (2): Dropout(p=0.0, inplace=False)
+    (3): ReLU()
+  )
+  (policy): Sequential(
+    (0): Linear(in_features=144, out_features=1024, bias=True)
+    (1): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+    (2): Dropout(p=0.0, inplace=False)
+    (3): ReLU()
+    (4): Linear(in_features=1024, out_features=1024, bias=True)
+    (5): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+    (6): Dropout(p=0.0, inplace=False)
+    (7): ReLU()
+    (8): Linear(in_features=1024, out_features=7, bias=True)
+    (9): Tanh()
+  )
+)
+| Module            |   #Params |      % |
+|-------------------+-----------+--------|
+| compress.0.weight | 2,654,208 |  68.69 |
+| compress.0.bias   |       128 |   0.00 |
+| compress.1.weight |       128 |   0.00 |
+| compress.1.bias   |       128 |   0.00 |
+| policy.0.weight   |   147,456 |   3.82 |
+| policy.0.bias     |     1,024 |   0.03 |
+| policy.1.weight   |     1,024 |   0.03 |
+| policy.1.bias     |     1,024 |   0.03 |
+| policy.4.weight   | 1,048,576 |  27.14 |
+| policy.4.bias     |     1,024 |   0.03 |
+| policy.5.weight   |     1,024 |   0.03 |
+| policy.5.bias     |     1,024 |   0.03 |
+| policy.8.weight   |     7,168 |   0.19 |
+| policy.8.bias     |         7 |   0.00 |
+| Total             | 3,863,943 | 100.00 |
+{'base_policy_artifacts': {'config.json': '4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb',
+                           'model.safetensors': 'e5f5b3c7fa7512a2ae202d5912922289a52348f8a3bb5a9da33f606d671cb859'},
+ 'batch_size': 4,
+ 'buffer_size': 1024,
+ 'gamma': 0.99,
+ 'horizon': 300,
+ 'image_keys': ['observation.images.agentview',
+                'observation.images.robot0_eye_in_hand'],
+ 'min_action_range': 0.1,
+ 'min_state_std': 0.1,
+ 'n_step': 3,
+ 'normalized_actions': True,
+ 'random_action_noise_scale': 0.2,
+ 'sampling_strategy': 'uniform',
+ 'seed': 20261124,
+ 'size': 32,
+ 'task': 'Square',
+ 'tensordict_version': '0.9.1',
+ 'torchrl_version': '0.9.2'}
+Dataset buffer sizing:
+  Total frames to process: 261
+  Number of episodes: 2
+  Estimated transitions: 259
+Offline buffer sized for GT-as-base approach: 259 transitions
+{'base_policy_artifacts': {'config.json': '4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb',
+                           'model.safetensors': 'e5f5b3c7fa7512a2ae202d5912922289a52348f8a3bb5a9da33f606d671cb859'},
+ 'batch_size': 4,
+ 'dataset_name': 'ankile/robomimic-mh-square-image',
+ 'dataset_revision': '4e5cee7ea7d63b920ff76c2529b781c2474697da',
+ 'episode_indices': [2, 3],
+ 'gamma': 0.99,
+ 'image_keys': ['observation.images.agentview',
+                'observation.images.robot0_eye_in_hand'],
+ 'min_action_range': 0.1,
+ 'min_state_std': 0.1,
+ 'n_step': 3,
+ 'normalized_actions': True,
+ 'num_episodes': 2,
+ 'sampling_strategy': 'uniform',
+ 'split': 'train',
+ 'split_manifest_sha256': '6625ae894c67c6510c6c2decd4598e781c68828dbc697fe6b4478cc60e1e2e10',
+ 'task': 'Square',
+ 'tensordict_version': '0.9.1',
+ 'torchrl_version': '0.9.2',
+ 'use_base_policy_for_base_actions': True}
+Populating offline buffer from dataset...
+Processing offline dataset:   0%|          | 0/261 [00:00<?, ?it/s]/home/midea/miniconda3/envs/cf-resrl-resfit/lib/python3.10/site-packages/torchvision/io/_video_deprecation_warning.py:5: UserWarning: The video decoding and encoding capabilities of torchvision are deprecated from version 0.22 and will be removed in version 0.24. We recommend that you migrate to TorchCodec, where we'll consolidate the future decoding/encoding capabilities of PyTorch: https://github.com/pytorch/torchcodec
+  warnings.warn(
+Processing offline dataset:   0%|          | 1/261 [00:00<01:27,  2.96it/s]Processing offline dataset:   7%|▋         | 18/261 [00:00<00:04, 52.19it/s]Processing offline dataset:  11%|█         | 28/261 [00:00<00:03, 64.67it/s]Processing offline dataset:  17%|█▋        | 45/261 [00:00<00:02, 94.49it/s]Processing offline dataset:  23%|██▎       | 61/261 [00:00<00:01, 108.30it/s]Processing offline dataset:  28%|██▊       | 74/261 [00:00<00:01, 108.43it/s]Processing offline dataset:  33%|███▎      | 87/261 [00:01<00:01, 109.30it/s]Processing offline dataset:  40%|████      | 105/261 [00:01<00:01, 126.98it/s]Processing offline dataset:  47%|████▋     | 122/261 [00:01<00:01, 135.11it/s]Processing offline dataset:  52%|█████▏    | 137/261 [00:01<00:01, 69.81it/s] Processing offline dataset:  57%|█████▋    | 148/261 [00:01<00:01, 72.42it/s]Processing offline dataset:  61%|██████    | 159/261 [00:01<00:01, 78.76it/s]Processing offline dataset:  67%|██████▋   | 176/261 [00:02<00:00, 97.36it/s]Processing offline dataset:  72%|███████▏  | 189/261 [00:02<00:00, 98.36it/s]Processing offline dataset:  77%|███████▋  | 201/261 [00:02<00:00, 94.31it/s]Processing offline dataset:  84%|████████▍ | 219/261 [00:02<00:00, 113.15it/s]Processing offline dataset:  89%|████████▉ | 233/261 [00:02<00:00, 117.72it/s]Processing offline dataset:  94%|█████████▍| 246/261 [00:02<00:00, 96.04it/s] Processing offline dataset: 100%|██████████| 261/261 [00:02<00:00, 93.54it/s]
+Added 259 transitions
+Added 259 offline transitions to buffer (size=257)
+[HF] Starting optimized ReplayBuffer dumps to /media/midea/work/CF-ResRL/.resfit-render-smoke.dHom6c/cache/offline_buffer_cache/50d68b3c
+[HF] ReplayBuffer dumps completed in 0.08 seconds
+Warm-up: collecting exactly 32 fresh environment steps…
+[HF] Starting optimized ReplayBuffer dumps to /media/midea/work/CF-ResRL/.resfit-render-smoke.dHom6c/cache/online_buffer_cache/76b3d203
+[HF] ReplayBuffer dumps completed in 0.06 seconds
+Warm-up done after 32 environment steps; buffer size=30
+Launching run with the following config:
+{'actor_name': 'residual_act',
+ 'agent': {'actor': {'action_l2_reg_weight': 0.0,
+                     'action_scale': 0.1,
+                     'actor_intermediate_layer_init_distribution': 'default',
+                     'actor_last_layer_init_distribution': 'normal',
+                     'actor_last_layer_init_scale': 0.0,
+                     'dropout': 0.0,
+                     'feature_dim': 128,
+                     'hidden_dim': 1024,
+                     'max_action_norm': -1.0,
+                     'num_layers': 2,
+                     'orth': 1,
+                     'spatial_emb': 0,
+                     'use_layer_norm': True},
+           'actor_grad_clip_norm': 1.0,
+           'actor_lr': 1e-06,
+           'bc_backprop_encoder': False,
+           'bc_loss_coef': 0.0,
+           'bc_loss_dynamic': 0,
+           'clip_q_target_to_reward_range': False,
+           'critic': {'drop': 0.0,
+                      'feature_dim': 128,
+                      'fuse_patch': 1,
+                      'hidden_dim': 1024,
+                      'loss': {'n_bins': 51,
+                               'sigma': -1.0,
+                               'type': 'mse',
+                               'v_max': 1.0,
+                               'v_min': 0.0},
+                      'min_q_heads': 2,
+                      'norm_weight': 0,
+                      'num_layers': 2,
+                      'num_q': 10,
+                      'orth': 1,
+                      'policy_gradient_type': 'ensemble_mean',
+                      'spatial_emb': 1024,
+                      'use_layer_norm': True},
+           'critic_grad_clip_norm': 1.0,
+           'critic_lr': 0.0001,
+           'critic_target_tau': 0.005,
+           'device': 'cuda',
+           'enc_type': 'vit',
+           'freeze_encoder': False,
+           'lr_warmup_start': 1e-08,
+           'lr_warmup_steps': 0,
+           'stddev_clip': 0.3,
+           'target_action_noise': True,
+           'use_prop': 1,
+           'vit': {'depth': 1,
+                   'embed_dim': 128,
+                   'embed_norm': 0,
+                   'embed_style': 'embed2',
+                   'num_heads': 4,
+                   'patch_size': 8,
+                   'stride': -1}},
+ 'algo': {'actor_lr_warmup_steps': 0,
+          'actor_updates_per_iteration': 1,
+          'batch_size': 8,
+          'buffer_size': 1024,
+          'critic_warmup_steps': 2,
+          'gamma': 0.99,
+          'learning_starts': 32,
+          'n_step': 3,
+          'num_updates_per_iteration': 4,
+          'offline_fraction': 0.5,
+          'prefetch_batches': 4,
+          'priority_alpha': 0.6,
+          'priority_beta': 0.4,
+          'progressive_clipping_steps': 0,
+          'random_action_noise_scale': 0.2,
+          'sampling_strategy': 'uniform',
+          'stddev_max': 0.05,
+          'stddev_min': 0.05,
+          'stddev_schedule': 'linear(0.05,0.05,300000)',
+          'stddev_step': 300000,
+          'total_timesteps': 640,
+          'update_every_n_steps': 1,
+          'use_base_policy_for_warmup': True},
+ 'base_policy': {'expected_config_sha256': '4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb',
+                 'expected_model_sha256': 'e5f5b3c7fa7512a2ae202d5912922289a52348f8a3bb5a9da33f606d671cb859',
+                 'local_dir': '/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/act_training/attempts/20261125T005956570423Z_3dfd8208847a/training/policy_step_49999/policy',
+                 'wandb_id': 'robomimic-square-bc/dzbkdpwp',
+                 'wt_type': 'best',
+                 'wt_version': 'latest'},
+ 'checkpoint_interval': 640,
+ 'debug': False,
+ 'eval_first': True,
+ 'eval_interval_every_steps': 10000,
+ 'eval_num_envs': 2,
+ 'eval_num_episodes': 2,
+ 'headless': True,
+ 'log_freq': 100,
+ 'num_envs': 1,
+ 'offline_data': {'expected_split_manifest_sha256': '6625ae894c67c6510c6c2decd4598e781c68828dbc697fe6b4478cc60e1e2e10',
+                  'min_action_range': 0.1,
+                  'min_state_std': 0.1,
+                  'name': 'ankile/robomimic-mh-square-image',
+                  'num_episodes': 2,
+                  'revision': '4e5cee7ea7d63b920ff76c2529b781c2474697da',
+                  'root': '/media/midea/work/CF-ResRL/residual-rl-sim/data/cf_resrl/square',
+                  'split': 'train',
+                  'split_manifest': '/media/midea/work/CF-ResRL/.resfit-smoke.I0fdp6/smoke_train_subset.json',
+                  'use_base_policy_for_base_actions': True,
+                  'video_backend': 'pyav'},
+ 'output_dir': '/media/midea/work/CF-ResRL/.resfit-render-smoke.dHom6c/training',
+ 'rl_camera': ['observation.images.agentview',
+               'observation.images.robot0_eye_in_hand'],
+ 'save_video': True,
+ 'seed': 20261124,
+ 'task': 'Square',
+ 'torch_deterministic': False,
+ 'video_key': 'observation.images.agentview',
+ 'wandb': {'continue_run_id': None,
+           'entity': None,
+           'group': None,
+           'mode': 'disabled',
+           'name': None,
+           'project': 'robomimic-square-residual-td3'}}
+Critic warmup: running 2 critic-only updates...
+Critic warmup: 0 / 2, train/critic_qt=-0.1820 train/critic_loss=0.1134
+Critic warmup completed.
+💾 Saved checkpoint to: /media/midea/work/CF-ResRL/.resfit-render-smoke.dHom6c/training/models/step_000000032.pt
+Evaluating 2 episodes: ..Evaluating 2 episodes: ✓.Evaluating 2 episodes: ✓✗Done
+Saved Q-trajectory plots to: /media/midea/work/CF-ResRL/.resfit-render-smoke.dHom6c/training/outputs/2026-11-25_20-36-19/eval_q_trajectories_2026-11-25_20-36-19__Square_n3_utd4_buf1024_off2ep_lr1e-06__seed20261124_step_32.png
+[Evaluation step 32] 1/2 successes; evidence=/media/midea/work/CF-ResRL/.resfit-render-smoke.dHom6c/training/outputs/step_000000032_evaluation.json
+[100] actor_loss_base=-0.0002 critic_loss=0.0166 actor_lr=1.00e-06 residual_l1=0.0024 residual_l2=0.0000 actor_grad_norm=0.1538 | Time%: env=6.3 grad=24.6 batch=4.7 eval=64.4
+[200] actor_loss_base=0.0103 critic_loss=0.0019 actor_lr=1.00e-06 residual_l1=0.0055 residual_l2=0.0000 actor_grad_norm=0.1028 | Time%: env=10.7 grad=38.9 batch=7.5 eval=42.9
+[300] actor_loss_base=0.1755 critic_loss=0.0002 actor_lr=1.00e-06 residual_l1=0.0101 residual_l2=0.0001 actor_grad_norm=0.0597 | Time%: env=14.4 grad=45.2 batch=8.7 eval=31.6
+[400] actor_loss_base=0.1497 critic_loss=0.0002 actor_lr=1.00e-06 residual_l1=0.0143 residual_l2=0.0002 actor_grad_norm=0.0786 | Time%: env=15.4 grad=49.6 batch=9.6 eval=25.3
+[500] actor_loss_base=0.1390 critic_loss=0.0003 actor_lr=1.00e-06 residual_l1=0.0162 residual_l2=0.0003 actor_grad_norm=0.0647 | Time%: env=17.1 grad=52.0 batch=10.0 eval=21.0
+[600] actor_loss_base=-0.2893 critic_loss=0.0010 actor_lr=1.00e-06 residual_l1=0.0186 residual_l2=0.0004 actor_grad_norm=0.0746 | Time%: env=17.4 grad=54.1 batch=10.4 eval=18.1
+💾 Saved checkpoint to: /media/midea/work/CF-ResRL/.resfit-render-smoke.dHom6c/training/models/step_000000640.pt
+Evaluating 2 episodes: ..Evaluating 2 episodes: ✓.Evaluating 2 episodes: ✓✓Done
+Saved Q-trajectory plots to: /media/midea/work/CF-ResRL/.resfit-render-smoke.dHom6c/training/outputs/2026-11-25_20-36-19/eval_q_trajectories_2026-11-25_20-36-19__Square_n3_utd4_buf1024_off2ep_lr1e-06__seed20261124_step_640.png
+[Evaluation step 640] 2/2 successes; evidence=/media/midea/work/CF-ResRL/.resfit-render-smoke.dHom6c/training/outputs/step_000000640_evaluation.json
+Training finished in 52.34 seconds.
+[W1125 20:37:13.638677275 CudaIPCTypes.cpp:16] Producer process has been terminated before all shared CUDA tensors released. See Note [Sharing CUDA tensors]

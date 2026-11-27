@@ -1,0 +1,27 @@
+{
+  "checkpoint_contract": "evaluation_loadable_not_training_resumable",
+  "checkpoint_interval_environment_steps": 10000,
+  "checkpoints": [
+    {
+      "evaluation": {
+        "episodes": 50,
+        "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261125T115240655314Z_4660b3788c57/training/outputs/step_000010000_evaluation.json",
+        "sha256": "4ee209b5d78be5e6ea7e2c9c011399c6b1af8d889f189d4494ccfd3e60342cff"
+      },
+      "global_step": 10000,
+      "path": "/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261125T115240655314Z_4660b3788c57/training/models/step_000010000.pt",
+      "selection": "fixed_environment_step",
+      "sha256": "1d14d496994b8a8d7e438c4d8963369310e83c83db1997c5862d645cd556b9da"
+    }
+  ],
+  "environment_step_budget": {
+    "main": 290000,
+    "total": 300000,
+    "warmup": 10000
+  },
+  "resume_limitations": [
+    "replay buffers are not included",
+    "live environment state is not included"
+  ],
+  "selection": "fixed_environment_step"
+}

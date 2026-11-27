@@ -1,0 +1,17 @@
+- seed=20261124
+- base_policy.local_dir=/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/act_training/attempts/20261125T005956570423Z_3dfd8208847a/training/policy_step_49999/policy
+- base_policy.expected_config_sha256=4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb
+- base_policy.expected_model_sha256=e5f5b3c7fa7512a2ae202d5912922289a52348f8a3bb5a9da33f606d671cb859
+- offline_data.name=ankile/robomimic-mh-square-image
+- offline_data.revision=4e5cee7ea7d63b920ff76c2529b781c2474697da
+- offline_data.root=/media/midea/work/CF-ResRL/residual-rl-sim/data/cf_resrl/square
+- offline_data.split_manifest=/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/dataset_audit/attempts/20261124T131023495428Z_a9dcb4b558af/split_manifest.json
+- offline_data.expected_split_manifest_sha256=629d01857156c691f297218e0cda3e3b3a802a91122f006a1ca70fd31163afcd
+- offline_data.split=train
+- offline_data.video_backend=pyav
+- offline_data.num_episodes=240
+- algo.learning_starts=10000
+- algo.total_timesteps=300000
+- checkpoint_interval=10000
+- output_dir=/media/midea/work/CF-ResRL/residual-rl-sim/results/cf_resrl/m0/resfit_training/attempts/20261125T123800379100Z_428ea7773bc9/training
+- wandb.mode=disabled

@@ -1,19 +1,25 @@
 # Execution instructions for coding agents
 
-Read `CODEX_TASK.md` before editing. This is a research project, not a request to create a decorative scaffold.
+Read `CF_RESRL_CODEX_TASK.md` before editing. The old `CODEX_TASK.md` and PA-ResWM files are retained as research history; do not delete them.
 
-## Current status
+## Frozen question
 
-Only the dependency-free execution contracts and their unit tests exist. No ResFiT/ACT/world-model training or robot evaluation has run. `results/bootstrap` is a unit-test result, NOT evidence of robot success.
+Every task must begin by answering: **How does this experiment directly advance the final question: whether 2x2 factorial counterfactual supervision improves the interaction efficiency of residual-aware replanning?**
 
-## Required order
+Do not move the endpoint. The mandatory strong comparisons are P1 vs B5 on the same four-branch data and P1 vs B6 under the same real branch-rollout / environment-step budget.
 
-M0 data/environment audit -> verified base and residual baseline -> M1 matched prediction experiment -> M2 short-horizon candidate checks -> M3 behavior-preserving recentering. Do not enable every extension at once.
+## Progression rule
 
-Use the pinned upstream source, preserve licenses, and retain negative results. Validate data BEFORE long BC training. All methods share data, base checkpoint, timing semantics, hard action limits, evaluation scenes, and environment-step accounting.
+Progression depends on valid implementation and complete evidence, not on a positive effect size. Once the Square MVP is valid and fully run, execute the registered expansion matrix even if P1 is worse than B5/B6. Negative results change the supported claim; they do not erase completed work or block expansion.
 
-A passing unit test is not a completed experiment. Do not manufacture CSVs, learning curves, confidence intervals, or success rates. If GPU, renderer, data access, or authentication prevents execution, write a specific `BLOCKED.md`, commit all genuine work, and report exactly which stage is not run.
+Only experiment-invalidating failures are hard stops: a non-executable nominal task, invalid snapshot/branch semantics, privileged-information leakage, broken action/safety limits, train/validation/test contamination, or missing/corrupted evidence. Fix these before interpreting results.
 
-Make changes on `research/pa-reswm-execution-consistency` or a child branch. Push code, resolved configurations, per-episode results, reproducibility manifests, and reports to `Adeline123456789/residual-rl-sim`; open/update a PR. Never force-push or silently overwrite user work. Keep credentials and restricted datasets out of Git. Keep large weights out of ordinary Git; publish licensed artifacts with checksum and recovery instructions.
+World models, Agent, Memory, Event Observer, Direction Classifier, selective repair, base distillation, and similar auxiliary modules are not prerequisites and may not block the core experiments.
 
-Only mark a stage COMPLETED after its acceptance criteria and artifacts exist. Plan thresholds are not measured results. A valid negative result is an acceptable research outcome.
+## Evidence policy
+
+A passing unit test is not a manipulation result. Do not fabricate CSVs, success rates, confidence intervals, screenshots, or checkpoints. Retain null and negative results. If resources or authentication block a run, add a precise `BLOCKED.md` without downgrading already completed stages.
+
+Push code, resolved configurations, raw per-branch and per-episode results, manifests, logs, checksums, and reports to `Adeline123456789/residual-rl-sim` on `research/cf-resrl-factorial-supervision`; update the PR. Never force-push or overwrite user work. Keep credentials and restricted data out of Git; use licensed external storage or Git LFS for large artifacts.
+
+ACT checkpoint binaries, optimizer state, and archives containing them stay local. Publish only their provenance and checksums alongside experiment records.

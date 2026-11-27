@@ -1,0 +1,10 @@
+{
+  "b5_and_p1_parameter_count": 39874,
+  "branch_budget_and_source_scout_reconciled": true,
+  "held_out_prediction_records": 2400,
+  "matched_contrasts": 30,
+  "max_checkpoint_reload_prediction_error": 0.0,
+  "models": 60,
+  "nested_selections": 10,
+  "separate_episode_train_validation_test": true
+}

@@ -1,0 +1,25 @@
+{
+  "fixed_evaluation_steps": [
+    32,
+    64,
+    96,
+    128,
+    160
+  ],
+  "intentionally_interrupted_after_saved_step": 96,
+  "overlay_sha256": "6dab64829470550a4133ee7bbf7cd17a79fb91e4da838ae6eed63fefde19ae79",
+  "resumed_steps": 64,
+  "retained_full_generations": [
+    96,
+    128,
+    160
+  ],
+  "returncodes": {
+    "interrupted": -15,
+    "resumed": 0
+  },
+  "scope": "isolated real Square stop and restart test",
+  "status": "PASS",
+  "training_ledger_lines": 160,
+  "verified_prefix_lines": 96
+}
