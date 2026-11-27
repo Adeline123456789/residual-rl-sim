@@ -1,0 +1,20 @@
+{
+  "status": "SPECIFICATION_NOT_A_RUN_RESULT",
+  "task": "Square",
+  "gate_config": "configs/cf_resrl/m0_square_branch_gate.json",
+  "cf_closed_loop_reference": "results/cf_resrl/mvp_square/closed_loop/attempts/20261126T195036106877Z_d549bf669ea3/summary.json",
+  "validation_seeds": {"first": 20268124, "count": 20},
+  "test_seeds": {"first": 20269124, "count": 50},
+  "validation_grid": {
+    "kappa": [0.5, 1.0, 1.5],
+    "nu_min": [0.0, 0.25]
+  },
+  "nu_max": 1.0,
+  "async_refill_delays": [0, 2, 4],
+  "saturation_threshold": 0.095,
+  "expected_original_test_successes": 42,
+  "expected_original_test_act_calls": 9.32,
+  "bootstrap_samples": 1000,
+  "bootstrap_seed": 20261201,
+  "output_root": "results/ps_resrl/ps1_rule_closed_loop"
+}

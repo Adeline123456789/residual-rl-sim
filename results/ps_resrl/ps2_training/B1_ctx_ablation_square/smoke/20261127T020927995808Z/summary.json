@@ -1,0 +1,22 @@
+{
+  "checkpoints": [
+    {
+      "eval_act_calls_total": 49,
+      "eval_success_rate": 0.75,
+      "global_step": 100,
+      "path": "models/step_000000100.pt",
+      "sha256": "fd3019dccc87de039dd73b623a2688fce72bb33417bcd615aaf89909640f15d0"
+    }
+  ],
+  "final_actor_loss_base": 0.23895597457885742,
+  "final_critic_loss": 0.0014721272746101022,
+  "mean_phase_velocity_train": 1.0,
+  "mode": "b1_ctx",
+  "offline_transitions": 607,
+  "online_transitions": 300,
+  "smoke": true,
+  "stall_cap_triggers_train": 0,
+  "status": "COMPLETED",
+  "total_steps": 100,
+  "zero_init_max_abs": 0.0
+}

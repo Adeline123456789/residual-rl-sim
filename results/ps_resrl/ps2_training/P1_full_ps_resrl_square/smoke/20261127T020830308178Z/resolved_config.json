@@ -1,0 +1,54 @@
+{
+  "action_dim": 8,
+  "base_policy": {
+    "config_sha256": "4a6a588a50b1256560c3c74efb16c1dab1fc82ad477c5b2af97611d5e26273bb",
+    "local_dir": "results/cf_resrl/m0/act_training/attempts/20261125T005956570423Z_3dfd8208847a/training/policy_step_49999/policy",
+    "model_sha256": "e5f5b3c7fa7512a2ae202d5912922289a52348f8a3bb5a9da33f606d671cb859"
+  },
+  "dataset": {
+    "episodes": 240,
+    "name": "ankile/robomimic-mh-square-image",
+    "revision": "4e5cee7ea7d63b920ff76c2529b781c2474697da",
+    "root": "data/cf_resrl/square",
+    "split": "train",
+    "split_manifest": "results/cf_resrl/m0/dataset_audit/attempts/20261124T131023495428Z_a9dcb4b558af/split_manifest.json",
+    "split_manifest_sha256": "629d01857156c691f297218e0cda3e3b3a802a91122f006a1ca70fd31163afcd",
+    "video_backend": "pyav"
+  },
+  "experiment_name": "P1_full_ps_resrl_square",
+  "git_commit": "93e312a42ca1e2352571fdda3cae7d2432554dd2",
+  "lowdim_dim": 18,
+  "mode": "ps_resrl",
+  "phase": {
+    "max_chunk_wall_steps": 40,
+    "nu_max": 2.0,
+    "nu_min": 0.0,
+    "phase_action_scale": 1.0,
+    "phase_warmup_noise_scale": 0.5
+  },
+  "seed": 20261124,
+  "smoke": true,
+  "status": "SPECIFICATION_NOT_A_RUN_RESULT",
+  "task": "Square",
+  "total_steps": 100,
+  "training": {
+    "checkpoint_interval": 10000,
+    "config_name": "residual_td3_square_config",
+    "eval_episodes": 50,
+    "eval_interval": 10000,
+    "eval_num_envs": 8,
+    "output_root": "results/ps_resrl/ps2_training",
+    "smoke_eval_episodes": 4,
+    "smoke_total_steps": 100,
+    "smoke_warmup_steps": 200,
+    "total_environment_steps": 300000,
+    "warmup_environment_steps": 10000
+  },
+  "upstream": {
+    "lerobot_commit": "69901b9b6a2300914ca3de0ea14b6fa6e0203bd4",
+    "resfit_commit": "66262b06a0caf159fb001504949b7b48ccda5f64",
+    "robosuite_commit": "77a4751233c29456a5381209e30dd0dbf39a6557"
+  },
+  "warmup_steps": 200,
+  "zero_init_max_abs": 0.0
+}

@@ -1,0 +1,603 @@
+{
+  "bootstrap": {
+    "interval": "percentile_95",
+    "samples": 1000,
+    "seed": 20261327,
+    "unit": "source_episode"
+  },
+  "distributions": {
+    "enriched": {
+      "baselines": {
+        "V10": {
+          "act_calls": {
+            "ci95": [
+              3.115,
+              4.085125
+            ],
+            "mean": 3.6
+          },
+          "discounted_return": {
+            "ci95": [
+              0.5043862639025002,
+              0.5949809098294145
+            ],
+            "mean": 0.5509686648305294
+          },
+          "success_rate": {
+            "ci95": [
+              0.785,
+              0.89
+            ],
+            "mean": 0.84
+          }
+        },
+        "V11": {
+          "act_calls": {
+            "ci95": [
+              3.63,
+              4.6351249999999995
+            ],
+            "mean": 4.105
+          },
+          "discounted_return": {
+            "ci95": [
+              0.5103541823336462,
+              0.5963986142249537
+            ],
+            "mean": 0.555107694726413
+          },
+          "success_rate": {
+            "ci95": [
+              0.8,
+              0.895
+            ],
+            "mean": 0.85
+          }
+        },
+        "V11_minus_V10_return": {
+          "ci95": [
+            -0.012317428401456183,
+            0.02000152118160912
+          ],
+          "mean": 0.00413902989588355
+        }
+      },
+      "episodes": 200,
+      "phase_branches": {
+        "V10_PhaseFreeze1": {
+          "act_calls": {
+            "ci95": [
+              3.1348749999999996,
+              4.065125
+            ],
+            "mean": 3.61
+          },
+          "by_brake_sign": {
+            "brake_ge_0": {
+              "count": 147,
+              "delta_return_vs_V10": -0.004404157104572581,
+              "delta_success_vs_V10": 0.0
+            },
+            "brake_lt_0": {
+              "count": 53,
+              "delta_return_vs_V10": 0.0010936286890284312,
+              "delta_success_vs_V10": 0.03773584905660377
+            }
+          },
+          "delta_act_calls_vs_V11": {
+            "ci95": [
+              -0.705,
+              -0.285
+            ],
+            "mean": -0.495
+          },
+          "delta_discounted_return_vs_V10": {
+            "ci95": [
+              -0.011190319740548986,
+              0.005135959377605034
+            ],
+            "mean": -0.0029472438692683123
+          },
+          "delta_discounted_return_vs_V11": {
+            "ci95": [
+              -0.023249776288835775,
+              0.009481755174272
+            ],
+            "mean": -0.007086273765151863
+          },
+          "delta_success_vs_V10": {
+            "ci95": [
+              -0.015,
+              0.035
+            ],
+            "mean": 0.01
+          },
+          "delta_success_vs_V11": {
+            "ci95": [
+              -0.03,
+              0.03
+            ],
+            "mean": 0.0
+          },
+          "discounted_return": {
+            "ci95": [
+              0.5044707001417421,
+              0.5909016013894467
+            ],
+            "mean": 0.5480214209612612
+          },
+          "mean_next10_residual_saturation_rate": 0.987,
+          "mean_phase_velocity": 0.9486423131034981,
+          "phase_recovery_rate": 0.3333333333333333,
+          "recovered_of_refresh_rescued_count": 2,
+          "refresh_rescued_count": 6,
+          "regressed_from_V10_success": 2,
+          "rescued_from_V10_failure": 4,
+          "success_rate": {
+            "ci95": [
+              0.8,
+              0.9
+            ],
+            "mean": 0.85
+          },
+          "total_stall_cap_triggers": 0
+        },
+        "V10_PhaseHold4": {
+          "act_calls": {
+            "ci95": [
+              3.249875,
+              4.190125
+            ],
+            "mean": 3.695
+          },
+          "by_brake_sign": {
+            "brake_ge_0": {
+              "count": 147,
+              "delta_return_vs_V10": -0.00394215723414895,
+              "delta_success_vs_V10": -0.006802721088435374
+            },
+            "brake_lt_0": {
+              "count": 53,
+              "delta_return_vs_V10": -0.008987722430915453,
+              "delta_success_vs_V10": 0.0
+            }
+          },
+          "delta_act_calls_vs_V11": {
+            "ci95": [
+              -0.6651250000000001,
+              -0.16987500000000014
+            ],
+            "mean": -0.41
+          },
+          "delta_discounted_return_vs_V10": {
+            "ci95": [
+              -0.015308824891542394,
+              0.0041491816954862155
+            ],
+            "mean": -0.005279232011292074
+          },
+          "delta_discounted_return_vs_V11": {
+            "ci95": [
+              -0.024516488403815543,
+              0.007596009165436821
+            ],
+            "mean": -0.009418261907175625
+          },
+          "delta_success_vs_V10": {
+            "ci95": [
+              -0.03,
+              0.02
+            ],
+            "mean": -0.005
+          },
+          "delta_success_vs_V11": {
+            "ci95": [
+              -0.05,
+              0.02
+            ],
+            "mean": -0.015
+          },
+          "discounted_return": {
+            "ci95": [
+              0.5001006317062303,
+              0.5885639874707752
+            ],
+            "mean": 0.5456894328192373
+          },
+          "mean_next10_residual_saturation_rate": 0.9875,
+          "mean_phase_velocity": 0.9752759804856153,
+          "phase_recovery_rate": 0.3333333333333333,
+          "recovered_of_refresh_rescued_count": 2,
+          "refresh_rescued_count": 6,
+          "regressed_from_V10_success": 4,
+          "rescued_from_V10_failure": 3,
+          "success_rate": {
+            "ci95": [
+              0.785,
+              0.885
+            ],
+            "mean": 0.835
+          },
+          "total_stall_cap_triggers": 0
+        },
+        "V10_PhaseRuleSuffix": {
+          "act_calls": {
+            "ci95": [
+              2.815,
+              3.585
+            ],
+            "mean": 3.19
+          },
+          "by_brake_sign": {
+            "brake_ge_0": {
+              "count": 147,
+              "delta_return_vs_V10": -0.027635799148588873,
+              "delta_success_vs_V10": 0.013605442176870748
+            },
+            "brake_lt_0": {
+              "count": 53,
+              "delta_return_vs_V10": -0.034817063681756195,
+              "delta_success_vs_V10": 0.0
+            }
+          },
+          "delta_act_calls_vs_V11": {
+            "ci95": [
+              -1.17,
+              -0.665
+            ],
+            "mean": -0.915
+          },
+          "delta_discounted_return_vs_V10": {
+            "ci95": [
+              -0.04371391800307009,
+              -0.015706751167788004
+            ],
+            "mean": -0.029538834249878212
+          },
+          "delta_discounted_return_vs_V11": {
+            "ci95": [
+              -0.05012908431639183,
+              -0.015830511192218448
+            ],
+            "mean": -0.033677864145761766
+          },
+          "delta_success_vs_V10": {
+            "ci95": [
+              -0.02,
+              0.04
+            ],
+            "mean": 0.01
+          },
+          "delta_success_vs_V11": {
+            "ci95": [
+              -0.035,
+              0.03
+            ],
+            "mean": 0.0
+          },
+          "discounted_return": {
+            "ci95": [
+              0.4752851653499869,
+              0.5649784389548803
+            ],
+            "mean": 0.5214298305806512
+          },
+          "mean_next10_residual_saturation_rate": 0.988,
+          "mean_phase_velocity": 0.7713677452510751,
+          "phase_recovery_rate": 0.6666666666666666,
+          "recovered_of_refresh_rescued_count": 4,
+          "refresh_rescued_count": 6,
+          "regressed_from_V10_success": 4,
+          "rescued_from_V10_failure": 6,
+          "success_rate": {
+            "ci95": [
+              0.8,
+              0.9
+            ],
+            "mean": 0.85
+          },
+          "total_stall_cap_triggers": 75
+        }
+      },
+      "v10_fail_v11_success": 6,
+      "v10_failures": 32
+    },
+    "natural": {
+      "baselines": {
+        "V10": {
+          "act_calls": {
+            "ci95": [
+              3.735,
+              4.625
+            ],
+            "mean": 4.16
+          },
+          "discounted_return": {
+            "ci95": [
+              0.40246910927610524,
+              0.484859203776987
+            ],
+            "mean": 0.4447432663758498
+          },
+          "success_rate": {
+            "ci95": [
+              0.759875,
+              0.865
+            ],
+            "mean": 0.815
+          }
+        },
+        "V11": {
+          "act_calls": {
+            "ci95": [
+              4.31,
+              5.2
+            ],
+            "mean": 4.745
+          },
+          "discounted_return": {
+            "ci95": [
+              0.40660802407223534,
+              0.48372350258927505
+            ],
+            "mean": 0.44617327914260985
+          },
+          "success_rate": {
+            "ci95": [
+              0.775,
+              0.88
+            ],
+            "mean": 0.825
+          }
+        },
+        "V11_minus_V10_return": {
+          "ci95": [
+            -0.012835579550304909,
+            0.015370152219497708
+          ],
+          "mean": 0.001430012766760012
+        }
+      },
+      "episodes": 200,
+      "phase_branches": {
+        "V10_PhaseFreeze1": {
+          "act_calls": {
+            "ci95": [
+              3.644875,
+              4.56525
+            ],
+            "mean": 4.095
+          },
+          "by_brake_sign": {
+            "brake_ge_0": {
+              "count": 139,
+              "delta_return_vs_V10": 0.009415202051765536,
+              "delta_success_vs_V10": 0.007194244604316547
+            },
+            "brake_lt_0": {
+              "count": 61,
+              "delta_return_vs_V10": -0.007778050541381234,
+              "delta_success_vs_V10": -0.01639344262295082
+            }
+          },
+          "delta_act_calls_vs_V11": {
+            "ci95": [
+              -0.855,
+              -0.4398750000000001
+            ],
+            "mean": -0.65
+          },
+          "delta_discounted_return_vs_V10": {
+            "ci95": [
+              -0.00921881764344868,
+              0.01718107833372416
+            ],
+            "mean": 0.004171260010855771
+          },
+          "delta_discounted_return_vs_V11": {
+            "ci95": [
+              -0.007958956039889584,
+              0.014220401006330156
+            ],
+            "mean": 0.002741247244095758
+          },
+          "delta_success_vs_V10": {
+            "ci95": [
+              -0.04,
+              0.04
+            ],
+            "mean": 0.0
+          },
+          "delta_success_vs_V11": {
+            "ci95": [
+              -0.035,
+              0.015
+            ],
+            "mean": -0.01
+          },
+          "discounted_return": {
+            "ci95": [
+              0.4118929680526443,
+              0.4901899160178553
+            ],
+            "mean": 0.4489145263867056
+          },
+          "mean_next10_residual_saturation_rate": 0.9905000000000002,
+          "mean_phase_velocity": 0.9707983092883968,
+          "phase_recovery_rate": 0.8571428571428571,
+          "recovered_of_refresh_rescued_count": 6,
+          "refresh_rescued_count": 7,
+          "regressed_from_V10_success": 8,
+          "rescued_from_V10_failure": 8,
+          "success_rate": {
+            "ci95": [
+              0.76,
+              0.87
+            ],
+            "mean": 0.815
+          },
+          "total_stall_cap_triggers": 0
+        },
+        "V10_PhaseHold4": {
+          "act_calls": {
+            "ci95": [
+              3.624875,
+              4.530125
+            ],
+            "mean": 4.08
+          },
+          "by_brake_sign": {
+            "brake_ge_0": {
+              "count": 139,
+              "delta_return_vs_V10": -0.0001519355605636412,
+              "delta_success_vs_V10": 0.0
+            },
+            "brake_lt_0": {
+              "count": 61,
+              "delta_return_vs_V10": 0.011851979139826507,
+              "delta_success_vs_V10": 0.04918032786885246
+            }
+          },
+          "delta_act_calls_vs_V11": {
+            "ci95": [
+              -0.8951250000000001,
+              -0.4248750000000001
+            ],
+            "mean": -0.665
+          },
+          "delta_discounted_return_vs_V10": {
+            "ci95": [
+              -0.004611459281798666,
+              0.012156141113133047
+            ],
+            "mean": 0.003509258423055354
+          },
+          "delta_discounted_return_vs_V11": {
+            "ci95": [
+              -0.01187090537453237,
+              0.01589798834770479
+            ],
+            "mean": 0.002079245656295342
+          },
+          "delta_success_vs_V10": {
+            "ci95": [
+              -0.01,
+              0.04
+            ],
+            "mean": 0.015
+          },
+          "delta_success_vs_V11": {
+            "ci95": [
+              -0.025,
+              0.035
+            ],
+            "mean": 0.005
+          },
+          "discounted_return": {
+            "ci95": [
+              0.4083602595405917,
+              0.4876483779594504
+            ],
+            "mean": 0.44825252479890515
+          },
+          "mean_next10_residual_saturation_rate": 0.9885,
+          "mean_phase_velocity": 0.9772915221861578,
+          "phase_recovery_rate": 0.5714285714285714,
+          "recovered_of_refresh_rescued_count": 4,
+          "refresh_rescued_count": 7,
+          "regressed_from_V10_success": 2,
+          "rescued_from_V10_failure": 5,
+          "success_rate": {
+            "ci95": [
+              0.775,
+              0.88
+            ],
+            "mean": 0.83
+          },
+          "total_stall_cap_triggers": 0
+        },
+        "V10_PhaseRuleSuffix": {
+          "act_calls": {
+            "ci95": [
+              3.2847500000000003,
+              4.030375
+            ],
+            "mean": 3.64
+          },
+          "by_brake_sign": {
+            "brake_ge_0": {
+              "count": 139,
+              "delta_return_vs_V10": -0.04351031552737358,
+              "delta_success_vs_V10": -0.02158273381294964
+            },
+            "brake_lt_0": {
+              "count": 61,
+              "delta_return_vs_V10": -0.018578726733014278,
+              "delta_success_vs_V10": 0.0
+            }
+          },
+          "delta_act_calls_vs_V11": {
+            "ci95": [
+              -1.395,
+              -0.845
+            ],
+            "mean": -1.105
+          },
+          "delta_discounted_return_vs_V10": {
+            "ci95": [
+              -0.04966444011421057,
+              -0.02237367857898077
+            ],
+            "mean": -0.035906180945093985
+          },
+          "delta_discounted_return_vs_V11": {
+            "ci95": [
+              -0.05464795584059468,
+              -0.019897276609822247
+            ],
+            "mean": -0.037336193711853996
+          },
+          "delta_success_vs_V10": {
+            "ci95": [
+              -0.05,
+              0.02
+            ],
+            "mean": -0.015
+          },
+          "delta_success_vs_V11": {
+            "ci95": [
+              -0.07,
+              0.015
+            ],
+            "mean": -0.025
+          },
+          "discounted_return": {
+            "ci95": [
+              0.3697097349149826,
+              0.44757419247296537
+            ],
+            "mean": 0.40883708543075586
+          },
+          "mean_next10_residual_saturation_rate": 0.9880000000000001,
+          "mean_phase_velocity": 0.7370222223835651,
+          "phase_recovery_rate": 0.5714285714285714,
+          "recovered_of_refresh_rescued_count": 4,
+          "refresh_rescued_count": 7,
+          "regressed_from_V10_success": 8,
+          "rescued_from_V10_failure": 5,
+          "success_rate": {
+            "ci95": [
+              0.745,
+              0.85
+            ],
+            "mean": 0.8
+          },
+          "total_stall_cap_triggers": 113
+        }
+      },
+      "v10_fail_v11_success": 7,
+      "v10_failures": 37
+    }
+  },
+  "total_episodes": 400
+}

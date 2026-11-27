@@ -1,0 +1,18 @@
+{
+  "status": "SPECIFICATION_NOT_A_RUN_RESULT",
+  "task": "Square",
+  "gate_config": "configs/cf_resrl/m0_square_branch_gate.json",
+  "e0_attempt": "results/cf_resrl/mvp_square/e0_data/attempts/20261126T184751184660Z_90a4f137d61c",
+  "e0_index_path": "results/cf_resrl/mvp_square/e0_data/attempts/20261126T184751184660Z_90a4f137d61c/group_index.jsonl",
+  "bank": "factorial",
+  "phase_branches": ["V10_PhaseFreeze1", "V10_PhaseHold4", "V10_PhaseRuleSuffix"],
+  "hold_steps": 4,
+  "kappa": 1.0,
+  "nu_min": 0.0,
+  "saturation_threshold": 0.095,
+  "saturation_window": 10,
+  "verify_v10_first_n": 10,
+  "bootstrap_samples": 1000,
+  "bootstrap_seed": 20261327,
+  "output_root": "results/ps_resrl/ps0_fifth_branch"
+}
