@@ -1,0 +1,148 @@
+{
+  "checkpoint_contract": "evaluation_loadable_not_training_resumable",
+  "checkpoint_interval_environment_steps": 10000,
+  "checkpoints": [
+    {
+      "evaluation": {
+        "artifacts": [
+          {
+            "path": "/media/midea/F496AC8096AC4548/CF-ResRL-X1/attempts/20261126T205747128632Z_c5f43e8aa271/training/outputs/2026-11-27_05-09-27/eval_2026-11-27_05-09-27__Square_n3_utd4_buf200000_off240ep_lr1e-06__seed20261125_step_10000.mp4",
+            "sha256": "7207c33d8f8e9dce52a6ae6e7a6cab2df906c9d2ba8a69adb8a3cd868b0c561e"
+          },
+          {
+            "path": "/media/midea/F496AC8096AC4548/CF-ResRL-X1/attempts/20261126T205747128632Z_c5f43e8aa271/training/outputs/2026-11-27_05-09-27/eval_q_trajectories_2026-11-27_05-09-27__Square_n3_utd4_buf200000_off240ep_lr1e-06__seed20261125_step_10000.png",
+            "sha256": "aff5dbd2e81537a715261776817d6c5affc6b97e0c30860ac2de71b2a28d408b"
+          }
+        ],
+        "episodes": 50,
+        "path": "/media/midea/F496AC8096AC4548/CF-ResRL-X1/attempts/20261126T205747128632Z_c5f43e8aa271/training/outputs/step_000010000_evaluation.json",
+        "sha256": "b17797d1ac952333355442ceedf7da4f63751dbd20be688cc885d453afdb692b"
+      },
+      "global_step": 10000,
+      "path": "/media/midea/F496AC8096AC4548/CF-ResRL-X1/attempts/20261126T205747128632Z_c5f43e8aa271/training/models/step_000010000.pt",
+      "selection": "fixed_environment_step",
+      "sha256": "8c8b0b6bce6bb62320fcbc95de689748b1e54c4edf758250dd2effe6333b02b0"
+    },
+    {
+      "evaluation": {
+        "artifacts": [
+          {
+            "path": "/media/midea/F496AC8096AC4548/CF-ResRL-X1/attempts/20261126T205747128632Z_c5f43e8aa271/training/outputs/2026-11-27_05-09-27/eval_2026-11-27_05-09-27__Square_n3_utd4_buf200000_off240ep_lr1e-06__seed20261125_step_20000.mp4",
+            "sha256": "bf1826de637dfc1d985b90f3c4badba85713ed824c7bf0f1eb8e9e16e248dd67"
+          },
+          {
+            "path": "/media/midea/F496AC8096AC4548/CF-ResRL-X1/attempts/20261126T205747128632Z_c5f43e8aa271/training/outputs/2026-11-27_05-09-27/eval_q_trajectories_2026-11-27_05-09-27__Square_n3_utd4_buf200000_off240ep_lr1e-06__seed20261125_step_20000.png",
+            "sha256": "2fc2371891771edb6ff3d9667a376a9e947d8dcf6d4b5e42eb3b1caf138663e5"
+          }
+        ],
+        "episodes": 50,
+        "path": "/media/midea/F496AC8096AC4548/CF-ResRL-X1/attempts/20261126T205747128632Z_c5f43e8aa271/training/outputs/step_000020000_evaluation.json",
+        "sha256": "a3f978b5e9c932ceff5c6735849e64c789310433d1a62d1451817e95d224a478"
+      },
+      "global_step": 20000,
+      "path": "/media/midea/F496AC8096AC4548/CF-ResRL-X1/attempts/20261126T205747128632Z_c5f43e8aa271/training/models/step_000020000.pt",
+      "selection": "fixed_environment_step",
+      "sha256": "6a1db4d4e5f8b28d6be593b497e1066b40be6c8b50e75f70eb35a7d60524c3f1"
+    },
+    {
+      "evaluation": {
+        "artifacts": [
+          {
+            "path": "/media/midea/F496AC8096AC4548/CF-ResRL-X1/attempts/20261126T205747128632Z_c5f43e8aa271/training/outputs/2026-11-27_05-09-27/eval_2026-11-27_05-09-27__Square_n3_utd4_buf200000_off240ep_lr1e-06__seed20261125_step_30000.mp4",
+            "sha256": "e85224224521f632f9ea36a2e53168aa2728af4fd592721375c79c059fd84a2f"
+          },
+          {
+            "path": "/media/midea/F496AC8096AC4548/CF-ResRL-X1/attempts/20261126T205747128632Z_c5f43e8aa271/training/outputs/2026-11-27_05-09-27/eval_q_trajectories_2026-11-27_05-09-27__Square_n3_utd4_buf200000_off240ep_lr1e-06__seed20261125_step_30000.png",
+            "sha256": "24aafda2162c419c398110ec6b6abaf3e3d8a72000be478f4d3d59b47dfb1292"
+          }
+        ],
+        "episodes": 50,
+        "path": "/media/midea/F496AC8096AC4548/CF-ResRL-X1/attempts/20261126T205747128632Z_c5f43e8aa271/training/outputs/step_000030000_evaluation.json",
+        "sha256": "0c7a048d04ebad253752c453301e61187f0f841ab1b768877577328ec50f07e4"
+      },
+      "global_step": 30000,
+      "path": "/media/midea/F496AC8096AC4548/CF-ResRL-X1/attempts/20261126T205747128632Z_c5f43e8aa271/training/models/step_000030000.pt",
+      "selection": "fixed_environment_step",
+      "sha256": "5ccb9f8b1d821b54a5025b80409f635f4001e16f9168533ee1339f809292a385"
+    },
+    {
+      "evaluation": {
+        "artifacts": [
+          {
+            "path": "/media/midea/F496AC8096AC4548/CF-ResRL-X1/attempts/20261126T205747128632Z_c5f43e8aa271/training/outputs/2026-11-27_05-09-27/eval_2026-11-27_05-09-27__Square_n3_utd4_buf200000_off240ep_lr1e-06__seed20261125_step_40000.mp4",
+            "sha256": "f05d046b32664d5c61390f41a32eec621cb5b499409fdb5f5bf92a584a9db49d"
+          },
+          {
+            "path": "/media/midea/F496AC8096AC4548/CF-ResRL-X1/attempts/20261126T205747128632Z_c5f43e8aa271/training/outputs/2026-11-27_05-09-27/eval_q_trajectories_2026-11-27_05-09-27__Square_n3_utd4_buf200000_off240ep_lr1e-06__seed20261125_step_40000.png",
+            "sha256": "e59ffd6853af637d9d527c9d78c14972b4d0538ea275678b41d505f024317555"
+          }
+        ],
+        "episodes": 50,
+        "path": "/media/midea/F496AC8096AC4548/CF-ResRL-X1/attempts/20261126T205747128632Z_c5f43e8aa271/training/outputs/step_000040000_evaluation.json",
+        "sha256": "e0b51d05c44713faae29cbae1583d5df7307a1e58b495b54a87d7a0cbf75973c"
+      },
+      "global_step": 40000,
+      "path": "/media/midea/F496AC8096AC4548/CF-ResRL-X1/attempts/20261126T205747128632Z_c5f43e8aa271/training/models/step_000040000.pt",
+      "selection": "fixed_environment_step",
+      "sha256": "cfd8f7df13748e93d7b8c93e42e6fbbe162c56f0def29fbca95b2f445f9d8008"
+    },
+    {
+      "evaluation": {
+        "artifacts": [
+          {
+            "path": "/media/midea/F496AC8096AC4548/CF-ResRL-X1/attempts/20261126T205747128632Z_c5f43e8aa271/training/outputs/2026-11-27_05-09-27/eval_2026-11-27_05-09-27__Square_n3_utd4_buf200000_off240ep_lr1e-06__seed20261125_step_50000.mp4",
+            "sha256": "b9a7903a812303ca4bff0ae5ce6864aad4a690dcfeaab04ba7eedf6911c39caf"
+          },
+          {
+            "path": "/media/midea/F496AC8096AC4548/CF-ResRL-X1/attempts/20261126T205747128632Z_c5f43e8aa271/training/outputs/2026-11-27_05-09-27/eval_q_trajectories_2026-11-27_05-09-27__Square_n3_utd4_buf200000_off240ep_lr1e-06__seed20261125_step_50000.png",
+            "sha256": "38a88b438824262379da13de2d65908dc6fbf40315b5b6ae0d32586b49acc431"
+          }
+        ],
+        "episodes": 50,
+        "path": "/media/midea/F496AC8096AC4548/CF-ResRL-X1/attempts/20261126T205747128632Z_c5f43e8aa271/training/outputs/step_000050000_evaluation.json",
+        "sha256": "16d10d752dbb63c9233d1bebbd350b42d493ad468dfe3c19e2bc089b03caac6a"
+      },
+      "global_step": 50000,
+      "path": "/media/midea/F496AC8096AC4548/CF-ResRL-X1/attempts/20261126T205747128632Z_c5f43e8aa271/training/models/step_000050000.pt",
+      "selection": "fixed_environment_step",
+      "sha256": "50fbda9d331b06f786399f4a1a6bf08af4078bbd0ee1439c520b8ef06d4a9226"
+    },
+    {
+      "evaluation": {
+        "artifacts": [
+          {
+            "path": "/media/midea/F496AC8096AC4548/CF-ResRL-X1/attempts/20261126T205747128632Z_c5f43e8aa271/training/outputs/2026-11-27_05-09-27/eval_2026-11-27_05-09-27__Square_n3_utd4_buf200000_off240ep_lr1e-06__seed20261125_step_60000.mp4",
+            "sha256": "12030e1e38c65cdac0333f224c3025a2f3dbb2dfeb3e143a0dfa0dc948c8fe83"
+          },
+          {
+            "path": "/media/midea/F496AC8096AC4548/CF-ResRL-X1/attempts/20261126T205747128632Z_c5f43e8aa271/training/outputs/2026-11-27_05-09-27/eval_q_trajectories_2026-11-27_05-09-27__Square_n3_utd4_buf200000_off240ep_lr1e-06__seed20261125_step_60000.png",
+            "sha256": "a746841e3129e66287fcc3cc0afe131eaff6955441bdbab3413fde7c0514976a"
+          }
+        ],
+        "episodes": 50,
+        "path": "/media/midea/F496AC8096AC4548/CF-ResRL-X1/attempts/20261126T205747128632Z_c5f43e8aa271/training/outputs/step_000060000_evaluation.json",
+        "sha256": "6598626c4121b4d3df95251c5092c5001e13e37bcc4b4f44f599ea9c911bd5f3"
+      },
+      "global_step": 60000,
+      "path": "/media/midea/F496AC8096AC4548/CF-ResRL-X1/attempts/20261126T205747128632Z_c5f43e8aa271/training/models/step_000060000.pt",
+      "selection": "fixed_environment_step",
+      "sha256": "8a48aa2d9b32af09ea32db84ccd131242ec3798d2975df77d9a6a9f97c97fb22"
+    }
+  ],
+  "environment_step_budget": {
+    "main": 290000,
+    "total": 300000,
+    "warmup": 10000
+  },
+  "resume_limitations": [
+    "replay buffers are not included",
+    "live environment state is not included"
+  ],
+  "selection": "fixed_environment_step",
+  "training_resume": {
+    "interval_environment_steps": 100000,
+    "lineage_root": "/media/midea/F496AC8096AC4548/CF-ResRL-X1/attempts/20261126T205747128632Z_c5f43e8aa271/training/resume",
+    "resumed_from": null,
+    "retention": 3
+  }
+}
